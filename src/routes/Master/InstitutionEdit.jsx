@@ -110,7 +110,7 @@ const EditInstitution = () => {
         console.log(formData, "Submit Data")
 
         //Proceed with the second API call 
-        const response = await fetch(`http://localhost:3000/api/v1/updateMasterData/${JSON.parse(searchParams.get('id'))}`, {
+        const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/updateMasterData/${JSON.parse(searchParams.get('id'))}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -165,7 +165,7 @@ const EditInstitution = () => {
         console.log(typeof searchParams.get('id'), 'fetch');
         setloading(true);
         try {
-            const response = await fetch(`http://localhost:3000/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
+            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -269,7 +269,7 @@ const EditInstitution = () => {
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Select_Type" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Institution Category
+                                                Institution Category
                                             </label>
                                             <div className="mt-0">
                                                 <select
@@ -311,14 +311,14 @@ const EditInstitution = () => {
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label htmlFor="number" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Institution &#9742;
+                                                Institution &#9742;
                                             </label>
                                             <div className="mt-0">
                                                 <input
                                                     type="text"
                                                     id="number"
                                                     name="number"
-                                                    placeholder='Institution &#9742; (25)' 
+                                                    placeholder='Institution &#9742; (25)'
                                                     maxLength={25}
                                                     value={formData['number']}
                                                     onChange={handleInputChange}
@@ -328,15 +328,15 @@ const EditInstitution = () => {
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label htmlFor="alternate_number" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Alternate &#9742;
+                                                Alternate &#9742;
                                             </label>
                                             <div className="mt-0">
                                                 <input
                                                     type="text"
                                                     id="alternate_number"
                                                     name="alternate_number"
-                                                    placeholder='Alternate &#9742; (25)' 
-                                                    maxLength={25}                                                    
+                                                    placeholder='Alternate &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['alternate_number']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -374,8 +374,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Email"
                                                     name="Email"
-                                                    placeholder='Email (125)' 
-                                                    maxLength={125}                                                    
+                                                    placeholder='Email (125)'
+                                                    maxLength={125}
                                                     value={formData['Email']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -391,8 +391,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Principal_Name"
                                                     name="Principal_Name"
-                                                    placeholder='Principal Name (40)' 
-                                                    maxLength={40}                                                    
+                                                    placeholder='Principal Name (40)'
+                                                    maxLength={40}
                                                     value={formData['Principal_Name']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -408,8 +408,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Principal_Number"
                                                     name="Principal_Number"
-                                                    placeholder='Principal &#9742; (25)' 
-                                                    maxLength={25}                                                       
+                                                    placeholder='Principal &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['Principal_Number']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -425,8 +425,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Contact_Number_1"
                                                     name="Contact_Number_1"
-                                                    placeholder='Contact-1 &#9742; (25)' 
-                                                    maxLength={25}                                                      
+                                                    placeholder='Contact-1 &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_1']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -435,15 +435,15 @@ const EditInstitution = () => {
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Contact_Number_1_Designation" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Contact-1- Designation
+                                                Contact-1- Designation
                                             </label>
                                             <div className="mt-0">
                                                 <input
                                                     type="text"
                                                     id="Contact_Number_1_Designation"
                                                     name="Contact_Number_1_Designation"
-                                                    placeholder='Contact-1 Designation (25)' 
-                                                    maxLength={25}  
+                                                    placeholder='Contact-1 Designation (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_1_Designation']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -452,15 +452,15 @@ const EditInstitution = () => {
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Contact_Number_2" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Contact-2 &#9742;
+                                                Contact-2 &#9742;
                                             </label>
                                             <div className="mt-0">
                                                 <input
                                                     type="text"
                                                     id="Contact_Number_2"
                                                     name="Contact_Number_2"
-                                                    placeholder='Contact-2 &#9742; (25)' 
-                                                    maxLength={25}                                                      
+                                                    placeholder='Contact-2 &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_2']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -476,8 +476,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Contact_Number_2_Designation"
                                                     name="Contact_Number_2_Designation"
-                                                    placeholder='Contact-2 Designation (25)' 
-                                                    maxLength={25}                                                      
+                                                    placeholder='Contact-2 Designation (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_2_Designation']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -493,8 +493,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Website"
                                                     name="Website"
-                                                    placeholder='Website Address (75)' 
-                                                    maxLength={75}                                                      
+                                                    placeholder='Website Address (75)'
+                                                    maxLength={75}
                                                     value={formData['Website']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -504,7 +504,7 @@ const EditInstitution = () => {
 
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Medium" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Medium
+                                                Medium
                                             </label>
                                             <div className="mt-0">
                                                 <input
@@ -512,8 +512,8 @@ const EditInstitution = () => {
                                                     type="text"
                                                     id="Medium"
                                                     name="Medium"
-                                                    placeholder='Medium (25)' 
-                                                    maxLength={25}  
+                                                    placeholder='Medium (25)'
+                                                    maxLength={25}
                                                     value={formData['Medium']}
                                                     onChange={handleInputChange}
                                                 />
@@ -563,7 +563,7 @@ const EditInstitution = () => {
                             </div>
 
                             <div className="mt-2 flex items-center justify-end gap-x-6">
-                                <button type="button"  onClick={() => navigate("/InstitutionList")} className="text-sm font-semibold leading-6 text-grey-900">
+                                <button type="button" onClick={() => navigate("/InstitutionList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

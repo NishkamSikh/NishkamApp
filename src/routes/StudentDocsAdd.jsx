@@ -43,7 +43,7 @@ const StudentDocsAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        fetch('https://apisikligar.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
@@ -69,7 +69,7 @@ const StudentDocsAdd = () => {
             const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
             // Proceed with the second API call
-            const response = await fetch("http://localhost:3000/api/v1/addFileUpload", {
+            const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addFileUpload", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

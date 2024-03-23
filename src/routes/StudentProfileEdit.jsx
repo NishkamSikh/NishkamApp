@@ -55,7 +55,7 @@ const StudentProfileEdit = () => {
 
     setloading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/getSingleStudentById/${JSON.parse(searchParams.get('Id'))}`);
+      const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/getSingleStudentById/${JSON.parse(searchParams.get('Id'))}`);
 
       if (!response.ok) {
         if (response.status === 404) {
@@ -92,7 +92,7 @@ const StudentProfileEdit = () => {
   const handleSubmit = async (e) => {
     console.log(fetchDataId, "fetchDataId :Handle Start");
     e.preventDefault();
-    const { StudentCode, StudentId, AcademicYear,CatgCode,StudentLabel, ...formDataWithoutCodeYear } = formData;
+    const { StudentCode, StudentId, AcademicYear, CatgCode, StudentLabel, ...formDataWithoutCodeYear } = formData;
 
     // Check if any select is not selected
     const errorsObj = {};
@@ -101,7 +101,7 @@ const StudentProfileEdit = () => {
 
     try {
       console.log(formData, "sdd");
-      const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+      const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
         method: "PUT", // Assuming you are using PUT for updating
         headers: {
           "Content-Type": "application/json",

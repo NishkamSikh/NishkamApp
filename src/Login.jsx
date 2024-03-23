@@ -28,7 +28,7 @@ const Login = () => {
         setloading(true)
         // Add your login logic here
 
-        const response = await fetch("http://localhost:3000/api/v1/login", {
+        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

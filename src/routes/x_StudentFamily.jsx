@@ -60,7 +60,7 @@ const StudentFamily = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        fetch('https://apisikligar.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
@@ -90,7 +90,7 @@ const StudentFamily = () => {
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
         // Proceed with the second API call
-        const response = await fetch("http://localhost:3000/api/v1/addStudentData", {
+        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addStudentData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -159,7 +159,7 @@ const StudentFamily = () => {
                                             />
                                         </div>
 
-                                          <div className="sm:col-span-3">
+                                        <div className="sm:col-span-3">
                                             <label htmlFor="category" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Category
                                             </label>
@@ -186,7 +186,7 @@ const StudentFamily = () => {
                                                 Any Assistance
                                             </label>
                                             <div className="mt-0">
-                                                <select 
+                                                <select
                                                     id="Assistance"
                                                     name="Assistance"
                                                     value={formData['Assistance']}
@@ -206,7 +206,7 @@ const StudentFamily = () => {
 
 
                                         <div className="sm:col-span-3">
-                                            <p className="font-bold text-orange-900 tracking-tight text-1xl"> 
+                                            <p className="font-bold text-orange-900 tracking-tight text-1xl">
                                                 For Father
                                             </p>
                                             <div >
@@ -274,10 +274,10 @@ const StudentFamily = () => {
                                                         <input
                                                             onChange={handleInputChange}
                                                             value={formData['F_Gross_Income']}
-                                                            type="number" 
-                                                            name='F_Gross_Income' 
-                                                            defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Gross_Income != null && family2getdata[0].F_Gross_Income != undefined ? family2getdata[0].F_Gross_Income : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Gross_Income" 
-                                                            placeholder='Father Gross Income (15)' 
+                                                            type="number"
+                                                            name='F_Gross_Income'
+                                                            defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Gross_Income != null && family2getdata[0].F_Gross_Income != undefined ? family2getdata[0].F_Gross_Income : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Gross_Income"
+                                                            placeholder='Father Gross Income (15)'
                                                             maxLength={15}
                                                             aria-describedby="F_Gross_Income" />
                                                     </div>
@@ -301,14 +301,14 @@ const StudentFamily = () => {
                                                             Father Mobile Number
                                                         </label>
 
-                                                        <input 
-                                                        value={formData['F_Mobile_No']}
-                                                        onChange={handleInputChange} 
-                                                        type="number" 
-                                                        name='F_Mobile_No' 
-                                                        maxLength={15}
-                                                        defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Mobile_No != null && family2getdata[0].F_Mobile_No != undefined ? family2getdata[0].F_Mobile_No : "" : ""} 
-                                                        className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father &#9742;  (15)' aria-describedby="F_Mobile_No" />
+                                                        <input
+                                                            value={formData['F_Mobile_No']}
+                                                            onChange={handleInputChange}
+                                                            type="number"
+                                                            name='F_Mobile_No'
+                                                            maxLength={15}
+                                                            defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Mobile_No != null && family2getdata[0].F_Mobile_No != undefined ? family2getdata[0].F_Mobile_No : "" : ""}
+                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father &#9742;  (15)' aria-describedby="F_Mobile_No" />
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
@@ -323,7 +323,7 @@ const StudentFamily = () => {
                                         </div>
 
                                         <div className="sm:col-span-3">
-                                            <p className="font-bold text-orange-900 tracking-tight text-1xl"> 
+                                            <p className="font-bold text-orange-900 tracking-tight text-1xl">
                                                 For Mother
                                             </p>
 

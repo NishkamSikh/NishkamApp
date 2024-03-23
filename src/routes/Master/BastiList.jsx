@@ -9,11 +9,11 @@ const BastiList = () => {
             selector: row => (<div>
                 {row.BastiId}
             </div>),
-            width:"4rem",
+            width: "4rem",
             sortable: false,
-            compact:true,
+            compact: true,
             center: true,
-            wrap:true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -24,8 +24,8 @@ const BastiList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width:"4rem",
-            compact:true,
+            width: "4rem",
+            compact: true,
         },
         {
             selector: row => (<div>
@@ -34,9 +34,9 @@ const BastiList = () => {
                 <strong> District:</strong> {row.District} <br />
                 <strong>Tehsil:</strong> {row.Tehsil} <br />
             </div>),
-             sortable: false,
-             compact:true,
-             wrap:true,
+            sortable: false,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -46,8 +46,8 @@ const BastiList = () => {
 
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
 
     ];
@@ -63,7 +63,7 @@ const BastiList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/bastilist2');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist2');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

@@ -4,17 +4,17 @@ import DataTable from 'react-data-table-component';
 
 const StudentReportCardList = () => {
     const [StudentData, setStudentData] = useState([])
-    
+
     const columns = [
         {
             selector: row => (<div>
                 {row.StudentId}
             </div>),
-            width:"4rem",
+            width: "4rem",
             sortable: false,
-            compact:true,
+            compact: true,
             center: true,
-            wrap:true,
+            wrap: true,
         },
         {
             //name: 'Column 2',
@@ -26,8 +26,8 @@ const StudentReportCardList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width:"4rem",
-            compact:true,
+            width: "4rem",
+            compact: true,
         },
 
         {
@@ -39,8 +39,8 @@ const StudentReportCardList = () => {
 
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
 
         {
@@ -51,8 +51,8 @@ const StudentReportCardList = () => {
                 <strong>Marks Total:</strong> {row.MarksTotal}<br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
     ];
 
@@ -66,7 +66,7 @@ const StudentReportCardList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/studentreportcardlist');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/studentreportcardlist');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -100,7 +100,7 @@ const StudentReportCardList = () => {
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Report Card Data</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Report Card Data</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">
@@ -124,7 +124,7 @@ const StudentReportCardList = () => {
                                 keyField="id"
                                 className="custom-table "
                             />
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>

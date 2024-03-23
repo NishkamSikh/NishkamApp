@@ -14,11 +14,11 @@ const VendorList = () => {
             selector: row => (<div>
                 {row.VendorId}
             </div>),
-            width:"4rem",
+            width: "4rem",
             sortable: false,
-            compact:true,
+            compact: true,
             center: true,
-            wrap:true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -29,8 +29,8 @@ const VendorList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width:"4rem",
-            compact:true,
+            width: "4rem",
+            compact: true,
         },
 
         {
@@ -41,8 +41,8 @@ const VendorList = () => {
                 <strong>Shop Name:</strong> {row.VendorShopName} <br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -51,8 +51,8 @@ const VendorList = () => {
                 <strong>Tehsil:</strong> {row.Tehsil} <br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -60,8 +60,8 @@ const VendorList = () => {
                 <strong>Dealing with</strong>: {row.DealingSchool} <br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -72,8 +72,8 @@ const VendorList = () => {
 
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
 
     ];
@@ -85,7 +85,7 @@ const VendorList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/vendorlist');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/vendorlist');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

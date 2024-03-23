@@ -104,7 +104,7 @@ const AddInstitution = () => {
         console.log(formData, "======")
 
         //Proceed with the second API call 
-        const response = await fetch("http://localhost:3000/api/v1/addvendor", {
+        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addvendor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -222,7 +222,7 @@ const AddInstitution = () => {
                                                     id="Institution_Name"
                                                     name="Institution_Name"
                                                     value={formData['Institution_Name']}
-                                                    placeholder='Institution Name (50)' 
+                                                    placeholder='Institution Name (50)'
                                                     maxLength={50}
                                                     onChange={handleInputChange}
                                                 />
@@ -239,7 +239,7 @@ const AddInstitution = () => {
                                                     id="number"
                                                     name="number"
                                                     value={formData['number']}
-                                                    placeholder='Institution &#9742; (25)' 
+                                                    placeholder='Institution &#9742; (25)'
                                                     maxLength={25}
                                                     onChange={handleInputChange}
                                                 />
@@ -255,7 +255,7 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="alternate_number"
                                                     name="alternate_number"
-                                                    placeholder='Alternate &#9742; (25)' 
+                                                    placeholder='Alternate &#9742; (25)'
                                                     maxLength={25}
                                                     value={formData['alternate_number']}
                                                     onChange={handleInputChange}
@@ -293,7 +293,7 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Email"
                                                     name="Email"
-                                                    placeholder='Email (125)' 
+                                                    placeholder='Email (125)'
                                                     maxLength={125}
                                                     value={formData['Email']}
                                                     onChange={handleInputChange}
@@ -310,7 +310,7 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Principal_Name"
                                                     name="Principal_Name"
-                                                    placeholder='Principal Name (40)' 
+                                                    placeholder='Principal Name (40)'
                                                     maxLength={40}
                                                     value={formData['Principal_Name']}
                                                     onChange={handleInputChange}
@@ -327,8 +327,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Principal_Number"
                                                     name="Principal_Number"
-                                                    placeholder='Principal &#9742; (25)' 
-                                                    maxLength={25}                                                    
+                                                    placeholder='Principal &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['Principal_Number']}
                                                     onChange={handleInputChange}
                                                 />
@@ -344,8 +344,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Contact_Number_1"
                                                     name="Contact_Number_1"
-                                                    placeholder='Contact-1 &#9742; (25)' 
-                                                    maxLength={25}                                                         
+                                                    placeholder='Contact-1 &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_1']}
                                                     onChange={handleInputChange}
                                                 />
@@ -361,8 +361,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Contact_Number_1_Designation"
                                                     name="Contact_Number_1_Designation"
-                                                    placeholder='Contact-1 Designation (25)' 
-                                                    maxLength={25}  
+                                                    placeholder='Contact-1 Designation (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_1_Designation']}
                                                     onChange={handleInputChange}
                                                 />
@@ -378,8 +378,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Contact_Number_2"
                                                     name="Contact_Number_2"
-                                                    placeholder='Contact-2 &#9742; (25)' 
-                                                    maxLength={25}                                                        
+                                                    placeholder='Contact-2 &#9742; (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_2']}
                                                     onChange={handleInputChange}
                                                 />
@@ -395,8 +395,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Contact_Number_2_Designation"
                                                     name="Contact_Number_2_Designation"
-                                                    placeholder='Contact-2 Designation (25)' 
-                                                    maxLength={25}  
+                                                    placeholder='Contact-2 Designation (25)'
+                                                    maxLength={25}
                                                     value={formData['Contact_Number_2_Designation']}
                                                     onChange={handleInputChange}
                                                 />
@@ -412,8 +412,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Website"
                                                     name="Website"
-                                                    placeholder='Website Address (75)' 
-                                                    maxLength={75}  
+                                                    placeholder='Website Address (75)'
+                                                    maxLength={75}
                                                     value={formData['Website']}
                                                     onChange={handleInputChange}
                                                 />
@@ -422,7 +422,7 @@ const AddInstitution = () => {
 
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Medium" className="block text-sm font-medium leading-6 text-grey-900">
-                                            Education Medium
+                                                Education Medium
                                             </label>
                                             <div className="mt-0">
                                                 <input
@@ -430,8 +430,8 @@ const AddInstitution = () => {
                                                     type="text"
                                                     id="Medium"
                                                     name="Medium"
-                                                    placeholder='Education Medium (25)' 
-                                                    maxLength={25}  
+                                                    placeholder='Education Medium (25)'
+                                                    maxLength={25}
                                                     value={formData['Medium']}
                                                     onChange={handleInputChange}
                                                 />
@@ -479,13 +479,13 @@ const AddInstitution = () => {
                             </div>
 
                             <div className="mt-1 flex items-center justify-end gap-x-6">
-                            <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
 
-                                     style={{ opacity: formData.Institution_Name && formData.Institution_Type && formData.Institution_Catg ? 1 : 0.5 }}
+                                    style={{ opacity: formData.Institution_Name && formData.Institution_Type && formData.Institution_Catg ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save

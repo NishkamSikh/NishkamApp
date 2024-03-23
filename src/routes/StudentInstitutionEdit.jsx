@@ -49,7 +49,7 @@ const StudentInstitutionEdit = () => {
         console.log('fetch');
         setloading(true);
         try {
-            const response = await fetch(`http://localhost:3000/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -93,7 +93,7 @@ const StudentInstitutionEdit = () => {
         fetchAllStudentDetails()
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/instlist');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/instlist');
                 const data = await response.json();
                 setAcademicData(data.data);
 
@@ -112,7 +112,7 @@ const StudentInstitutionEdit = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        fetch('https://apisikligar.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "data data");
@@ -174,7 +174,7 @@ const StudentInstitutionEdit = () => {
 
         try {
             console.log(formData, "before");
-            const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
                     "Content-Type": "application/json",

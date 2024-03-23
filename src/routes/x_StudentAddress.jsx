@@ -67,7 +67,7 @@ const StudentAddress = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        fetch('https://apisikligar.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
@@ -79,7 +79,7 @@ const StudentAddress = () => {
             });
     };
     const fetchBastiData = () => {
-        fetch('http://localhost:3000/api/v1/bastilist2')
+        fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist2')
             .then(response => response.json())
             .then(data => {
                 // Assuming the API response contains basti name, state, and city
@@ -132,7 +132,7 @@ const StudentAddress = () => {
         console.log('Form Data:==', formData);
 
         // Proceed with the second API call
-        const response = await fetch("http://localhost:3000/api/v1/addStudentData", {
+        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addStudentData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -193,7 +193,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="searchStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Student Code 
+                                                Student Code
                                             </label>
                                             <Select
 
@@ -211,7 +211,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stubasti" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Basti 
+                                                Basti
                                             </label>
                                             <div className="mt-0">
                                                 <select
@@ -344,7 +344,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="rep1" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Rep-1 &#9742; 
+                                                Rep-1 &#9742;
                                             </label>
                                             <div className="mt-0">
                                                 <input
@@ -363,7 +363,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="rep2" className="block text-sm font-medium leading-6 text-gray-900">
-                                            Rep-2 &#9742; 
+                                                Rep-2 &#9742;
                                             </label>
                                             <div className="mt-0">
                                                 <input

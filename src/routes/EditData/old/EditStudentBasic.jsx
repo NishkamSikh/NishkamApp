@@ -55,7 +55,7 @@ const EditStudentBasic = () => {
     console.log('fetch');
     setloading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/getAllData/${studentCode}/${AcademicYear}/${catgcode}`);
+      const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/getAllData/${studentCode}/${AcademicYear}/${catgcode}`);
       if (!response.ok) {
         if (response.status === 404) {
           // Handle specific HTTP status codes
@@ -97,7 +97,7 @@ const EditStudentBasic = () => {
 
     try {
       console.log(formData, "sdd");
-      const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${fetchDataId}`, {
+      const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/updateBasicDetail/${fetchDataId}`, {
         method: "PUT", // Assuming you are using PUT for updating
         headers: {
           "Content-Type": "application/json",

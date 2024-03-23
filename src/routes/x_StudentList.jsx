@@ -18,7 +18,7 @@ const StudentList = () => {
     // Check if userId exists
     if (getUserid) {
       // Make API request
-      fetch('http://localhost:3000/api/v1/fetchStudentDetails', {
+      fetch('https://apisikligar.azurewebsites.net/api/v1/fetchStudentDetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const StudentList = () => {
     console.log({ userID }, "userID")
     try {
       // Assuming your API endpoint is "/api/v1/fetchStudentDetails"
-      const response = await fetch(`http://localhost:3000/api/v1/fetchStudentDetails`, {
+      const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/fetchStudentDetails`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

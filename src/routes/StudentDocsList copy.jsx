@@ -96,7 +96,7 @@ const StudentDocsList = () => {
         // const fetchData = async () => {
         //     try {
         //         // Make API request using fetch
-        //         const response = await fetch('http://localhost:3000/api/v1/studenDocsList');
+        //         const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/studenDocsList');
 
         //         // Check if the response status is ok (200-299)
         //         if (!response.ok) {
@@ -116,7 +116,7 @@ const StudentDocsList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/studenDocsList');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/studenDocsList');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

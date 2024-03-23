@@ -102,7 +102,7 @@ const BastiAdd = () => {
         console.log(formData, "======")
 
         //Proceed with the second API call 
-        const response = await fetch("http://localhost:3000/api/v1/addvendor", {
+        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addvendor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -174,8 +174,8 @@ const BastiAdd = () => {
                                                     type="text"
                                                     id="basti_name"
                                                     name="basti_name"
-                                                    placeholder='Basti Name (40)' 
-                                                    maxLength={40}                                                     
+                                                    placeholder='Basti Name (40)'
+                                                    maxLength={40}
                                                     value={formData['basti_name']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -201,13 +201,13 @@ const BastiAdd = () => {
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center justify-end gap-x-6">
-                            <button type="button" onClick={() => navigate("/BastiList")} className="text-sm font-semibold leading-6 text-grey-900">
+                                <button type="button" onClick={() => navigate("/BastiList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
 
-                                     style={{ opacity: formData.basti_name  ? 1 : 0.5 }}
+                                    style={{ opacity: formData.basti_name ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save

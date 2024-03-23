@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/07d65167-e44b-4b01-bd64-55dd0f1e2834/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/nishkamsikligarApp",
+    "appService.deploySubpath": "."
+}

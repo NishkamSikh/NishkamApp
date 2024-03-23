@@ -53,7 +53,7 @@ const StudentAcademicAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        fetch('https://apisikligar.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
@@ -87,7 +87,7 @@ const StudentAcademicAdd = () => {
         console.log("formData2====", JSON.stringify(formDataWithoutCodeYear));
         // Proceed with the second API call
         try {
-            const response = await fetch("http://localhost:3000/api/v1/addStudentData", {
+            const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addStudentData", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -42,16 +42,12 @@ const StudentDocsList = () => {
         },
         {
             selector: row => (<div>
-                <a href={row.DocumentURL} download>View PDF</a>
+                <a href={row.DocumentURL} target="_blank" download>View PDF</a>
             </div>),
             sortable: false,
             compact: true,
             wrap: true,
         },
-
-
-
-
 
         /*         {
             selector: row => {
@@ -90,7 +86,7 @@ const StudentDocsList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/studentDocsList');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/studentDocsList');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

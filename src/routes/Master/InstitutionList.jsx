@@ -10,11 +10,11 @@ const ListInstitution = () => {
             selector: row => (<div>
                 {row.InstId}
             </div>),
-            width:"4rem",
+            width: "4rem",
             sortable: false,
-            compact:true,
+            compact: true,
             center: true,
-            wrap:true,
+            wrap: true,
         },
 
         {
@@ -26,8 +26,8 @@ const ListInstitution = () => {
                 </Link>
             </div>),
             sortable: false,
-            width:"4rem",
-            compact:true,
+            width: "4rem",
+            compact: true,
         },
         {
             selector: row => (<div>
@@ -38,8 +38,8 @@ const ListInstitution = () => {
                 <strong>Principal:</strong> {row.IN_PrincipalName} <br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -50,8 +50,8 @@ const ListInstitution = () => {
                 <strong>Website:</strong> {row.IN_Website} <br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -62,8 +62,8 @@ const ListInstitution = () => {
 
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
 
 
@@ -77,8 +77,8 @@ const ListInstitution = () => {
 
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
         {
             selector: row => (<div>
@@ -88,8 +88,8 @@ const ListInstitution = () => {
                 <strong>Account_Number:</strong> {row.IN_AccountNumber} <br />
             </div>),
             sortable: false,
-            compact:true,
-            wrap:true,
+            compact: true,
+            wrap: true,
         },
 
 
@@ -102,7 +102,7 @@ const ListInstitution = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/instlist2');
+                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/instlist2');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -139,9 +139,9 @@ const ListInstitution = () => {
                 <div>
                     <h2 className="text-center text-lg font-semibold  bg-blue-100" >Institution List</h2>
                 </div>
-           
-            
-            
+
+
+
             </div>
             <div className="mt-2 flex flex-col">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
