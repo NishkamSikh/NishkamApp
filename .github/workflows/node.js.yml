@@ -1,0 +1,32 @@
+name: Azure Deployment
+
+on:
+  push:
+    branches:
+      - master  # Change to your main branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Production Bundle
+      run: npm run build
+
+    - name: Deploy to Azure App Service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: nishkamsikligarApp  # Replace with your Azure App Service name
+        slot-name: <optional-slot-name>  # If deploying to a slot, provide the slot name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  # Add your Azure App Service publish profile as a secret
