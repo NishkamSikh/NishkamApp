@@ -188,58 +188,20 @@ const StudentProfileEdit = () => {
           <div className="mt-0 flex flex-col">
             <p className="font-bold text-orange-900 tracking-tight text-1xl">
               Edit - Student Profile Data
-              {/* Edit Basic Infromation {catgcode || "sd"} {AcademicYear} {studentCode} */}
-              {/* {console.log(fetchData.Json, "fetchData ---------")}
-              {console.log(formData, "formData.studentcode.length")} */}
-              {/* {console.log(formData.studentcode.length,"formData.studentcode.length")} */}
-
             </p>
             <form onSubmit={handleSubmit}>
               <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                   <div className="mt-1 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
-                    {/* <div className="sm:col-span-3">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                        Student Code
+                    <div className="sm:col-span-3">
+                      <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
+                        Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.firstname} {formData.middlename} {formData.lastname} / {formData.dob}
 
                       </label>
-                      <div className="mt-1">
-                        <input
-                          type="text"
-                          name="StudentCode"
-                          id="StudentCode"
-                          placeholder='Student Code'
-                          defaultValue={formData.StudentCode || (fetchData ? fetchData.StudentCode : "No Data")}
-                          onChange={handleInputChange}
 
-                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.StudentCode ? 'border-red-500' : ''
-                            }`}
-                        />
-                      </div>
                     </div>
 
-                    <div className="sm:col-span-3">
-                      <label htmlFor="AcademicYear" className="block text-sm font-medium leading-6 text-gray-900">
-                        Year
-                      </label>
-                      <div className="mt-1">
-                        <select
-                          id="AcademicYear"
-                          name="AcademicYear"
-                          defaultValue={formData.AcademicYear || (fetchData ? fetchData.AcademicYear : "No Data")}
 
-                          //   value={formData['stuyear']}
-                          onChange={handleInputChange}
-                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.AcademicYear ? 'border-red-500' : ''
-                            }`}
-                        >
-                          <option >Select Year</option>
-                          <option value="2023-2024">2023-2024</option>
-                          <option value="2022-2023">2022-2023</option>
-                          <option value="2021-2022">2021-2022</option>
-                        </select>
-                      </div>
-                    </div> */}
 
                     <div className="sm:col-span-2 sm:col-start-1">
                       <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -454,8 +416,8 @@ const StudentProfileEdit = () => {
                             }`}
                         >
                           <option >Select Student Status</option>
-                          <option value="active">Active</option>
-                          <option value="inactive">Inactive</option>
+                          <option value="Active">Active</option>
+                          <option value="Inactive">Inactive</option>
 
                         </select>
                       </div>
@@ -536,7 +498,7 @@ const StudentProfileEdit = () => {
                           type="text"
                           name="contact2"
                           id="contact2"
-                          defaultValue={formData.contact2 || (fetchData.Json ? JSON.parse(fetchData.Json).contact2 : "No Data")}
+                          defaultValue={formData.contact2}
                           placeholder='Contact Number 2'
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2 ? 'border-red-500' : ''

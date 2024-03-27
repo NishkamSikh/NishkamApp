@@ -31,24 +31,57 @@ const TutorAdd = () => {
         MonthlyFee: '',
     });
 
-
     const studentDetails = [
         {
             id: "1",
-            option: "MBA (Masters in Business Administration)",
+            option: "I",
         },
         {
             id: "2",
-            option: "Certification in Finance and Accounting (CFA)",
+            option: "II",
         },
         {
             id: "3",
-            option: "PGD in Hotel Management",
+            option: "III",
         },
         {
-            id: "3",
-            option: "PG Diploma in Digital Marketing or Business Analytics Courses",
+            id: "4",
+            option: "IV",
         },
+        {
+            id: "5",
+            option: "V",
+        },
+        {
+            id: "6",
+            option: "VI",
+        },
+        {
+            id: "7",
+            option: "VII",
+        },
+        {
+            id: "8",
+            option: "VIII",
+        },
+        {
+            id: "9",
+            option: "IX",
+        },
+        {
+            id: "10",
+            option: "X",
+        },
+        {
+            id: "11",
+            option: "XI",
+        },
+        {
+            id: "12",
+            option: "XII",
+        },
+
+
     ];
     const subjectDetails = [
         {
@@ -61,12 +94,17 @@ const TutorAdd = () => {
         },
         {
             id: "3",
-            option: "Hindi",
+            option: "Maths",
         },
         {
             id: "3",
             option: "Punjabi",
         },
+        {
+            id: "4",
+            option: "Hindi",
+        },
+
     ];
 
     const [selectedOptions, setSelectedOptions] = useState([]);

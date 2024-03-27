@@ -328,7 +328,7 @@ const StudentReportCardAdd = () => {
                                                             </div>
                                                             <div className="">
                                                                 <label htmlFor={`total_marks-${i}`} className="block text-sm font-medium leading-6 text-gray-900">
-                                                                    Total Marks
+                                                                    Max. Marks
                                                                 </label>
                                                                 <input type="text"
                                                                     name={'total_marks' + i}
@@ -341,7 +341,7 @@ const StudentReportCardAdd = () => {
                                                             </div>
                                                             <div className="">
                                                                 <label htmlFor={`max_marks-${i}`} className="block text-sm font-medium leading-6 text-gray-900">
-                                                                    Max Marks
+                                                                    Marks Obtained
                                                                 </label>
                                                                 <input type="text"
                                                                     name={'max_marks' + i}
@@ -370,12 +370,12 @@ const StudentReportCardAdd = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='text py-5 fw-bold'>
-                                <p className=''>Total Marks: {subjecttotalmarks}</p>
-                                <p className=''>Maximum  Marks : {maxmarkstotal}</p>
-                                <p className=''>Maximum  Marks : {Math.round(maxpercentage, 2)}%</p>
+                            <div className='text py-1 fw-bold'>
+                                <p className=''>Max. Marks: {subjecttotalmarks}</p>
+                                <p className=''>Marks Obtained : {maxmarkstotal}</p>
+                                <p className=''>Max. Marks : {Math.round(maxpercentage, 2)}%</p>
                             </div>
-                            <div className="mt-6 flex items-center justify-end gap-x-6">
+                            <div className="mt-2 flex items-center justify-end gap-x-6">
                                 <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
                                     Cancel
                                 </button>

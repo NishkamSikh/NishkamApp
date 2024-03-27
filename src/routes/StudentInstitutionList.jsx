@@ -88,12 +88,20 @@ const StudentInstitutionList = () => {
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
 
-        // if (inputValue === '') {
-        //     setFilteredData(StudentData);
-        // } else {
-        //     const newData = StudentData.filter(row => row.StudentName.toLowerCase().includes(inputValue));
-        //     setFilteredData(newData);
-        // }
+        if (inputValue === '') {
+            setFilteredData(StudentData);
+        } else {
+            const newData = StudentData.filter(row =>
+                row.FirstName.toLowerCase().includes(inputValue) ||
+                row.LastName.toLowerCase().includes(inputValue) ||
+                row.MiddleName.toLowerCase().includes(inputValue)
+                // Add more fields here as needed, separated by ||
+                // row.field.toLowerCase().includes(inputValue) ||
+                // row.anotherField.toLowerCase().includes(inputValue) ||
+                // ...
+            );
+            setFilteredData(newData);
+        }
     };
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">

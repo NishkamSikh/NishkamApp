@@ -156,7 +156,7 @@ const StudentReportCardEdit = () => {
             const data = await response.json();
 
             // Initialize fetchData with the expected structure
-            console.log(data.data, "Data ============")
+            console.log(data.data, "Data +++++++++++");
             if (data.data.length > 0) {
                 const subList = JSON.parse(data.data[0].json)
                 console.log(subList.subjectList, "subjectList");
@@ -172,14 +172,15 @@ const StudentReportCardEdit = () => {
 
 
                 setsubjectList(extractedSubjects);
-                setsubjecttotalmarks(subList.markstotal)
-                setmaxmarkstotal(subList.marksobtained)
-                setmaxpercentage()
+                setsubjecttotalmarks(subList.markstotal);
+                setmaxmarkstotal(subList.marksobtained);
+                setmaxpercentage();
                 // setsubjectList([{ subjectname: "", total_marks: "", max_marks: "" }])
                 // setsubjectList(JSON.parse(data.data.data[0].Json).subjectList)
                 setfetchData(data.data[0]);
 
                 setFormData(JSON.parse(data.data[0].json));
+
                 // setfetchDataId(JSON.parse(data.data.data[0].Id));
             } else {
                 alert("No such user found!");
@@ -253,48 +254,18 @@ const StudentReportCardEdit = () => {
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Student Report Card Data {studentCode}, {year}, {catgcode}
+                            Edit - Student Report Card Data
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-2">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="studentcode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Student Code
+                                            <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
+                                                Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
                                             </label>
-                                            <div className="mt-1">
-                                                <input
-                                                    type="text"
-                                                    readOnly={true}
-                                                    id="StudentCode"
-                                                    name="StudentCode"
-                                                    defaultValue={formData.StudentCode || (fetchData ? fetchData.StudentCode : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                />
-                                            </div>
                                         </div>
-                                        <div className="sm:col-span-3">
-                                            <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Year
-                                            </label>
-                                            <div className="mt-1">
-                                                <select
-                                                    id="stuyear"
-                                                    name="stuyear"
-                                                    defaultValue={formData.stuyear || (fetchData ? fetchData.AcademicYear : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
-                                                        }`}
-                                                >
-                                                    <option >Select Year</option>
-                                                    <option value="2023-2024">2023-2024</option>
-                                                    <option value="2022-2023">2022-2023</option>
-                                                    <option value="2021-2022">2021-2022</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                         <div className="sm:col-span-3">
                                             <label htmlFor="reportcard" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Report Card Received
@@ -303,19 +274,14 @@ const StudentReportCardEdit = () => {
                                                 <select
                                                     id="reportcard"
                                                     name="reportcard"
-                                                    value={
-                                                        formData.reportcard ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).reportcard
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.reportcard}
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
                                                         }`}
                                                 >
                                                     <option >Select Option</option>
                                                     <option value="Yes">Yes</option>
-                                                    <option value="No">NO</option>
+                                                    <option value="No">No</option>
 
                                                 </select>
                                             </div>
@@ -328,12 +294,7 @@ const StudentReportCardEdit = () => {
                                                 <select
                                                     id="result"
                                                     name="result"
-                                                    value={
-                                                        formData.result ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).result
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.result}
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
                                                         }`}

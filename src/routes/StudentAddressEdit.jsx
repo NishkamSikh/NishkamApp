@@ -45,40 +45,6 @@ const StudentAddressEdit = () => {
         }));
     };
 
-    // const fetchBastiData = () => {
-    //     // console.log("Start");
-    //     fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             // Assuming the API response contains basti name, state, and city
-    //             const bastiData = data;
-
-    //             // console.log(bastiData, "dataprint")
-    //             // Parse the json string within the data object and setOptions
-    //             const parsedData = bastiData.data.map(item => JSON.parse(item.Json));
-    //             // console.log(parsedData, "parsedData"); // Print the parsed data object in the console
-    //             setOptions(parsedData);
-
-    //             console.log(formData, "formData Working ============================================");
-
-    //             if (parsedData.length > 0) {
-    //                 // Assuming the API response contains basti name, state, and city
-    //                 const { basti_name, State, District, Tehsil } = parsedData[0];
-
-    //                 // console.log(basti_name, State, District, "basti_name, State, District")
-
-    //                 setSelectedBasti(basti_name);
-    //                 setStateValue(State);
-    //                 setDistrictValue(District);
-    //                 setTehsilValue(Tehsil);
-    //             }
-
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching basti data:', error);
-    //         });
-    // };
-
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -253,57 +219,18 @@ const StudentAddressEdit = () => {
                     <div className="mt-2 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
                             Edit - Student Address Data
-                            {/* {console.log(JSON.stringify(formData), "----------------")} */}
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-1 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
-                                        {/*   <div className="sm:col-span-3">
-                                            <label htmlFor="StudentCode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Student Code
-                                            </label>
-                                            <div className="mt-1">
-                                                <input
-                                                    type="text"
-                                                    readOnly={true}
-                                                    id="StudentCode"
-                                                    name="StudentCode"
-                                                    defaultValue={formData.StudentCode || (fetchData ? fetchData.StudentCode : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                />
-                                                <input
-                                                    type="hidden"
-                                                    name="catgcode"
-                                                    id="catgcode"
-                                                    value="ADDR"
-                                                />
 
-
-                                            </div>
-                                        </div>
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Year
+                                            <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
+                                                Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
                                             </label>
-                                            <div className="mt-1">
-                                                <select
-                                                    id="stuyear"
-                                                    name="stuyear"
-                                                    defaultValue={formData.stuyear || (fetchData ? fetchData.AcademicYear : "No Data")}
+                                        </div>
 
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
-                                                        }`}
-                                                >
-                                                    <option >Select Year</option>
-                                                    <option value="2023-2024">2023-2024</option>
-                                                    <option value="2022-2023">2022-2023</option>
-                                                    <option value="2021-2022">2021-2022</option>
-                                                </select>
-                                            </div>
-                                        </div>*/}
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stubasti" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Basti
@@ -338,16 +265,13 @@ const StudentAddressEdit = () => {
                                         <div className="sm:col-span-3">
                                             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                                                 State
-                                                {console.log(options, selectedBasti, "dsdsddsdsds")}
                                             </label>
                                             <div className="mt-1">
                                                 <input
                                                     type="text"
                                                     name="stustate"
                                                     id="stustate"
-
                                                     readOnly
-
                                                     value={
                                                         selectedBasti
                                                             ?
@@ -404,12 +328,7 @@ const StudentAddressEdit = () => {
                                                 <input
                                                     type="text"
                                                     name="stuvillage"
-                                                    value={
-                                                        formData.stuvillage ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).stuvillage
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.stuvillage}
                                                     id="stuvillage"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuaddress ? 'border-red-500' : ''
@@ -426,12 +345,7 @@ const StudentAddressEdit = () => {
                                                 <input
                                                     type="text"
                                                     name="stuaddress"
-                                                    value={
-                                                        formData.stuaddress ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).stuaddress
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.stuaddress}
                                                     id="stuaddress"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuaddress ? 'border-red-500' : ''
@@ -446,14 +360,10 @@ const StudentAddressEdit = () => {
                                             </label>
                                             <div className="mt-1">
                                                 <input
-                                                    type="text"
+                                                    type="Number"
+                                                    maxLength={6}
                                                     name="stupin"
-                                                    value={
-                                                        formData.stupin ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).stupin
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.stupin}
                                                     id="stupin"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
@@ -470,14 +380,10 @@ const StudentAddressEdit = () => {
                                             <div className="mt-1">
                                                 <input
                                                     type="text"
+                                                    maxLength={10}
                                                     name="rep1"
                                                     id="rep1"
-                                                    value={
-                                                        formData.rep1 ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).rep1
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.rep1}
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.rep1 ? 'border-red-500' : ''
                                                         }`}
@@ -491,14 +397,10 @@ const StudentAddressEdit = () => {
                                             </label>
                                             <div className="mt-1">
                                                 <input
-                                                    type="text"
+                                                    type="Number"
+                                                    maxLength={10}
                                                     name="rep2"
-                                                    value={
-                                                        formData.rep2 ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).rep2
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.rep2}
                                                     id="rep2"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.rep2 ? 'border-red-500' : ''

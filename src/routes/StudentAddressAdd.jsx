@@ -352,8 +352,8 @@ const StudentAddress = () => {
                                                     name="rep1"
                                                     id="rep1"
                                                     value={formData['rep1']}
-                                                    placeholder={15}
-                                                    maxlength={15}
+                                                    placeholder={10}
+                                                    maxlength={10}
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.rep1 ? 'border-red-500' : ''
                                                         }`}
@@ -371,8 +371,8 @@ const StudentAddress = () => {
                                                     name="rep2"
                                                     value={formData['rep2']}
                                                     id="rep2"
-                                                    placeholder={15}
-                                                    maxLength={15}
+                                                    placeholder={10}
+                                                    maxLength={10}
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.rep2 ? 'border-red-500' : ''
                                                         }`}

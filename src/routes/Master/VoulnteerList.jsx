@@ -53,7 +53,7 @@ const VoulnteerList = () => {
         },
 
         {
-            selector: row => (<div>
+            selector: row => (<div> {console.log(row)}
                 <strong>Address:</strong> {row.Address} <br />
                 <strong>Village:</strong> {row.Village} <br />
                 <strong>Pin Code:</strong> {row.Pincode} <br />
@@ -101,7 +101,6 @@ const VoulnteerList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
                 setVolnData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -112,16 +111,19 @@ const VoulnteerList = () => {
 
         fetchData()
     }, []);
+
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
+        setFilteredData(VolnData);
 
         if (inputValue === '') {
             setFilteredData(VolnData);
         } else {
-            const newData = VolnData.filter(row => row.BastiName.toLowerCase().includes(inputValue));
+            const newData = VolnData.filter(row => row.VolunteerName.toLowerCase().includes(inputValue));
             setFilteredData(newData);
         }
     };
+
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
@@ -135,11 +137,11 @@ const VoulnteerList = () => {
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                             <div className="mt-3 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
 
-                                <div className="sm:col-span-1">
-                                    <div className="mt-0 p-2">
+                                <div className="sm:col-span-2">
+                                    <div className="mt-0 p-2 ml-10">
                                         <input type='text'
-                                            placeholder='Search by Name'
-                                            className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
+                                            placeholder='Search by Volunteer Name'
+                                            className='block w-full rounded-md border-0 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>
                             </div>

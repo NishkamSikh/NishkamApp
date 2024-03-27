@@ -9,7 +9,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import './index.css'
-import StudentProfile from "./routes/x_StudentProfile";
 import StudentProfileAdd from "./routes/StudentProfileAdd";
 import StudentProfileEdit from "./routes/StudentProfileEdit";
 import StudentProfileList from "./routes/StudentProfileList";
@@ -33,20 +32,8 @@ import StudentAcademicList from "./routes/StudentAcademicList";
 import StudentReportCardAdd from "./routes/StudentReportCardAdd";
 import StudentReportCardEdit from "./routes/StudentReportCardEdit";
 import StudentReportCardList from "./routes/StudentReportCardList";
-
-//import StudentAddress from "./routes/StudentAddress";
-//import StudentFamily from "./routes/StudentFamily";
-//import StudentInstitution from "./routes/StudentInstitution";
-//import StudentAcademic from "./routes/StudentAcademic";
-import StudentReportCard from "./routes/x_StudentReportCard";
 import Dashboard from "./routes/Dashboard";
-//import EditStudentprofile from "./routes/EditData/EditStudentProfile";
-//import EditStudentAddress from "./routes/EditData/EditStudentAddress";
-//import EditStudentFamily from "./routes/EditData/EditStudentFamily";
-//import EditStudentInstitution from "./routes/EditData/EditStudentInstitution";
-//import EditStudentAcademic from "./routes/EditData/EditStudentAcademic";
-//import EditStudentReportCard from "./routes/EditData/EditStudentReportCard";
-//import StudentList from "./routes/StudentList";
+
 
 // Master Routes
 import VendorAdd from "./routes/Master/VendorAdd";
@@ -88,11 +75,6 @@ const router = createBrowserRouter([
       {
         path: "Dashboard",
         element: <Dashboard />,
-      },
-
-      {
-        path: "StudentProfile",
-        element: <StudentProfile />,
       },
 
       {

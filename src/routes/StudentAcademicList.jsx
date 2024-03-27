@@ -43,12 +43,20 @@ const StudentAcademicList = () => {
             wrap: true,
         },
 
+        {
+            selector: row => (<div>
+                <strong>Admission #:</strong> {row.admissionnumber}<br />
+                <strong>Roll #:</strong> {row.rollnumber}<br />
+                <strong>Class:</strong> {row.class} <br />
+            </div>),
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
 
         {
             selector: row => (<div>
-                <strong>Code:</strong> {row.StudentCode} Year: {row.AcademicYear} <br />
-                <strong>Admission Number:</strong> {row.admissionnumber}<br />
-                <strong>RollNumber:</strong> {row.rollnumber}<br />
+                <strong>Stream:</strong> {row.stream} <br />
                 <strong>Section:</strong> {row.section}<br />
                 <strong>Semester:</strong> {row.semester}<br />
             </div>),
@@ -91,12 +99,20 @@ const StudentAcademicList = () => {
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
 
-        // if (inputValue === '') {
-        //     setFilteredData(StudentData);
-        // } else {
-        //     const newData = StudentData.filter(row => row.StudentName.toLowerCase().includes(inputValue));
-        //     setFilteredData(newData);
-        // }
+        if (inputValue === '') {
+            setFilteredData(StudentData);
+        } else {
+            const newData = StudentData.filter(row =>
+                row.FirstName.toLowerCase().includes(inputValue) ||
+                row.LastName.toLowerCase().includes(inputValue) ||
+                row.MiddleName.toLowerCase().includes(inputValue)
+                // Add more fields here as needed, separated by ||
+                // row.field.toLowerCase().includes(inputValue) ||
+                // row.anotherField.toLowerCase().includes(inputValue) ||
+                // ...
+            );
+            setFilteredData(newData);
+        }
     };
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">

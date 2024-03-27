@@ -107,7 +107,7 @@ const StudentProfile = () => {
       }
 
       setloading(false);
-      navigate('./');
+      navigate('/');
 
     } catch (error) {
       setloading(false);
@@ -177,7 +177,7 @@ const StudentProfile = () => {
 
           <div className="mt-0 flex flex-col">
             <p className="text-orange-900 font-medium tracking-tight sm:text-xl">
-              Student Profile Information {console.log(studentDetails)}
+              Student Profile Information
             </p>
             <form onSubmit={handleSubmit}>
               <div className="space-y-12">
@@ -427,8 +427,8 @@ const StudentProfile = () => {
                             }`}
                         >
                           <option >Select Student Status</option>
-                          <option value="active">Active</option>
-                          <option value="inactive">Inactive</option>
+                          <option value="Active">Active</option>
+                          <option value="Inactive">Inactive</option>
 
                         </select>
                       </div>
@@ -466,8 +466,8 @@ const StudentProfile = () => {
                           type="text"
                           name="contact1"
                           value={formData['contact1']}
-                          maxLength={15}
-                          placeholder='Contact-1 &#9742; (15)'
+                          maxLength={10}
+                          placeholder='Contact-1 &#9742; (10)'
                           onChange={handleInputChange}
                           id="contact1"
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1 ? 'border-red-500' : ''
@@ -508,9 +508,9 @@ const StudentProfile = () => {
                           type="text"
                           name="contact2"
                           id="contact2"
-                          maxLength={15}
+                          maxLength={10}
                           value={formData['contact2']}
-                          placeholder='Contact-2 &#9742; (15)'
+                          placeholder='Contact-2 &#9742; (10)'
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2 ? 'border-red-500' : ''
                             }`}

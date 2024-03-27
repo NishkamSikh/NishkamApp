@@ -46,7 +46,6 @@ const StudentInstitutionEdit = () => {
         (item) => JSON.parse(item.Json).Institution_Type === institutionType
     );
     const fetchUserInfo = async () => {
-        console.log('fetch');
         setloading(true);
         try {
             const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
@@ -58,7 +57,6 @@ const StudentInstitutionEdit = () => {
                     throw new Error(`Error fetching student details: ${response.statusText}`);
                 }
             }
-
             const data = await response.json();
 
             // Initialize fetchData with the expected structure
@@ -220,12 +218,18 @@ const StudentInstitutionEdit = () => {
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
                             Edit - Student Institution Data
-                            {console.log(fetchData, "fetchData ===")}
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+
+                                        <div className="sm:col-span-3">
+                                            <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
+                                                Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
+                                            </label>
+                                        </div>
+
                                         <div className="sm:col-span-3">
                                             <label htmlFor="institutiontype" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Institution Type
@@ -299,7 +303,7 @@ const StudentInstitutionEdit = () => {
                                                 </select>
                                             </div>
                                         </div>
-                                        {console.log(institutionType, "institutionType")}
+
                                         {institutionType && (
                                             <div className="sm:col-span-3">
                                                 <label htmlFor="Board" className="block text-sm font-medium leading-6 text-gray-900">

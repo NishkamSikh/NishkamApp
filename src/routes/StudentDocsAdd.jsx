@@ -15,7 +15,7 @@ const StudentDocsAdd = () => {
         docdesc: "",
         docname: "",
     })
-
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({});
     const handleSearchChange = (selectedOption) => {
         const studentkey = selectedOption.value.split("/");
@@ -58,6 +58,7 @@ const StudentDocsAdd = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setloading(true);
         try {
             const uploadfileurl = await imageupload(formData.docname, "docname");
 
@@ -92,6 +93,8 @@ const StudentDocsAdd = () => {
 
             setloading(false);
             console.log("Final FormData with URLs:", formData);
+
+            navigate("/")
         } catch (error) {
             console.error("Error uploading images:", error.message);
             // Handle error (e.g., show an error message to the user)

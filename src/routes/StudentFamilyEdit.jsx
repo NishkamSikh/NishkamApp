@@ -150,18 +150,18 @@ const StudentFamilyEdit = () => {
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Student Family Data {studentCode}, {year}, {catgcode}
+                            Edit - Student Family Data
                         </p>
                         <form onSubmit={handleSubmit}>
-                            {console.log("Form Data in Render: ", formData)}
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Student Code
+                                            <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
+                                                Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
+
                                             </label>
-                                            <div className="mt-1">
+                                            {/*                                             <div className="mt-1">
                                                 <input
                                                     type="text"
                                                     readOnly={true}
@@ -178,25 +178,13 @@ const StudentFamilyEdit = () => {
                                                     value="FMLY"
                                                 />
                                             </div>
-                                        </div>
+ */}                                        </div>
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
+                                            {/*                                             <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Year
-                                            </label>
+                                            </label> */}
                                             <div className="mt-1">
-                                                <select
-                                                    id="stuyear"
-                                                    name="stuyear"
-                                                    defaultValue={formData.stuyear || (fetchData ? fetchData.AcademicYear : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
-                                                        }`}
-                                                >
-                                                    <option >Select Year</option>
-                                                    <option value="2023-2024">2023-2024</option>
-                                                    <option value="2022-2023">2022-2023</option>
-                                                    <option value="2021-2022">2021-2022</option>
-                                                </select>
+
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">
@@ -276,7 +264,7 @@ const StudentFamilyEdit = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
+                                                <div className="mt-1">
                                                     <div className="">
                                                         <label htmlFor="Father_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Education
@@ -293,8 +281,8 @@ const StudentFamilyEdit = () => {
                                                             aria-describedby="Father_Education" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
 
                                                         <label htmlFor="Father_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Occupation
@@ -308,8 +296,8 @@ const StudentFamilyEdit = () => {
                                                             defaultValue={family2getdata.length > 0 ? family2getdata[0].Father_Occupation != null && family2getdata[0].Father_Occupation != undefined ? family2getdata[0].Father_Occupation : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Father_Occupation" placeholder='Father Occupation' aria-describedby="Father_Occupation" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="F_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Gross Income (per year)
                                                         </label>
@@ -319,8 +307,8 @@ const StudentFamilyEdit = () => {
                                                             type="text" name='F_Gross_Income' defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Gross_Income != null && family2getdata[0].F_Gross_Income != undefined ? family2getdata[0].F_Gross_Income : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Gross_Income" placeholder='Father Gross Income' aria-describedby="F_Gross_Income" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="F_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Aadhar Card Number
                                                         </label>
@@ -331,8 +319,8 @@ const StudentFamilyEdit = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="F_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Mobile Number
                                                         </label>
@@ -341,11 +329,11 @@ const StudentFamilyEdit = () => {
                                                             onChange={handleInputChange} type="text" name='F_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Mobile_No != null && family2getdata[0].F_Mobile_No != undefined ? family2getdata[0].F_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father Mobile Number' aria-describedby="F_Mobile_No" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
+                                                <div className="mt-1">
                                                     <label htmlFor="Grandfather_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                         Grandfather Name
                                                     </label>
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <input value={formData['Grandfather_Name']} onChange={handleInputChange} type="text" name='Grandfather_Name' defaultValue={family2getdata.length > 0 ? family2getdata[0].Grandfather_Name != null && family2getdata[0].Grandfather_Name != undefined ? family2getdata[0].Grandfather_Name : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Grandfather_Name" placeholder='Grandfather Name' aria-describedby="Grandfather_Name" />
                                                     </div>
                                                 </div>
@@ -359,8 +347,8 @@ const StudentFamilyEdit = () => {
                                             </p>
 
                                             <div className="row">
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label onChange={handleInputChange} htmlFor="Mother_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Name
                                                         </label>
@@ -376,8 +364,8 @@ const StudentFamilyEdit = () => {
                                                             aria-describedby="Mother_Name" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label onChange={handleInputChange} htmlFor="Mother_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Education
                                                         </label>
@@ -390,8 +378,8 @@ const StudentFamilyEdit = () => {
 
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Mother_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Occupation
                                                         </label>
@@ -410,8 +398,8 @@ const StudentFamilyEdit = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="M_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Gross Income (per year)
                                                         </label>
@@ -423,8 +411,8 @@ const StudentFamilyEdit = () => {
                                                             className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income' aria-describedby="M_Gross_Income" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="M_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Aadhar Card Number
                                                         </label>
@@ -436,8 +424,8 @@ const StudentFamilyEdit = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="M_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Mobile Number
                                                         </label>
@@ -455,8 +443,8 @@ const StudentFamilyEdit = () => {
 
 
                                             <div className="row">
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Name
                                                         </label>
@@ -473,8 +461,8 @@ const StudentFamilyEdit = () => {
                                                             aria-describedby="Guardian_Name" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Education
                                                         </label>
@@ -491,8 +479,8 @@ const StudentFamilyEdit = () => {
                                                             aria-describedby="Guardian_Education" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Occupation
                                                         </label>
@@ -511,8 +499,8 @@ const StudentFamilyEdit = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Gross Income (per year)
                                                         </label>
@@ -526,8 +514,8 @@ const StudentFamilyEdit = () => {
                                                             className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Gross_Income" placeholder='Guardian Gross Income' aria-describedby="Gross_Income" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Aadhar Card Number
                                                         </label>
@@ -542,8 +530,8 @@ const StudentFamilyEdit = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="mt-2">
-                                                    <div className="my-2">
+                                                <div className="mt-1">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Mobile Number
                                                         </label>

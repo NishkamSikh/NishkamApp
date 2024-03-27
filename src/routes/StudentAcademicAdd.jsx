@@ -14,7 +14,8 @@ const StudentAcademicAdd = () => {
         rollnumber: "",
         class: "",
         section: "",
-        semester: ""
+        semester: "",
+        stream: "",
     })
     const [errors, setErrors] = useState({});
     const [searchStudentCode, setSearchStudentCode] = useState('');
@@ -229,7 +230,7 @@ const StudentAcademicAdd = () => {
                                                     maxLength={10}
                                                     placeholder="Section (10)"
                                                     onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6}`}
+                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6}`}
                                                 />
                                             </div>
                                         </div>
@@ -251,6 +252,25 @@ const StudentAcademicAdd = () => {
                                                 />
                                             </div>
                                         </div>
+
+                                        <div className="sm:col-span-3">
+                                            <label htmlFor="semester" className="block text-sm font-medium leading-6 text-gray-900">
+                                                Stream
+                                            </label>
+                                            <div className="mt-0">
+                                                <input
+                                                    type="text"
+                                                    name="stream"
+                                                    value={formData['stream']}
+                                                    id="stream"
+                                                    maxLength={20}
+                                                    placeholder="Stream (20)"
+                                                    onChange={handleInputChange}
+                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 }`}
+                                                />
+                                            </div>
+                                        </div>
+
 
                                     </div>
                                 </div>

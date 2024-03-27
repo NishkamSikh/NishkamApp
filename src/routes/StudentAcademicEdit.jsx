@@ -13,7 +13,8 @@ const StudentAcademicEdit = () => {
         admissionnumber: "",
         rollnumber: "",
         class: "",
-        section: ""
+        section: "",
+        stream: ""
     })
     const [errors, setErrors] = useState({});
     const [fetchData, setfetchData] = useState({ data: { data: [] } });
@@ -132,62 +133,20 @@ const StudentAcademicEdit = () => {
                         </div>
                     </div>
                     :
-                    <div className="mt-2 flex flex-col">
+                    <div className="mt-1 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Student Academic Data {studentCode}, {year}, {catgcode}
+                            Edit - Student Academic Data
                         </p>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <div className="space-y-2">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
-
-
-
-
-                                        {/* <div className="sm:col-span-3">
-                                            <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Student Code
-                                            </label>
-                                            <div className="mt-1">
-                                                <input
-                                                    type="text"
-                                                    readOnly={true}
-                                                    id="StudentCode"
-                                                    name="StudentCode"
-                                                    defaultValue={formData.StudentCode || (fetchData ? fetchData.StudentCode : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                />
-
-                                                <input
-                                                    type="hidden"
-                                                    name="catgcode"
-                                                    id="catgcode"
-                                                    value="ACAD"
-                                                />
-
-                                            </div>
-                                        </div>
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Year
+                                            <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
+                                                Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
                                             </label>
-                                            <div className="mt-1">
-                                                <select
-                                                    id="stuyear"
-                                                    name="stuyear"
-                                                    defaultValue={formData.stuyear || (fetchData ? fetchData.AcademicYear : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
-                                                        }`}
-                                                >
-                                                    <option >Select Year</option>
-                                                    <option value="2023-2024">2023-2024</option>
-                                                    <option value="2022-2023">2022-2023</option>
-                                                    <option value="2021-2022">2021-2022</option>
-                                                </select>
-                                            </div>
-                                        </div> */}
+                                        </div>
+
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="admissionnumber" className="block text-sm font-medium leading-6 text-gray-900">
@@ -220,12 +179,7 @@ const StudentAcademicEdit = () => {
                                                 <input
                                                     type="text"
                                                     name="rollnumber"
-                                                    value={
-                                                        formData.rollnumber ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).rollnumber
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.rollnumber}
                                                     id="rollnumber"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
@@ -242,12 +196,7 @@ const StudentAcademicEdit = () => {
                                                 <input
                                                     type="text"
                                                     name="class"
-                                                    value={
-                                                        formData.class ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).class
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.class}
                                                     id="class"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
@@ -263,12 +212,7 @@ const StudentAcademicEdit = () => {
                                                 <input
                                                     type="text"
                                                     name="section"
-                                                    value={
-                                                        formData.section ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).section
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.section}
                                                     id="section"
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
@@ -276,6 +220,41 @@ const StudentAcademicEdit = () => {
                                                 />
                                             </div>
                                         </div>
+
+                                        <div className="sm:col-span-3">
+                                            <label htmlFor="section" className="block text-sm font-medium leading-6 text-gray-900">
+                                                Semester
+                                            </label>
+                                            <div className="mt-1">
+                                                <input
+                                                    type="text"
+                                                    name="semester"
+                                                    value={formData.semester}
+                                                    id="semester"
+                                                    onChange={handleInputChange}
+                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
+                                                        }`}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="sm:col-span-3">
+                                            <label htmlFor="stream" className="block text-sm font-medium leading-6 text-gray-900">
+                                                Stream
+                                            </label>
+                                            <div className="mt-1">
+                                                <input
+                                                    type="text"
+                                                    name="stream"
+                                                    value={formData.stream}
+                                                    id="stream"
+                                                    onChange={handleInputChange}
+                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
+                                                        }`}
+                                                />
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

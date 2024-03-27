@@ -123,13 +123,31 @@ const ListInstitution = () => {
         fetchData()
     }, []);
 
-    const handleFilter = (event) => {
+    const handleFilter2 = (event) => {
         const inputValue = event.target.value.toLowerCase();
 
         if (inputValue === '') {
             setFilteredData(instData);
         } else {
             const newData = instData.filter(row => row.IN_InstitutionName.toLowerCase().includes(inputValue));
+            setFilteredData(newData);
+        }
+    };
+    const handleFilter = (event) => {
+        const inputValue = event.target.value.toLowerCase();
+
+        if (inputValue === '') {
+            setFilteredData(instData);
+        } else {
+            const newData = instData.filter(row =>
+                row.IN_InstitutionName.toLowerCase().includes(inputValue) ||
+                row.IN_InstitutionType.toLowerCase().includes(inputValue)
+                // row.MiddleName.toLowerCase().includes(inputValue)
+                // Add more fields here as needed, separated by ||
+                // row.field.toLowerCase().includes(inputValue) ||
+                // row.anotherField.toLowerCase().includes(inputValue) ||
+                // ...
+            );
             setFilteredData(newData);
         }
     };

@@ -139,7 +139,7 @@ const StudentFamilyAdd = () => {
                             {console.log("Submit: ", formData)}
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                                    <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="searchStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
@@ -250,7 +250,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
 
                                                         <label htmlFor="Father_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Occupation
@@ -267,7 +267,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="F_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Gross Income (per year)
                                                         </label>
@@ -277,13 +277,13 @@ const StudentFamilyAdd = () => {
                                                             type="number"
                                                             name='F_Gross_Income'
                                                             defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Gross_Income != null && family2getdata[0].F_Gross_Income != undefined ? family2getdata[0].F_Gross_Income : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Gross_Income"
-                                                            placeholder='Father Gross Income (15)'
-                                                            maxLength={15}
+                                                            placeholder='Father Gross Income (10)'
+                                                            maxLength={10}
                                                             aria-describedby="F_Gross_Income" />
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="F_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Aadhar Card Number
                                                         </label>
@@ -296,7 +296,7 @@ const StudentFamilyAdd = () => {
                                                 </div>
 
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="F_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Father Mobile Number
                                                         </label>
@@ -306,9 +306,9 @@ const StudentFamilyAdd = () => {
                                                             onChange={handleInputChange}
                                                             type="number"
                                                             name='F_Mobile_No'
-                                                            maxLength={15}
+                                                            maxLength={10}
                                                             defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Mobile_No != null && family2getdata[0].F_Mobile_No != undefined ? family2getdata[0].F_Mobile_No : "" : ""}
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father &#9742;  (15)' aria-describedby="F_Mobile_No" />
+                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father &#9742;  (10)' aria-describedby="F_Mobile_No" />
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
@@ -329,7 +329,7 @@ const StudentFamilyAdd = () => {
 
                                             <div className="row">
                                                 <div className="mt-1">
-                                                    <div className="my-1">
+                                                    <div className="">
                                                         <label onChange={handleInputChange} htmlFor="Mother_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Name
                                                         </label>
@@ -347,7 +347,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="my-0">
                                                         <label onChange={handleInputChange} htmlFor="Mother_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Education
                                                         </label>
@@ -362,7 +362,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Mother_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Occupation
                                                         </label>
@@ -383,7 +383,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="M_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Gross Income (per year)
                                                         </label>
@@ -391,13 +391,13 @@ const StudentFamilyAdd = () => {
                                                         <input
                                                             value={formData['M_Gross_Income']}
                                                             onChange={handleInputChange} type="number" name='M_Gross_Income'
-                                                            maxLength={15}
+                                                            maxLength={10}
                                                             //  defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Gross_Income != null && family2getdata[0].M_Gross_Income != undefined ? family2getdata[0].M_Gross_Income : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income (15)' aria-describedby="M_Gross_Income" />
+                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income (10)' aria-describedby="M_Gross_Income" />
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="M_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Aadhar Card Number
                                                         </label>
@@ -411,12 +411,12 @@ const StudentFamilyAdd = () => {
                                                 </div>
 
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="M_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Mobile Number
                                                         </label>
                                                         <input value={formData['M_Mobile_No']}
-                                                            onChange={handleInputChange} type="number" name='M_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Mobile_No != null && family2getdata[0].M_Mobile_No != undefined ? family2getdata[0].M_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Mobile_No" placeholder='Mother &#9742; (15)' aria-describedby="M_Mobile_No" />
+                                                            onChange={handleInputChange} type="number" name='M_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Mobile_No != null && family2getdata[0].M_Mobile_No != undefined ? family2getdata[0].M_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Mobile_No" placeholder='Mother &#9742; (10)' aria-describedby="M_Mobile_No" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -430,7 +430,7 @@ const StudentFamilyAdd = () => {
 
                                             <div className="row">
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Name
                                                         </label>
@@ -449,7 +449,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Education
                                                         </label>
@@ -468,7 +468,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Occupation
                                                         </label>
@@ -489,7 +489,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Gross Income (per year)
                                                         </label>
@@ -499,13 +499,13 @@ const StudentFamilyAdd = () => {
                                                             value={formData['Guardian_Gross_Income']}
                                                             onChange={handleInputChange}
                                                             name='Guardian_Gross_Income'
-                                                            maxlength={15}
+                                                            maxlength={10}
                                                             // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Gross_Income != null && family2getdata[0].Guardian_Gross_Income != undefined ? family2getdata[0].Guardian_Gross_Income : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Gross_Income" placeholder='Guardian Gross Income (15)' aria-describedby="Gross_Income" />
+                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Gross_Income" placeholder='Guardian Gross Income (10)' aria-describedby="Gross_Income" />
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Aadhar Card Number
                                                         </label>
@@ -521,7 +521,7 @@ const StudentFamilyAdd = () => {
                                                 </div>
 
                                                 <div className="mt-0">
-                                                    <div className="my-2">
+                                                    <div className="">
                                                         <label htmlFor="Guardian_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Guardian Mobile Number
                                                         </label>
@@ -533,8 +533,8 @@ const StudentFamilyAdd = () => {
                                                             // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Mobile_No != null && family2getdata[0].Guardian_Mobile_No != undefined ? family2getdata[0].Guardian_Mobile_No : "" : ""}
                                                             className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                                             id="Guardian_Mobile_No."
-                                                            maxlength={15}
-                                                            placeholder='Guardian &#9742; (15)'
+                                                            maxlength={10}
+                                                            placeholder='Guardian &#9742; (10)'
                                                             aria-describedby="Guardian_Mobile_No." />
                                                     </div>
                                                 </div>
