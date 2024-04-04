@@ -34,6 +34,7 @@ import StudentReportCardEdit from "./routes/StudentReportCardEdit";
 import StudentReportCardList from "./routes/StudentReportCardList";
 import Dashboard from "./routes/Dashboard";
 
+import StudentDataDisplay from "./routes/StudentDataDisplay";
 
 // Master Routes
 import VendorAdd from "./routes/Master/VendorAdd";
@@ -243,6 +244,14 @@ const router = createBrowserRouter([
         path: "StudentDocsEdit",
         element: <StudentDocsEdit />,
       },
+
+      {
+        path: "StudentDataDisplay",
+        element: <StudentDataDisplay />,
+      },
+
+
+
     ],
   },
 ]);

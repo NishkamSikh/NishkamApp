@@ -29,8 +29,16 @@ const BastiList = () => {
         },
         {
             selector: row => (<div>
-                <strong>Name:</strong> {row.BastiName} <br />
+                <strong>Basti:</strong> {row.BastiName} <br />
                 <strong>State:</strong> {row.State} <br />
+            </div>),
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            selector: row => (<div>
                 <strong> District:</strong> {row.District} <br />
                 <strong>Tehsil:</strong> {row.Tehsil} <br />
             </div>),
@@ -38,12 +46,11 @@ const BastiList = () => {
             compact: true,
             wrap: true,
         },
+
         {
             selector: row => (<div>
                 <strong>Address:</strong> {row.Address} <br />
-                <strong>Village:</strong> {row.Village} <br />
-                <strong>Pin Code:</strong> {row.Pincode} <br />
-
+                <strong>Village:</strong> {row.Village} {row.Pincode} <br />
             </div>),
             sortable: false,
             compact: true,

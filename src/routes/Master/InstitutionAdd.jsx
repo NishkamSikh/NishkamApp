@@ -191,14 +191,14 @@ const AddInstitution = () => {
                                             </div>
                                         </div>
                                         <div className="sm:col-span-2">
-                                            <label htmlFor="Select_Type" className="block text-sm font-medium leading-6 text-grey-900">
+                                            <label htmlFor="Institution_Catg" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Institution Category
                                             </label>
                                             <div className="mt-0">
                                                 <select
                                                     className='text-sm  w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
-                                                    aria-label="Select_Type"
-                                                    value={formData['Select_Type']}
+                                                    aria-label="Institution_Catg"
+                                                    value={formData['Institution_Catg']}
                                                     onChange={handleInputChange}
                                                     name='Institution_Catg'
                                                 >
@@ -276,9 +276,10 @@ const AddInstitution = () => {
                                                     name='Institution_Board'
                                                 >
                                                     <option>Select Certification Board</option>
-                                                    <option value="Board 1">Board 1</option>
-                                                    <option value="Board 2">Board 2</option>
-                                                    <option value="Board 3">Board 3</option>
+                                                    <option value="CBSE">CBSE</option>
+                                                    <option value="ICSE">ICSE</option>
+                                                    <option value="U.P. Board">U.P. Board</option>
+                                                    <option value="Punjab Board">Punjab Board</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -334,6 +335,7 @@ const AddInstitution = () => {
                                                 />
                                             </div>
                                         </div>
+
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Contact_Number_1" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Contact-1 &#9742;
@@ -351,6 +353,7 @@ const AddInstitution = () => {
                                                 />
                                             </div>
                                         </div>
+
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Contact_Number_1_Designation" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Contact-1 Designation

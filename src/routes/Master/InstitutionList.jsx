@@ -36,6 +36,7 @@ const ListInstitution = () => {
                 <strong>Catg:</strong> {row.IN_InstitutionCatg} <br />
                 <strong>Board:</strong> {row.IN_InstitutionBoard} <br />
                 <strong>Principal:</strong> {row.IN_PrincipalName} <br />
+                <strong>Principal#:</strong> {row.IN_PrincipalPhone} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -83,9 +84,9 @@ const ListInstitution = () => {
         {
             selector: row => (<div>
                 <strong>Bank:</strong> {row.IN_BankName} <br />
-                <strong>Account Name:</strong> {row.IN_AccountName} <br />
-                <strong>IFSC_Code:</strong> {row.IN_IFSCCode} <br />
-                <strong>Account_Number:</strong> {row.IN_AccountNumber} <br />
+                <strong>Acct Name:</strong> {row.IN_AccountName} <br />
+                <strong>IFSC Code:</strong> {row.IN_IFSCCode} <br />
+                <strong>Account#:</strong> {row.IN_AccountNumber} <br />
             </div>),
             sortable: false,
             compact: true,

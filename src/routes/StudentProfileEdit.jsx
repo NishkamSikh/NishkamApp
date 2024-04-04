@@ -213,12 +213,7 @@ const StudentProfileEdit = () => {
                           name="firstname"
                           placeholder='First Name'
                           id="firstname"
-                          defaultValue={
-                            formData.firstname ||
-                            (fetchData.Json
-                              ? JSON.parse(fetchData.Json).firstname
-                              : "No Data")
-                          }
+                          defaultValue={formData.firstname}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.firstname ? 'border-red-500' : ''
                             }`}
@@ -236,11 +231,7 @@ const StudentProfileEdit = () => {
                           name="middlename"
                           placeholder='Middle Name'
                           id="middlename"
-                          defaultValue={
-                            formData.middlename ||
-                            (fetchData.Json
-                              ? JSON.parse(fetchData.Json).middlename
-                              : "No Data")}
+                          defaultValue={formData.middlename}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.middlename ? 'border-red-500' : ''
                             }`}
@@ -259,7 +250,7 @@ const StudentProfileEdit = () => {
                           name="lastname"
                           placeholder='Last Name'
                           id="lastname"
-                          defaultValue={formData.lastname || (fetchData.Json ? JSON.parse(fetchData.Json).lastname : "No Data")}
+                          defaultValue={formData.lastname}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.lastname ? 'border-red-500' : ''
                             }`}
@@ -352,7 +343,7 @@ const StudentProfileEdit = () => {
                         <input
                           type="text"
                           name="refby"
-                          defaultValue={formData.refby || (fetchData.Json ? JSON.parse(fetchData.Json).refby : "No Data")}
+                          defaultValue={formData.refby}
                           placeholder='Referred By'
                           id="refby"
                           onChange={handleInputChange}
@@ -372,7 +363,7 @@ const StudentProfileEdit = () => {
                           type="text"
                           name="approveby"
                           placeholder='Approved By'
-                          defaultValue={formData.approveby || (fetchData.Json ? JSON.parse(fetchData.Json).approveby : "No Data")}
+                          defaultValue={formData.approveby}
                           onChange={handleInputChange}
                           id="approveby"
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.approveby ? 'border-red-500' : ''
@@ -389,7 +380,7 @@ const StudentProfileEdit = () => {
                         <select
                           id="sikligar"
                           name="sikligar"
-                          defaultValue={formData.sikligar || (fetchData.Json ? JSON.parse(fetchData.Json).sikligar : "No Data")}
+                          defaultValue={formData.sikligar}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.sikligar ? 'border-red-500' : ''
                             }`}
@@ -410,7 +401,7 @@ const StudentProfileEdit = () => {
                         <select
                           id="status"
                           name="status"
-                          defaultValue={formData.status || (fetchData.Json ? JSON.parse(fetchData.Json).status : "No Data")}
+                          defaultValue={formData.status}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.status ? 'border-red-500' : ''
                             }`}
@@ -425,13 +416,13 @@ const StudentProfileEdit = () => {
 
                     <div className="sm:col-span-1">
                       <label htmlFor="contact1type" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact Number Type
+                        Contact Type
                       </label>
                       <div className="mt-1">
                         <select
                           id="contact1type"
                           name="contact1type"
-                          defaultValue={formData.contact1type || (fetchData.Json ? JSON.parse(fetchData.Json).contact1type : "No Data")}
+                          defaultValue={formData.contact1type}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1type ? 'border-red-500' : ''
                             }`}
@@ -449,14 +440,14 @@ const StudentProfileEdit = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="contact1" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact Number 1
+                        Contact #1
                       </label>
                       <div className="mt-1">
                         <input
-                          type="text"
+                          type="Number"
                           name="contact1"
-                          defaultValue={formData.contact1 || (fetchData.Json ? JSON.parse(fetchData.Json).contact1 : "No Data")}
-                          placeholder='Contact Number 1'
+                          defaultValue={formData.contact1}
+                          placeholder='Contact #1'
                           onChange={handleInputChange}
                           id="contact1"
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1 ? 'border-red-500' : ''
@@ -467,13 +458,13 @@ const StudentProfileEdit = () => {
 
                     <div className="sm:col-span-1">
                       <label htmlFor="contact2type" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact Number Type
+                        Contact Type
                       </label>
                       <div className="mt-1">
                         <select
                           id="contact2type"
                           name="contact2type"
-                          defaultValue={formData.contact2type || (fetchData.Json ? JSON.parse(fetchData.Json).contact2type : "No Data")}
+                          defaultValue={formData.contact2type}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2type ? 'border-red-500' : ''
                             }`}
@@ -491,11 +482,11 @@ const StudentProfileEdit = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="contact2" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact Number 2
+                        Contact #2
                       </label>
                       <div className="mt-1">
                         <input
-                          type="text"
+                          type="Number"
                           name="contact2"
                           id="contact2"
                           defaultValue={formData.contact2}
@@ -515,7 +506,7 @@ const StudentProfileEdit = () => {
                         <select
                           id="identity"
                           name="identity"
-                          defaultValue={formData.identity || (fetchData.Json ? JSON.parse(fetchData.Json).identity : "No Data")}
+                          defaultValue={formData.identity}
                           onChange={handleInputChange}
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.identity ? 'border-red-500' : ''
                             }`}

@@ -19,6 +19,8 @@ const VendorAdd = () => {
     const [IFSCcode, setIFSCcode] = useState('');
     const [AccountNumber, setAccountNumber] = useState('');
     const [Bankselect, setBankselect] = useState('');
+    const [selectedItems, setselectedItems] = useState([]);
+    const [selectedInst, setselectedInst] = useState([]);
     const [formError, setFormError] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -90,7 +92,7 @@ const VendorAdd = () => {
             if (jsonData.data.length > 0) {
                 console.log('startsdsd')
 
-                const filteredData = jsonData.data.filter((item) => JSON.parse(item.Json).Institution_Type === "School");
+                const filteredData = jsonData.data.filter((item) => item.CatgCode === "INST");
 
                 console.log(filteredData, 'School Data')
                 setschoolData(filteredData);
@@ -106,6 +108,34 @@ const VendorAdd = () => {
             setloading(false);
         }
     };
+    const handleSubChange = (selectedOptions) => {
+
+        setselectedItems(selectedOptions);
+    };
+    const handleInstChange = (selectedOptions) => {
+
+        setselectedInst(selectedOptions);
+    };
+
+    const itemDetails = [
+        {
+            id: "1",
+            option: "Stationary",
+        },
+        {
+            id: "2",
+            option: "Uniforum",
+        },
+        {
+            id: "3",
+            option: "Shoes",
+        },
+        {
+            id: "3",
+            option: "Books",
+        },
+
+    ];
 
     const uniqueschoollist = [
         ...new Set(sechoolData.map((item) => item.type)),
@@ -129,7 +159,7 @@ const VendorAdd = () => {
         e.preventDefault();
         setloading(true);
 
-        if (!selectedState || !selectedDistrict || !selectedTehsil || !Bankselect) {
+        if (!selectedState || !selectedDistrict || !selectedTehsil) {
             setFormError(true);
             return;
         }
@@ -153,6 +183,8 @@ const VendorAdd = () => {
                     {
                         ...formData,
                         vendor_state: selectedState,
+                        vendor_items: selectedItems,
+                        vendor_institution: selectedInst,
                         vendor_district: selectedDistrict,
                         vendor_tehsil: selectedTehsil,
                         vendor_address: selectedAddress,
@@ -318,11 +350,11 @@ const VendorAdd = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     id="vendor_number"
                                                     name="vendor_number"
-                                                    placeholder='&#9742; Number (25)'
-                                                    maxLength={25}
+                                                    placeholder='&#9742; Number (10)'
+                                                    maxLength={10}
                                                     value={formData['vendor_number']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -335,21 +367,20 @@ const VendorAdd = () => {
                                                 Items
                                             </label>
                                             <div className="mt-0">
-                                                <select
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
-                                                    aria-label="Items"
-                                                    name='vendor_items'
-                                                    onChange={handleInputChange}
-                                                    value={formData['vendor_items']}
-                                                >
-                                                    <option >Select Items</option>
-                                                    <option value="Stationary">Stationary</option>
-                                                    <option value="Uniforum">Uniforum</option>
-                                                    <option value="Shoes">Shoes</option>
-                                                    <option value="Books">Books</option>
+                                                <Select
+                                                    options={itemDetails.map((student) => ({
+                                                        value: student.option,
+                                                        label: student.option,
+                                                    }))}
+                                                    id="vendor_items"
+                                                    name="vendor_items"
+                                                    className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                    isMulti={true}
+                                                    value={selectedItems}
+                                                    onChange={handleSubChange}
+                                                />
 
-                                                </select>
-                                            </div>
+                                               </div>
                                         </div>
 
 
@@ -358,20 +389,20 @@ const VendorAdd = () => {
                                                 Select Institution
                                             </label>
                                             <div className="mt-0">
-                                                <select
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
-                                                    aria-label="vendor_institution"
-                                                    onChange={handleInputChange}
-                                                    value={formData['vendor_institution']}
-                                                    name='vendor_institution'>
 
-                                                    {sechoolData.map((item, index) => (
-                                                        <option key={index} value={item.id}>
-                                                            {JSON.parse(item.Json).Institution_Name}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
+                                                <Select
+                                                    options={sechoolData.map((student) => ({
+                                                        value: JSON.parse(student.Json).Institution_Name,
+                                                        label: JSON.parse(student.Json).Institution_Name,
+                                                    }))}
+                                                    id="vendor_institution"
+                                                    name="vendor_institution"
+                                                    className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                    isMulti={true}
+                                                    value={selectedInst}
+                                                    onChange={handleInstChange}
+                                                />
+                                              </div>
                                         </div>
 
                                         <div className="sm:col-span-6">

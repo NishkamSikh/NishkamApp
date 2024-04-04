@@ -64,17 +64,17 @@ const Tehsils = {
     "Sahibzada Ajit Singh Nagar": ["Dera Bassi", "Kharar", "Mohali"],
     "Sangrur": ["Barnala", "Dhuri", "Lehragaga", "Malerkotla", "Moonak", "Sangrur - I", "Sangrur - II", "Sunam"],
     "Tarn Taran": ["Bhikhiwind", "Goindwal Sahib", "Khadoor Sahib", "Patti", "Tarn Taran"],
-    "Central Delhi": ["Darya Ganj", "Karol Bagh", "Paharganj"],
-    "East Delhi": ["Gandhi Nagar", "Preet Vihar", "Vivek Vihar"],
-    "New Delhi": ["Chanakyapuri", "Connaught Place", "Parliament Street"],
-    "North Delhi": ["Civil Lines", "Kotwali", "Sadar Bazar"],
-    "North East Delhi": ["Seelampur", "Yamuna Vihar", "Karawal Nagar"],
-    "North West Delhi": ["Narela", "Model Town", "Rohini"],
-    "Shahdara": ["Shahdara", "Vivek Vihar", "Krishna Nagar"],
-    "South Delhi": ["Defence Colony", "Hauz Khas", "Kalkaji"],
-    "South East Delhi": ["Sarita Vihar", "Kalkaji", "Saket"],
-    "South West Delhi": ["Dwarka", "Najafgarh", "Vasant Vihar"],
-    "West Delhi": ["Patel Nagar", "Rajouri Garden", "Punjabi Bagh"],
+    "Central Delhi": ["Delhi","Darya Ganj", "Karol Bagh", "Paharganj"],
+    "East Delhi": ["Delhi","Gandhi Nagar", "Preet Vihar", "Vivek Vihar"],
+    "New Delhi": ["Delhi","Chanakyapuri", "Connaught Place", "Parliament Street"],
+    "North Delhi": ["Delhi","Civil Lines", "Kotwali", "Sadar Bazar"],
+    "North East Delhi": ["Delhi","Seelampur", "Yamuna Vihar", "Karawal Nagar"],
+    "North West Delhi": ["Delhi","Narela", "Model Town", "Rohini"],
+    "Shahdara": ["Delhi","Shahdara", "Vivek Vihar", "Krishna Nagar"],
+    "South Delhi": ["Delhi","Defence Colony", "Hauz Khas", "Kalkaji"],
+    "South East Delhi": ["Delhi","Sarita Vihar", "Kalkaji", "Saket"],
+    "South West Delhi": ["Delhi","Dwarka", "Najafgarh", "Vasant Vihar"],
+    "West Delhi": ["Delhi","Patel Nagar", "Rajouri Garden", "Punjabi Bagh"],
     'Ambala': ['Ambala-I', 'Ambala-II', 'Barara', 'Naraingarh'],
     'Bhiwani': ['Bawani Khera', 'Bhiwani', 'Loharu', 'Siwani'],
     'Charkhi Dadri': ['Badhra', 'Charkhi Dadri', 'Dadri'],
@@ -168,7 +168,7 @@ const Tehsils = {
     'Allahabad': ['Allahabad', 'Bara', 'Karchhana', 'Koraon', 'Meja', 'Soraon'],
     'Ambedkar Nagar': ['Akbarpur', 'Jalalpur', 'Tanda'],
     'Amethi': ['Amethi', 'Gauriganj', 'Jagdishpur'],
-    'Amroha': ['Amroha', 'Dhanaura', 'Hasanpur'],
+    'Amroha': ['Amroha', 'Hasanpur','Dhanaura Mandi'],
     'Auraiya': ['Ajitmal', 'Auraiya', 'Bidhuna'],
     'Azamgarh': ['Azamgarh', 'Burhanpur', 'Lalganj', 'Mau'],
     'Baghpat': ['Baghpat', 'Baraut'],
@@ -218,7 +218,7 @@ const Tehsils = {
     'Mainpuri': ['Bhogaon', 'Karhal', 'Mainpuri'],
     'Mathura': ['Chhata', 'Mathura', 'Mat', 'Vrindavan'],
     'Mau': ['Ghosi', 'Madhuban', 'Mau'],
-    'Meerut': ['Baghpat', 'Kithore', 'Meerut', 'Sardhana'],
+    'Meerut': ['Baghpat', 'Kithore', 'Meerut', 'Mawana','Sardhana'],
     'Mirzapur': ['Chunar', 'Lalganj', 'Marihan', 'Mirzapur'],
     'Moradabad': ['Bilari', 'Chandausi', 'Kanth', 'Moradabad', 'Thakurdwara'],
     'Muzaffarnagar': ['Budhana', 'Kairana', 'Khatauli', 'Muzaffarnagar'],
@@ -262,14 +262,14 @@ const Form = ({
     return (
         <>
             <div className="sm:col-span-3">
-                <div className="my-2">
+                <div className="">
                     <label htmlFor="vendor_institution" className="block text-sm font-medium leading-6 text-gray-900">
                         State
                     </label>
 
                     <select
                         name='State'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="state"
                         value={selectedState}
                         onChange={(e) => handleStateChange(e.target.value)}>
@@ -283,10 +283,10 @@ const Form = ({
                 </div>
             </div>
             <div className="sm:col-span-3">
-                <div className="my-2">
+                <div className="">
                     <label htmlFor="district" className="block text-sm font-medium leading-6 text-gray-900">District:</label>
                     <select name='District'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="district"
                         value={selectedDistrict}
                         onChange={(e) => handleDistrictChange(e.target.value)}
@@ -303,9 +303,9 @@ const Form = ({
 
 
             <div className="sm:col-span-3">
-                <div className="my-2">
+                <div className="">
                     <label htmlFor="tehsil" className="block text-sm font-medium leading-6 text-gray-900">Tehsil:</label>
-                    <select className='w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' name='Tehsil' id="tehsil" value={selectedTehsil} onChange={(e) => handleTehsilChange(e.target.value)} disabled={!selectedDistrict}>
+                    <select className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' name='Tehsil' id="tehsil" value={selectedTehsil} onChange={(e) => handleTehsilChange(e.target.value)} disabled={!selectedDistrict}>
                         <option value="">Select Tehsil</option>
                         {selectedDistrict && Tehsils[selectedDistrict] && Tehsils[selectedDistrict].map((tehsil) => (
                             <option key={tehsil} value={tehsil}>
@@ -317,14 +317,14 @@ const Form = ({
             </div>
 
             <div className="sm:col-span-3">
-                <div className="my-2">
+                <div className="">
                     <label for="Address" className="block text-sm font-medium leading-6 text-gray-900">Address</label>
                     <input
                         type="text"
                         name='Address'
                         value={selectedAddress}
                         onChange={(e) => handleAddressChange(e.target.value)}
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="Address"
 
                         placeholder='Address'
@@ -332,18 +332,18 @@ const Form = ({
                 </div>
             </div>
             <div className="sm:col-span-3">
-                <div className="my-2">
+                <div className="">
                     <label for="pincode" className="block text-sm font-medium leading-6 text-gray-900">Pin Code</label>
                     <input
                         type="text"
                         value={selectedPincode}
                         onChange={(e) => handlePinCodeChange(e.target.value)}
                         name='Pin_Code'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="pincode" placeholder='Pin Code' aria-describedby="pincode" />
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="pincode" placeholder='Pin Code' aria-describedby="pincode" />
                 </div>
             </div>
             <div className="sm:col-span-3">
-                <div className="my-2">
+                <div className="">
                     <label for="village"
                         className="block text-sm font-medium leading-6 text-gray-900">Village Name</label>
                     <input
@@ -351,7 +351,7 @@ const Form = ({
                         name='Village'
                         onChange={(e) => handleVillageChange(e.target.value)}
                         value={selectedVillage}
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="village" placeholder='Village Name' aria-describedby="Village" />
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="village" placeholder='Village Name' aria-describedby="Village" />
                 </div>
             </div>
 

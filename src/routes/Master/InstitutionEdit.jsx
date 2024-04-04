@@ -24,7 +24,7 @@ const EditInstitution = () => {
     const [formError, setFormError] = useState(false);
 
     const [formData, setFormData] = useState({
-        Select_Type: '',
+        Institution_Catg: '',
         Institution_Name: '',
         Institution_Type: '',
         number: '',
@@ -97,9 +97,7 @@ const EditInstitution = () => {
         e.preventDefault();
         setloading(true);
 
-
-
-        if (!selectedState || !selectedDistrict || !selectedTehsil || !Bankselect) {
+        if (!selectedState || !selectedDistrict || !selectedTehsil) {
             setFormError(true);
             return;
         }
@@ -268,21 +266,16 @@ const EditInstitution = () => {
                                             </div>
                                         </div>
                                         <div className="sm:col-span-2">
-                                            <label htmlFor="Select_Type" className="block text-sm font-medium leading-6 text-grey-900">
+                                            <label htmlFor="Institution_Catg" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Institution Category
                                             </label>
                                             <div className="mt-0">
                                                 <select
                                                     className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
-                                                    aria-label="Select_Type"
-                                                    value={
-                                                        formData.Select_Type ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).Select_Type
-                                                            : "No Data")
-                                                    }
+                                                    aria-label="Institution_Catg"
+                                                    value={formData.Institution_Catg}
                                                     onChange={handleInputChange}
-                                                    name='Select_Type'
+                                                    name='Institution_Catg'
                                                 >
                                                     <option >Select Institution Category</option>
                                                     <option value="Public">Public</option>

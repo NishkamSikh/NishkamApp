@@ -36,7 +36,7 @@ const StudentProfileList = () => {
                 <strong>Code:</strong> {row.StudentCode}  <br />
                 <strong>Year:</strong> {row.AcademicYear} <br />
                 <strong>Name:</strong> {row.firstname + ' ' + row.middlename + ' ' + row.lastname}<br />
-                <strong>DOB:</strong> {row.dob} - {row.gender}<br />
+                <strong>DOB:</strong> {row.dob} {row.gender}<br />
             </div>),
             sortable: false,
             compact: true,
@@ -45,7 +45,7 @@ const StudentProfileList = () => {
 
         {
             selector: row => (<div>
-                <strong>Join Date:</strong> {row.joindate}<br />
+                <strong>Join Dt:</strong> {row.joindate}<br />
                 <strong>Status: </strong>{row.status}<br />
                 <strong>Religion:</strong> {row.religion} <br />
                 <strong>Sikligar: </strong>{row.sikligar} <br />
@@ -57,10 +57,10 @@ const StudentProfileList = () => {
 
         {
             selector: row => (<div>
-                <strong>Contatct#1:</strong> {row.contact1type} - {row.contact1} <br />
-                <strong>Contatct#2:</strong> {row.contact2type} - {row.contact2} <br />
-                <strong>Ref By :</strong> {row.refby}<br />
-                <strong>App By :</strong> {row.approveby}<br />
+                <strong>Contact#1:</strong> {row.contact1type} {row.contact1} <br />
+                <strong>Contact#2:</strong> {row.contact2type} {row.contact2} <br />
+                <strong>Ref By:</strong> {row.refby}<br />
+                <strong>App By:</strong> {row.approveby}<br />
 
             </div>),
             sortable: false,

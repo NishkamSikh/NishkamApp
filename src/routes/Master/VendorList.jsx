@@ -49,6 +49,8 @@ const VendorList = () => {
                 <strong>State:</strong> {row.State} <br />
                 <strong>District:</strong> {row.District} <br />
                 <strong>Tehsil:</strong> {row.Tehsil} <br />
+                <strong>Address:</strong> {row.Address} <br />
+
             </div>),
             sortable: false,
             compact: true,
@@ -56,8 +58,10 @@ const VendorList = () => {
         },
         {
             selector: row => (<div>
-                <strong>Items:</strong> {row.Items} <br />
-                <strong>Dealing with</strong>: {row.DealingSchool} <br />
+                <strong>Items:</strong> {row.VendorItems} <br />
+                <strong>Institution</strong>: {row.VendorInstitution} <br />
+                <strong>Village:</strong> {row.Village} <br />
+                <strong>PIN:</strong> {row.Pincode} <br />
             </div>),
             sortable: false,
             compact: true,

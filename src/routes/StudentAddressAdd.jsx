@@ -329,12 +329,12 @@ const StudentAddress = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    type="text"
+                                                    type="Number"
                                                     name="stupin"
                                                     value={formData['stupin']}
                                                     id="stupin"
-                                                    maxLength={10}
-                                                    placeholder='PIN (10)'
+                                                    maxLength={6}
+                                                    placeholder='PIN (6)'
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
                                                         }`}
@@ -348,7 +348,7 @@ const StudentAddress = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    type="text"
+                                                    type="Number"
                                                     name="rep1"
                                                     id="rep1"
                                                     value={formData['rep1']}
@@ -367,7 +367,7 @@ const StudentAddress = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    type="text"
+                                                    type="Number"
                                                     name="rep2"
                                                     value={formData['rep2']}
                                                     id="rep2"
@@ -383,7 +383,7 @@ const StudentAddress = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-6 flex items-center justify-end gap-x-6">
+                            <div className="mt-2 flex items-center justify-end gap-x-6">
                                 <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
                                     Cancel
                                 </button>

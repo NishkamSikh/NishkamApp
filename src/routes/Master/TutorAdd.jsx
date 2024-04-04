@@ -33,51 +33,62 @@ const TutorAdd = () => {
 
     const studentDetails = [
         {
+            id: "0",
+            option: "Nursary",
+        },
+
+
+        {
             id: "1",
+            option: "Nursary",
+        },
+
+        {
+            id: "2",
             option: "I",
         },
         {
-            id: "2",
+            id: "3",
             option: "II",
         },
         {
-            id: "3",
+            id: "4",
             option: "III",
         },
         {
-            id: "4",
+            id: "5",
             option: "IV",
         },
         {
-            id: "5",
+            id: "6",
             option: "V",
         },
         {
-            id: "6",
+            id: "7",
             option: "VI",
         },
         {
-            id: "7",
+            id: "8",
             option: "VII",
         },
         {
-            id: "8",
+            id: "9",
             option: "VIII",
         },
         {
-            id: "9",
+            id: "10",
             option: "IX",
         },
         {
-            id: "10",
+            id: "11",
             option: "X",
         },
         {
-            id: "11",
+            id: "12",
             option: "XI",
         },
         {
-            id: "12",
+            id: "13",
             option: "XII",
         },
 
@@ -108,7 +119,8 @@ const TutorAdd = () => {
     ];
 
     const [selectedOptions, setSelectedOptions] = useState([]);
-    const [selectedSubjectOptions, setselectedSubjectOptions] = useState([]);
+    const [selectedSubjectOptions, setSelectedSubjectOptions] = useState([]);
+
     const handleStateChange = (value) => {
         setSelectedState(value);
     };
@@ -124,7 +136,6 @@ const TutorAdd = () => {
         setBankselect(value);
     };
     const handleAddressChange = (value) => {
-        console.log(value, "Address value");
         setselectedAddress(value);
 
     };
@@ -177,10 +188,12 @@ const TutorAdd = () => {
     const handleChange = (selectedOptions) => {
         setSelectedOptions(selectedOptions);
     };
+    
     const handleSubChange = (selectedOptions) => {
-
-        setselectedSubjectOptions(selectedOptions);
+        console.log(selectedOptions,"2323232323=");
+        setSelectedSubjectOptions(selectedOptions);
     };
+    
     const fetchBastiData = () => {
         fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist')
             .then(response => response.json())
@@ -208,7 +221,7 @@ const TutorAdd = () => {
         e.preventDefault();
         setloading(true);
 
-        if (!selectedState || !selectedDistrict || !selectedTehsil || !Bankselect) {
+        if (!selectedState || !selectedDistrict || !selectedTehsil) {
             setFormError(true);
             return;
         }
@@ -237,6 +250,7 @@ const TutorAdd = () => {
                         Address: selectedAddress,
                         Pincode: selectedpincode,
                         Class: selectedOptions,
+                        Subject: selectedSubjectOptions,
                         Village: SelectedVillage,
                         BankName: Bankselect,
                         AccountName: AccountName,
@@ -383,16 +397,6 @@ const TutorAdd = () => {
                                                     value={selectedSubjectOptions}
                                                     onChange={handleSubChange}
                                                 />
-                                                <input
-                                                    type="text"
-                                                    id="Subject"
-                                                    name="Subject"
-                                                    placeholder='Subject (40)'
-                                                    maxLength={40}
-                                                    value={formData['Subject']}
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                />
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">
@@ -485,7 +489,8 @@ const TutorAdd = () => {
                                 </div>
                             </div>
                             <div className="mt-1 flex items-center justify-end gap-x-6">
-                                <button type="button" className="text-sm font-semibold leading-6 text-grey-900">
+
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

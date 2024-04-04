@@ -73,10 +73,10 @@ const StudentProfile = () => {
       }
     });
 
-    if (Object.keys(errorsObj).length > 0) {
-      setErrors(errorsObj);
-      return;
-    }
+    // if (Object.keys(errorsObj).length > 0) {
+    //   setErrors(errorsObj);
+    //   return;
+    // }
 
     setErrors({}); // Reset errors
     setloading(true);
@@ -124,34 +124,34 @@ const StudentProfile = () => {
       // You can also handle the error state or display a message in your UI
     }
     // Validation based on the field name
-    let updatedValue = value;
+    // let updatedValue = value;
 
-    switch (name) {
-      case "firstname":
-      case "middlename":
-      case "lastname":
-      case "refby":
-      case "approveby":
-        // Allow only alphabets in the name fields
-        updatedValue = value.replace(/[^a-zA-Z]/g, '');
-        break;
+    // switch (name) {
+    //   case "firstname":
+    //   case "middlename":
+    //   case "lastname":
+    //   case "refby":
+    //   case "approveby":
+    //     // Allow only alphabets in the name fields
+    //     updatedValue = value.replace(/[^a-zA-Z]/g, '');
+    //     break;
 
-      case "contact1":
-      case "contact2":
-        // Allow only numeric values in the contact number fields
-        updatedValue = value.replace(/[^0-9]/g, '');
-        break;
+    //   case "contact1":
+    //   case "contact2":
+    //     // Allow only numeric values in the contact number fields
+    //     updatedValue = value.replace(/[^0-9]/g, '');
+    //     break;
 
-      // Add additional cases for other fields with specific validation requirements
+    //   // Add additional cases for other fields with specific validation requirements
 
-      default:
-        break;
-    }
+    //   default:
+    //     break;
+    // }
 
     // Update the state with the sanitized value
     setFormData((prevData) => ({
       ...prevData,
-      [name]: updatedValue,
+      [name]: value,
     }));
 
   };
@@ -459,11 +459,11 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="contact1" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact Number 1
+                        Contact #1
                       </label>
                       <div className="mt-0">
                         <input
-                          type="text"
+                          type="Number"
                           name="contact1"
                           value={formData['contact1']}
                           maxLength={10}
@@ -501,11 +501,11 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="contact2" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact Number 2
+                        Contact #2
                       </label>
                       <div className="mt-0">
                         <input
-                          type="text"
+                          type="Number"
                           name="contact2"
                           id="contact2"
                           maxLength={10}
@@ -518,7 +518,7 @@ const StudentProfile = () => {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-1">
+                    {/* <div className="sm:col-span-1">
                       <label htmlFor="identity" className="block text-sm font-medium leading-6 text-gray-900">
                         Identity Document Type
                       </label>
@@ -535,7 +535,7 @@ const StudentProfile = () => {
                           <option value="Birth Certificate">Birth Certificate</option>
                         </select>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

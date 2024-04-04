@@ -210,43 +210,22 @@ export const menuItemsData = [
     ]
   },
 
-  // {
-  //   title: "Reports",
-  //   url: "/",
+  {
+    title: "Reports",
+    url: "/",
 
-  //   submenu: [
-  //     {
-  //       title: "Lists",
-  //       url: "",
-  //       submenu: [
-  //         {
-  //           title: "Student",
-  //           url: "StudentList",
-  //         },
-  //         {
-  //           title: "Institution",
-  //           url: "",
-  //         },
-  //         {
-  //           title: "Tutors",
-  //           url: "",
-  //         },
-  //         {
-  //           title: "Volunteers",
-  //           url: "",
-  //         },
-  //         {
-  //           title: "Vendors",
-  //           url: "",
-
-  //         },
-  //         {
-  //           title: "Bastis",
-  //           url: "",
-  //         },
-  //       ]
-  //     },
-  //   ]
-  // },
+    submenu: [
+      {
+        title: "Lists",
+        url: "",
+        submenu: [
+          {
+            title: "Student Data",
+            url: "StudentDataDisplay",
+          },
+        ]
+      },
+    ]
+  },
 
 ];

@@ -135,55 +135,63 @@ const TutorEdit = () => {
     const studentDetails = [
         {
             id: "1",
+            option: "Nursary",
+        },
+
+        {
+            id: "2",
             option: "I",
         },
         {
-            id: "2",
+            id: "3",
             option: "II",
         },
         {
-            id: "3",
+            id: "4",
             option: "III",
         },
         {
-            id: "4",
+            id: "5",
             option: "IV",
         },
         {
-            id: "5",
+            id: "6",
             option: "V",
         },
         {
-            id: "6",
+            id: "7",
             option: "VI",
         },
         {
-            id: "7",
+            id: "8",
             option: "VII",
         },
         {
-            id: "8",
+            id: "9",
             option: "VIII",
         },
         {
-            id: "9",
+            id: "10",
             option: "IX",
         },
         {
-            id: "10",
+            id: "11",
             option: "X",
         },
         {
-            id: "11",
+            id: "12",
             option: "XI",
         },
         {
-            id: "12",
+            id: "13",
             option: "XII",
         },
 
 
     ];
+ 
+
+
     const subjectDetails = [
         {
             id: "1",

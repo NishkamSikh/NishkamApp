@@ -379,7 +379,7 @@ const StudentAddressEdit = () => {
                                             </label>
                                             <div className="mt-1">
                                                 <input
-                                                    type="text"
+                                                    type="Number"
                                                     maxLength={10}
                                                     name="rep1"
                                                     id="rep1"

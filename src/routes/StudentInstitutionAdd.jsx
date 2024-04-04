@@ -197,7 +197,7 @@ const StudentInstitutionAdd = () => {
 
                                                     value: student.StudentKey,
                                                     label: student.dd_label,
-                                                    // isDisabled: student.in_disable === 'Yes'
+                                                    isDisabled: student.in_disable === 'Yes'
 
                                                 }))}
                                                 //value={searchStudentCode ? { value: searchStudentCode, label: searchStudentCode } : null}
@@ -275,10 +275,10 @@ const StudentInstitutionAdd = () => {
                                                     >
                                                         {institutionType === "School" ? (
                                                             <><option >Select School Board</option>
-                                                                <option value="cbse">CBSE</option>
-                                                                <option value="icse">ICSE</option>
-                                                                <option value="up board">UP Board</option>
-                                                                <option value="punjab board">Punjab Board</option>
+                                                                <option value="CBSE">CBSE</option>
+                                                                <option value="ICSE">ICSE</option>
+                                                                <option value="U.P. Board">UP Board</option>
+                                                                <option value="Punjab Board">Punjab Board</option>
                                                             </>
                                                         ) : (
                                                             <><option >Select University</option>

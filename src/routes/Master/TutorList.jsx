@@ -59,7 +59,8 @@ const TutorList = () => {
         {
             //name: 'Column 5',
             selector: row => (<div>
-                <strong>Subject:</strong> {row.TutorSubject} <br />
+                <strong>Subject:</strong> {row.Subject} <br />
+
                 <strong>Class:</strong> {Array.isArray(row.Class) ? (
                     row.Class.map((classItem, index) => (
                         <span key={index}>{classItem.value}</span>
@@ -67,6 +68,7 @@ const TutorList = () => {
                 ) : (
                     <span>{console.log(JSON.stringify(row.Class), "Class")}{row.Class}</span>
                 )} <br />
+                
                 <strong>Monthly Fee:</strong> {row.MonthlyFee} <br />
             </div>),
             sortable: false,
@@ -81,8 +83,6 @@ const TutorList = () => {
                 <strong>Acct Name:</strong> {row.AccountName} <br />
                 <strong>IFSC Code:</strong> {row.IFSCCode} <br />
                 <strong>Acct:</strong> {row.AccountNumber} <br />
-
-
             </div>),
             sortable: false,
             compact: true,

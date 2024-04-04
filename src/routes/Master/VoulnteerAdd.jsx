@@ -318,7 +318,7 @@ const VoulnteerAdd = () => {
                                 </div>
                             </div>
                             <div className="mt-1 flex items-center justify-end gap-x-6">
-                                <button type="button" className="text-sm font-semibold leading-6 text-grey-900">
+                            <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

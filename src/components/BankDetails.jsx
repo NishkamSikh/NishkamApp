@@ -5,6 +5,7 @@ const initialState = {
 };
 
 const Bank_List = [
+    { id: 0, name: 'NA' },
     { id: 1, name: 'Bank of Baroda' },
     { id: 2, name: 'State Bank of India' },
     { id: 3, name: 'Punjab National Bank' },
@@ -60,6 +61,9 @@ const Bank_List = [
     { id: 53, name: 'Saraswat Bank' },
     { id: 54, name: 'Kalyan Janata Sahakari Bank' },
     { id: 55, name: 'Thane Janata Sahakari Bank' },
+    { id: 56, name: 'Sarva U.P. Gramin Bank' },
+    { id: 99, name: 'Not listed' },
+    
     // Add more Indian bank names as needed
 ];
 
@@ -97,12 +101,12 @@ const BankDetails = ({
                     <input
                         type="text"
                         name='Account_Name'
-                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="Account_Name"
                         value={AccountName}
-                        maxLength={25}
+                        maxLength={75}
                         onChange={(e) => handleAccountNameChange(e.target.value)}
-                        placeholder='Account Name (25)'
+                        placeholder='Account Name (75)'
                         aria-describedby="Account_Name" />
                 </div>
             </div>
@@ -114,7 +118,7 @@ const BankDetails = ({
                         name='IFSC_Code'
                         value={IFSCcode}
                         maxLength={20}
-                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="IFSC_Code"
                         onChange={(e) => handleIFSCcode(e.target.value)}
                         placeholder='IFSC Code (20)'
@@ -132,7 +136,7 @@ const BankDetails = ({
                         maxLength={20}
                         onChange={(e) => handleAccountNumberChange(e.target.value)}
                         value={AccountNumber}
-                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="Account_Number" placeholder='Account Number (20)' aria-describedby="Account_Number" />
+                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="Account_Number" placeholder='Account Number (20)' aria-describedby="Account_Number" />
                 </div>
             </div>
 
