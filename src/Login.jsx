@@ -47,7 +47,7 @@ const Login = () => {
             localStorage.setItem("UserEmail", credentails.email)
             localStorage.setItem("UserId", json.UserId)
             console.log("Login success fully Data")
-            navigate("/dashboard");
+            navigate("/");
             window.location.reload(true);
         } else if (json.Userrole == 'admin') {
             navigate("/Admindashboard");
