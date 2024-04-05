@@ -188,14 +188,14 @@ const TutorAdd = () => {
     const handleChange = (selectedOptions) => {
         setSelectedOptions(selectedOptions);
     };
-    
+
     const handleSubChange = (selectedOptions) => {
-        console.log(selectedOptions,"2323232323=");
+        console.log(selectedOptions, "2323232323=");
         setSelectedSubjectOptions(selectedOptions);
     };
-    
+
     const fetchBastiData = () => {
-        fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist')
+        fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
             .then(response => response.json())
             .then(data => {
                 // Assuming the API response contains basti name, state, and city
@@ -232,7 +232,7 @@ const TutorAdd = () => {
         console.log(selectedOptions, formData, "======")
 
         //Proceed with the second API call 
-        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addvendor", {
+        const response = await fetch("https://nishkamapi.onrender.com/api/v1/addvendor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

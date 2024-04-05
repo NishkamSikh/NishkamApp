@@ -38,7 +38,7 @@ const StudentDocsEdit = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/instlist');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist');
                 const data = await response.json();
                 setAcademicData(data.data);
 
@@ -64,7 +64,7 @@ const StudentDocsEdit = () => {
 
         try {
             console.log(formData, "before");
-            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
                     "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const StudentDocsEdit = () => {
         console.log('fetch');
         setloading(true);
         try {
-            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1//api/v1/getSingleStudentDocs/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1//api/v1/getSingleStudentDocs/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes

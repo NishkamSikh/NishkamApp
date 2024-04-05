@@ -64,7 +64,7 @@ const StudentInstitutionList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://apisikligar.azurewebsites.net/api/v1/studentinstitutionlist');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentinstitutionlist');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

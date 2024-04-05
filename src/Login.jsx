@@ -28,7 +28,7 @@ const Login = () => {
         setloading(true)
         // Add your login logic here
 
-        const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/login", {
+        const response = await fetch("https://nishkamapi.onrender.com/api/v1/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

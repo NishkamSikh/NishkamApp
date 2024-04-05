@@ -48,7 +48,7 @@ const StudentProfile = () => {
 
   const fetchAllStudentDetails = () => {
     // setloading(true);
-    fetch('https://apisikligar.azurewebsites.net/api/v1/fetchAllStudentDetails')
+    fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
       .then(response => response.json())
       .then(data => {
         setStudentDetails(data.data);
@@ -87,7 +87,7 @@ const StudentProfile = () => {
 
     try {
       // Proceed with the second API call
-      const response = await fetch("https://apisikligar.azurewebsites.net/api/v1/addStudentData", {
+      const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

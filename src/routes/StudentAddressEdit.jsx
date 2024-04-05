@@ -62,7 +62,7 @@ const StudentAddressEdit = () => {
 
     const fetchUserInfo = async () => {
 
-        fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist')
+        fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
             .then(response => response.json())
             .then(data => {
                 // Assuming the API response contains basti name, state, and city
@@ -83,7 +83,7 @@ const StudentAddressEdit = () => {
         setloading(true);
         try {
 
-            const fetchbastilist = await fetch('https://apisikligar.azurewebsites.net/api/v1/bastilist');
+            const fetchbastilist = await fetch('https://nishkamapi.onrender.com/api/v1/bastilist');
             if (!fetchbastilist.ok) {
                 if (fetchbastilist.status === 404) {
                     // Handle specific HTTP status codes
@@ -96,7 +96,7 @@ const StudentAddressEdit = () => {
             const parsedData = bastidata.data.map(item => JSON.parse(item.Json));
             console.log(bastidata, JSON.parse(searchParams.get('Id')), parsedData, "In Try Folde");
 
-            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/getSingleStudentAddress/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentAddress/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -164,7 +164,7 @@ const StudentAddressEdit = () => {
         setloading(true);
 
         try {
-            const response = await fetch(`https://apisikligar.azurewebsites.net/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
                     "Content-Type": "application/json",
