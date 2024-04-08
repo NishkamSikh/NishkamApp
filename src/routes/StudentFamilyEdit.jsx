@@ -67,7 +67,7 @@ const StudentFamilyEdit = () => {
         console.log('fetch');
         setloading(true);
         try {
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentFamily/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`http://localhost:3000/api/v1/getSingleStudentFamily/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -80,7 +80,6 @@ const StudentFamilyEdit = () => {
             const data = await response.json();
 
             // Initialize fetchData with the expected structure
-            console.log(data.data, "Data ============")
             if (data.data.length > 0) {
                 setfetchData(data.data[0]);
                 setFormData(data.data[0]);
@@ -105,8 +104,7 @@ const StudentFamilyEdit = () => {
         setloading(true);
 
         try {
-            console.log(formData, "before");
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
                     "Content-Type": "application/json",
@@ -115,7 +113,6 @@ const StudentFamilyEdit = () => {
                     data: JSON.stringify(formDataWithoutCodeYear),
                 }),
             });
-            console.log(formData, "After");
             if (!response.ok) {
                 console.error("Error:", response.statusText);
                 return;

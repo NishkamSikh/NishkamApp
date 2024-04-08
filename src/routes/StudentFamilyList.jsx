@@ -32,7 +32,7 @@ const StudentAddressList = () => {
 
         {
             selector: row => (<div>
-                <strong>Student Code:</strong> {row.StudentCode} <br />
+                <strong>Code:</strong> {row.StudentCode} <br />
                 <strong>Year:</strong> {row.AcademicYear} <br />
                 <strong>Name:</strong> {row.FirstName} {row.MiddleName} {row.LastName}  <br />
                 <strong>DOB:</strong> {row.DOB} <br />
@@ -45,10 +45,10 @@ const StudentAddressList = () => {
 
         {
             selector: row => (<div>
-                <strong>Category:</strong> {row.category}<br />
-                <strong>Assistance:</strong> {row.Assistance}<br />
-                <strong>Father Aadhar:</strong> {row.F_Aadhar_No}<br />
-                <strong>Mother Aadhar:</strong> {row.M_Aadhar_No}<br />
+                <strong>Catg:</strong> {row.category}<br />
+                <strong>Asst.:</strong> {row.Assistance}<br />
+                <strong>F-Aadhar:</strong> {row.F_Aadhar_No}<br />
+                <strong>M-Aadhar:</strong> {row.M_Aadhar_No}<br />
             </div>),
             sortable: false,
             compact: true,
@@ -62,7 +62,7 @@ const StudentAddressList = () => {
                 <strong>Occupation:</strong> {row.Father_Occupation}<br />
                 <strong>Income:</strong> {row.F_Gross_Income}<br />
 
-                <strong>Phone#:</strong> {row.F_Mobile_No}<br />
+                <strong>Ph#:</strong> {row.F_Mobile_No}<br />
             </div>),
             sortable: false,
             compact: true,

@@ -33,10 +33,10 @@ const StudentProfileList = () => {
 
         {
             selector: row => (<div>
-                <strong>Code:</strong> {row.StudentCode}  <br />
-                <strong>Year:</strong> {row.AcademicYear} <br />
-                <strong>Name:</strong> {row.firstname + ' ' + row.middlename + ' ' + row.lastname}<br />
-                <strong>DOB:</strong> {row.dob} {row.gender}<br />
+                <b>Code:</b> {row.StudentCode}  <br />
+                <b>Year:</b> {row.AcademicYear} <br />
+                <b>Name:</b> {row.firstname + ' ' + row.middlename + ' ' + row.lastname}<br />
+                <b>DOB:</b> {row.dob} {row.gender}<br />
             </div>),
             sortable: false,
             compact: true,
@@ -45,10 +45,10 @@ const StudentProfileList = () => {
 
         {
             selector: row => (<div>
-                <strong>Join Dt:</strong> {row.joindate}<br />
-                <strong>Status: </strong>{row.status}<br />
-                <strong>Religion:</strong> {row.religion} <br />
-                <strong>Sikligar: </strong>{row.sikligar} <br />
+                <b>Join Dt:</b> {row.joindate}<br />
+                <b>Status: </b>{row.status}<br />
+                <b>Religion:</b> {row.religion} <br />
+                <b>Sikligar: </b>{row.sikligar} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -57,10 +57,10 @@ const StudentProfileList = () => {
 
         {
             selector: row => (<div>
-                <strong>Contact#1:</strong> {row.contact1type} {row.contact1} <br />
-                <strong>Contact#2:</strong> {row.contact2type} {row.contact2} <br />
-                <strong>Ref By:</strong> {row.refby}<br />
-                <strong>App By:</strong> {row.approveby}<br />
+                <b>Contact#1:</b> {row.contact1type} {row.contact1} <br />
+                <b>Contact#2:</b> {row.contact2type} {row.contact2} <br />
+                <b>Ref By:</b> {row.refby}<br />
+                <b>App By:</b> {row.approveby}<br />
 
             </div>),
             sortable: false,
@@ -79,7 +79,7 @@ const StudentProfileList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentprofilelist');
+                const response = await fetch('http://localhost:3000/api/v1/studentprofilelist');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
