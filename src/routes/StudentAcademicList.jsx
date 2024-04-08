@@ -118,7 +118,7 @@ const StudentAcademicList = () => {
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Academic Data - new</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Academic Data</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">
