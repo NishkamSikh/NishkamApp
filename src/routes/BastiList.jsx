@@ -100,7 +100,7 @@ const BastiList = () => {
         <section className="mx-auto w-full max-w-7xl px-4 py-0">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <h2 className="text-lg font-semibold pb-3">Basti List</h2>
+                    <h2 className="text-lg font-semibold pb-3">Basti List - New</h2>
                 </div>
             </div>
             <div className="mt-0 flex flex-col">
