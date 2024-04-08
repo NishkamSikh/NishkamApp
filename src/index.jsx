@@ -34,7 +34,9 @@ import StudentReportCardEdit from "./routes/StudentReportCardEdit";
 import StudentReportCardList from "./routes/StudentReportCardList";
 import Dashboard from "./routes/Dashboard";
 
-import StudentDataDisplay from "./routes/StudentDataDisplay";
+import StudentSummaryList from "./routes/StudentSummaryList";
+import StudentDetails from "./routes/StudentDetails";
+
 
 // Master Routes
 import VendorAdd from "./routes/Master/VendorAdd";
@@ -246,10 +248,14 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "StudentDataDisplay",
-        element: <StudentDataDisplay />,
+        path: "StudentSummaryList",
+        element: <StudentSummaryList />,
       },
 
+      {
+        path: "StudentDetails",
+        element: <StudentDetails />,
+      },
 
 
     ],

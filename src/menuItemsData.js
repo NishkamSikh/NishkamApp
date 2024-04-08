@@ -220,8 +220,8 @@ export const menuItemsData = [
         url: "",
         submenu: [
           {
-            title: "Student Data",
-            url: "StudentDataDisplay",
+            title: "Student Summary",
+            url: "StudentSummaryList",
           },
         ]
       },
@@ -229,3 +229,4 @@ export const menuItemsData = [
   },
 
 ];
+
