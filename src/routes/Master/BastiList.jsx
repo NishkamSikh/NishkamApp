@@ -118,7 +118,7 @@ const BastiList = () => {
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Name'
+                                            placeholder='Search by Basti'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>

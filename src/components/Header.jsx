@@ -15,7 +15,7 @@ const Header = () => {
     <header>
       <div className="nav-area">
         <Link to="/" className="logo">
-          Nishkam Sikligar
+          Sikligar App
         </Link>
 
         {/* for large screens */}
