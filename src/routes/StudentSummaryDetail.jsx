@@ -51,7 +51,7 @@ const StudentDetail = () => {
                             <p>
                                 <Link to={`/StudentProfileEdit?Id=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit
+                                        Edit-Profile data
                                     </span>
                                 </Link>
                             </p>
@@ -75,7 +75,7 @@ const StudentDetail = () => {
                                 <p>
                                     <Link to={`/StudentAddressEdit?Id=${data.AddressId}`} className="text-grey-500 hover:text-indigo-600">
                                         <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                            Edit
+                                            Edit-Address data
                                         </span>
                                     </Link>
                                 </p>
@@ -101,7 +101,7 @@ const StudentDetail = () => {
                             <p>
                                 <Link to={`/StudentFamilyEdit?Id=${data.FamilyId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit
+                                        Edit-Family data
                                     </span>
                                 </Link>
                             </p>
@@ -125,7 +125,7 @@ const StudentDetail = () => {
                             <p>
                                 <Link to={`/StudentInstitutionEdit?Id=${data.InstitutionId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit
+                                        Edit-Institution data
                                     </span>
                                 </Link>
                             </p>
@@ -145,7 +145,7 @@ const StudentDetail = () => {
                             <p>
                                 <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit
+                                        Edit-Academic data
                                     </span>
                                 </Link>
                             </p>                             <p><b>Admission#:</b> {data.admissionnumber} <b>Roll#:</b> {data.rollnumber}</p>
