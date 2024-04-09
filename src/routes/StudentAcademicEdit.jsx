@@ -104,9 +104,14 @@ const StudentAcademicEdit = () => {
                 console.error("Error:", response.statusText);
                 return;
             }
+            if(searchParams.get('flag') == "academic"){
+                navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
+            }else {
+                navigate('/StudentAcademicList')
+            }
 
             setloading(false);
-            navigate('/dashboard')
+            // navigate('/dashboard')
 
         } catch (error) {
             setloading(false);

@@ -49,7 +49,7 @@ const StudentDetail = () => {
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
-                                <Link to={`/StudentProfileEdit?Id=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                            <Link to={`/StudentProfileEdit?Id=${data.ProfileId}&flag=profile`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                         Edit-Profile data
                                     </span>
@@ -73,7 +73,7 @@ const StudentDetail = () => {
                             <div>
 
                                 <p>
-                                    <Link to={`/StudentAddressEdit?Id=${data.AddressId}`} className="text-grey-500 hover:text-indigo-600">
+                                    <Link to={`/StudentAddressEdit?Id=${data.AddressId}&flag=address&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                         <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                             Edit-Address data
                                         </span>
@@ -99,7 +99,7 @@ const StudentDetail = () => {
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
-                                <Link to={`/StudentFamilyEdit?Id=${data.FamilyId}`} className="text-grey-500 hover:text-indigo-600">
+                                <Link to={`/StudentFamilyEdit?Id=${data.FamilyId}&flag=family&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                         Edit-Family data
                                     </span>
@@ -123,7 +123,7 @@ const StudentDetail = () => {
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
-                                <Link to={`/StudentInstitutionEdit?Id=${data.InstitutionId}`} className="text-grey-500 hover:text-indigo-600">
+                                <Link to={`/StudentInstitutionEdit?Id=${data.InstitutionId}&flag=institution&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                         Edit-Institution data
                                     </span>
@@ -143,7 +143,7 @@ const StudentDetail = () => {
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
-                                <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}`} className="text-grey-500 hover:text-indigo-600">
+                                <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                         Edit-Academic data
                                     </span>

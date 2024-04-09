@@ -4,7 +4,8 @@ import { useSearchParams } from 'react-router-dom'
 
 const StudentProfileEdit = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log("id= ", JSON.parse(searchParams.get('Id')));
+  console.log("Id= ", JSON.parse(searchParams.get('Id')));
+  console.log("Id= ", JSON.parse(searchParams.get('Flag')));
 
 
   const [userID, setUserId] = useState('');
@@ -116,9 +117,15 @@ const StudentProfileEdit = () => {
         console.error("Error:", response.statusText);
         return;
       }
+      if(searchParams.get('flag') == "profile"){
+        navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('Id'))}`)
+      }else {
+      navigate('/StudentInstitutionList')
+    }
+
 
       setloading(false);
-      navigate('/studentProfileList')
+      // navigate('/studentProfileList')
 
     } catch (error) {
       setloading(false);

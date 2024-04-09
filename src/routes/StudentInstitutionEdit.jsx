@@ -46,8 +46,10 @@ const StudentInstitutionEdit = () => {
         (item) => JSON.parse(item.Json).Institution_Type === institutionType
     );
     const fetchUserInfo = async () => {
+        console.log("Data fetch");
         setloading(true);
         try {
+            console.log("Data ============", JSON.parse(searchParams.get('Id')))
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
@@ -59,15 +61,16 @@ const StudentInstitutionEdit = () => {
             }
             const data = await response.json();
 
+
+            console.log(data, "Data ============")
             // Initialize fetchData with the expected structure
-            console.log(data.data, "Data ============")
+            console.log("Data:", data.data[0]);
             if (data.data.length > 0) {
                 setInstitutionType(data.data[0].institutiontype);
-                setSelectedInstitution(data.data.data[0].institutionname);
+                setSelectedInstitution(data.data[0].institutionname);
                 setboardoruniversity(data.data[0].boardoruniversity);
 
                 setfetchData(data.data[0]);
-
                 setFormData(data.data[0]);
                 // setfetchDataId(JSON.parse(data.data[0].Id));
             } else {
@@ -79,6 +82,7 @@ const StudentInstitutionEdit = () => {
             setloading(false);
         }
     };
+
 
     useEffect(() => {
 
@@ -127,14 +131,23 @@ const StudentInstitutionEdit = () => {
         // console.log(academicData, "academicData")
         ...new Set(academicData.map((item) => JSON.parse(item.Json).Institution_Type)),
     ];
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+        console.log(name, value, "Ssddf===fd ");
+    
+        // If the changed input is the Board dropdown, update the corresponding state
+        if (name == "boardoruniversity") {
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value,
+            }));
+        } else {
+            // For other inputs, update the form data as usual
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value,
+            }));
+        }
     };
 
     const handleInstitutionTypeChange = (e) => {
@@ -161,41 +174,47 @@ const StudentInstitutionEdit = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        console.log(formData, "fetchDataId :Handle Start");
-        e.preventDefault();
-        const { StudentCode, stuyear, ...formDataWithoutCodeYear } = formData;
-        // Check if any select is not selected
-        const errorsObj = {};
+   const handleSubmit = async (e) => {
+    console.log(formData, "fetchDataId :Handle Start");
+    e.preventDefault();
+    const { StudentCode, stuyear, ...formDataWithoutCodeYear } = formData;
+    // Check if any select is not selected
+    const errorsObj = {};
 
-        setloading(true);
+    setloading(true);
 
-        try {
-            console.log(formData, "before");
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
-                method: "PUT", // Assuming you are using PUT for updating
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
+    try {
+        console.log(formData, searchParams.get('Id'), "before");
 
-                    data: JSON.stringify(formDataWithoutCodeYear),
-                }),
-            });
-            console.log(formData, "After");
-            if (!response.ok) {
-                console.error("Error:", response.statusText);
-                return;
-            }
-
-            setloading(false);
-            navigate('/StudentInstitutionList')
-
-        } catch (error) {
-            setloading(false);
-            console.error("Error:", error.message);
+        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            method: "PUT", // Assuming you are using PUT for updating
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                data: formDataWithoutCodeYear,
+            }),
+        });
+        console.log(formData, "After");
+        
+        if (!response.ok) {
+            console.error("Error:", response.statusText);
+            return;
         }
-    };
+
+        if (searchParams.get('flag') == "institution") {
+            navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`);
+        } else {
+            navigate('/StudentInstitutionList');
+        }
+
+    } catch (error) {
+        console.error("Error:", error.message);
+    } finally {
+        setloading(false);
+    }
+};
+
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
             {
@@ -217,13 +236,13 @@ const StudentInstitutionEdit = () => {
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Student Institution Data
+                            Edit - Student Institution Data 
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
-
+{console.log("formData: ", formData)}
                                         <div className="sm:col-span-3">
                                             <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
                                                 Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
@@ -238,7 +257,7 @@ const StudentInstitutionEdit = () => {
                                                 <select
                                                     id="institutiontype"
                                                     name="institutiontype"
-                                                    value={
+                                                    defaultValue={
                                                         formData.institutiontype ||
                                                         (fetchData.Json
                                                             ? JSON.parse(fetchData.Json).institutiontype

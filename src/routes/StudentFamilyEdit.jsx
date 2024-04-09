@@ -117,9 +117,14 @@ const StudentFamilyEdit = () => {
                 console.error("Error:", response.statusText);
                 return;
             }
+            if(searchParams.get('flag') == "family"){
+                navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
+            }else {
+                navigate('/StudentInstitutionList')
+            }
 
             setloading(false);
-            navigate('/StudentFamilyList')
+            // navigate('/StudentFamilyList')
 
         } catch (error) {
             setloading(false);

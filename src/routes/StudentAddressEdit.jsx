@@ -179,9 +179,14 @@ const StudentAddressEdit = () => {
                 console.error("Error:", response.statusText);
                 return;
             }
+            if(searchParams.get('flag') == "address"){
+                navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
+            }else {
+                navigate('/StudentInstitutionList')
+            }
 
             setloading(false);
-            navigate('/studentAddressList')
+            // navigate('/studentAddressList')
 
         } catch (error) {
             setloading(false);

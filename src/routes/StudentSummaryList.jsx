@@ -8,6 +8,7 @@ const StudentSummaryList = () => {
     const columns = [
       
         {
+            name: 'Profile Id',
             selector: row => (<div>
                 {row.ProfileId}
             </div>),
@@ -19,6 +20,7 @@ const StudentSummaryList = () => {
         },
         
         {
+            name: 'Action',
             selector: row => (<div>
                 <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
@@ -32,6 +34,7 @@ const StudentSummaryList = () => {
         },
 
         {
+            name: 'StuCode - Year',
             selector: row => (<div>
                 {row.StudentCode} - {row.AcademicYear}
             </div>),
@@ -41,6 +44,7 @@ const StudentSummaryList = () => {
         },
 
         {
+            name: 'DOB',
             selector: row => (<div>
                 {row.DOB}
             </div>),
@@ -49,6 +53,7 @@ const StudentSummaryList = () => {
             wrap: true,
         },
         {
+            name: 'Name',
             selector: row => (<div>
                 {row.Name}
             </div>),
@@ -57,6 +62,7 @@ const StudentSummaryList = () => {
             wrap: true,
         },
         {
+            name: 'Parents',
             selector: row => (<div>
                 {row.Parents}
             </div>),
@@ -66,6 +72,7 @@ const StudentSummaryList = () => {
         },
         
         {
+            name: 'State',
             selector: row => (<div>
                 {row.State}
             </div>),
