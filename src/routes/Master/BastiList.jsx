@@ -29,8 +29,8 @@ const BastiList = () => {
         },
         {
             selector: row => (<div>
-                <strong>Basti:</strong> {row.BastiName} <br />
-                <strong>State:</strong> {row.State} <br />
+                <b>Basti:</b> {row.BastiName} <br />
+                <b>State:</b> {row.State} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -39,8 +39,8 @@ const BastiList = () => {
 
         {
             selector: row => (<div>
-                <strong> District:</strong> {row.District} <br />
-                <strong>Tehsil:</strong> {row.Tehsil} <br />
+                <b>District:</b> {row.District} <br />
+                <b>Tehsil:</b> {row.Tehsil} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -49,8 +49,8 @@ const BastiList = () => {
 
         {
             selector: row => (<div>
-                <strong>Address:</strong> {row.Address} <br />
-                <strong>Village:</strong> {row.Village} {row.Pincode} <br />
+                <b>Addr:</b> {row.Address} <br />
+                <b>Vill:</b> {row.Village} {row.Pincode} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -70,6 +70,7 @@ const BastiList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
+                //const response = await fetch('http://localhost:3000/api/v1/bastilist2');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/bastilist2');
 
                 // Check if the response status is ok (200-299)
@@ -113,7 +114,7 @@ const BastiList = () => {
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-4 lg:-mx-6">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
-                            <div className="mt-3 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                            <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
 
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-2">

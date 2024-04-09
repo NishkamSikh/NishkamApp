@@ -32,10 +32,10 @@ const StudentReportCardList = () => {
 
         {
             selector: row => (<div>
-                <strong>Code:</strong> {row.StudentCode} <br />
-                <strong>Year:</strong> {row.AcademicYear} <br />
-                <strong>Name:</strong> {row.FirstName} {row.MiddleName} {row.LastName} <br />
-                <strong>DOB:</strong> {row.DOB} <br />
+                <b>Code:</b> {row.StudentCode} <br />
+                <b>Year:</b> {row.AcademicYear} <br />
+                <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName} <br />
+                <b>DOB:</b> {row.DOB} <br />
 
             </div>),
             sortable: false,
@@ -45,10 +45,10 @@ const StudentReportCardList = () => {
 
         {
             selector: row => (<div>
-                <strong>Report Card Received:</strong> {row.ReportCard}<br />
-                <strong>Result:</strong> {row.Result}<br />
-                <strong>Marks obtained:</strong> {row.MarksObtained}<br />
-                <strong>Marks Total:</strong> {row.MarksTotal}<br />
+                <b>Report Card Received:</b> {row.ReportCard}<br />
+                <b>Result:</b> {row.Result}<br />
+                <b>Marks obtained:</b> {row.MarksObtained}<br />
+                <b>Marks Total:</b> {row.MarksTotal}<br />
             </div>),
             sortable: false,
             compact: true,

@@ -32,10 +32,9 @@ const StudentAcademicList = () => {
 
         {
             selector: row => (<div>
-                <strong>Code:</strong> {row.StudentCode}  <br />
-                <strong>Year:</strong> {row.AcademicYear} <br />
-                <strong>Name:</strong> {row.FirstName} {row.Middle} {row.LastName}  <br />
-                <strong>DOB:</strong> {row.DOB} <br />
+                <b>Code:</b> {row.StudentCode} - {row.AcademicYear} <br />
+                <b>Name:</b> {row.FirstName} {row.Middle} {row.LastName}  <br />
+                <b>DOB:</b> {row.DOB} <br />
 
             </div>),
             sortable: false,
@@ -45,9 +44,9 @@ const StudentAcademicList = () => {
 
         {
             selector: row => (<div>
-                <strong>Admission #:</strong> {row.admissionnumber}<br />
-                <strong>Roll #:</strong> {row.rollnumber}<br />
-                <strong>Class:</strong> {row.class} <br />
+                <b>Admission #:</b> {row.admissionnumber}<br />
+                <b>Roll #:</b> {row.rollnumber}<br />
+                <b>Class:</b> {row.class} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -56,9 +55,9 @@ const StudentAcademicList = () => {
 
         {
             selector: row => (<div>
-                <strong>Stream:</strong> {row.stream} <br />
-                <strong>Section:</strong> {row.section}<br />
-                <strong>Semester:</strong> {row.semester}<br />
+                <b>Stream:</b> {row.stream} <br />
+                <b>Section:</b> {row.section}<br />
+                <b>Semester:</b> {row.semester}<br />
             </div>),
             sortable: false,
             compact: true,

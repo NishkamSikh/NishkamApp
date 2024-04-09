@@ -35,10 +35,10 @@ const VendorList = () => {
 
         {
             selector: row => (<div>
-                <strong>Name:</strong> {row.VendorName} <br />
-                <strong>Email: </strong>{row.Email} <br />
-                <strong>Phone:</strong> {row.Phone} <br />
-                <strong>Shop Name:</strong> {row.VendorShopName} <br />
+                <b>Name:</b> {row.VendorName} <br />
+                <b>Email: </b>{row.Email} <br />
+                <b>Ph#:</b> {row.Phone} <br />
+                <b>Shop Name:</b> {row.VendorShopName} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -46,10 +46,10 @@ const VendorList = () => {
         },
         {
             selector: row => (<div>
-                <strong>State:</strong> {row.State} <br />
-                <strong>District:</strong> {row.District} <br />
-                <strong>Tehsil:</strong> {row.Tehsil} <br />
-                <strong>Address:</strong> {row.Address} <br />
+                <b>State:</b> {row.State} <br />
+                <b>Dist:</b> {row.District} <br />
+                <b>Tehsil:</b> {row.Tehsil} <br />
+                <b>Addr:</b> {row.Address} <br />
 
             </div>),
             sortable: false,
@@ -58,10 +58,10 @@ const VendorList = () => {
         },
         {
             selector: row => (<div>
-                <strong>Items:</strong> {row.VendorItems} <br />
-                <strong>Institution</strong>: {row.VendorInstitution} <br />
-                <strong>Village:</strong> {row.Village} <br />
-                <strong>PIN:</strong> {row.Pincode} <br />
+                <b>Items:</b> {row.VendorItems} <br />
+                <b>INST.</b>: {row.VendorInstitution} <br />
+                <b>Vill:</b> {row.Village} <br />
+                <b>PIN:</b> {row.Pincode} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -69,10 +69,10 @@ const VendorList = () => {
         },
         {
             selector: row => (<div>
-                <strong>Bank Name</strong>: {row.BankName} <br />
-                <strong>Acct Name</strong>: {row.AccountName} <br />
-                <strong>IFSC Code</strong>: {row.IFSCCode} <br />
-                <strong>Acct</strong>: {row.AccountNumber} <br />
+                <b>Bank</b>: {row.BankName} <br />
+                <b>Acct Name</b>: {row.AccountName} <br />
+                <b>IFSC Code</b>: {row.IFSCCode} <br />
+                <b>Acct#</b>: {row.AccountNumber} <br />
 
             </div>),
             sortable: false,
@@ -89,6 +89,7 @@ const VendorList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
+                //const response = await fetch('http://localhost:3000/api/v1/vendorlist');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/vendorlist');
 
                 // Check if the response status is ok (200-299)
@@ -137,7 +138,7 @@ const VendorList = () => {
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Name'
+                                            placeholder='Search by Vendor'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>

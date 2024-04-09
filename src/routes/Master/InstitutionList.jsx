@@ -31,12 +31,12 @@ const ListInstitution = () => {
         },
         {
             selector: row => (<div>
-                <strong>Name:</strong> {row.IN_InstitutionName} <br />
-                <strong>Type:</strong> {row.IN_InstitutionType} <br />
-                <strong>Catg:</strong> {row.IN_InstitutionCatg} <br />
-                <strong>Board:</strong> {row.IN_InstitutionBoard} <br />
-                <strong>Principal:</strong> {row.IN_PrincipalName} <br />
-                <strong>Principal#:</strong> {row.IN_PrincipalPhone} <br />
+                <b>Name:</b> {row.IN_InstitutionName} <br />
+                <b>Type:</b> {row.IN_InstitutionType} <br />
+                <b>Catg:</b> {row.IN_InstitutionCatg} <br />
+                <b>Board:</b> {row.IN_InstitutionBoard} <br />
+                <b>P.:</b> {row.IN_PrincipalName} <br />
+                <b>P.#:</b> {row.IN_PrincipalPhone} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -44,11 +44,11 @@ const ListInstitution = () => {
         },
         {
             selector: row => (<div>
-                <strong>Email:</strong> {row.IN_InstitutionEmail} <br />
-                <strong>Phone:</strong> {row.IN_InstitutionPhone} <br />
-                <strong>Alt phone:</strong> {row.IN_AlternatePhone} <br />
-                <strong>Medium:</strong> {row.IN_InstitutionMedium} <br />
-                <strong>Website:</strong> {row.IN_Website} <br />
+                <b>Email:</b> {row.IN_InstitutionEmail} <br />
+                <b>Ph#:</b> {row.IN_InstitutionPhone} <br />
+                <b>Alt #:</b> {row.IN_AlternatePhone} <br />
+                <b>Medium:</b> {row.IN_InstitutionMedium} <br />
+                <b>www:</b> {row.IN_Website} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -56,10 +56,10 @@ const ListInstitution = () => {
         },
         {
             selector: row => (<div>
-                <strong>Contact-1:</strong> {row.IN_ContactPhone_1} <br />
-                <strong>Designation:</strong> {row.IN_ContactDesignation_1} <br />
-                <strong>Contact-2:</strong> {row.IN_ContactPhone_2} <br />
-                <strong>Designation:</strong> {row.IN_ContactDesignation_2} <br />
+                <b>Cont-1#:</b> {row.IN_ContactPhone_1} <br />
+                <b>Desig:</b> {row.IN_ContactDesignation_1} <br />
+                <b>Cont-2#:</b> {row.IN_ContactPhone_2} <br />
+                <b>Desig:</b> {row.IN_ContactDesignation_2} <br />
 
             </div>),
             sortable: false,
@@ -70,11 +70,11 @@ const ListInstitution = () => {
 
         {
             selector: row => (<div>
-                <strong>State:</strong> {row.IN_State} <br />
-                <strong>District:</strong> {row.IN_District} <br />
-                <strong>Tehsil:</strong> {row.IN_Tehsil} <br />
-                <strong>Address:</strong>  {row.IN_Address} <br />
-                <strong>Pincode:</strong> {row.IN_Pincode} <br />
+                <b>State:</b> {row.IN_State} <br />
+                <b>Dist:</b> {row.IN_District} <br />
+                <b>Tehsil:</b> {row.IN_Tehsil} <br />
+                <b>Addr:</b>  {row.IN_Address} <br />
+                <b>PIN:</b> {row.IN_Pincode} <br />
 
             </div>),
             sortable: false,
@@ -83,10 +83,10 @@ const ListInstitution = () => {
         },
         {
             selector: row => (<div>
-                <strong>Bank:</strong> {row.IN_BankName} <br />
-                <strong>Acct Name:</strong> {row.IN_AccountName} <br />
-                <strong>IFSC Code:</strong> {row.IN_IFSCCode} <br />
-                <strong>Account#:</strong> {row.IN_AccountNumber} <br />
+                <b>Bank:</b> {row.IN_BankName} <br />
+                <b>Acct Name:</b> {row.IN_AccountName} <br />
+                <b>IFSC Code:</b> {row.IN_IFSCCode} <br />
+                <b>Acct#:</b> {row.IN_AccountNumber} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -103,6 +103,7 @@ const ListInstitution = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
+                //const response = await fetch('http://localhost:3000/api/v1/instlist2');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist2');
 
                 // Check if the response status is ok (200-299)

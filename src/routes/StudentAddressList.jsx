@@ -32,10 +32,9 @@ const StudentAddressList = () => {
 
         {
             selector: row => (<div>
-                <strong>Code:</strong> {row.StudentCode} <br />
-                <strong>Year:</strong> {row.AcademicYear} <br />
-                <strong>Name:</strong> {row.FirstName} {row.MiddleName} {row.LastName} <br />
-                <strong>DOB:</strong> {row.DOB} <br />
+                <b>Code:</b> {row.StudentCode} - {row.AcademicYear}<br />
+                <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName} <br />
+                <b>DOB:</b> {row.DOB} <br />
 
             </div>),
             sortable: false,
@@ -45,9 +44,9 @@ const StudentAddressList = () => {
 
         {
             selector: row => (<div>
-                <strong>Address:</strong> {row.stuaddress}<br />
-                <strong>State:</strong> {row.stustate}<br />
-                <strong>District:</strong> {row.studistrict}<br />
+                <b>Add:</b> {row.stuaddress}<br />
+                <b>State:</b> {row.stustate}<br />
+                <b>Dist:</b> {row.studistrict}<br />
             </div>),
             sortable: false,
             compact: true,
@@ -56,10 +55,9 @@ const StudentAddressList = () => {
 
         {
             selector: row => (<div>
-                <strong>Tehsil:</strong> {row.stutehsil} <br />
-                <strong>Basti:</strong> {row.ad_BastiName} <br />
-                <strong>Village:</strong> {row.stuvillage} <br />
-                <strong>PIN:</strong> {row.stupin} <br />
+                <b>Tehsil:</b> {row.stutehsil} <br />
+                <b>Basti:</b> {row.ad_BastiName} <br />
+                <b>Vill:</b> {row.stuvillage} {row.stupin}<br />
 
             </div>),
             sortable: false,
@@ -68,8 +66,8 @@ const StudentAddressList = () => {
         },
         {
             selector: row => (<div>
-                <strong>Rep#1:</strong> {row.rep1} <br />
-                <strong>Rep#2:</strong> {row.rep2} <br />
+                <b>Rep#1:</b> {row.rep1} <br />
+                <b>Rep#2:</b> {row.rep2} <br />
 
             </div>),
             sortable: false,

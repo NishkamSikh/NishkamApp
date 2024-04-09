@@ -32,9 +32,9 @@ const StudentInstitutionList = () => {
 
         {
             selector: row => (<div>
-                <strong>Code:</strong> {row.StudentCode} - {row.AcademicYear}<br />
-                <strong>Name:</strong> {row.FirstName} {row.MiddleName} {row.LastName} <br />
-                <strong>DOB:</strong> {row.DOB} <br />
+                <b>Code:</b> {row.StudentCode} - {row.AcademicYear}<br />
+                <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName} <br />
+                <b>DOB:</b> {row.DOB} <br />
 
             </div>),
             sortable: false,
@@ -44,9 +44,9 @@ const StudentInstitutionList = () => {
 
         {
             selector: row => (<div>
-                <strong>Institute Name:</strong> {row.IN_InstitutionName}<br />
-                <strong>Board:</strong> {row.boardoruniversity}<br />
-                <strong>Type:</strong> {row.institutiontype}<br />
+                <b>Institute Name:</b> {row.IN_InstitutionName}<br />
+                <b>Board:</b> {row.boardoruniversity}<br />
+                <b>Type:</b> {row.institutiontype}<br />
             </div>),
             sortable: false,
             compact: true,
@@ -64,7 +64,8 @@ const StudentInstitutionList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentinstitutionlist');
+//                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentinstitutionlist');
+                const response = await fetch('http://localhost:3000/api/v1/studentinstitutionlist');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

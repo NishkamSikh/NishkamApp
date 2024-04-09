@@ -34,9 +34,9 @@ const TutorList = () => {
         {
             //name: 'Column 3',
             selector: row => (<div>
-                <strong>Name:</strong> {row.TutorName} <br />
-                <strong>Phone:</strong> {row.PhoneNumber} <br />
-                <strong>Email:</strong> {row.Email} <br />
+                <b>Name:</b> {row.TutorName} <br />
+                <b>Ph#:</b> {row.PhoneNumber} <br />
+                <b>Email:</b> {row.Email} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -45,10 +45,10 @@ const TutorList = () => {
         {
             //name: 'Column 4',
             selector: row => (<div>
-                <strong>State:</strong> {row.State} <br />
-                <strong>District:</strong> {row.District} <br />
-                <strong>Tehsil:</strong> {row.Tehsil} <br />
-                <strong>Basti:</strong> {row.Basti} <br />
+                <b>State:</b> {row.State} <br />
+                <b>Dist:</b> {row.District} <br />
+                <b>Tehsil:</b> {row.Tehsil} <br />
+                <b>Basti:</b> {row.Basti} <br />
 
             </div>),
             sortable: false,
@@ -59,9 +59,9 @@ const TutorList = () => {
         {
             //name: 'Column 5',
             selector: row => (<div>
-                <strong>Subject:</strong> {row.Subject} <br />
+                <b>Subject:</b> {row.Subject} <br />
 
-                <strong>Class:</strong> {Array.isArray(row.Class) ? (
+                Class: {Array.isArray(row.Class) ? (
                     row.Class.map((classItem, index) => (
                         <span key={index}>{classItem.value}</span>
                     ))
@@ -69,7 +69,7 @@ const TutorList = () => {
                     <span>{console.log(JSON.stringify(row.Class), "Class")}{row.Class}</span>
                 )} <br />
 
-                <strong>Monthly Fee:</strong> {row.MonthlyFee} <br />
+                <b>Monthly Fee:</b> {row.MonthlyFee} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -79,10 +79,10 @@ const TutorList = () => {
         {
             //name: 'Column 6',
             selector: row => (<div>
-                <strong>Bank Name:</strong> {row.BankName} <br />
-                <strong>Acct Name:</strong> {row.AccountName} <br />
-                <strong>IFSC Code:</strong> {row.IFSCCode} <br />
-                <strong>Acct:</strong> {row.AccountNumber} <br />
+                <b>Bank:</b> {row.BankName} <br />
+                <b>Acct Name:</b> {row.AccountName} <br />
+                <b>IFSC Code:</b> {row.IFSCCode} <br />
+                <b>Acct#:</b> {row.AccountNumber} <br />
             </div>),
             sortable: false,
             compact: true,
@@ -101,7 +101,9 @@ const TutorList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
+                //const response = await fetch('http://localhost:3000/api/v1/tutorlist');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/tutorlist');
+                
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -154,7 +156,7 @@ const TutorList = () => {
                                 <div className="sm:col-span-2">
                                     <div className="mt-1 p-0 ml-10">
                                         <input type='text'
-                                            placeholder='Search by Tutor Name'
+                                            placeholder='Search by Tutor'
                                             className='block w-full rounded-md border-0 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>
