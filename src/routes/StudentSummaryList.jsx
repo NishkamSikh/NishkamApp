@@ -6,7 +6,7 @@ const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([])
 
     const columns = [
-        
+      
         {
             selector: row => (<div>
                 {row.ProfileId}
@@ -20,7 +20,7 @@ const StudentSummaryList = () => {
         
         {
             selector: row => (<div>
-                <Link to={`/StudentDetails?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
                         Show details
                     </span>
@@ -87,7 +87,8 @@ const StudentSummaryList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('http://localhost:3000/api/v1/fetchAllStudentSummary');
+   //             const response = await fetch('http://localhost:3000/api/v1/fetchAllStudentSummary');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -96,7 +97,7 @@ const StudentSummaryList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
+                console.log("result=" , result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
