@@ -20,4 +20,4 @@ npm install
 npm start
 ```
 
-Visit <http://localhost:3000> to see the app.
+Visit <https://nishkamapi.onrender.com> to see the app.

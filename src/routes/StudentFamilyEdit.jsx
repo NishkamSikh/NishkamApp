@@ -67,7 +67,7 @@ const StudentFamilyEdit = () => {
         console.log('fetch');
         setloading(true);
         try {
-            const response = await fetch(`http://localhost:3000/api/v1/getSingleStudentFamily/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentFamily/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -104,7 +104,7 @@ const StudentFamilyEdit = () => {
         setloading(true);
 
         try {
-            const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
                     "Content-Type": "application/json",

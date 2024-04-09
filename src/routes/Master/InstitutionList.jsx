@@ -103,7 +103,7 @@ const ListInstitution = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                //const response = await fetch('http://localhost:3000/api/v1/instlist2');
+                //const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist2');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist2');
 
                 // Check if the response status is ok (200-299)
