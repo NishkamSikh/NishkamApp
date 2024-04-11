@@ -143,7 +143,7 @@ const StudentFamilyAdd = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="searchStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Search Student Code
+                                                Search Student Code*
                                             </label>
                                             <Select
                                                 options={studentDetails.map((student) => ({
@@ -161,7 +161,7 @@ const StudentFamilyAdd = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="category" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Category
+                                                Category*
                                             </label>
                                             <div className="mt-0">
                                                 <select
@@ -215,7 +215,7 @@ const StudentFamilyAdd = () => {
                                                 <div className="mt-1">
                                                     <div className="">
                                                         <label htmlFor="Father_Name" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Father Name
+                                                            Father Name*
                                                         </label>
                                                         <input
                                                             type="text"
@@ -546,13 +546,13 @@ const StudentFamilyAdd = () => {
                                 </div>
                             </div>
                             <div className="mt-6 flex items-center justify-end gap-x-6">
-                                <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={!formData.studentcode || !formData.stuyear}
-                                    style={{ opacity: formData.studentcode && formData.stuyear ? 1 : 0.5 }}
+                                    style={{ opacity: formData.studentcode && formData.stuyear && formData.category && formData.Father_Name ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save

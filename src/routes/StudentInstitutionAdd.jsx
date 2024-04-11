@@ -236,7 +236,7 @@ const StudentInstitutionAdd = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="institutionid" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Institution Name
+                                                Institution Name*
                                             </label>
                                             <div className="mt-2">
                                                 <select
@@ -282,9 +282,9 @@ const StudentInstitutionAdd = () => {
                                                             </>
                                                         ) : (
                                                             <><option >Select University</option>
-                                                                <option value="university_1">University 1</option>
-                                                                <option value="university_2">University 2</option>
-                                                                <option value="university_3">University 3</option>
+                                                                <option value="University_1">University 1</option>
+                                                                <option value="University_2">University 2</option>
+                                                                <option value="University_3">University 3</option>
                                                             </>
                                                         )}
                                                     </select>
@@ -295,7 +295,7 @@ const StudentInstitutionAdd = () => {
                                 </div>
                             </div>
                             <div className="mt-6 flex items-center justify-end gap-x-6">
-                                <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

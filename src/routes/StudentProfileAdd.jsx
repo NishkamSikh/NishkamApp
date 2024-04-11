@@ -185,7 +185,7 @@ const StudentProfile = () => {
                   <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-6">
                     <div className="sm:col-span-3">
                       <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                        Student Code
+                        Student Code*
                       </label>
                       <div className="mt-0">
                         <input
@@ -206,7 +206,7 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-3">
                       <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
-                        Academic Year
+                        Academic Year*
                       </label>
                       <div className="mt-0">
                         <select
@@ -227,7 +227,7 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-2 sm:col-start-1">
                       <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                        First name
+                        First name*
                       </label>
                       <div className="mt-0">
                         <input
@@ -265,7 +265,7 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="lastname" className="block text-sm font-medium leading-6 text-gray-900">
-                        Last name
+                        Last name*
                       </label>
                       <div className="mt-0">
                         <input
@@ -284,7 +284,7 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-3">
                       <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
-                        Gender
+                        Gender*
                       </label>
                       <div className="mt-0">
                         <select
@@ -416,7 +416,7 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-3">
                       <label htmlFor="status" className="block text-sm font-medium leading-6 text-gray-900">
-                        Status
+                        Status*
                       </label>
                       <div className="mt-0">
                         <select
@@ -541,11 +541,12 @@ const StudentProfile = () => {
               </div>
 
               <div className="mt-6 flex items-center justify-end gap-x-6">
-                <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                   Cancel
                 </button>
                 <button
                   type="submit"
+                  style={{ opacity: formData.studentcode && formData.stuyear && formData.firstname && formData.lastname && formData.gender && formData.status ? 1 : 0.5 }}
                   className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Save

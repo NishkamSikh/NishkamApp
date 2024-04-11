@@ -414,7 +414,7 @@ const StudentReportCardEdit = () => {
                                 <p className=''>Percentage : {Math.round(maxpercentage, 2)}%</p>
                             </div>
                             <div className="mt-1 flex items-center justify-end gap-x-6">
-                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
+                                <button type="button" onClick={() => navigate("/StudentReportCardList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

@@ -216,6 +216,18 @@ export const menuItemsData = [
 
     submenu: [
       {
+        title: "Student Summary",
+        url: "StudentSummaryList",
+      },
+    ]
+  },
+
+/*   {
+    title: "Reports",
+    url: "/",
+
+    submenu: [
+      {
         title: "Lists",
         url: "",
         submenu: [
@@ -226,7 +238,8 @@ export const menuItemsData = [
         ]
       },
     ]
-  },
+  }, */
+
 
 ];
 

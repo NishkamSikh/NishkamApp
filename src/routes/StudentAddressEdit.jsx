@@ -156,7 +156,7 @@ const StudentAddressEdit = () => {
     const handleSubmit = async (e) => {
         // console.log(fetchDataId, "fetchDataId :Handle Start");
         e.preventDefault();
-        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB, ...formDataWithoutCodeYear } = formData;
+        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,AddressId, ...formDataWithoutCodeYear } = formData;
 
         // Check if any select is not selected
         const errorsObj = {};
@@ -182,7 +182,7 @@ const StudentAddressEdit = () => {
             if(searchParams.get('flag') == "address"){
                 navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
             }else {
-                navigate('/StudentInstitutionList')
+                navigate('/StudentAddressList')
             }
 
             setloading(false);

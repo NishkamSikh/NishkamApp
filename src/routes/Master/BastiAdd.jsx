@@ -89,8 +89,6 @@ const BastiAdd = () => {
         e.preventDefault();
         setloading(true);
 
-
-
         // if (!selectedState || !selectedDistrict || !selectedTehsil || !Bankselect) {
         //     setFormError(true);
         //     return;

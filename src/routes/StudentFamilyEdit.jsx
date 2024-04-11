@@ -97,7 +97,7 @@ const StudentFamilyEdit = () => {
     const handleSubmit = async (e) => {
         console.log(formData, "fetchDataId :Handle Start");
         e.preventDefault();
-        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB, ...formDataWithoutCodeYear } = formData;
+        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,FamilyId, ...formDataWithoutCodeYear } = formData;
 
         // Check if any select is not selected
         const errorsObj = {};
@@ -120,7 +120,7 @@ const StudentFamilyEdit = () => {
             if(searchParams.get('flag') == "family"){
                 navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
             }else {
-                navigate('/StudentInstitutionList')
+                navigate('/StudentFamilyList')
             }
 
             setloading(false);
@@ -232,11 +232,12 @@ const StudentFamilyEdit = () => {
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
                                                         }`}
                                                 >
-                                                    <option >Select Category</option>
+                                                    <option >Select Assistance</option>
                                                     <option value="Medical">Medical</option>
                                                     <option value="Family">Family</option>
                                                     <option value="Pension">Pension</option>
                                                     <option value="Other">Other</option>
+                                                    <option value="None">None</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -557,7 +558,7 @@ const StudentFamilyEdit = () => {
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center justify-end gap-x-6">
-                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
+                            <button type="button" onClick={() => navigate("/StudentFamilyList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

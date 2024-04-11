@@ -211,7 +211,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stubasti" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Basti
+                                                Basti*
                                             </label>
                                             <div className="mt-0">
                                                 <select
@@ -306,7 +306,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stuaddress" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Address
+                                                Address*
                                             </label>
                                             <div className="mt-0">
                                                 <input
@@ -384,7 +384,7 @@ const StudentAddress = () => {
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center justify-end gap-x-6">
-                                <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

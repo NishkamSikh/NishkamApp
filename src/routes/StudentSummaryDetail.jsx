@@ -45,7 +45,7 @@ const StudentDetail = () => {
         <section className="mx-auto w-full max-w-3xl px-1 py-0">
             {/* <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0"> */}
             <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
-                <div class="p-2 bg-green-100">
+                <div class="p-2 bg-green-100 text-sm">
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
@@ -61,14 +61,13 @@ const StudentDetail = () => {
                             <p><b>Join Dt:</b> {data.joindate} <b>Status:</b>{data.status}</p>
                             <p><b>Religion:</b> {data.religion} <b>Sikligar:</b>{data.sikligar}</p>
                             <p><b>Contact#:</b> {data.contact1} <b>Ref By:</b>{data.refby}</p>
-                            <p><b>Assistance:</b> {data.assistance}</p>
-
+                            <p><b>Assistance:</b> {data.assistance}      <b>Category:</b> {data.category}</p>
                         </div>
                     ))}
                 </div>
 
                 <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
-                    <div class="p-2 bg-yellow-100" >
+                    <div class="p-2 bg-yellow-100  text-sm" >
                         {StudentData.map((data, index) => (
                             <div>
 
@@ -81,10 +80,8 @@ const StudentDetail = () => {
                                 </p>
 
                                 <p><b>AddressId:</b> {data.AddressId} </p>
-                                <p><b>State:</b> {data.stustate}</p>
-                                <p><b>District:</b> {data.studistrict}</p>
-                                <p><b>Tehsil:</b> {data.stutehsil}</p>
-                                <p><b>Basti:</b> {data.ad_bastiname}</p>
+                                <p><b>State:</b> {data.stustate} <b>District:</b> {data.studistrict}</p>
+                                <p><b>Tehsil:</b> {data.stutehsil} <b>Basti:</b> {data.ad_bastiname}</p>
                                 <p><b>Address:</b> {data.stuaddress}</p>
                                 <p><b>Village:</b> {data.stuvillage} <b>PIN:</b>{data.stupin}</p>
                             </div>
@@ -95,7 +92,7 @@ const StudentDetail = () => {
 
 
             <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
-                <div class="p-2 bg-teal-100">
+                <div class="p-2 bg-teal-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
@@ -119,7 +116,7 @@ const StudentDetail = () => {
 
                 </div>
 
-                <div class="p-2 bg-indigo-100">
+                <div class="p-2 bg-indigo-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
@@ -139,7 +136,7 @@ const StudentDetail = () => {
             </div>
 
             <div className="space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
-                <div class="p-2 bg-pink-100">
+                <div class="p-2 bg-pink-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
@@ -148,18 +145,14 @@ const StudentDetail = () => {
                                         Edit-Academic data
                                     </span>
                                 </Link>
-                            </p>                             <p><b>Admission#:</b> {data.admissionnumber} <b>Roll#:</b> {data.rollnumber}</p>
+                            </p>                             
+                            <p><b>AcademicId:</b> {data.AcademicId} </p>
+                            <p><b>Admission#:</b> {data.admissionnumber} <b>Roll#:</b> {data.rollnumber}</p>
                             <p><b>Class:</b> {data.class} <b>Section:</b> {data.section}</p>
                             <p><b>Semester:</b> {data.semester} <b>Stream:</b> {data.stream}</p>
                         </div>
                     ))}
                 </div>
-
-{/*                 <div class="p-2 bg-sky-100">
-                    <div><h1>List Reportcard data here...</h1></div>
-                    <div>skjdlkfj skjdfjsdfk jksdjfk jsfkjskd jfksjf kjsfkkfdj ksdjf kjsdfkj</div>
-                    <div>03</div>
-                </div> */}
             </div>
         </section>
     )

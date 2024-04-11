@@ -8,7 +8,7 @@ const StudentSummaryList = () => {
     const columns = [
       
         {
-            name: 'Profile Id',
+            name: '',
             selector: row => (<div>
                 {row.ProfileId}
             </div>),
@@ -20,38 +20,42 @@ const StudentSummaryList = () => {
         },
         
         {
-            name: 'Action',
+            name: '',
             selector: row => (<div>
                 <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
-                        Show details
+                        View
                     </span>
                 </Link>
             </div>),
             sortable: false,
-            width: "6rem",
+            width: "3rem",
             compact: true,
         },
 
         {
-            name: 'StuCode - Year',
+            name: 'Code',
             selector: row => (<div>
-                {row.StudentCode} - {row.AcademicYear}
+                {row.StudentCode} 
             </div>),
             sortable: false,
             compact: true,
+            width: "5rem",
             wrap: true,
         },
 
         {
-            name: 'DOB',
+            name: 'Year',
             selector: row => (<div>
-                {row.DOB}
-            </div>),
+                {row.AcademicYear}
+                
+                           </div>),
             sortable: false,
             compact: true,
+            width: "5rem",
             wrap: true,
         },
+
         {
             name: 'Name',
             selector: row => (<div>
@@ -59,8 +63,74 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
+            width:"9rem",
             wrap: true,
         },
+        {
+            name: 'DOB',
+            selector: row => (<div>
+                {row.DOB}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Class',
+            selector: row => (<div>
+                {row.Class}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"3rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Gender',
+            selector: row => (<div>
+                {row.gender}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"4rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Religion',
+            selector: row => (<div>
+                {row.religion}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"4rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Category',
+            selector: row => (<div>
+                {row.category}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"4rem",
+            wrap: true,
+        },
+        {
+            name: 'Status',
+            selector: row => (<div>
+                {row.status}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"3rem",
+            wrap: true,
+        },
+       
         {
             name: 'Parents',
             selector: row => (<div>
@@ -68,9 +138,10 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
+            width:"10rem",
             wrap: true,
         },
-        
+     
         {
             name: 'State',
             selector: row => (<div>
@@ -94,9 +165,8 @@ const StudentSummaryList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-   //             const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
-
+   
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -117,7 +187,6 @@ const StudentSummaryList = () => {
     }, []);
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-
         if (inputValue === '') {
             setFilteredData(StudentData);
         } else {
@@ -137,7 +206,7 @@ const StudentSummaryList = () => {
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">Students List</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">

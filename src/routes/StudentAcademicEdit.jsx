@@ -81,7 +81,7 @@ const StudentAcademicEdit = () => {
     const handleSubmit = async (e) => {
         console.log(formData, "fetchDataId :Handle Start");
         e.preventDefault();
-
+        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,json,AcademicId, ...formDataWithoutCodeYear } = formData;
         // Check if any select is not selected
         const errorsObj = {};
 
@@ -96,7 +96,7 @@ const StudentAcademicEdit = () => {
                 },
                 body: JSON.stringify({
 
-                    data: JSON.stringify(formData),
+                    data: JSON.stringify(formDataWithoutCodeYear),
                 }),
             });
             console.log(formData, "After");

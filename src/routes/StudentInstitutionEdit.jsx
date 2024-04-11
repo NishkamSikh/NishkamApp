@@ -202,11 +202,13 @@ const StudentInstitutionEdit = () => {
             return;
         }
 
-        if (searchParams.get('flag') == "institution") {
-            navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`);
-        } else {
-            navigate('/StudentInstitutionList');
+
+        if(searchParams.get('flag') == "institution"){
+            navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
+        }else {
+            navigate('/StudentInstitutionList')
         }
+
 
     } catch (error) {
         console.error("Error:", error.message);
@@ -242,7 +244,6 @@ const StudentInstitutionEdit = () => {
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
-{console.log("formData: ", formData)}
                                         <div className="sm:col-span-3">
                                             <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
                                                 Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
@@ -339,16 +340,16 @@ const StudentInstitutionEdit = () => {
                                                     >
                                                         {institutionType === "School" ? (
                                                             <>
-                                                                <option value="cbse">CBSE</option>
-                                                                <option value="icse">ICSE</option>
-                                                                <option value="up board">UP Board</option>
-                                                                <option value="punjab board">Punjab Board</option>
+                                                                <option value="CBSE">CBSE</option>
+                                                                <option value="ICSE">ICSE</option>
+                                                                <option value="UP Board">UP Board</option>
+                                                                <option value="Punjab Board">Punjab Board</option>
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <option value="university_1">University 1</option>
-                                                                <option value="university_2">University 2</option>
-                                                                <option value="university_3">University 3</option>
+                                                                <option value="University_1">University 1</option>
+                                                                <option value="University_2">University 2</option>
+                                                                <option value="University_3">University 3</option>
                                                             </>
                                                         )}
                                                     </select>

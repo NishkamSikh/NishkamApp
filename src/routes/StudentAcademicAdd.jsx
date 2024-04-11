@@ -201,7 +201,7 @@ const StudentAcademicAdd = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="class" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Class
+                                                Class*
                                             </label>
                                             <div className="mt-0">
                                                 <input
@@ -276,13 +276,13 @@ const StudentAcademicAdd = () => {
                                 </div>
                             </div>
                             <div className="mt-6 flex items-center justify-end gap-x-6">
-                                <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={!formData.studentcode || !formData.stuyear}
-                                    style={{ opacity: formData.studentcode && formData.stuyear ? 1 : 0.4 }}
+                                    style={{ opacity: formData.studentcode && formData.stuyear && formData.class? 1 : 0.4 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save
