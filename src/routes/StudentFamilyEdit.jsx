@@ -208,7 +208,8 @@ const StudentFamilyEdit = () => {
                                                         }`}
                                                 >
                                                     <option >Select Category</option>
-                                                    <option value="SC/ST">SC/ST</option>
+                                                    <option value="SC">SC</option>
+                                                    <option value="SCT">ST</option>
                                                     <option value="OBC">OBC</option>
                                                     <option value="General">General</option>
                                                 </select>
