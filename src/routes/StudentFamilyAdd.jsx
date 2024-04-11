@@ -173,9 +173,7 @@ const StudentFamilyAdd = () => {
                                                         }`}
                                                 >
                                                     <option >Select Category</option>
-                                                    <option value="Sikligar">Sikligar</option>
-                                                    <option value="Non-Sikligar">Non-Sikligar</option>
-                                                    <option value="SC">SC</option>
+                                                     <option value="SC">SC</option>
                                                     <option value="ST">ST</option>
                                                     <option value="OBC">OBC</option>
                                                     <option value="General">General</option>
