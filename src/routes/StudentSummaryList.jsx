@@ -40,7 +40,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width: "5rem",
+            width: "4rem",
             wrap: true,
         },
 
@@ -52,7 +52,7 @@ const StudentSummaryList = () => {
                            </div>),
             sortable: false,
             compact: true,
-            width: "5rem",
+            width: "4rem",
             wrap: true,
         },
 
@@ -63,7 +63,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"9rem",
+            width:"7rem",
             wrap: true,
         },
         {
@@ -73,7 +73,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"6rem",
+            width:"5rem",
             wrap: true,
         },
 
@@ -130,7 +130,19 @@ const StudentSummaryList = () => {
             width:"3rem",
             wrap: true,
         },
-       
+
+        {
+            name: '%',
+            selector: row => (<div>
+                {row.MarksPercentage}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"2rem",
+            wrap: true,
+        },        
+
+
         {
             name: 'Parents',
             selector: row => (<div>
