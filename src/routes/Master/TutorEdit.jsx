@@ -89,6 +89,9 @@ const TutorEdit = () => {
     const handleChange = (selectedOptions) => {
         setSelectedOptions(selectedOptions);
     };
+    const handleSubjectChange = (selectedOptions) => {
+        setSelectedSubjectOptions(selectedOptions);
+    };
 
     const uniqueschoollist = [
         ...new Set(sechoolData.map((item) => item.type)),
@@ -458,23 +461,10 @@ const TutorEdit = () => {
                                                     className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                                     isMulti={true}
                                                     value={selectedSubjectOptions}
-                                                    onChange={handleChange}
+                                                    onChange={handleSubjectChange}
                                                 />
 
-                                                {/* <input
-                                                    type="text"
-                                                    id="Subject"
-                                                    name="Subject"
-                                                    maxLength={25}
-                                                    value={
-                                                        formData.Subject ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).Subject
-                                                            : "No Data")
-                                                    }
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                /> */}
+                                               
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">

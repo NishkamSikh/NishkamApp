@@ -91,10 +91,10 @@ const StudentAddress = () => {
                 if (parsedData.length > 0) {
                     // Assuming the API response contains basti name, state, and city
                     const { BastiId, State, District, Tehsil } = parsedData[0];
-                    setSelectedBasti(BastiId);
-                    setStateValue(State);
-                    setDistrictValue(District);
-                    setTehsilValue(Tehsil);
+                    // setSelectedBasti(BastiId);
+                    // setStateValue(State);
+                    // setDistrictValue(District);
+                    // setTehsilValue(Tehsil);
                 }
 
             })
@@ -102,7 +102,7 @@ const StudentAddress = () => {
                 console.error('Error fetching basti data:', error);
             });
     };
-
+   
     const handleBastiChange = (event) => {
         const selectedBasti = event.target.value;
         setSelectedBasti(selectedBasti);
@@ -211,7 +211,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stubasti" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Basti*
+                                                Basti* {selectedBasti}
                                             </label>
                                             <div className="mt-0">
                                                 <select
@@ -222,7 +222,7 @@ const StudentAddress = () => {
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stubasti ? 'border-red-500' : ''
                                                         }`}
 
-                                                ><option >Select Basti</option>
+                                                ><option value="">Select Basti</option>
                                                     {options.map((option, index) => (
                                                         <option
                                                             key={index}
