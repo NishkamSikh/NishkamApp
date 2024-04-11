@@ -19,7 +19,7 @@ const StudentDetail = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-//              const response = await fetch(`https://nishkamapi.onrender.com/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
+                //              const response = await fetch(`https://nishkamapi.onrender.com/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
                 const response = await fetch(`https://nishkamapi.onrender.com/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
 
                 // Check if the response status is ok (200-299)
@@ -45,11 +45,20 @@ const StudentDetail = () => {
         <section className="mx-auto w-full max-w-3xl px-1 py-0">
             {/* <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0"> */}
             <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
+                <div>
+                    <Link to={`/StudentSummaryList`} className="text-grey-500 hover:text-indigo-600">
+                        <span className="inline-flex rounded-full px-2 py-1 text-medium font-semibold leading-15 text-red">
+                            Go Back
+                        </span>
+                    </Link>
+                </div>
+
                 <div class="p-2 bg-green-100 text-sm">
+
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
-                            <Link to={`/StudentProfileEdit?Id=${data.ProfileId}&flag=profile`} className="text-grey-500 hover:text-indigo-600">
+                                <Link to={`/StudentProfileEdit?Id=${data.ProfileId}&flag=profile`} className="text-grey-500 hover:text-indigo-600">
                                     <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                         Edit-Profile data
                                     </span>
@@ -61,37 +70,36 @@ const StudentDetail = () => {
                             <p><b>Join Dt:</b> {data.joindate} <b>Status:</b> {data.status}</p>
                             <p><b>Religion:</b> {data.religion} <b>Sikligar:</b> {data.sikligar}</p>
                             <p><b>Contact#:</b> {data.contact1} <b>Ref By:</b> {data.refby}</p>
-                            <p><b>Assistance:</b> {data.assistance}      <b>Category:</b> {data.category}</p>
+                            <p><b>Assistance:</b> {data.assistance}   <b>Category:</b> {data.category}</p>
                         </div>
                     ))}
                 </div>
+            </div>
 
-                <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
-                    <div class="p-2 bg-yellow-100  text-sm" >
-                        {StudentData.map((data, index) => (
-                            <div>
+            <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
+                <div class="p-2 bg-orange-100 text-sm">
+                    {StudentData.map((data, index) => (
+                        <div>
 
-                                <p>
-                                    <Link to={`/StudentAddressEdit?Id=${data.AddressId}&flag=address&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
-                                        <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                            Edit-Address data
-                                        </span>
-                                    </Link>
-                                </p>
+                            <p>
+                                <Link to={`/StudentAddressEdit?Id=${data.AddressId}&flag=address&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                        Edit-Address data
+                                    </span>
+                                </Link>
+                            </p>
 
-                                <p><b>AddressId:</b> {data.AddressId} </p>
-                                <p><b>State:</b> {data.stustate} <b>District:</b> {data.studistrict}</p>
-                                <p><b>Tehsil:</b> {data.stutehsil} <b>Basti:</b> {data.ad_bastiname}</p>
-                                <p><b>Address:</b> {data.stuaddress}</p>
-                                <p><b>Village:</b> {data.stuvillage} <b>PIN:</b>{data.stupin}</p>
-                            </div>
-                        ))}
-                    </div>
+                            <p><b>AddressId:</b> {data.AddressId} </p>
+                            <p><b>State:</b> {data.stustate} <b>District:</b> {data.studistrict}</p>
+                            <p><b>Tehsil:</b> {data.stutehsil} <b>Basti:</b> {data.ad_bastiname}</p>
+                            <p><b>Address:</b> {data.stuaddress}</p>
+                            <p><b>Village:</b> {data.stuvillage} <b>PIN:</b>{data.stupin}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-
-            <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
+            <div className="space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
                 <div class="p-2 bg-teal-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
@@ -115,7 +123,9 @@ const StudentDetail = () => {
                     ))}
 
                 </div>
+            </div>
 
+            <div className="space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
                 <div class="p-2 bg-indigo-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
@@ -145,7 +155,7 @@ const StudentDetail = () => {
                                         Edit-Academic data
                                     </span>
                                 </Link>
-                            </p>                             
+                            </p>
                             <p><b>AcademicId:</b> {data.AcademicId} </p>
                             <p><b>Admission#:</b> {data.admissionnumber} <b>Roll#:</b> {data.rollnumber}</p>
                             <p><b>Class:</b> {data.class} <b>Section:</b> {data.section}</p>
@@ -154,6 +164,30 @@ const StudentDetail = () => {
                     ))}
                 </div>
             </div>
+
+            <div className="space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 mt-2">
+                <div class="p-2 bg-orange-100  text-sm">
+                    {StudentData.map((data, index) => (
+                        <div>
+                            <p>
+                                <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                        Edit-ReportCard data
+                                    </span>
+                                </Link>
+                            </p>
+                            <p><b>ReportCardId:</b> {data.AcademicId} </p>
+                            <p><b>Result:</b> {data.Result}</p>
+                            <p><b>Marks Obtained:</b> {data.MarksObtained}</p>
+                            <p><b>Marks Total:</b> {data.MarksTotal}</p>
+                            <p><b>Marks %:</b> {data.MarksPercentage}</p>
+
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+
         </section>
     )
 }

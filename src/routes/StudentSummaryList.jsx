@@ -87,6 +87,16 @@ const StudentSummaryList = () => {
             width:"3rem",
             wrap: true,
         },
+        {
+            name: '%',
+            selector: row => (<div>
+                {row.MarksPercentage}
+            </div>),
+            sortable: false,
+            compact: true,
+            width:"2rem",
+            wrap: true,
+        },    
 
         {
             name: 'Gender',
@@ -132,25 +142,13 @@ const StudentSummaryList = () => {
         },
 
         {
-            name: '%',
-            selector: row => (<div>
-                {row.MarksPercentage}
-            </div>),
-            sortable: false,
-            compact: true,
-            width:"2rem",
-            wrap: true,
-        },        
-
-
-        {
             name: 'Parents',
             selector: row => (<div>
                 {row.Parents}
             </div>),
             sortable: false,
             compact: true,
-            width:"10rem",
+            width:"11rem",
             wrap: true,
         },
      
