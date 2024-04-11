@@ -184,7 +184,7 @@ const StudentInstitutionEdit = () => {
     setloading(true);
 
     try {
-        console.log(formData, searchParams.get('Id'), "before");
+        //console.log(formData, searchParams.get('Id'), "before");
 
         const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
             method: "PUT", // Assuming you are using PUT for updating

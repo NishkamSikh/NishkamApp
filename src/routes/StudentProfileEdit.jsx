@@ -69,8 +69,6 @@ const StudentProfileEdit = () => {
 
       const data = await response.json();
 
-
-
       // Initialize fetchData with the expected structure
       console.log(data, "Data ============")
       if (data.data.length > 0) {
@@ -93,20 +91,20 @@ const StudentProfileEdit = () => {
   const handleSubmit = async (e) => {
     console.log(fetchDataId, "fetchDataId :Handle Start");
     e.preventDefault();
-    const { StudentCode, StudentId, AcademicYear, CatgCode, StudentLabel, ...formDataWithoutCodeYear } = formData;
-
+    const { StudentCode, StudentId, AcademicYear, CatgCode, StudentLabel, ProfileId, ...formDataWithoutCodeYear } = formData;
+    console.log( "lskdl;skd;lskldks;ldsd=", JSON.stringify(formDataWithoutCodeYear));
     // Check if any select is not selected
     const errorsObj = {};
 
     setloading(true);
 
     try {
-      console.log(formData, "sdd");
       const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
         method: "PUT", // Assuming you are using PUT for updating
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify({
 
           data: JSON.stringify(formDataWithoutCodeYear),
@@ -120,9 +118,8 @@ const StudentProfileEdit = () => {
       if(searchParams.get('flag') == "profile"){
         navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('Id'))}`)
       }else {
-      navigate('/StudentInstitutionList')
+      navigate('/StudentProfileList')
     }
-
 
       setloading(false);
       // navigate('/studentProfileList')
