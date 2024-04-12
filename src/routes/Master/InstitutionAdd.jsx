@@ -204,9 +204,7 @@ const AddInstitution = () => {
                                                 >
                                                     <option>Select Institution Category</option>
                                                     <option value="Public">Public</option>
-                                                    <option value="Govt" >Govt</option>
-                                                    <option value="Semi Pvt">Semi Pvt</option>
-                                                    <option value="Other">Other</option>
+                                                    <option value="Private" >Private</option>
                                                 </select>
                                             </div>
                                         </div>

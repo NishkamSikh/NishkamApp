@@ -204,10 +204,7 @@ const StudentSummaryList = () => {
                 row.Name.toLowerCase().includes(inputValue) ||
                 row.Parents.toLowerCase().includes(inputValue) ||
                 row.StudentCode.toLowerCase().includes(inputValue)
-                // Add more fields here as needed, separated by ||
-                // row.field.toLowerCase().includes(inputValue) ||
-                // row.anotherField.toLowerCase().includes(inputValue) ||
-                // ...
+               
             );
             setFilteredData(newData);
         }

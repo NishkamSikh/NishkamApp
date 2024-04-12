@@ -12,6 +12,7 @@ const StudentFamilyAdd = () => {
     const [family2getdata, setfamily2getdata] = useState([]);
 
     const [loading, setloading] = useState(false);
+    const [AnyAssi, setAnyAssi] = useState([]);
     const [formData, setFormData] = useState({
         studentcode: "",
         stuyear: "",
@@ -36,6 +37,26 @@ const StudentFamilyAdd = () => {
         Guardian_Aadhar_No: "",
         Guardian_Mobile_No: ""
     })
+
+    const anyAssistance = [
+        {
+            id: "1",
+            option: "Medical",
+        },
+        {
+            id: "2",
+            option: "Pension",
+        },
+        {
+            id: "3",
+            option: "Other",
+        },
+        {
+            id: "3",
+            option: "None",
+        }
+
+    ];
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -111,6 +132,9 @@ const StudentFamilyAdd = () => {
         setloading(false);
         navigate('/');
     }
+    const handleAnyAssi = (selectedOptions) => {
+        setAnyAssi(selectedOptions);
+    };
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
@@ -186,7 +210,22 @@ const StudentFamilyAdd = () => {
                                                 Any Assistance
                                             </label>
                                             <div className="mt-0">
-                                                <select
+{console.log(anyAssistance, "anyAssistance")}
+<Select
+                                                    options={anyAssistance.map((student) => ({
+                                                        value: student.option,
+                                                        label: student.option,
+                                                    }))}
+                                                    id="Subject"
+                                                    name="Subject"
+                                                    className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                    isMulti={true}
+                                                    value={AnyAssi}
+                                                    onChange={handleAnyAssi}
+                                                />
+
+
+                                                {/* <select
                                                     id="Assistance"
                                                     name="Assistance"
                                                     value={formData['Assistance']}
@@ -199,7 +238,7 @@ const StudentFamilyAdd = () => {
                                                     <option value="Pension">Pension</option>
                                                     <option value="Other">Other</option>
                                                     <option value="None">None</option>
-                                                </select>
+                                                </select> */}
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3"></div>

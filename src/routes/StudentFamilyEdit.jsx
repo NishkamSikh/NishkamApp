@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom'
+import Select from 'react-select';
 
 const StudentFamilyEdit = () => {
     const [userID, setUserId] = useState('')
@@ -13,6 +14,7 @@ const StudentFamilyEdit = () => {
     const [fetchData, setfetchData] = useState({ data: { data: [] } });
     const [fetchDataId, setfetchDataId] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const [AnyAssi, setAnyAssi] = useState([]);
 
     const [loading, setloading] = useState(false);
     const [formData, setFormData] = useState({
@@ -40,6 +42,25 @@ const StudentFamilyEdit = () => {
         Guardian_Aadhar_No: "",
         Guardian_Mobile_No: ""
     })
+    const anyAssistance = [
+        {
+            id: "1",
+            option: "Medical",
+        },
+        {
+            id: "2",
+            option: "Pension",
+        },
+        {
+            id: "3",
+            option: "Other",
+        },
+        {
+            id: "3",
+            option: "None",
+        }
+
+    ];
     const { studentCode, year, catgcode } = useParams();
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -92,6 +113,9 @@ const StudentFamilyEdit = () => {
         } finally {
             setloading(false);
         }
+    };
+    const handleAnyAssi = (selectedOptions) => {
+        setAnyAssi(selectedOptions);
     };
 
     const handleSubmit = async (e) => {
@@ -220,7 +244,20 @@ const StudentFamilyEdit = () => {
                                                 Any Assisstance
                                             </label>
                                             <div className="mt-1">
-                                                <select
+                                            <Select
+                                                    options={anyAssistance && anyAssistance.map((student) => ({
+                                                        value: student.option,
+                                                        label: student.option,
+                                                    }))}
+                                                    id="Assistance"
+                                                    name="Assistance"
+                                                    className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                    isMulti={true}
+                                                    value={AnyAssi}
+                                                    onChange={handleAnyAssi}
+                                                />
+
+                                                {/* <select
                                                     id="Assistance"
                                                     name="Assistance"
                                                     defaultValue={
@@ -239,7 +276,7 @@ const StudentFamilyEdit = () => {
                                                     <option value="Pension">Pension</option>
                                                     <option value="Other">Other</option>
                                                     <option value="None">None</option>
-                                                </select>
+                                                </select> */}
                                             </div>
                                         </div>
 
