@@ -64,6 +64,7 @@ import StudentDocsAdd from "./routes/StudentDocsAdd";
 import StudentDocsList from "./routes/StudentDocsList";
 import StudentDocsEdit from "./routes/StudentDocsEdit";
 
+import ProgressReport from "./routes/Reports/ProgressReport";
 
 
 const router = createBrowserRouter([
@@ -256,6 +257,13 @@ const router = createBrowserRouter([
         path: "StudentSummaryDetail",
         element: <StudentSummaryDetail />,
       },
+
+      {
+        path: "ProgressReport",
+        element: <ProgressReport />,
+      },
+      
+
 
 
     ],

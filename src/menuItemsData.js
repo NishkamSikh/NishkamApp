@@ -2,11 +2,15 @@ export const menuItemsData = [
   {
     title: "Home",
     url: "/",
+    
   },
   // {
   //   title: "Dashboard",
   //   url: "Dashboard",
   // },
+
+  
+  
 
   {
     title: "Student Data",
@@ -218,6 +222,10 @@ export const menuItemsData = [
       {
         title: "Student Summary",
         url: "StudentSummaryList",
+      },
+      {
+        title: "Progress Report",
+        url: "ProgressReport",
       },
     ]
   },
