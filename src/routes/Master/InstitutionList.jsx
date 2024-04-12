@@ -141,15 +141,12 @@ const ListInstitution = () => {
         if (inputValue === '') {
             setFilteredData(instData);
         } else {
+
+           
             const newData = instData.filter(row =>
                 row.IN_InstitutionName.toLowerCase().includes(inputValue) ||
                 row.IN_InstitutionType.toLowerCase().includes(inputValue)
-                // row.MiddleName.toLowerCase().includes(inputValue)
-                // Add more fields here as needed, separated by ||
-                // row.field.toLowerCase().includes(inputValue) ||
-                // row.anotherField.toLowerCase().includes(inputValue) ||
-                // ...
-            );
+                            );
             setFilteredData(newData);
         }
     };

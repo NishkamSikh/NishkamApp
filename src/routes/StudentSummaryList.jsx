@@ -196,14 +196,18 @@ const StudentSummaryList = () => {
         fetchData()
     }, []);
     const handleFilter = (event) => {
+        console.log(StudentData, "StudentData =====dsdsdd");
         const inputValue = event.target.value.toLowerCase();
         if (inputValue === '') {
             setFilteredData(StudentData);
+            console.log(StudentData, "StudentData ===== if");
         } else {
+            console.log(StudentData, "StudentData ===== else");
+            
             const newData = StudentData.filter(row =>
-                row.Name.toLowerCase().includes(inputValue) ||
-                row.Parents.toLowerCase().includes(inputValue) ||
-                row.StudentCode.toLowerCase().includes(inputValue)
+                (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
+                (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
+                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))
                
             );
             setFilteredData(newData);
