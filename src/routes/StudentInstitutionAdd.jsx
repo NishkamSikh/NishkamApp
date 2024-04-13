@@ -260,7 +260,7 @@ const StudentInstitutionAdd = () => {
                                             </div>
                                         </div>
 
-                                        {institutionType && (
+        {/*                                 {institutionType && (
                                             <div className="sm:col-span-3">
                                                 <label htmlFor="Board" className="block text-sm font-medium leading-6 text-gray-900">
                                                     {institutionType === "School" ? "Board" : "University"}
@@ -290,7 +290,8 @@ const StudentInstitutionAdd = () => {
                                                     </select>
                                                 </div>
                                             </div>
-                                        )}
+                                        )} */}
+
                                     </div>
                                 </div>
                             </div>

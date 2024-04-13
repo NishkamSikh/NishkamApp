@@ -197,7 +197,7 @@ const StudentFamilyAdd = () => {
                                                         }`}
                                                 >
                                                     <option >Select Category</option>
-                                                     <option value="SC">SC</option>
+                                                    <option value="SC">SC</option>
                                                     <option value="ST">ST</option>
                                                     <option value="OBC">OBC</option>
                                                     <option value="General">General</option>
@@ -210,8 +210,8 @@ const StudentFamilyAdd = () => {
                                                 Any Assistance
                                             </label>
                                             <div className="mt-0">
-{console.log(anyAssistance, "anyAssistance")}
-<Select
+                                                {console.log(anyAssistance, "anyAssistance")}
+                                                <Select
                                                     options={anyAssistance.map((student) => ({
                                                         value: student.option,
                                                         label: student.option,
@@ -316,8 +316,8 @@ const StudentFamilyAdd = () => {
                                                             type="number"
                                                             name='F_Gross_Income'
                                                             defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Gross_Income != null && family2getdata[0].F_Gross_Income != undefined ? family2getdata[0].F_Gross_Income : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Gross_Income"
-                                                            placeholder='Father Gross Income (10)'
-                                                            maxLength={10}
+                                                            placeholder='Father Gross Income (6)'
+                                                            maxLength={6}
                                                             aria-describedby="F_Gross_Income" />
                                                     </div>
                                                 </div>
@@ -430,9 +430,9 @@ const StudentFamilyAdd = () => {
                                                         <input
                                                             value={formData['M_Gross_Income']}
                                                             onChange={handleInputChange} type="number" name='M_Gross_Income'
-                                                            maxLength={10}
+                                                            maxLength={6}
                                                             //  defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Gross_Income != null && family2getdata[0].M_Gross_Income != undefined ? family2getdata[0].M_Gross_Income : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income (10)' aria-describedby="M_Gross_Income" />
+                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income (6)' aria-describedby="M_Gross_Income" />
                                                     </div>
                                                 </div>
                                                 <div className="mt-0">
@@ -454,7 +454,10 @@ const StudentFamilyAdd = () => {
                                                         <label htmlFor="M_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Mobile Number
                                                         </label>
-                                                        <input value={formData['M_Mobile_No']}
+                                                        <input 
+                                                            type="number"
+                                                            maxLength={10}
+                                                            value={formData['M_Mobile_No']}
                                                             onChange={handleInputChange} type="number" name='M_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Mobile_No != null && family2getdata[0].M_Mobile_No != undefined ? family2getdata[0].M_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Mobile_No" placeholder='Mother &#9742; (10)' aria-describedby="M_Mobile_No" />
                                                     </div>
                                                 </div>
@@ -466,129 +469,132 @@ const StudentFamilyAdd = () => {
                                                 For Guardian
                                             </p>
 
+                                            <div className="mt-0 flex flex-col">
+                                                <div className="row">
+                                                    <div className="mt-0">
+                                                        <div className="">
+                                                            <label htmlFor="Guardian_Name" className="block text-sm font-medium leading-6 text-gray-900">
+                                                                Guardian Name
+                                                            </label>
 
-                                            <div className="row">
-                                                <div className="mt-0">
-                                                    <div className="">
-                                                        <label htmlFor="Guardian_Name" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Guardian Name
-                                                        </label>
+                                                            <input
+                                                                value={formData['Guardian_Name']}
+                                                                type="text"
+                                                                name='Guardian_Name'
+                                                                onChange={handleInputChange}
+                                                                //  defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Name != null && family2getdata[0].Guardian_Name != undefined ? family2getdata[0].Guardian_Name : "" : ""} 
+                                                                className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                                id="form-control"
+                                                                maxLength={25}
+                                                                placeholder='Guardian Name (25)'
+                                                                aria-describedby="Guardian_Name" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-0">
+                                                        <div className="">
+                                                            <label htmlFor="Guardian_Education" className="block text-sm font-medium leading-6 text-gray-900">
+                                                                Guardian Education
+                                                            </label>
 
-                                                        <input
-                                                            value={formData['Guardian_Name']}
-                                                            type="text"
-                                                            name='Guardian_Name'
-                                                            onChange={handleInputChange}
-                                                            //  defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Name != null && family2getdata[0].Guardian_Name != undefined ? family2getdata[0].Guardian_Name : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                                                            id="form-control"
-                                                            maxLength={25}
-                                                            placeholder='Guardian Name (25)'
-                                                            aria-describedby="Guardian_Name" />
+                                                            <input
+                                                                value={formData['Guardian_Education']}
+                                                                type="text"
+                                                                name='Guardian_Education'
+                                                                onChange={handleInputChange}
+                                                                //  defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Education != null && family2getdata[0].Guardian_Education != undefined ? family2getdata[0].Guardian_Education : "" : ""} 
+                                                                className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                                id="form-control"
+                                                                maxLength={25}
+                                                                placeholder='Guardian Education (25)'
+                                                                aria-describedby="Guardian_Education" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-0">
+                                                        <div className="">
+                                                            <label htmlFor="Guardian_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
+                                                                Guardian Occupation
+                                                            </label>
+
+                                                            <input
+                                                                value={formData['Guardian_Occupation']}
+                                                                type="text"
+                                                                name='Guardian_Occupation'
+                                                                maxLength={25}
+                                                                onChange={handleInputChange}
+                                                                //  defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Occupation != null && family2getdata[0].Guardian_Occupation != undefined ? family2getdata[0].Guardian_Occupation : "" : ""} 
+                                                                className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                                id="Guardian_Occupation"
+                                                                placeholder='Guardian Occupation (25)'
+                                                                aria-describedby="Guardian_Occupation"
+
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-0">
+                                                        <div className="">
+                                                            <label htmlFor="Guardian_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
+                                                                Guardian Gross Income (per year)
+                                                            </label>
+                                                            <label for="Guardian_Gross_Income" className="form-label"></label>
+                                                            <input
+                                                                type="number"
+                                                                value={formData['Guardian_Gross_Income']}
+                                                                onChange={handleInputChange}
+                                                                name='Guardian_Gross_Income'
+                                                                maxlength={6}
+                                                                // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Gross_Income != null && family2getdata[0].Guardian_Gross_Income != undefined ? family2getdata[0].Guardian_Gross_Income : "" : ""} 
+                                                                className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Gross_Income" placeholder='Guardian Gross Income (6)' aria-describedby="Gross_Income" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-0">
+                                                        <div className="">
+                                                            <label htmlFor="Guardian_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
+                                                                Guardian Aadhar Card Number
+                                                            </label>
+                                                            <input value={formData['Guardian_Aadhar_No']}
+                                                                type="number" name='Guardian_Aadhar_No'
+                                                                onChange={handleInputChange}
+                                                                // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Aadhar_No != null && family2getdata[0].Guardian_Aadhar_No != undefined ? family2getdata[0].Guardian_Aadhar_No : "" : ""}
+                                                                className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                                id="Guardian_Aadhar_No"
+                                                                placeholder='Guardian Aadhar Card Number (15)'
+                                                                aria-describedby="Guardian_Aadhar_No" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="mt-0">
+                                                        <div className="">
+                                                            <label htmlFor="Guardian_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
+                                                                Guardian Mobile Number
+                                                            </label>
+                                                            <input
+                                                                value={formData['Guardian_Mobile_No']}
+                                                                type="number"
+                                                                onChange={handleInputChange}
+                                                                name='Guardian_Mobile_No'
+                                                                // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Mobile_No != null && family2getdata[0].Guardian_Mobile_No != undefined ? family2getdata[0].Guardian_Mobile_No : "" : ""}
+                                                                className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                                id="Guardian_Mobile_No."
+                                                                maxlength={10}
+                                                                placeholder='Guardian &#9742; (10)'
+                                                                aria-describedby="Guardian_Mobile_No." />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="mt-0">
-                                                    <div className="">
-                                                        <label htmlFor="Guardian_Education" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Guardian Education
-                                                        </label>
 
-                                                        <input
-                                                            value={formData['Guardian_Education']}
-                                                            type="text"
-                                                            name='Guardian_Education'
-                                                            onChange={handleInputChange}
-                                                            //  defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Education != null && family2getdata[0].Guardian_Education != undefined ? family2getdata[0].Guardian_Education : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                                                            id="form-control"
-                                                            maxLength={25}
-                                                            placeholder='Guardian Education (25)'
-                                                            aria-describedby="Guardian_Education" />
-                                                    </div>
-                                                </div>
-                                                <div className="mt-0">
-                                                    <div className="">
-                                                        <label htmlFor="Guardian_Occupation" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Guardian Occupation
-                                                        </label>
-
-                                                        <input
-                                                            value={formData['Guardian_Occupation']}
-                                                            type="text"
-                                                            name='Guardian_Occupation'
-                                                            maxLength={25}
-                                                            onChange={handleInputChange}
-                                                            //  defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Occupation != null && family2getdata[0].Guardian_Occupation != undefined ? family2getdata[0].Guardian_Occupation : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                                                            id="Guardian_Occupation"
-                                                            placeholder='Guardian Occupation (25)'
-                                                            aria-describedby="Guardian_Occupation"
-
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="mt-0">
-                                                    <div className="">
-                                                        <label htmlFor="Guardian_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Guardian Gross Income (per year)
-                                                        </label>
-                                                        <label for="Guardian_Gross_Income" className="form-label"></label>
-                                                        <input
-                                                            type="number"
-                                                            value={formData['Guardian_Gross_Income']}
-                                                            onChange={handleInputChange}
-                                                            name='Guardian_Gross_Income'
-                                                            maxlength={10}
-                                                            // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Gross_Income != null && family2getdata[0].Guardian_Gross_Income != undefined ? family2getdata[0].Guardian_Gross_Income : "" : ""} 
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="Gross_Income" placeholder='Guardian Gross Income (10)' aria-describedby="Gross_Income" />
-                                                    </div>
-                                                </div>
-                                                <div className="mt-0">
-                                                    <div className="">
-                                                        <label htmlFor="Guardian_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Guardian Aadhar Card Number
-                                                        </label>
-                                                        <input value={formData['Guardian_Aadhar_No']}
-                                                            type="number" name='Guardian_Aadhar_No'
-                                                            onChange={handleInputChange}
-                                                            // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Aadhar_No != null && family2getdata[0].Guardian_Aadhar_No != undefined ? family2getdata[0].Guardian_Aadhar_No : "" : ""}
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                                                            id="Guardian_Aadhar_No"
-                                                            placeholder='Guardian Aadhar Card Number (15)'
-                                                            aria-describedby="Guardian_Aadhar_No" />
-                                                    </div>
-                                                </div>
-
-                                                <div className="mt-0">
-                                                    <div className="">
-                                                        <label htmlFor="Guardian_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
-                                                            Guardian Mobile Number
-                                                        </label>
-                                                        <input
-                                                            value={formData['Guardian_Mobile_No']}
-                                                            type="number"
-                                                            onChange={handleInputChange}
-                                                            name='Guardian_Mobile_No'
-                                                            // defaultValue={family2getdata.length > 0 ? family2getdata[0].Guardian_Mobile_No != null && family2getdata[0].Guardian_Mobile_No != undefined ? family2getdata[0].Guardian_Mobile_No : "" : ""}
-                                                            className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                                                            id="Guardian_Mobile_No."
-                                                            maxlength={10}
-                                                            placeholder='Guardian &#9742; (10)'
-                                                            aria-describedby="Guardian_Mobile_No." />
-                                                    </div>
-                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-6 flex items-center justify-end gap-x-6">
+                            <div className="mt-1 flex items-center justify-end gap-x-6">
                                 <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
-                                    disabled={!formData.studentcode || !formData.stuyear}
+                                    disabled={!formData.studentcode || !formData.stuyear ||!formData.Father_Name}
                                     style={{ opacity: formData.studentcode && formData.stuyear && formData.category && formData.Father_Name ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >

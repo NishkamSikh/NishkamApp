@@ -92,7 +92,7 @@ header {
     0 4px 6px -2px rgba(71, 63, 79, 0.16);
   font-size: 0.875rem;
   z-index: 9999;
-  min-width: 10rem;
+  min-width: 12rem;
   padding: 0.5rem 0;
   list-style: none;
   background-color: #fff;
@@ -235,9 +235,9 @@ header {
   }
 }
 
-/* page content */
+/* page content  updated on Apr12*/ 
 .content {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 1rem 20px;
 }

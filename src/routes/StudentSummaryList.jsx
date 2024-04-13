@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
+//import { useReactToPrint } from "react-to-print";
+//import { useDownloadExcel} from 'react-export-table-to-excel';
+
 
 const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([])
 
-    const columns = [
-      
+   const columns = [
+
         {
-            name: '',
+            name: <strong>Id</strong>,
             selector: row => (<div>
-                {row.ProfileId}
+                <h3>{row.ProfileId}</h3>
             </div>),
             width: "4rem",
             sortable: false,
-            compact: true,
-            center: true,
             wrap: true,
         },
-        
+
         {
-            name: '',
+            name: 'Name',
             selector: row => (<div>
                 <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
@@ -36,7 +37,7 @@ const StudentSummaryList = () => {
         {
             name: 'Code',
             selector: row => (<div>
-                {row.StudentCode} 
+                {row.StudentCode}
             </div>),
             sortable: false,
             compact: true,
@@ -48,11 +49,11 @@ const StudentSummaryList = () => {
             name: 'Year',
             selector: row => (<div>
                 {row.AcademicYear}
-                
-                           </div>),
+
+            </div>),
             sortable: false,
             compact: true,
-            width: "4rem",
+            width: "5rem",
             wrap: true,
         },
 
@@ -63,7 +64,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"7rem",
+            width: "9rem",
             wrap: true,
         },
         {
@@ -73,7 +74,17 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"5rem",
+            width: "7rem",
+            wrap: true,
+        },
+        {
+            name: 'Join Date',
+            selector: row => (<div>
+                {row.joindate}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "7rem",
             wrap: true,
         },
 
@@ -84,9 +95,20 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"3rem",
+            width: "3rem",
             wrap: true,
         },
+        {
+            name: 'Result',
+            selector: row => (<div>
+                {row.result}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
         {
             name: '%',
             selector: row => (<div>
@@ -94,9 +116,9 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"2rem",
+            width: "3rem",
             wrap: true,
-        },    
+        },
 
         {
             name: 'Gender',
@@ -105,7 +127,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"4rem",
+            width: "4rem",
             wrap: true,
         },
 
@@ -116,7 +138,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"4rem",
+            width: "4rem",
             wrap: true,
         },
 
@@ -127,7 +149,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"4rem",
+            width: "4rem",
             wrap: true,
         },
         {
@@ -137,7 +159,7 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"3rem",
+            width: "3rem",
             wrap: true,
         },
 
@@ -148,22 +170,44 @@ const StudentSummaryList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width:"11rem",
+            width: "11rem",
             wrap: true,
         },
-     
+
         {
-            name: 'State',
+            name: 'State, District,Basti',
             selector: row => (<div>
                 {row.State}
+            </div>),
+            sortable: false,
+            width: "15rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name: 'Institution',
+            selector: row => (<div>
+                {row.in_institutionname}
             </div>),
             sortable: false,
             compact: true,
             wrap: true,
         },
-    
 
     ];
+
+    const tableHeaderstyle = {
+        headCells: {
+            style: {
+                fontWeight: "bold",
+                fontSize: "14px",
+                backgroundColor: "#ddd"
+
+            },
+        },
+    }
+
 
     const [filteredData, setFilteredData] = useState(StudentData);
     const navigate = useNavigate();
@@ -176,7 +220,7 @@ const StudentSummaryList = () => {
             try {
                 // Make API request using fetch
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
-   
+
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -184,7 +228,7 @@ const StudentSummaryList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log("result=" , result);
+                console.log("result=", result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -203,22 +247,46 @@ const StudentSummaryList = () => {
             console.log(StudentData, "StudentData ===== if");
         } else {
             console.log(StudentData, "StudentData ===== else");
-            
+
             const newData = StudentData.filter(row =>
                 (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
                 (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
                 (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))
-               
+
             );
             setFilteredData(newData);
         }
     };
+
+
+    //const componentPDF = useRef();
+    //const tableref=useRef(null)
+
+    // const generatePDF = useReactToPrint({
+    //     content: () => componentPDF.current,
+    //     documentTitle: "StudentSummary",
+    //     onAfterPrint: () => alert("Data saved in PDF")
+
+    // });
+
+    // const {onDownload} =useDownloadExcel({
+    //     currentTableRef:tableref.current,
+    //     filename:"StudentSummary",
+    //     sheet:"ksjks"
+    // })
+
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-1">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
                     <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
                 </div>
+{/*                 <div>
+                    <button className="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100" onClick={generatePDF}>Export to PDF</button>
+                    <button className="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100" onClick={onDownload}>Download</button>
+                </div> */}
+
+
             </div>
             <div className="mt-1 flex flex-col">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -231,16 +299,25 @@ const StudentSummaryList = () => {
                                             placeholder='Search'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
+
                                 </div>
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                responsive
-                                keyField="id"
-                                className="custom-table "
-                            />
+
+                            <div /*ref={tableref} style={{ width: '100%' }}*/>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    customStyles={tableHeaderstyle}
+                                    //selectableRows
+                                    pagination
+                                    //paginationRowsPerPageOptions={[20, 50, 100, 2500]}
+                                    fixedHeader
+                                    responsive
+                                    highlightOnHover
+                                    className="custom-table "
+                                />
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -34,8 +34,6 @@ const StudentInstitutionList = () => {
             selector: row => (<div>
                 <b>Code:</b> {row.StudentCode} - {row.AcademicYear}<br />
                 <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName} <br />
-                <b>DOB:</b> {row.DOB} <br />
-
             </div>),
             sortable: false,
             compact: true,
@@ -45,7 +43,6 @@ const StudentInstitutionList = () => {
         {
             selector: row => (<div>
                 <b>Institute Name:</b> {row.IN_InstitutionName}<br />
-                <b>Board:</b> {row.boardoruniversity}<br />
                 <b>Type:</b> {row.institutiontype}<br />
             </div>),
             sortable: false,
