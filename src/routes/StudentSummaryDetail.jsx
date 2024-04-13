@@ -47,19 +47,19 @@ const StudentDetail = () => {
             <div className="space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
                     <Link to={`/StudentSummaryList`} className="text-grey-500 hover:text-indigo-600">
-                        <span className="inline-flex rounded-full px-2 py-1 text-medium font-semibold leading-15 text-red">
+                        <span className="inline-flex rounded-full bg-blue-200 px-2 py-1  text-medium font-semibold leading-15 text-white mt-1 mb-2">
                             Go Back
                         </span>
                     </Link>
                 </div>
 
-                <div class="p-2 bg-green-100 text-sm">
+                <div className="p-1 bg-green-100 text-sm">
 
                     {StudentData.map((data, index) => (
                         <div>
                             <p>
                                 <Link to={`/StudentProfileEdit?Id=${data.ProfileId}&flag=profile`} className="text-grey-500 hover:text-indigo-600">
-                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white mb-1">
                                         Edit-Profile data
                                     </span>
                                 </Link>
@@ -80,14 +80,17 @@ const StudentDetail = () => {
                 <div class="p-2 bg-orange-100 text-sm">
                     {StudentData.map((data, index) => (
                         <div>
-
-                            <p>
-                                <Link to={`/StudentAddressEdit?Id=${data.AddressId}&flag=address&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
-                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit-Address data
-                                    </span>
-                                </Link>
-                            </p>
+                            {data.AddressId > 0 ? (
+                                <p>
+                                    <Link to={`/StudentAddressEdit?Id=${data.AddressId}&flag=address&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                        <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                            Edit-Address data
+                                        </span>
+                                    </Link>
+                                </p>
+                            )
+                                : (<p></p>)
+                            }
 
                             <p><b>AddressId:</b> {data.AddressId} </p>
                             <p><b>State:</b> {data.stustate} <b>District:</b> {data.studistrict}</p>
@@ -103,13 +106,17 @@ const StudentDetail = () => {
                 <div class="p-2 bg-teal-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
-                            <p>
-                                <Link to={`/StudentFamilyEdit?Id=${data.FamilyId}&flag=family&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
-                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit-Family data
-                                    </span>
-                                </Link>
-                            </p>
+                            {data.FamilyId > 0 ? (
+                                <p>
+                                    <Link to={`/StudentFamilyEdit?Id=${data.FamilyId}&flag=family&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                        <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                            Edit-Family data
+                                        </span>
+                                    </Link>
+                                </p>
+                            )
+                                : (<p></p>)
+                            }
                             <p><b>FamilyId:</b> {data.FamilyId} </p>
                             <p><b>Parents:</b> {data.Father_Name} {data.Mother_Name}</p>
                             <p><b>F-Education</b>: {data.Father_Education} <b>Occupation:</b> {data.Father_Occupation} <b>Grs.Income:</b> {data.F_Gross_Income}</p>
@@ -129,13 +136,17 @@ const StudentDetail = () => {
                 <div class="p-2 bg-indigo-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
-                            <p>
-                                <Link to={`/StudentInstitutionEdit?Id=${data.InstitutionId}&flag=institution&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
-                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit-Institution data
-                                    </span>
-                                </Link>
-                            </p>
+                            {data.InstitutionId > 0 ? (
+                                <p>
+                                    <Link to={`/StudentInstitutionEdit?Id=${data.InstitutionId}&flag=institution&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                        <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                            Edit-Institution data
+                                        </span>
+                                    </Link>
+                                </p>
+                            )
+                                : (<p></p>)
+                            }
                             <p><b>InstitutionId:</b> {data.InstitutionId} </p>
                             <p><b>INST type:</b> {data.in_institutiontype}</p>
                             <p><b>INST Name:</b> {data.in_institutionname}</p>
@@ -149,13 +160,17 @@ const StudentDetail = () => {
                 <div class="p-2 bg-pink-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
-                            <p>
-                                <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
-                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit-Academic data
-                                    </span>
-                                </Link>
-                            </p>
+                            {data.AcademicId > 0 ? (
+                                <p>
+                                    <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                        <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                            Edit-Academic data
+                                        </span>
+                                    </Link>
+                                </p>
+                            )
+                                : (<p></p>)
+                            }
                             <p><b>AcademicId:</b> {data.AcademicId} </p>
                             <p><b>Admission#:</b> {data.admissionnumber} <b>Roll#:</b> {data.rollnumber}</p>
                             <p><b>Class:</b> {data.class} <b>Section:</b> {data.section}</p>
@@ -169,13 +184,17 @@ const StudentDetail = () => {
                 <div class="p-2 bg-orange-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
-                            <p>
-                                <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
-                                    <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
-                                        Edit-ReportCard data
-                                    </span>
-                                </Link>
-                            </p>
+                            {data.AcademicId > 0 ? (
+                                <p>
+                                    <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                        <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
+                                            Edit-ReportCard data
+                                        </span>
+                                    </Link>
+                                </p>
+                            )
+                                : (<p></p>)
+                            }
                             <p><b>ReportCardId:</b> {data.AcademicId} </p>
                             <p><b>Result:</b> {data.Result}</p>
                             <p><b>Marks Obtained:</b> {data.MarksObtained}</p>

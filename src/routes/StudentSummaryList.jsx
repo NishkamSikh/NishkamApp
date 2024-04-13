@@ -17,6 +17,7 @@ const StudentSummaryList = () => {
             </div>),
             width: "4rem",
             sortable: false,
+
             wrap: true,
         },
 
@@ -175,12 +176,12 @@ const StudentSummaryList = () => {
         },
 
         {
-            name: 'State, District,Basti',
+            name: 'State, District, Basti',
             selector: row => (<div>
                 {row.State}
             </div>),
             sortable: false,
-            width: "15rem",
+            width: "13rem",
             compact: true,
             wrap: true,
         },
@@ -191,6 +192,7 @@ const StudentSummaryList = () => {
                 {row.in_institutionname}
             </div>),
             sortable: false,
+            width: "12rem",
             compact: true,
             wrap: true,
         },
