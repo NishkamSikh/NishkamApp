@@ -7,13 +7,13 @@ const StudentInstitutionList = () => {
 
     const columns = [
         {
+            name:<strong>Id</strong>,
             selector: row => (<div>
                 {row.StudentId}
             </div>),
             width: "4rem",
             sortable: false,
             compact: true,
-            center: true,
             wrap: true,
         },
         {
@@ -31,20 +31,67 @@ const StudentInstitutionList = () => {
         },
 
         {
+            name:<strong>Code</strong>,
             selector: row => (<div>
-                <b>Code:</b> {row.StudentCode} - {row.AcademicYear}<br />
-                <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName} <br />
+                {row.StudentCode}
             </div>),
+            width: "4rem",
             sortable: false,
             compact: true,
             wrap: true,
         },
 
         {
+            name:<strong>Year</strong>,
             selector: row => (<div>
-                <b>Institute Name:</b> {row.IN_InstitutionName}<br />
-                <b>Type:</b> {row.institutiontype}<br />
+                {row.AcademicYear}
             </div>),
+            width: "6rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+
+        {
+            name:<strong>Name</strong>,
+            selector: row => (<div>
+                {row.FirstName} {row.MiddleName} {row.LastName}
+            </div>),
+            width: "10rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name:<strong>Institute Type</strong>,
+            selector: row => (<div>
+                {row.institutiontype} 
+            </div>),
+            width: "10rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name:<strong>Institute Board</strong>,
+            selector: row => (<div>
+                {row.boardoruniversity} 
+            </div>),
+            width: "10rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },        
+
+        {
+            name:<strong>Institute Name</strong>,
+            selector: row => (<div>
+                {row.IN_InstitutionName} 
+            </div>),
+            width: "15rem",
             sortable: false,
             compact: true,
             wrap: true,
@@ -71,7 +118,6 @@ const StudentInstitutionList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -92,11 +138,7 @@ const StudentInstitutionList = () => {
                 row.FirstName.toLowerCase().includes(inputValue) ||
                 row.LastName.toLowerCase().includes(inputValue) ||
                 row.MiddleName.toLowerCase().includes(inputValue)
-                // Add more fields here as needed, separated by ||
-                // row.field.toLowerCase().includes(inputValue) ||
-                // row.anotherField.toLowerCase().includes(inputValue) ||
-                // ...
-            );
+             );
             setFilteredData(newData);
         }
     };

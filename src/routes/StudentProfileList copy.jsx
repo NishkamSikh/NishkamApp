@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
 
-const StudentAddressList = () => {
+const StudentProfileList = () => {
     const [StudentData, setStudentData] = useState([])
 
     const columns = [
         {
-            name:<strong>Id</strong>,
+            //name: 'Column 1',
             selector: row => (<div>
                 {row.StudentId}
             </div>),
@@ -20,80 +20,53 @@ const StudentAddressList = () => {
         {
             //name: 'Column 2',
             selector: row => (<div>
-                <Link to={`/StudentFamilyEdit?Id=${row.StudentId}`} className="text-grey-500 hover:text-indigo-600">
+                <Link to={`/StudentProfileEdit?Id=${row.StudentId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
                         Edit
                     </span>
                 </Link>
             </div>),
             sortable: false,
-            width: "3rem",
+            width: "4rem",
             compact: true,
         },
 
-
         {
-            name:<strong>Code+Year/Name+DOB</strong>,
             selector: row => (<div>
-                {row.StudentCode}, {row.AcademicYear}<br></br>
-                {row.FirstName} {row.LastName}, {row.DOB}
+                <b>Code:</b> {row.StudentCode}  <br />
+                <b>Year:</b> {row.AcademicYear} <br />
+                <b>Name:</b> {row.firstname + ' ' + row.middlename + ' ' + row.lastname}<br />
+                <b>DOB:</b> {row.dob} {row.gender}<br />
             </div>),
             sortable: false,
-            width: "15rem",
-            compact: true,
-            wrap: true,
-        },
-
-  
-        {
-            name:<strong>Catg+Asst/Aadhar#</strong>,
-            selector: row => (<div>
-                {row.category}, {row.Assistance}<br></br>
-                F: {row.F_Aadhar_No} M: {row.M_Aadhar_No}
-            </div>),
-            sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
 
         {
-            name:<strong>Father</strong>,
             selector: row => (<div>
-                {row.Father_Name}, {row.Father_Education}<br></br>
-                {row.Father_Occupation} {row.F_Gross_Income}
+                <b>Join Dt:</b> {row.joindate}<br />
+                <b>Status: </b>{row.status}<br />
+                <b>Religion:</b> {row.religion} <br />
+                <b>Sikligar: </b>{row.sikligar} <br />
             </div>),
             sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
 
         {
-            name:<strong>Mother</strong>,
             selector: row => (<div>
-                {row.Mother_Name}, {row.Mother_Education}<br></br>
-                {row.Mother_Occupation} {row.F_Mother_Income}
+                <b>Contact#1:</b> {row.contact1type} {row.contact1} <br />
+                <b>Contact#2:</b> {row.contact2type} {row.contact2} <br />
+                <b>Ref By:</b> {row.refby}<br />
+                <b>App By:</b> {row.approveby}<br />
+
             </div>),
             sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
-
-
-        {
-            name:<strong>Grand Father/Guardian</strong>,
-            selector: row => (<div>
-                {row.Grandfather_Name}, {row.Guardian_Name}<br></br>
-                {row.Guardian_Mobile_No} {row.Guardian_Gross_Income}
-            </div>),
-            sortable: false,
-            width: "15rem",
-            compact: true,
-            wrap: true,
-        },
-
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
@@ -106,7 +79,7 @@ const StudentAddressList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentfamilylist');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentprofilelist');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -115,6 +88,7 @@ const StudentAddressList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
+                console.log(result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -132,9 +106,9 @@ const StudentAddressList = () => {
             setFilteredData(StudentData);
         } else {
             const newData = StudentData.filter(row =>
-                row.FirstName.toLowerCase().includes(inputValue) ||
-                row.LastName.toLowerCase().includes(inputValue) ||
-                row.MiddleName.toLowerCase().includes(inputValue)
+                row.firstname.toLowerCase().includes(inputValue) ||
+                row.lastname.toLowerCase().includes(inputValue) ||
+                row.StudentCode.toLowerCase().includes(inputValue)
                 // Add more fields here as needed, separated by ||
                 // row.field.toLowerCase().includes(inputValue) ||
                 // row.anotherField.toLowerCase().includes(inputValue) ||
@@ -143,11 +117,13 @@ const StudentAddressList = () => {
             setFilteredData(newData);
         }
     };
+
+
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Family Data</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">
@@ -169,6 +145,7 @@ const StudentAddressList = () => {
                                 pagination
                                 responsive
                                 keyField="id"
+                                padding="10px"
                                 className="custom-table "
                             />
                         </div>
@@ -179,4 +156,4 @@ const StudentAddressList = () => {
     )
 }
 
-export default StudentAddressList
+export default StudentProfileList

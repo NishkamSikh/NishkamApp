@@ -7,7 +7,7 @@ const StudentProfileList = () => {
 
     const columns = [
         {
-            //name: 'Column 1',
+            name: <strong>Id</strong>,
             selector: row => (<div>
                 {row.StudentId}
             </div>),
@@ -18,7 +18,7 @@ const StudentProfileList = () => {
             wrap: true,
         },
         {
-            //name: 'Column 2',
+
             selector: row => (<div>
                 <Link to={`/StudentProfileEdit?Id=${row.StudentId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
@@ -32,41 +32,121 @@ const StudentProfileList = () => {
         },
 
         {
-            selector: row => (<div>
-                <b>Code:</b> {row.StudentCode}  <br />
-                <b>Year:</b> {row.AcademicYear} <br />
-                <b>Name:</b> {row.firstname + ' ' + row.middlename + ' ' + row.lastname}<br />
-                <b>DOB:</b> {row.dob} {row.gender}<br />
-            </div>),
+            name: <strong>Code</strong>,
+            selector: row => (<div>{row.StudentCode}</div>),
             sortable: false,
             compact: true,
+            width: "4rem",            
+            wrap: true,
+        },
+        {
+            name: <strong>Year</strong>,
+            selector: row => (<div>{row.AcademicYear}</div>),
+            sortable: false,
+            compact: true,
+            width: "5rem",            
+            wrap: true,
+        },
+        {
+            name: <strong>Name</strong>,
+            selector: row => (<div>{row.firstname + ' ' + row.middlename + ' ' + row.lastname}</div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",            
             wrap: true,
         },
 
         {
-            selector: row => (<div>
-                <b>Join Dt:</b> {row.joindate}<br />
-                <b>Status: </b>{row.status}<br />
-                <b>Religion:</b> {row.religion} <br />
-                <b>Sikligar: </b>{row.sikligar} <br />
-            </div>),
+            name: <strong>DOB</strong>,
+            selector: row => (<div>{row.dob}</div>),
             sortable: false,
             compact: true,
+            width: "5rem",            
             wrap: true,
         },
 
         {
-            selector: row => (<div>
-                <b>Contact#1:</b> {row.contact1type} {row.contact1} <br />
-                <b>Contact#2:</b> {row.contact2type} {row.contact2} <br />
-                <b>Ref By:</b> {row.refby}<br />
-                <b>App By:</b> {row.approveby}<br />
+            name: <strong>Gender</strong>,
+            selector: row => (<div>{row.gender}</div>),
+            sortable: false,
+            compact: true,
+            width: "4rem",  
+            wrap: true,
+        },
+        {
+            name: <strong>Join Dt</strong>,
+            selector: row => (<div>{row.joindate}</div>),
+            sortable: false,
+            compact: true,
+            width: "5rem",  
+            wrap: true,
+        },
+        {
+            name: <strong>Status</strong>,
+            selector: row => (<div>{row.status}</div>),
+            sortable: false,
+            compact: true,
+            width: "4rem",  
+            wrap: true,
+        },
 
+        {
+            name: <strong>Religion</strong>,
+            selector: row => (<div>
+                {row.religion}
             </div>),
             sortable: false,
             compact: true,
+            width: "4rem",  
             wrap: true,
         },
+
+        {
+            name: <strong>Sikligar</strong>,
+            selector: row => (<div>{row.sikligar}</div>),
+            sortable: false,
+            compact: true,
+            width: "4rem",  
+            wrap: true,
+        },
+
+        {
+            name: <strong>Contact-1</strong>,
+            selector: row => (<div>{row.contact1type} {row.contact1}</div>),
+            sortable: false,
+            compact: true,
+            width: "8rem",  
+            wrap: true,
+        },
+
+        {
+            name: <strong>Contact-2</strong>,
+            selector: row => (<div>
+                {row.contact2type} {row.contact2}</div>),sortable: false,
+            compact: true,
+            width: "8rem",  
+            wrap: true,
+        },
+
+        {
+            name: <strong>Ref By</strong>,
+            selector: row => (<div>{row.refby}</div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",  
+            wrap: true,
+        },
+
+        {
+            name: <strong>Approve By</strong>,
+            selector: row => (<div>{row.approveby}</div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",  
+            wrap: true,
+        },
+
+
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
@@ -88,7 +168,6 @@ const StudentProfileList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -109,15 +188,10 @@ const StudentProfileList = () => {
                 row.firstname.toLowerCase().includes(inputValue) ||
                 row.lastname.toLowerCase().includes(inputValue) ||
                 row.StudentCode.toLowerCase().includes(inputValue)
-                // Add more fields here as needed, separated by ||
-                // row.field.toLowerCase().includes(inputValue) ||
-                // row.anotherField.toLowerCase().includes(inputValue) ||
-                // ...
             );
             setFilteredData(newData);
         }
     };
-
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
@@ -131,10 +205,10 @@ const StudentProfileList = () => {
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                             <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-                                <div className="sm:col-span-1">
-                                    <div className="mt-0 p-0">
+                                <div className="sm:col-span-2">
+                                    <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Name'
+                                            placeholder='Search by Name or Code'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>

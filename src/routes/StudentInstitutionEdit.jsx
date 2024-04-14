@@ -175,9 +175,12 @@ const StudentInstitutionEdit = () => {
     };
 
    const handleSubmit = async (e) => {
-    console.log(formData, "fetchDataId :Handle Start");
     e.preventDefault();
+    
     const { StudentCode, stuyear, ...formDataWithoutCodeYear } = formData;
+    
+console.log("Form Data=",formDataWithoutCodeYear)
+
     // Check if any select is not selected
     const errorsObj = {};
 
@@ -195,7 +198,6 @@ const StudentInstitutionEdit = () => {
                 data: formDataWithoutCodeYear,
             }),
         });
-        console.log(formData, "After");
         
         if (!response.ok) {
             console.error("Error:", response.statusText);
@@ -365,6 +367,8 @@ const StudentInstitutionEdit = () => {
                                 </button>
                                 <button
                                     type="submit"
+                                    //disabled={!formData.studentcode || !formData.stuyear || !formData.institutionid}
+                                    //style={{ opacity: formData.studentcode && formData.stuyear && formData.institutionid ? 1 : 0.5 }}                                    
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save

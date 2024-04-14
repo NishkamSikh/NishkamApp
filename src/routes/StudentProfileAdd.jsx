@@ -446,12 +446,13 @@ const StudentProfile = () => {
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1type ? 'border-red-500' : ''
                             }`}
                         >
-                          <option>Select Number belongd to</option>
+                          <option value="">Select Number belongd to</option>
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
                           <option value="Mother">Mother</option>
                           <option value="GrandFather">GrandFather</option>
                           <option value="Gurdian">Gurdian</option>
+                          <option value="">Not applicable</option>
 
                         </select>
                       </div>
@@ -488,12 +489,13 @@ const StudentProfile = () => {
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2type ? 'border-red-500' : ''
                             }`}
                         >
-                          <option>Select Number belongd to</option>
+                          <option value="">Select Number belongd to</option>
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
                           <option value="Mother">Mother</option>
                           <option value="GrandFather">GrandFather</option>
                           <option value="Gurdian">Gurdian</option>
+                          <option value="">Not applicable</option>
 
                         </select>
                       </div>

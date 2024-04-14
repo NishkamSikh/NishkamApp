@@ -7,6 +7,7 @@ const StudentAddressList = () => {
 
     const columns = [
         {
+            name: <strong>Id</strong>,
             selector: row => (<div>
                 {row.StudentId}
             </div>),
@@ -26,55 +27,132 @@ const StudentAddressList = () => {
                 </Link>
             </div>),
             sortable: false,
+            width: "3rem",
+            compact: true,
+        },
+
+        {
+            name: <strong>Code</strong>,
+            selector: row => (<div>
+                {row.StudentCode}
+            </div>),
+            sortable: false,
             width: "4rem",
             compact: true,
+            wrap: true,
         },
 
         {
-            selector: row => (<div>
-                <b>Code:</b> {row.StudentCode} - {row.AcademicYear}<br />
-                <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName} <br />
-                <b>DOB:</b> {row.DOB} <br />
+            name: <strong>Year</strong>,
+                selector: row => (<div>
+                {row.AcademicYear}
 
             </div>),
             sortable: false,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+        {
+            name: <strong>Name</strong>,
+                selector: row => (<div>
+                {row.FirstName} {row.LastName}
+
+            </div>),
+            sortable: false,
+            width: "8rem",
             compact: true,
             wrap: true,
         },
 
         {
+            name: <strong>Address</strong>,
             selector: row => (<div>
-                <b>Add:</b> {row.stuaddress}<br />
-                <b>State:</b> {row.stustate}<br />
-                <b>Dist:</b> {row.studistrict}<br />
+                {row.stuaddress}
             </div>),
             sortable: false,
+            width: "10rem",
             compact: true,
             wrap: true,
         },
 
         {
+            name: <strong>State</strong>,
             selector: row => (<div>
-                <b>Tehsil:</b> {row.stutehsil} <br />
-                <b>Basti:</b> {row.ad_BastiName} <br />
-                <b>Vill:</b> {row.stuvillage} {row.stupin}<br />
-
+                {row.stustate}
             </div>),
             sortable: false,
+            width: "6rem",
             compact: true,
             wrap: true,
         },
+
         {
+            name: <strong>District</strong>,
             selector: row => (<div>
-                <b>Rep#1:</b> {row.rep1} <br />
-                <b>Rep#2:</b> {row.rep2} <br />
-
+                {row.studistrict}
             </div>),
             sortable: false,
+            width: "6rem",
             compact: true,
             wrap: true,
-        },
+        },        
 
+        {
+            name: <strong>Tehsil</strong>,
+            selector: row => (<div>
+                {row.stutehsil}
+            </div>),
+            sortable: false,
+            width: "7rem",
+            compact: true,
+            wrap: true,
+        },        
+
+        {
+            name: <strong>Basti</strong>,
+            selector: row => (<div>
+                {row.ad_BastiName}
+            </div>),
+            sortable: false,
+            width: "8rem",
+            compact: true,
+            wrap: true,
+        }, 
+
+        {
+            name: <strong>Village</strong>,
+            selector: row => (<div>
+                {row.stuvillage} {row.stupin}
+            </div>),
+            sortable: false,
+            width: "6rem",
+            compact: true,
+            wrap: true,
+        }, 
+
+        {
+            name: <strong>Rep-1</strong>,
+            selector: row => (<div>
+                {row.rep1}
+            </div>),
+            sortable: false,
+            width: "5rem",
+            compact: true,
+            wrap: true,
+        }, 
+
+        {
+            name: <strong>Rep-2</strong>,
+            selector: row => (<div>
+                {row.rep2}
+            </div>),
+            sortable: false,
+            width: "5rem",
+            compact: true,
+            wrap: true,
+        }, 
 
     ];
 
@@ -94,10 +172,8 @@ const StudentAddressList = () => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -110,21 +186,19 @@ const StudentAddressList = () => {
     }, []);
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-
+       // alert(event.target.value.toLowerCase())
         if (inputValue === '') {
             setFilteredData(StudentData);
         } else {
             const newData = StudentData.filter(row =>
                 row.FirstName.toLowerCase().includes(inputValue) ||
                 row.LastName.toLowerCase().includes(inputValue) ||
-                row.MiddleName.toLowerCase().includes(inputValue)
-                // Add more fields here as needed, separated by ||
-                // row.field.toLowerCase().includes(inputValue) ||
-                // row.anotherField.toLowerCase().includes(inputValue) ||
-                // ...
+                row.StudentCode.toLowerCase().includes(inputValue)
             );
             setFilteredData(newData);
         }
+
+        
     };
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
@@ -139,9 +213,9 @@ const StudentAddressList = () => {
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                             <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
                                 <div className="sm:col-span-1">
-                                    <div className="mt-0 p-0">
+                                    <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Name'
+                                            placeholder='Search by Name & code'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>

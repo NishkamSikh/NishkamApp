@@ -7,7 +7,6 @@ const StudentAddressList = () => {
 
     const columns = [
         {
-            name:<strong>Id</strong>,
             selector: row => (<div>
                 {row.StudentId}
             </div>),
@@ -27,73 +26,73 @@ const StudentAddressList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width: "3rem",
+            width: "4rem",
             compact: true,
         },
 
-
         {
-            name:<strong>Code+Year/Name+DOB</strong>,
             selector: row => (<div>
-                {row.StudentCode}, {row.AcademicYear}<br></br>
-                {row.FirstName} {row.LastName}, {row.DOB}
+                <b>Code:</b> {row.StudentCode} <br />
+                <b>Year:</b> {row.AcademicYear} <br />
+                <b>Name:</b> {row.FirstName} {row.MiddleName} {row.LastName}  <br />
+                <b>DOB:</b> {row.DOB} <br />
+
             </div>),
             sortable: false,
-            width: "15rem",
-            compact: true,
-            wrap: true,
-        },
-
-  
-        {
-            name:<strong>Catg+Asst/Aadhar#</strong>,
-            selector: row => (<div>
-                {row.category}, {row.Assistance}<br></br>
-                F: {row.F_Aadhar_No} M: {row.M_Aadhar_No}
-            </div>),
-            sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
 
         {
-            name:<strong>Father</strong>,
             selector: row => (<div>
-                {row.Father_Name}, {row.Father_Education}<br></br>
-                {row.Father_Occupation} {row.F_Gross_Income}
+                <b>Catg:</b> {row.category}<br />
+                <b>Asst.:</b> {row.Assistance}<br />
+                <b>F-Aadhar:</b> {row.F_Aadhar_No}<br />
+                <b>M-Aadhar:</b> {row.M_Aadhar_No}<br />
             </div>),
             sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
 
         {
-            name:<strong>Mother</strong>,
             selector: row => (<div>
-                {row.Mother_Name}, {row.Mother_Education}<br></br>
-                {row.Mother_Occupation} {row.F_Mother_Income}
+                <b>Father:</b> {row.Father_Name}<br />
+                <b>Education:</b> {row.Father_Education}<br />
+                <b>Occupation:</b> {row.Father_Occupation}<br />
+                <b>Income:</b> {row.F_Gross_Income}<br />
+
+                <b>Ph#:</b> {row.F_Mobile_No}<br />
             </div>),
             sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
-
 
         {
-            name:<strong>Grand Father/Guardian</strong>,
             selector: row => (<div>
-                {row.Grandfather_Name}, {row.Guardian_Name}<br></br>
-                {row.Guardian_Mobile_No} {row.Guardian_Gross_Income}
+                <b>Mother:</b> {row.Mother_Name}<br />
+                <b>Education:</b> {row.Mother_Education}<br />
+                <b>Occupation:</b> {row.Mother_Occupation}<br />
+                <b>Income:</b> {row.M_Gross_Income}<br />
+                <b>Phone#:</b> {row.M_Mobile_No}<br />
             </div>),
             sortable: false,
-            width: "15rem",
             compact: true,
             wrap: true,
         },
 
+        {
+            selector: row => (<div>
+                <b>G.Father:</b> {row.Grandfather_Name}<br />
+                <b>Guardian:</b> {row.Guardian_Name}<br />
+                <b>Phone:</b> {row.Guardian_Mobile_No} <br />
+                <b>Income:</b> {row.Guardian_Gross_Income}<br />
+            </div>),
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
@@ -115,6 +114,7 @@ const StudentAddressList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
+                console.log(result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {

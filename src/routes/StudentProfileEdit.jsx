@@ -39,12 +39,9 @@ const StudentProfileEdit = () => {
     identity: "",
   }
   );
-  //  const { studentCode, AcademicYear, catgcode } = useParams();
-  //const id  = useParams();
 
   useEffect(() => {
     const getUserid = localStorage.getItem("UserId")
-    // console.log("Updated FormData:", formData);
     fetchUserInfo();
 
     setUserId(getUserid)
@@ -52,6 +49,7 @@ const StudentProfileEdit = () => {
       navigate("/");
     }
   }, [])
+
   const fetchUserInfo = async () => {
 
     setloading(true);
@@ -70,7 +68,6 @@ const StudentProfileEdit = () => {
       const data = await response.json();
 
       // Initialize fetchData with the expected structure
-      console.log(data, "Data ============")
       if (data.data.length > 0) {
         setfetchData(data.data[0]);
 
@@ -89,10 +86,10 @@ const StudentProfileEdit = () => {
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
-    console.log(fetchDataId, "fetchDataId :Handle Start");
     e.preventDefault();
     const { StudentCode, StudentId, AcademicYear, CatgCode, StudentLabel, ProfileId, ...formDataWithoutCodeYear } = formData;
-    console.log( "lskdl;skd;lskldks;ldsd=", JSON.stringify(formDataWithoutCodeYear));
+    
+    
     // Check if any select is not selected
     const errorsObj = {};
 
@@ -110,16 +107,15 @@ const StudentProfileEdit = () => {
           data: JSON.stringify(formDataWithoutCodeYear),
         }),
       });
-      console.log(formData, "After");
       if (!response.ok) {
         console.error("Error:", response.statusText);
         return;
       }
-      if(searchParams.get('flag') == "profile"){
+      if (searchParams.get('flag') == "profile") {
         navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('Id'))}`)
-      }else {
-      navigate('/StudentProfileList')
-    }
+      } else {
+        navigate('/StudentProfileList')
+      }
 
       setloading(false);
       // navigate('/studentProfileList')
@@ -431,12 +427,13 @@ const StudentProfileEdit = () => {
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1type ? 'border-red-500' : ''
                             }`}
                         >
-                          <option>Select Number belongd to</option>
+                          <option value="">Select Number belongd to</option>
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
                           <option value="Mother">Mother</option>
                           <option value="GrandFather">GrandFather</option>
                           <option value="Gurdian">Gurdian</option>
+                          <option value="">Not applicable</option>
 
                         </select>
                       </div>
@@ -473,13 +470,13 @@ const StudentProfileEdit = () => {
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2type ? 'border-red-500' : ''
                             }`}
                         >
-                          <option>Select Number belongd to</option>
+                          <option value="">Select Number belongd to</option>
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
                           <option value="Mother">Mother</option>
                           <option value="GrandFather">GrandFather</option>
                           <option value="Gurdian">Gurdian</option>
-
+                          <option value="">Not applicable</option>
                         </select>
                       </div>
                     </div>
@@ -532,6 +529,8 @@ const StudentProfileEdit = () => {
                 </button>
                 <button
                   type="submit"
+                  //disabled={!formData.studentcode || !formData.stuyear || !formData.firstname || !formData.status || !formData.gender}
+                  //style={{ opacity: formData.studentcode && formData.stuyear && formData.firstname && formData.gender && formData.status ? 1 : 0.5 }}
                   className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Save

@@ -301,7 +301,7 @@ const StudentInstitutionAdd = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    //disabled={!formData.studentcode || !formData.stuyear || !formData.institutionname}
+                                    disabled={!formData.studentcode || !formData.stuyear || !formData.institutionid}
                                     style={{ opacity: formData.studentcode && formData.stuyear && formData.institutionid ? 1 : 0.5 }}
 
 

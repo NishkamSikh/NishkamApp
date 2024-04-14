@@ -230,7 +230,6 @@ const StudentSummaryList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log("result=", result);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -242,14 +241,10 @@ const StudentSummaryList = () => {
         fetchData()
     }, []);
     const handleFilter = (event) => {
-        console.log(StudentData, "StudentData =====dsdsdd");
         const inputValue = event.target.value.toLowerCase();
         if (inputValue === '') {
             setFilteredData(StudentData);
-            console.log(StudentData, "StudentData ===== if");
         } else {
-            console.log(StudentData, "StudentData ===== else");
-
             const newData = StudentData.filter(row =>
                 (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
                 (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
