@@ -27,31 +27,68 @@ const BastiList = () => {
             width: "4rem",
             compact: true,
         },
+
         {
+            name: <strong>Basti</strong>,
             selector: row => (<div>
-                <b>Basti:</b> {row.BastiName} <br />
-                <b>State:</b> {row.State} <br />
+                {row.BastiName}
             </div>),
+            width: "10rem",
             sortable: false,
             compact: true,
             wrap: true,
         },
 
         {
+            name: <strong>State</strong>,
             selector: row => (<div>
-                <b>District:</b> {row.District} <br />
-                <b>Tehsil:</b> {row.Tehsil} <br />
+                {row.State}
             </div>),
+            width: "10rem",
             sortable: false,
             compact: true,
             wrap: true,
         },
 
         {
+            name: <strong>District</strong>,
             selector: row => (<div>
-                <b>Addr:</b> {row.Address} <br />
-                <b>Vill:</b> {row.Village} {row.Pincode} <br />
+                {row.District}
             </div>),
+            width: "10rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name: <strong>Tehsil</strong>,
+            selector: row => (<div>
+                {row.Tehsil}
+            </div>),
+            width: "10rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name: <strong>Address</strong>,
+            selector: row => (<div>
+                {row.Address} {row.Village} 
+            </div>),
+            width: "15rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name: <strong>PIN</strong>,
+            selector: row => (<div>
+                {row.Pincode}
+            </div>),
+            width: "6rem",
             sortable: false,
             compact: true,
             wrap: true,
@@ -70,7 +107,6 @@ const BastiList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                //const response = await fetch('https://nishkamapi.onrender.com/api/v1/bastilist2');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/bastilist2');
 
                 // Check if the response status is ok (200-299)
@@ -80,7 +116,6 @@ const BastiList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
                 setBastiData(result.data);
                 setFilteredData(result.data);
             } catch (error) {

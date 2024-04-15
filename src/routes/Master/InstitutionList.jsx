@@ -10,7 +10,7 @@ const ListInstitution = () => {
             selector: row => (<div>
                 {row.InstId}
             </div>),
-            width: "4rem",
+            width: "3rem",
             sortable: false,
             compact: true,
             center: true,
@@ -26,73 +26,175 @@ const ListInstitution = () => {
                 </Link>
             </div>),
             sortable: false,
+            width: "3rem",
+            compact: true,
+        },
+
+        {
+            name: 'Name',
+            selector: row => (<div>
+                {row.IN_InstitutionName}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "7rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Type',
+            selector: row => (<div>
+                {row.IN_InstitutionType}
+            </div>),
+            sortable: false,
+            compact: true,
             width: "4rem",
-            compact: true,
-        },
-        {
-            selector: row => (<div>
-                <b>Name:</b> {row.IN_InstitutionName} <br />
-                <b>Type:</b> {row.IN_InstitutionType} <br />
-                <b>Catg:</b> {row.IN_InstitutionCatg} <br />
-                <b>Board:</b> {row.IN_InstitutionBoard} <br />
-                <b>P.:</b> {row.IN_PrincipalName} <br />
-                <b>P.#:</b> {row.IN_PrincipalPhone} <br />
-            </div>),
-            sortable: false,
-            compact: true,
-            wrap: true,
-        },
-        {
-            selector: row => (<div>
-                <b>Email:</b> {row.IN_InstitutionEmail} <br />
-                <b>Ph#:</b> {row.IN_InstitutionPhone} <br />
-                <b>Alt #:</b> {row.IN_AlternatePhone} <br />
-                <b>Medium:</b> {row.IN_InstitutionMedium} <br />
-                <b>www:</b> {row.IN_Website} <br />
-            </div>),
-            sortable: false,
-            compact: true,
-            wrap: true,
-        },
-        {
-            selector: row => (<div>
-                <b>Cont-1#:</b> {row.IN_ContactPhone_1} <br />
-                <b>Desig:</b> {row.IN_ContactDesignation_1} <br />
-                <b>Cont-2#:</b> {row.IN_ContactPhone_2} <br />
-                <b>Desig:</b> {row.IN_ContactDesignation_2} <br />
-
-            </div>),
-            sortable: false,
-            compact: true,
             wrap: true,
         },
 
-
         {
+            name: 'Catg',
             selector: row => (<div>
-                <b>State:</b> {row.IN_State} <br />
-                <b>Dist:</b> {row.IN_District} <br />
-                <b>Tehsil:</b> {row.IN_Tehsil} <br />
-                <b>Addr:</b>  {row.IN_Address} <br />
-                <b>PIN:</b> {row.IN_Pincode} <br />
-
+                {row.IN_InstitutionCatg}
             </div>),
             sortable: false,
             compact: true,
-            wrap: true,
-        },
-        {
-            selector: row => (<div>
-                <b>Bank:</b> {row.IN_BankName} <br />
-                <b>Acct Name:</b> {row.IN_AccountName} <br />
-                <b>IFSC Code:</b> {row.IN_IFSCCode} <br />
-                <b>Acct#:</b> {row.IN_AccountNumber} <br />
-            </div>),
-            sortable: false,
-            compact: true,
+            width: "4rem",
             wrap: true,
         },
 
+        {
+            name: 'Board',
+            selector: row => (<div>
+                {row.IN_InstitutionBoard}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Principal',
+            selector: row => (<div>
+                {row.IN_PrincipalName} {row.IN_PrincipalPhone}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Email',
+            selector: row => (<div>
+                {row.IN_InstitutionEmail}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Phone',
+            selector: row => (<div>
+                {row.IN_InstitutionPhone} {row.IN_AlternatePhone}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Medium',
+            selector: row => (<div>
+                {row.IN_InstitutionMedium}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Contact-1',
+            selector: row => (<div>
+                {row.IN_ContactPhone_1} {row.IN_ContactDesignation_1}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Contact-2',
+            selector: row => (<div>
+                {row.IN_ContactPhone_2} {row.IN_ContactDesignation_2}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+
+        {
+            name: 'Address',
+            selector: row => (<div>
+                {row.IN_State} {row.IN_District} {row.IN_Tehsil} {row.IN_Address} {row.IN_Pincode}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "10rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Bank',
+            selector: row => (<div>
+                {row.IN_BankName}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Acct Name',
+            selector: row => (<div>
+                {row.IN_AccountName}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'IFSCCode',
+            selector: row => (<div>
+                {row.IN_IFSCCode}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Acct#',
+            selector: row => (<div>
+                {row.IN_AccountNumber}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "8rem",
+            wrap: true,
+        },
 
     ];
     useEffect(() => {
@@ -103,7 +205,6 @@ const ListInstitution = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                //const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist2');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist2');
 
                 // Check if the response status is ok (200-299)
@@ -142,11 +243,11 @@ const ListInstitution = () => {
             setFilteredData(instData);
         } else {
 
-           
+
             const newData = instData.filter(row =>
                 row.IN_InstitutionName.toLowerCase().includes(inputValue) ||
                 row.IN_InstitutionType.toLowerCase().includes(inputValue)
-                            );
+            );
             setFilteredData(newData);
         }
     };
@@ -173,6 +274,7 @@ const ListInstitution = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div style={{ width: '100%' }}>
                             <DataTable
                                 columns={columns}
                                 data={filteredData}
@@ -185,7 +287,8 @@ const ListInstitution = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+        </section >
     )
 }
 

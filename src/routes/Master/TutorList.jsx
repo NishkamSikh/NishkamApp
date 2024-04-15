@@ -32,60 +32,113 @@ const TutorList = () => {
         },
 
         {
-            //name: 'Column 3',
+            name: <strong>Name</strong>,
             selector: row => (<div>
-                <b>Name:</b> {row.TutorName} <br />
-                <b>Ph#:</b> {row.PhoneNumber} <br />
-                <b>Email:</b> {row.Email} <br />
+                {row.TutorName} 
             </div>),
-            sortable: false,
-            compact: true,
-            wrap: true,
-        },
-        {
-            //name: 'Column 4',
-            selector: row => (<div>
-                <b>State:</b> {row.State} <br />
-                <b>Dist:</b> {row.District} <br />
-                <b>Tehsil:</b> {row.Tehsil} <br />
-                <b>Basti:</b> {row.Basti} <br />
-
-            </div>),
+            width: "6rem",
             sortable: false,
             compact: true,
             wrap: true,
         },
 
         {
-            //name: 'Column 5',
+            name: <strong>Phone</strong>,
             selector: row => (<div>
-                <b>Subject:</b> {row.Subject} <br />
-
-                Class: {Array.isArray(row.Class) ? (
-                    row.Class.map((classItem, index) => (
-                        <span key={index}>{classItem.value}</span>
-                    ))
-                ) : (
-                    <span>{console.log(JSON.stringify(row.Class), "Class")}{row.Class}</span>
-                )} <br />
-
-                <b>Monthly Fee:</b> {row.MonthlyFee} <br />
+                {row.PhoneNumber}
             </div>),
+            width: "6rem",
             sortable: false,
             compact: true,
             wrap: true,
         },
 
         {
-            //name: 'Column 6',
+            name: <strong>Email</strong>,
             selector: row => (<div>
-                <b>Bank:</b> {row.BankName} <br />
-                <b>Acct Name:</b> {row.AccountName} <br />
-                <b>IFSC Code:</b> {row.IFSCCode} <br />
-                <b>Acct#:</b> {row.AccountNumber} <br />
+                {row.Email}
+            </div>),
+            width: "10rem",
+            sortable: false,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name: <strong>Address</strong>,
+            selector: row => (<div>
+                {row.State} {row.District} {row.Tehsil} {row.Basti}
             </div>),
             sortable: false,
             compact: true,
+            width: "10rem",
+            wrap: true,
+        },
+
+        {
+            name: <strong>Subject</strong>,
+            selector: row => (<div>
+                {row.Subject} 
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "8rem",
+            wrap: true,
+        },
+
+
+        {
+            name: <strong>Class</strong>,
+            selector: row => (<div>
+                {row.Class} 
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "9rem",
+            wrap: true,
+        },
+
+        {
+            name: <strong>Bank</strong>,
+            selector: row => (<div>
+                {row.BankName}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: <strong>Acct Name</strong>,
+            selector: row => (<div>
+                {row.AccountName}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: <strong>IFSCCode</strong>,
+            selector: row => (<div>
+                {row.IFSCCode}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: <strong>Acct#</strong>,
+            selector: row => (<div>
+                {row.AccountNumber}
+            </div>),
+            sortable: false,
+            compact: true,
+            width: "8rem",
             wrap: true,
         },
 
@@ -114,6 +167,7 @@ const TutorList = () => {
                 const result = await response.json();
                 setTutorData(result.data);
                 setFilteredData(result.data);
+                
             } catch (error) {
                 // Handle errors here
                 setError(error.message);
@@ -130,8 +184,8 @@ const TutorList = () => {
             setFilteredData(TutorData);
         } else {
             const newData = TutorData.filter(row =>
-                row.TutorName.toLowerCase().includes(inputValue)
-                // row.IN_InstitutionType.toLowerCase().includes(inputValue)
+                row.TutorName.toLowerCase().includes(inputValue) ||
+                row.PhoneNumber.toLowerCase().includes(inputValue)
                 // row.MiddleName.toLowerCase().includes(inputValue)
                 // Add more fields here as needed, separated by ||
                 // row.field.toLowerCase().includes(inputValue) ||
@@ -154,9 +208,9 @@ const TutorList = () => {
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                             <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
                                 <div className="sm:col-span-2">
-                                    <div className="mt-1 p-0 ml-10">
+                                    <div className="mt-1 p-2">
                                         <input type='text'
-                                            placeholder='Search by Tutor'
+                                            placeholder='Search by Tutor Name / Phone'
                                             className='block w-full rounded-md border-0 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>

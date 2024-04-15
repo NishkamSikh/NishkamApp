@@ -11,9 +11,8 @@ const StudentSummaryList = () => {
     const columns = [
 
         {
-            name: <strong>Id</strong>,
-            selector: row => (<div>
-                <h3>{row.ProfileId}</h3>
+            name: <strong>Id</strong>
+            ,selector: row => (<div><h3>{row.ProfileId}</h3>
             </div>),
             width: "4rem",
             sortable: false,
@@ -22,7 +21,7 @@ const StudentSummaryList = () => {
         },
 
         {
-            name: 'Name',
+            name: '',
             selector: row => (<div>
                 <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
@@ -37,9 +36,7 @@ const StudentSummaryList = () => {
 
         {
             name: 'Code',
-            selector: row => (<div>
-                {row.StudentCode}
-            </div>),
+            selector: row => (<div>{row.StudentCode}</div>),
             sortable: false,
             compact: true,
             width: "4rem",
@@ -48,10 +45,7 @@ const StudentSummaryList = () => {
 
         {
             name: 'Year',
-            selector: row => (<div>
-                {row.AcademicYear}
-
-            </div>),
+            selector: row => (<div>{row.AcademicYear}</div>),
             sortable: false,
             compact: true,
             width: "5rem",
@@ -60,9 +54,7 @@ const StudentSummaryList = () => {
 
         {
             name: 'Name',
-            selector: row => (<div>
-                {row.Name}
-            </div>),
+            selector: row => (<div>{row.Name}</div>),
             sortable: false,
             compact: true,
             width: "9rem",
@@ -70,9 +62,7 @@ const StudentSummaryList = () => {
         },
         {
             name: 'DOB',
-            selector: row => (<div>
-                {row.DOB}
-            </div>),
+            selector: row => (<div>{row.DOB}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
@@ -91,19 +81,14 @@ const StudentSummaryList = () => {
 
         {
             name: 'Class',
-            selector: row => (<div>
-                {row.Class}
-            </div>),
+            selector: row => (<div>{row.Class}</div>),
             sortable: false,
             compact: true,
             width: "3rem",
             wrap: true,
         },
         {
-            name: 'Result',
-            selector: row => (<div>
-                {row.result}
-            </div>),
+            name: 'Result',selector: row => (<div>{row.result}</div>),
             sortable: false,
             compact: true,
             width: "4rem",
@@ -112,9 +97,7 @@ const StudentSummaryList = () => {
 
         {
             name: '%',
-            selector: row => (<div>
-                {row.MarksPercentage}
-            </div>),
+            selector: row => (<div>{row.MarksPercentage}</div>),
             sortable: false,
             compact: true,
             width: "3rem",
@@ -123,20 +106,16 @@ const StudentSummaryList = () => {
 
         {
             name: 'Gender',
-            selector: row => (<div>
-                {row.gender}
-            </div>),
+            selector: row => (<div>{row.gender}</div>),
             sortable: false,
             compact: true,
             width: "4rem",
             wrap: true,
-        },
+        }, 
 
         {
             name: 'Religion',
-            selector: row => (<div>
-                {row.religion}
-            </div>),
+            selector: row => (<div>{row.religion}</div>),
             sortable: false,
             compact: true,
             width: "4rem",
@@ -144,20 +123,17 @@ const StudentSummaryList = () => {
         },
 
         {
-            name: 'Category',
-            selector: row => (<div>
-                {row.category}
-            </div>),
+            name: 'Catg.',
+            selector: row => (<div>{row.category}</div>),
             sortable: false,
             compact: true,
             width: "4rem",
             wrap: true,
         },
+
         {
             name: 'Status',
-            selector: row => (<div>
-                {row.status}
-            </div>),
+            selector: row => (<div>{row.status}</div>),
             sortable: false,
             compact: true,
             width: "3rem",
@@ -166,9 +142,7 @@ const StudentSummaryList = () => {
 
         {
             name: 'Parents',
-            selector: row => (<div>
-                {row.Parents}
-            </div>),
+            selector: row => (<div>{row.Parents}</div>),
             sortable: false,
             compact: true,
             width: "11rem",
@@ -177,9 +151,7 @@ const StudentSummaryList = () => {
 
         {
             name: 'State, District, Basti',
-            selector: row => (<div>
-                {row.State}
-            </div>),
+            selector: row => (<div>{row.State}</div>),
             sortable: false,
             width: "13rem",
             compact: true,
@@ -188,17 +160,12 @@ const StudentSummaryList = () => {
 
         {
             name: 'Institution',
-            selector: row => (<div>
-                {row.in_institutionname}
-            </div>),
+            selector: row => (<div>{row.in_institutionname}</div>),
             sortable: false,
             width: "12rem",
             compact: true,
             wrap: true,
         },
-
-
-        
     ];
 
     const tableHeaderstyle = {
@@ -211,7 +178,6 @@ const StudentSummaryList = () => {
             },
         },
     }
-
 
     const [filteredData, setFilteredData] = useState(StudentData);
     const navigate = useNavigate();
@@ -286,9 +252,6 @@ const StudentSummaryList = () => {
                     <button className="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100" onClick={onDownload}>Download</button>
                 </div> */}
 
-
-
-
             </div>
             <div className="mt-1 flex flex-col">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -301,7 +264,6 @@ const StudentSummaryList = () => {
                                             placeholder='Search by Code,Name,Parents'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
-
                                 </div>
                             </div>
 
@@ -311,16 +273,17 @@ const StudentSummaryList = () => {
                                     columns={columns}
                                     data={filteredData}
                                     customStyles={tableHeaderstyle}
+                                    paginationPosition="top"
                                     //selectableRows
                                     pagination
-                                    //paginationRowsPerPageOptions={[20, 50, 100, 2500]}
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 20, 30,40,50,10000]}
                                     fixedHeader
                                     responsive
                                     highlightOnHover
                                     className="custom-table "
                                 />
                             </div>
-
                         </div>
                     </div>
                 </div>
