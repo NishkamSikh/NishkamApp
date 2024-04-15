@@ -458,7 +458,7 @@ const StudentFamilyAdd = () => {
                                                             type="number"
                                                             maxLength={10}
                                                             value={formData['M_Mobile_No']}
-                                                            onChange={handleInputChange} type="number" name='M_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Mobile_No != null && family2getdata[0].M_Mobile_No != undefined ? family2getdata[0].M_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Mobile_No" placeholder='Mother &#9742; (10)' aria-describedby="M_Mobile_No" />
+                                                            onChange={handleInputChange} name='M_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].M_Mobile_No != null && family2getdata[0].M_Mobile_No != undefined ? family2getdata[0].M_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Mobile_No" placeholder='Mother &#9742; (10)' aria-describedby="M_Mobile_No" />
                                                     </div>
                                                 </div>
                                             </div>

@@ -58,15 +58,10 @@ const StudentAcademicEdit = () => {
             }
 
             const data = await response.json();
-
             // Initialize fetchData with the expected structure
-            console.log(data.data.data, "Data ============")
             if (data.data.length > 0) {
-
-
-                setfetchData(data.data[0]);
-
-                setFormData(data.data[0]);
+               setfetchData(data.data[0]);
+               setFormData(data.data[0]);
                 // setfetchDataId(JSON.parse(data.data.data[0].Id));
             } else {
                 alert("No such user found!");
@@ -79,7 +74,6 @@ const StudentAcademicEdit = () => {
     };
 
     const handleSubmit = async (e) => {
-        console.log(formData, "fetchDataId :Handle Start");
         e.preventDefault();
         const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,json,AcademicId, ...formDataWithoutCodeYear } = formData;
         // Check if any select is not selected
@@ -88,7 +82,6 @@ const StudentAcademicEdit = () => {
         setloading(true);
 
         try {
-            console.log(formData, "before");
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
@@ -99,7 +92,6 @@ const StudentAcademicEdit = () => {
                     data: JSON.stringify(formDataWithoutCodeYear),
                 }),
             });
-            console.log(formData, "After");
             if (!response.ok) {
                 console.error("Error:", response.statusText);
                 return;
@@ -264,8 +256,8 @@ const StudentAcademicEdit = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    disabled={!formData.studentcode || !formData.stuyear || !formData.class}
-                                    style={{ opacity: formData.studentcode && formData.stuyear && formData.class? 1 : 0.4 }}
+                                    //disabled={!formData.studentcode || !formData.stuyear || !formData.class}
+                                    //style={{ opacity: formData.studentcode && formData.stuyear && formData.class? 1 : 0.4 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save

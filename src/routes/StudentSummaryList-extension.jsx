@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
-import { useReactToPrint } from "react-to-print";
-import { useDownloadExcel } from 'react-export-table-to-excel';
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
+
 
 
 const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([])
 
-    const columns = [
+
+    const dataTableColumns  = [
 
         {
             name: <strong>Id</strong>,
@@ -197,8 +199,6 @@ const StudentSummaryList = () => {
             wrap: true,
         },
 
-
-        
     ];
 
     const tableHeaderstyle = {
@@ -257,36 +257,19 @@ const StudentSummaryList = () => {
         }
     };
 
-    /* 
-        const componentPDF = useRef();
-        const tableref=useRef(null)
-    
-         const generatePDF = useReactToPrint({
-             content: () => componentPDF.current,
-             documentTitle: "StudentSummary",
-             onAfterPrint: () => alert("Data saved in PDF")
-    
-         });
-    
-         const {onDownload} =useDownloadExcel({
-             currentTableRef:tableref.current,
-             filename:"StudentSummary",
-             sheet:"ksjks"
-         })
-     */
+    const tableData = { 
+        columns: dataTableColumns, 
+        data: filteredData, 
+    }
+
+
+
     return (
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
                     <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
                 </div>
-
-{/*                 <div>
-                    <button className="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100" onClick={generatePDF}>Export to PDF</button>
-                    <button className="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100" onClick={onDownload}>Download</button>
-                </div> */}
-
-
 
 
             </div>
@@ -296,29 +279,35 @@ const StudentSummaryList = () => {
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                             <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
                                 <div className="sm:col-span-1">
-                                    <div className="mt-0 p-2">
+                                    <div className="mt-0 p-0">
                                         <input type='text'
-                                            placeholder='Search by Code,Name,Parents'
+                                            placeholder='Search'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
 
                                 </div>
                             </div>
 
-                          {/*   <div ref={tableref} style={{ width: '100%' }}> */}
-                            <div style={{ width: '100%' }}>
-                                <DataTable
-                                    columns={columns}
-                                    data={filteredData}
-                                    customStyles={tableHeaderstyle}
-                                    //selectableRows
-                                    pagination
-                                    //paginationRowsPerPageOptions={[20, 50, 100, 2500]}
-                                    fixedHeader
-                                    responsive
-                                    highlightOnHover
-                                    className="custom-table "
-                                />
+                            <div>
+                                <DataTableExtensions
+                                    {...tableData}
+                                    //export={true} 
+                                    //print={true} 
+                                    //extensions={extensions}
+                                >
+                                    <DataTable
+                                        //columns={columns}
+                                        data={filteredData}
+                                        customStyles={tableHeaderstyle}
+                                        //selectableRows
+                                        pagination
+                                        //paginationRowsPerPageOptions={[20, 50, 100, 2500]}
+                                        fixedHeader
+                                        responsive
+                                        highlightOnHover
+                                        className="custom-table "
+                                    />
+                                </DataTableExtensions>
                             </div>
 
                         </div>

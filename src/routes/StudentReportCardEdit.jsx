@@ -140,7 +140,6 @@ const StudentReportCardEdit = () => {
     }, [setsubjectList, setUserId, navigate]);
 
     const fetchUserInfo = async () => {
-        console.log('fetch');
         setloading(true);
         try {
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentReportCard/${JSON.parse(searchParams.get('Id'))}`);
@@ -156,10 +155,9 @@ const StudentReportCardEdit = () => {
             const data = await response.json();
 
             // Initialize fetchData with the expected structure
-            console.log(data.data, "Data +++++++++++");
             if (data.data.length > 0) {
                 const subList = JSON.parse(data.data[0].json)
-                console.log(subList.subjectList, "subjectList");
+                //console.log(subList.subjectList, "subjectList");
                 const extractedSubjects = subList.subjectList.map(subject => {
                     return {
                         subjectname: subject.subjectname,
@@ -167,10 +165,7 @@ const StudentReportCardEdit = () => {
                         total_marks: subject.total_marks
                     };
                 });
-                console.log(extractedSubjects, "extractedSubjects");
                 setSelectedItems(JSON.parse(data.data[0].json).extra)
-
-
                 setsubjectList(extractedSubjects);
                 setsubjecttotalmarks(subList.markstotal);
                 setmaxmarkstotal(subList.marksobtained);
@@ -179,9 +174,7 @@ const StudentReportCardEdit = () => {
                 // setsubjectList(JSON.parse(data.data.data[0].Json).subjectList)
                 setfetchData(data.data[0]);
 
-                setFormData(JSON.parse(data.data[0].json));
-
-                // setfetchDataId(JSON.parse(data.data.data[0].Id));
+                setFormData(data.data[0]);
             } else {
                 alert("No such user found!");
             }
@@ -193,7 +186,7 @@ const StudentReportCardEdit = () => {
     };
 
     const handleSubmit = async (e) => {
-        console.log(subjectList, "fetchDataId :Handle Start");
+
         e.preventDefault();
 
         // Check if any select is not selected
@@ -202,8 +195,6 @@ const StudentReportCardEdit = () => {
         setloading(true);
 
         try {
-            console.log(formData, "before");
-
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
@@ -218,7 +209,6 @@ const StudentReportCardEdit = () => {
                     }),
                 }),
             });
-            console.log(formData, "After");
             if (!response.ok) {
                 console.error("Error:", response.statusText);
                 return;
@@ -263,6 +253,7 @@ const StudentReportCardEdit = () => {
                                         <div className="sm:col-span-3">
                                             <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
                                                 Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
+
                                             </label>
                                         </div>
 
@@ -315,7 +306,7 @@ const StudentReportCardEdit = () => {
                                             <div className="mt-1">
                                                 <div className="w-full p-4">
                                                     <ul className="list-none">
-                                                        {console.log(selectedItems, "selectedItems")}
+ 
                                                         {items.map((item) => (
                                                             <li key={item.id} className="my-2">
                                                                 <label className="inline-flex items-center">

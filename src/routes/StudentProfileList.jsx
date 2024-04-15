@@ -36,7 +36,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.StudentCode}</div>),
             sortable: false,
             compact: true,
-            width: "4rem",            
+            width: "4rem",
             wrap: true,
         },
         {
@@ -44,7 +44,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.AcademicYear}</div>),
             sortable: false,
             compact: true,
-            width: "5rem",            
+            width: "5rem",
             wrap: true,
         },
         {
@@ -52,7 +52,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.firstname + ' ' + row.middlename + ' ' + row.lastname}</div>),
             sortable: false,
             compact: true,
-            width: "6rem",            
+            width: "6rem",
             wrap: true,
         },
 
@@ -61,7 +61,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.dob}</div>),
             sortable: false,
             compact: true,
-            width: "5rem",            
+            width: "5rem",
             wrap: true,
         },
 
@@ -70,7 +70,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.gender}</div>),
             sortable: false,
             compact: true,
-            width: "4rem",  
+            width: "4rem",
             wrap: true,
         },
         {
@@ -78,7 +78,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.joindate}</div>),
             sortable: false,
             compact: true,
-            width: "5rem",  
+            width: "5rem",
             wrap: true,
         },
         {
@@ -86,7 +86,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.status}</div>),
             sortable: false,
             compact: true,
-            width: "4rem",  
+            width: "4rem",
             wrap: true,
         },
 
@@ -97,7 +97,7 @@ const StudentProfileList = () => {
             </div>),
             sortable: false,
             compact: true,
-            width: "4rem",  
+            width: "4rem",
             wrap: true,
         },
 
@@ -106,7 +106,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.sikligar}</div>),
             sortable: false,
             compact: true,
-            width: "4rem",  
+            width: "4rem",
             wrap: true,
         },
 
@@ -115,16 +115,16 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.contact1type} {row.contact1}</div>),
             sortable: false,
             compact: true,
-            width: "8rem",  
+            width: "8rem",
             wrap: true,
         },
 
         {
             name: <strong>Contact-2</strong>,
             selector: row => (<div>
-                {row.contact2type} {row.contact2}</div>),sortable: false,
+                {row.contact2type} {row.contact2}</div>), sortable: false,
             compact: true,
-            width: "8rem",  
+            width: "8rem",
             wrap: true,
         },
 
@@ -133,7 +133,7 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.refby}</div>),
             sortable: false,
             compact: true,
-            width: "6rem",  
+            width: "6rem",
             wrap: true,
         },
 
@@ -142,12 +142,26 @@ const StudentProfileList = () => {
             selector: row => (<div>{row.approveby}</div>),
             sortable: false,
             compact: true,
-            width: "6rem",  
+            width: "6rem",
             wrap: true,
         },
 
 
     ];
+
+
+    const tableHeaderstyle = {
+        headCells: {
+            style: {
+                fontWeight: "bold",
+                fontSize: "12px",
+                backgroundColor: "#ddd"
+
+            },
+        },
+    }
+
+
 
     const [filteredData, setFilteredData] = useState(StudentData);
     const navigate = useNavigate();
@@ -213,15 +227,19 @@ const StudentProfileList = () => {
                                     </div>
                                 </div>
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                responsive
-                                keyField="id"
-                                padding="10px"
-                                className="custom-table "
-                            />
+                            <div style={{ width: '100%' }}>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    customStyles={tableHeaderstyle}
+                                    pagination
+                                    responsive
+                                    keyField="id"
+                                    // padding="10px"
+                                    className="custom-table "
+                                />
+
+                            </div>
                         </div>
                     </div>
                 </div>
