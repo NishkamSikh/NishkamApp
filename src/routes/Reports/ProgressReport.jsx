@@ -26,8 +26,6 @@ const ProgressReport = () => {
             width: "4rem",
             wrap: true,
         },
-
-
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
@@ -103,6 +101,8 @@ const ProgressReport = () => {
                                 data={filteredData}
                                 pagination
                                 responsive
+                                paginationPerPage={50}
+                                paginationRowsPerPageOptions={[50,75,100,10000]}
                                 keyField="id"
                                 className="custom-table "
                             />

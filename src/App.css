@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+
+/* @page{
+  size: 2.0in 5.5in; 
+  margin: 0;
+} */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
