@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
-import { useReactToPrint } from "react-to-print";
-import { useDownloadExcel } from 'react-export-table-to-excel';
-
 
 const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([]);
@@ -35,19 +32,9 @@ const StudentSummaryList = () => {
         },
 
         { id: 'Code', name: 'Code', cell: row => (<div>{row.StudentCode}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
-
         { id: 'id-3', name: 'Year', selector: row => (<div>{row.AcademicYear}</div>), sortable: false, compact: true, width: "5rem", wrap: true, },
-
-        {id: 'name',name: 'Name',selector: row => (<div>{row.Name}</div>),sortable: true,compact: true,width: "9rem",wrap: true,},
-        {
-            id: 'id-5',
-            name: 'DOB',
-            selector: row => (<div>{row.DOB}</div>),
-            sortable: false,
-            compact: true,
-            width: "7rem",
-            wrap: true,
-        },
+        { id: 'id-4', name: 'Name', selector: row => (<div>{row.Name}</div>), sortable: true, compact: true, width: "9rem", wrap: true, },
+        { id: 'id-5', name: 'DOB', selector: row => (<div>{row.DOB}</div>), sortable: false,compact: true,width: "7rem",wrap: true,},
         {
             id: 'id-6',
             name: 'Join Date',
@@ -218,7 +205,7 @@ const StudentSummaryList = () => {
 
         const fetchData = async () => {
             try {
-                
+
                 // Make API request using fetch
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
 
@@ -247,7 +234,8 @@ const StudentSummaryList = () => {
             const newData = StudentData.filter(row =>
                 (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
                 (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
-                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))
+                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))  ||
+                (row.Basti && row.Basti.toLowerCase().includes(inputValue)) 
 
             );
             setFilteredData(newData);
@@ -305,23 +293,12 @@ const StudentSummaryList = () => {
         link.click();
     }
 
-
-
-
     return (
-
-
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
-
-
-
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
                     <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
-                    <div>
-                    </div>
                 </div>
-
             </div>
             <div className="mt-0 flex flex-col">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -331,14 +308,13 @@ const StudentSummaryList = () => {
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Code, Name, Parents'
+                                            placeholder='Search by Code, Name, Parents, Basti'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                         <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                     </div>
                                 </div>
                             </div>
 
-                            {/*   <div ref={tableref} style={{ width: '100%' }}> */}
                             <div style={{ width: '100%' }}>
                                 <DataTable
                                     columns={columns}
@@ -364,10 +340,6 @@ const StudentSummaryList = () => {
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                    </div>
-
                 </div>
             </div>
         </section>
