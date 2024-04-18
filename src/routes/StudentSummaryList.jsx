@@ -121,7 +121,7 @@ const StudentSummaryList = () => {
             selector: row => (<div>{row.Father}</div>),
             sortable: false,
             compact: true,
-            width: "5rem",
+            width: "6rem",
             wrap: true,
         },
         {
@@ -130,7 +130,7 @@ const StudentSummaryList = () => {
             selector: row => (<div>{row.Mother}</div>),
             sortable: false,
             compact: true,
-            width: "5rem",
+            width: "6rem",
             wrap: true,
         },
         {
@@ -138,7 +138,7 @@ const StudentSummaryList = () => {
             name: 'State',
             selector: row => (<div>{row.State}</div>),
             sortable: false,
-            width: "5rem",
+            width: "3rem",
             compact: true,
             wrap: true,
         },
