@@ -179,22 +179,11 @@ const StudentSummaryList = () => {
             style: {
                 fontWeight: "bold",
                 fontSize: "14px",
-                backgroundColor: "#ddd"
-
+                backgroundColor: "#eee"
             },
         },
     }
 
-    const styles = {
-        main: {
-            backgroundColor: "#f1f1f1",
-            width: "100%",
-        },
-        inputText: {
-            padding: "10px",
-            color: "red",
-        },
-    };
 
     const [filteredData, setFilteredData] = useState(StudentData);
     const navigate = useNavigate();

@@ -34,8 +34,8 @@ import StudentReportCardEdit from "./routes/StudentReportCardEdit";
 import StudentReportCardList from "./routes/StudentReportCardList";
 import Dashboard from "./routes/Dashboard";
 
-import StudentSummaryList from "./routes/StudentSummaryList";
-import StudentSummaryDetail from "./routes/StudentSummaryDetail";
+import StudentSummaryList from "./routes/Reports/StudentSummaryList";
+import StudentSummaryDetail from "./routes/Reports/StudentSummaryDetail";
 
 
 // Master Routes
