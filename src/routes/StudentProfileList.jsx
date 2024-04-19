@@ -58,7 +58,7 @@ const StudentProfileList = () => {
 
         {
             name: <strong>DOB</strong>,
-            selector: row => (<div>{row.dob}</div>),
+            selector: row => (<div>{row.dob1}</div>),
             sortable: false,
             compact: true,
             width: "5rem",
