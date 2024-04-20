@@ -15,7 +15,7 @@ const StudentFamilyEdit = () => {
     const [fetchDataId, setfetchDataId] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const [AnyAssi, setAnyAssi] = useState([]);
-    const [selectedAssistanceOptions, setSelectedAssistanceOptions] = useState([]);
+
     const [loading, setloading] = useState(false);
     const [formData, setFormData] = useState({
         StudentCode: "",
@@ -114,12 +114,12 @@ const StudentFamilyEdit = () => {
             setloading(false);
         }
     };
-    
-    const handleAssistanceChange = (selectedOptions) => {
-        setSelectedAssistanceOptions(selectedOptions);
+    const handleAnyAssi = (selectedOptions) => {
+        setAnyAssi(selectedOptions);
     };
 
     const handleSubmit = async (e) => {
+        console.log(formData, "fetchDataId :Handle Start");
         e.preventDefault();
         const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,FamilyId, ...formDataWithoutCodeYear } = formData;
 
@@ -134,12 +134,7 @@ const StudentFamilyEdit = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    data: JSON.stringify(
-                        {
-                            ...formDataWithoutCodeYear,
-                            Assistance: selectedAssistanceOptions,
-                        }
-                    ),
+                    data: JSON.stringify(formDataWithoutCodeYear),
                 }),
             });
             if (!response.ok) {
@@ -247,7 +242,7 @@ const StudentFamilyEdit = () => {
                                             <label htmlFor="Assistance" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Any Assisstance
                                             </label>
-                                            <div className="mt-0">
+                                            <div className="mt-1">
                                             <Select
                                                     options={anyAssistance && anyAssistance.map((student) => ({
                                                         value: student.option,
@@ -257,8 +252,8 @@ const StudentFamilyEdit = () => {
                                                     name="Assistance"
                                                     className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                                     isMulti={true}
-                                                    value={selectedAssistanceOptions}
-                                                    onChange={handleAssistanceChange}
+                                                    value={AnyAssi}
+                                                    onChange={handleAnyAssi}
                                                 />
 
                                                 {/* <select

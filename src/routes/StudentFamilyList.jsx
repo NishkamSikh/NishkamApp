@@ -11,7 +11,7 @@ const StudentAddressList = () => {
             selector: row => (<div>
                 {row.StudentId}
             </div>),
-            width: "4rem",
+            width: "3rem",
             sortable: false,
             compact: true,
             center: true,
@@ -31,31 +31,76 @@ const StudentAddressList = () => {
             compact: true,
         },
 
-
         {
-            name:<strong>Code+Year/Name+DOB</strong>,
+            name:<strong>Code</strong>,
             selector: row => (<div>
-                {row.StudentCode}, {row.AcademicYear}<br></br>
-                {row.FirstName} {row.LastName}, {row.DOB}
+                {row.StudentCode}
             </div>),
             sortable: false,
-            width: "15rem",
+            width: "4rem",
             compact: true,
             wrap: true,
         },
 
-  
         {
-            name:<strong>Catg+Asst/Aadhar#</strong>,
+            name:<strong>Year</strong>,
             selector: row => (<div>
-                {row.category}, {row.Assistance}<br></br>
+                {row.AcademicYear}
+            </div>),
+            sortable: false,
+            width: "5rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name:<strong>Name</strong>,
+            selector: row => (<div>
+                {row.FirstName} {row.LastName}
+            </div>),
+            sortable: false,
+            width: "7rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            name:<strong>Catg.</strong>,
+            selector: row => (<div>
+                {row.category}
+
+            </div>),
+            sortable: false,
+            width: "4rem",
+            compact: true,
+            wrap: true,
+        },
+
+
+        {
+            name:<strong>Assistance</strong>,
+            selector: row => (<div>
+                {row.Assistance}
+             </div>),
+            sortable: false,
+            width: "8rem",
+            compact: true,
+            wrap: true,
+        },
+
+
+
+        {
+            name:<strong>Aadhar#</strong>,
+            selector: row => (<div>
                 F: {row.F_Aadhar_No} M: {row.M_Aadhar_No}
             </div>),
             sortable: false,
-            width: "15rem",
+            width: "10rem",
             compact: true,
             wrap: true,
-        },
+        },        
+
 
         {
             name:<strong>Father</strong>,
@@ -64,7 +109,7 @@ const StudentAddressList = () => {
                 {row.Father_Occupation} {row.F_Gross_Income}
             </div>),
             sortable: false,
-            width: "15rem",
+            width: "12rem",
             compact: true,
             wrap: true,
         },
@@ -76,11 +121,10 @@ const StudentAddressList = () => {
                 {row.Mother_Occupation} {row.F_Mother_Income}
             </div>),
             sortable: false,
-            width: "15rem",
+            width: "12rem",
             compact: true,
             wrap: true,
         },
-
 
         {
             name:<strong>Grand Father/Guardian</strong>,

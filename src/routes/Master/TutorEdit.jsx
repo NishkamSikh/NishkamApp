@@ -193,8 +193,6 @@ const TutorEdit = () => {
 
     ];
 
-
-
     const subjectDetails = [
         {
             id: "1",
@@ -290,8 +288,6 @@ const TutorEdit = () => {
             // console.log(JSON.parse(data.data.data[0].Json).Address, "Data ============")
             if (data.data.data.length > 0) {
                 setfetchData(data.data.data[0]);
-                console.log(data.data, "Jsadhsd ");
-
                 setSelectedState(JSON.parse(data.data.data[0].Json).State);
                 setSelectedVillage(JSON.parse(data.data.data[0].Json).Village);
                 setSelectedDistrict(JSON.parse(data.data.data[0].Json).District);
