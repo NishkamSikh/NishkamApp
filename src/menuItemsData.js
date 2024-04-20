@@ -224,6 +224,11 @@ export const menuItemsData = [
         url: "StudentSummaryList",
       },
       {
+        title: "Dashboard Summary",
+        url: "DashboardSummary",
+      },
+
+      {
         title: "Progress Report",
         url: "ProgressReport",
       },
