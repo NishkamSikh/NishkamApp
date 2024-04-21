@@ -104,7 +104,6 @@ const StudentFamilyEdit = () => {
             if (data.data.length > 0) {
                 setfetchData(data.data[0]);
                 setFormData(data.data[0]);
-                console.log("AssistanceArray===", data.data[0].AssistanceArray);
                 setSelectedAssistanceOptions(JSON.parse(data.data[0].AssistanceArray));
             } else {
                 alert("No such user found!");
@@ -116,13 +115,24 @@ const StudentFamilyEdit = () => {
         }
     };
 
+
+const isEmpty = function(obj) {
+    if (obj == null) return true;
+    if (obj.constructor.name == "Array" || obj.constructor.name == "String") return obj.length === 0;
+    for (var key in obj) if (isEmpty(obj[key])) return true;
+    return false;
+  }
+
     const handleAssistanceChange = (selectedOptions) => {
-        setSelectedAssistanceOptions(selectedOptions);
+       // alert(JSON.stringify(selectedOptions));
+        //setSelectedAssistanceOptions(selectedOptions);
+        if(!isEmpty(selectedOptions))  setSelectedAssistanceOptions(selectedOptions);
+
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB, FamilyId, ...formDataWithoutCodeYear } = formData;
+        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB, FamilyId,AssistanceArray, ...formDataWithoutCodeYear } = formData;
 
         // Check if any select is not selected
         const errorsObj = {};
@@ -556,19 +566,18 @@ const StudentFamilyEdit = () => {
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-2 flex items-center justify-end gap-x-6">
+                            <div className="mt-1 flex items-center justify-end gap-x-6">
                                 <button type="button" onClick={() => navigate("/StudentFamilyList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
+                               
                                 <button
                                     type="submit"
-                                    //disabled={!formData.StudentCode || !formData.stuyear ||!formData.Father_Name}
-                                    //style={{ opacity: formData.studentcode && formData.stuyear && formData.category && formData.Father_Name ? 1 : 0.5 }}                                    
+                                    disabled={!formData.Father_Name}
+                                    style={{ opacity: formData.Father_Name ? 1 : 0.5 }}                                   
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save
