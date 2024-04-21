@@ -104,7 +104,8 @@ const StudentFamilyEdit = () => {
             if (data.data.length > 0) {
                 setfetchData(data.data[0]);
                 setFormData(data.data[0]);
-                // setfetchDataId(JSON.parse(data.data.data[0].Id));
+                console.log("AssistanceArray===", data.data[0].AssistanceArray);
+                setSelectedAssistanceOptions(JSON.parse(data.data[0].AssistanceArray));
             } else {
                 alert("No such user found!");
             }
@@ -114,14 +115,14 @@ const StudentFamilyEdit = () => {
             setloading(false);
         }
     };
-    
+
     const handleAssistanceChange = (selectedOptions) => {
         setSelectedAssistanceOptions(selectedOptions);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,FamilyId, ...formDataWithoutCodeYear } = formData;
+        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB, FamilyId, ...formDataWithoutCodeYear } = formData;
 
         // Check if any select is not selected
         const errorsObj = {};
@@ -146,9 +147,9 @@ const StudentFamilyEdit = () => {
                 console.error("Error:", response.statusText);
                 return;
             }
-            if(searchParams.get('flag') == "family"){
+            if (searchParams.get('flag') == "family") {
                 navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
-            }else {
+            } else {
                 navigate('/StudentFamilyList')
             }
 
@@ -192,34 +193,15 @@ const StudentFamilyEdit = () => {
                                                 Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
 
                                             </label>
-                                            {/*                                             <div className="mt-1">
-                                                <input
-                                                    type="text"
-                                                    readOnly={true}
-                                                    id="StudentCode"
-                                                    name="StudentCode"
-                                                    defaultValue={formData.StudentCode || (fetchData ? fetchData.StudentCode : "No Data")}
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                />
-                                                <input
-                                                    type="hidden"
-                                                    name="catgcode"
-                                                    id="catgcode"
-                                                    value="FMLY"
-                                                />
-                                            </div>
- */}                                        </div>
+                                        </div>
                                         <div className="sm:col-span-3">
-                                            {/*                                             <label htmlFor="stuyear" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Year
-                                            </label> */}
                                             <div className="mt-1">
 
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">
                                             <label htmlFor="category" className="block text-sm font-medium leading-6 text-gray-900">
+                                            Category
                                             </label>
                                             <div className="mt-1">
                                                 <select
@@ -245,10 +227,11 @@ const StudentFamilyEdit = () => {
                                         </div>
                                         <div className="sm:col-span-3">
                                             <label htmlFor="Assistance" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Any Assisstance
+                                                Any Assistance
                                             </label>
+                                           {/* { alert(typeof JSON.parse(selectedAssistanceOptions)) } */}
                                             <div className="mt-0">
-                                            <Select
+                                                <Select
                                                     options={anyAssistance && anyAssistance.map((student) => ({
                                                         value: student.option,
                                                         label: student.option,
@@ -260,27 +243,6 @@ const StudentFamilyEdit = () => {
                                                     value={selectedAssistanceOptions}
                                                     onChange={handleAssistanceChange}
                                                 />
-
-                                                {/* <select
-                                                    id="Assistance"
-                                                    name="Assistance"
-                                                    defaultValue={
-                                                        formData.Assistance ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).Assistance
-                                                            : "No Data")
-                                                    }
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
-                                                        }`}
-                                                >
-                                                    <option >Select Assistance</option>
-                                                    <option value="Medical">Medical</option>
-                                                    <option value="Family">Family</option>
-                                                    <option value="Pension">Pension</option>
-                                                    <option value="Other">Other</option>
-                                                    <option value="None">None</option>
-                                                </select> */}
                                             </div>
                                         </div>
 
@@ -600,7 +562,7 @@ const StudentFamilyEdit = () => {
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center justify-end gap-x-6">
-                            <button type="button" onClick={() => navigate("/StudentFamilyList")} className="text-sm font-semibold leading-6 text-grey-900">
+                                <button type="button" onClick={() => navigate("/StudentFamilyList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

@@ -44,7 +44,7 @@ const StudentAddressList = () => {
 
         {
             name: <strong>Year</strong>,
-                selector: row => (<div>
+            selector: row => (<div>
                 {row.AcademicYear}
 
             </div>),
@@ -56,7 +56,7 @@ const StudentAddressList = () => {
 
         {
             name: <strong>Name</strong>,
-                selector: row => (<div>
+            selector: row => (<div>
                 {row.FirstName} {row.LastName}
 
             </div>),
@@ -97,7 +97,7 @@ const StudentAddressList = () => {
             width: "6rem",
             compact: true,
             wrap: true,
-        },        
+        },
 
         {
             name: <strong>Tehsil</strong>,
@@ -108,7 +108,7 @@ const StudentAddressList = () => {
             width: "7rem",
             compact: true,
             wrap: true,
-        },        
+        },
 
         {
             name: <strong>Basti</strong>,
@@ -119,7 +119,7 @@ const StudentAddressList = () => {
             width: "8rem",
             compact: true,
             wrap: true,
-        }, 
+        },
 
         {
             name: <strong>Village</strong>,
@@ -130,7 +130,7 @@ const StudentAddressList = () => {
             width: "6rem",
             compact: true,
             wrap: true,
-        }, 
+        },
 
         {
             name: <strong>Rep-1</strong>,
@@ -141,7 +141,7 @@ const StudentAddressList = () => {
             width: "5rem",
             compact: true,
             wrap: true,
-        }, 
+        },
 
         {
             name: <strong>Rep-2</strong>,
@@ -152,7 +152,7 @@ const StudentAddressList = () => {
             width: "5rem",
             compact: true,
             wrap: true,
-        }, 
+        },
 
     ];
 
@@ -186,7 +186,7 @@ const StudentAddressList = () => {
     }, []);
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-       // alert(event.target.value.toLowerCase())
+        // alert(event.target.value.toLowerCase())
         if (inputValue === '') {
             setFilteredData(StudentData);
         } else {
@@ -198,13 +198,13 @@ const StudentAddressList = () => {
             setFilteredData(newData);
         }
 
-        
+
     };
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Address Data</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Address List</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">
@@ -215,19 +215,23 @@ const StudentAddressList = () => {
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Name & code'
+                                            placeholder='Search by Code, Name'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                responsive
-                                keyField="id"
-                                className="custom-table "
-                            />
+                            <div style={{ width: '100%' }}>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    pagination
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                    responsive
+                                    keyField="id"
+                                    className="custom-table "
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

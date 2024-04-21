@@ -51,13 +51,13 @@ const StudentAcademicList = () => {
             selector: row => (<div>{row.FirstName + ' ' + row.LastName}</div>),
             sortable: false,
             compact: true,
-            width: "10rem",
+            width: "8rem",
             wrap: true,
         },
 
         {
             name: <strong>DOB</strong>,
-            selector: row => (<div>{row.DOB}</div>),
+            selector: row => (<div>{row.DOB1}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
@@ -80,8 +80,8 @@ const StudentAcademicList = () => {
             compact: true,
             width: "6rem",
             wrap: true,
-        },        
- 
+        },
+
         {
             name: <strong>Stream</strong>,
             selector: row => (<div>{row.stream}</div>),
@@ -163,7 +163,7 @@ const StudentAcademicList = () => {
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Academic Data</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Academic List</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">
@@ -174,20 +174,21 @@ const StudentAcademicList = () => {
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Name/Code'
+                                            placeholder='Search by Name, Code'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>
                             </div>
                             <div style={{ width: '100%' }}>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                responsive
-                                keyField="id"
-                                className="custom-table "
-                            />                                </div>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    pagination
+                                    responsive
+                                    keyField="id"
+                                    className="custom-table "
+                                />
+                            </div>
 
                         </div>
                     </div>

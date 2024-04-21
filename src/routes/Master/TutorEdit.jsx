@@ -446,6 +446,7 @@ const TutorEdit = () => {
                                             <label htmlFor="Subject" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Subject
                                             </label>
+                                            {alert(selectedSubjectOptions)}
                                             <div className="mt-0">
                                                 <Select
                                                     options={subjectDetails && subjectDetails.map((student) => ({

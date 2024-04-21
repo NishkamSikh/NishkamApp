@@ -12,8 +12,8 @@ const DashBoardSummary = () => {
         {name: 'Basti', selector: row => (<div>{row.Basti}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
         {name: 'Male', selector: row => (<div>{row.Male}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },
         {name: 'Female', selector: row => (<div>{row.Female}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },
-        {name: 'Sikligar', selector: row => (<div>{row.Sikligar}</div>), sortable: true, compact: true, width: "6rem", wrap: true, },
-        {name: 'Non-Sikligar', selector: row => (<div>{row.NonSikligar}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
+      //  {name: 'Sikligar', selector: row => (<div>{row.Sikligar}</div>), sortable: true, compact: true, width: "6rem", wrap: true, },
+      //  {name: 'Non-Sikligar', selector: row => (<div>{row.NonSikligar}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
         {name: 'Nur', selector: row => (<div>{row.Nur}</div>), sortable: true, compact: true, width: "2.8rem", wrap: true, },
         {name: 'LKG', selector: row => (<div>{row.LKG}</div>), sortable: true, compact: true, width: "2.8rem", wrap: true, },
         {name: 'I', selector: row => (<div>{row.I}</div>), sortable: true, compact: true, width: "2rem", wrap: true, },
@@ -34,10 +34,10 @@ const DashBoardSummary = () => {
         {name: '16-20', selector: row => (<div>{row.A16_20}</div>), sortable: true, compact: true, width: "3.5rem", wrap: true, },
         {name: '21-25', selector: row => (<div>{row.A21_25}</div>), sortable: true, compact: true, width: "3.5rem", wrap: true, },
         {name: '25+', selector: row => (<div>{row.A25}</div>), sortable: true, compact: true, width: "3.5rem", wrap: true, },        
-        {name: 'Hindu', selector: row => (<div>{row.Hindu}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },        
-        {name: 'Sikh', selector: row => (<div>{row.Sikh}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },   
-        {name: 'Muslim', selector: row => (<div>{row.Muslim}</div>), sortable: true, compact: true, width: "5rem", wrap: true, },         
-        {name: 'Christian', selector: row => (<div>{row.Christian}</div>), sortable: true, compact: true, width: "5rem", wrap: true, },         
+    //    {name: 'Hindu', selector: row => (<div>{row.Hindu}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },        
+     //   {name: 'Sikh', selector: row => (<div>{row.Sikh}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },   
+     //   {name: 'Muslim', selector: row => (<div>{row.Muslim}</div>), sortable: true, compact: true, width: "5rem", wrap: true, },         
+     //   {name: 'Christian', selector: row => (<div>{row.Christian}</div>), sortable: true, compact: true, width: "5rem", wrap: true, },         
     ];
 
     const tableHeaderstyle = {
@@ -49,7 +49,6 @@ const DashBoardSummary = () => {
             },
         },
     }
-
 
     const [filteredData, setFilteredData] = useState(DashBoardSummary);
     const navigate = useNavigate();
@@ -73,7 +72,6 @@ const DashBoardSummary = () => {
                 const result = await response.json();
                 setDashBoardSummary(result);
                 setFilteredData(result);
-                console.log("FD=",result)
             } catch (error) {
                 // Handle errors here
                 setError(error.message);

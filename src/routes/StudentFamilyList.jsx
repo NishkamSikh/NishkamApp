@@ -7,7 +7,7 @@ const StudentAddressList = () => {
 
     const columns = [
         {
-            name:<strong>Id</strong>,
+            name: <strong>Id</strong>,
             selector: row => (<div>
                 {row.StudentId}
             </div>),
@@ -32,7 +32,7 @@ const StudentAddressList = () => {
         },
 
         {
-            name:<strong>Code</strong>,
+            name: <strong>Code</strong>,
             selector: row => (<div>
                 {row.StudentCode}
             </div>),
@@ -43,7 +43,7 @@ const StudentAddressList = () => {
         },
 
         {
-            name:<strong>Year</strong>,
+            name: <strong>Year</strong>,
             selector: row => (<div>
                 {row.AcademicYear}
             </div>),
@@ -54,7 +54,7 @@ const StudentAddressList = () => {
         },
 
         {
-            name:<strong>Name</strong>,
+            name: <strong>Name</strong>,
             selector: row => (<div>
                 {row.FirstName} {row.LastName}
             </div>),
@@ -65,7 +65,7 @@ const StudentAddressList = () => {
         },
 
         {
-            name:<strong>Catg.</strong>,
+            name: <strong>Catg.</strong>,
             selector: row => (<div>
                 {row.category}
 
@@ -76,22 +76,19 @@ const StudentAddressList = () => {
             wrap: true,
         },
 
-
         {
-            name:<strong>Assistance</strong>,
+            name: <strong>Assistance</strong>,
             selector: row => (<div>
                 {row.Assistance}
-             </div>),
+            </div>),
             sortable: false,
             width: "8rem",
             compact: true,
             wrap: true,
         },
 
-
-
         {
-            name:<strong>Aadhar#</strong>,
+            name: <strong>Aadhar#</strong>,
             selector: row => (<div>
                 F: {row.F_Aadhar_No} M: {row.M_Aadhar_No}
             </div>),
@@ -99,11 +96,10 @@ const StudentAddressList = () => {
             width: "10rem",
             compact: true,
             wrap: true,
-        },        
-
+        },
 
         {
-            name:<strong>Father</strong>,
+            name: <strong>Father</strong>,
             selector: row => (<div>
                 {row.Father_Name}, {row.Father_Education}<br></br>
                 {row.Father_Occupation} {row.F_Gross_Income}
@@ -115,7 +111,7 @@ const StudentAddressList = () => {
         },
 
         {
-            name:<strong>Mother</strong>,
+            name: <strong>Mother</strong>,
             selector: row => (<div>
                 {row.Mother_Name}, {row.Mother_Education}<br></br>
                 {row.Mother_Occupation} {row.F_Mother_Income}
@@ -127,7 +123,7 @@ const StudentAddressList = () => {
         },
 
         {
-            name:<strong>Grand Father/Guardian</strong>,
+            name: <strong>Grand Father/Guardian</strong>,
             selector: row => (<div>
                 {row.Grandfather_Name}, {row.Guardian_Name}<br></br>
                 {row.Guardian_Mobile_No} {row.Guardian_Gross_Income}
@@ -178,7 +174,7 @@ const StudentAddressList = () => {
             const newData = StudentData.filter(row =>
                 row.FirstName.toLowerCase().includes(inputValue) ||
                 row.LastName.toLowerCase().includes(inputValue) ||
-                row.MiddleName.toLowerCase().includes(inputValue)
+                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))
                 // Add more fields here as needed, separated by ||
                 // row.field.toLowerCase().includes(inputValue) ||
                 // row.anotherField.toLowerCase().includes(inputValue) ||
@@ -191,7 +187,7 @@ const StudentAddressList = () => {
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Family Data</p>
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Family List</p>
                 </div>
             </div>
             <div className="mt-1 flex flex-col">
@@ -202,19 +198,24 @@ const StudentAddressList = () => {
                                 <div className="sm:col-span-1">
                                     <div className="mt-0 p-0">
                                         <input type='text'
-                                            placeholder='Search by Name'
+                                            placeholder='Search by Code, Name'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                responsive
-                                keyField="id"
-                                className="custom-table "
-                            />
+
+                            <div style={{ width: '100%' }}>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    pagination
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                    responsive
+                                    keyField="id"
+                                    className="custom-table "
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

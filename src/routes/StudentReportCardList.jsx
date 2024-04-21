@@ -51,13 +51,13 @@ const StudentReportCardList = () => {
             selector: row => (<div>{row.FirstName + ' ' + row.LastName}</div>),
             sortable: false,
             compact: true,
-            width: "10rem",
+            width: "8rem",
             wrap: true,
         },
 
         {
             name: <strong>DOB</strong>,
-            selector: row => (<div>{row.DOB}</div>),
+            selector: row => (<div>{row.DOB1}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
