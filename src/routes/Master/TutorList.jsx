@@ -5,6 +5,7 @@ import { AlignCenter } from 'lucide-react';
 
 const TutorList = () => {
     const [TutorData, setTutorData] = useState([])
+    const [errors, setError] = useState({});
     const columns = [
         {
             //name: 'Column 1',
@@ -162,11 +163,15 @@ const TutorList = () => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-
-                // Parse the response as JSON
-                const result = await response.json();
-                setTutorData(result.data);
-                setFilteredData(result.data);
+    // Parse the response as JSON
+    const result = await response.json();
+    // Sort the data alphabetically by VendorName
+const sortedData = result.data.sort((a, b) => {
+return a.TutorName.localeCompare(b.TutorName);
+});
+               ;
+                setTutorData(sortedData);
+                setFilteredData(sortedData);
                 
             } catch (error) {
                 // Handle errors here

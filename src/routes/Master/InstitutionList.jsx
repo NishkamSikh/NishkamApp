@@ -5,6 +5,7 @@ import DataTable from 'react-data-table-component';
 const ListInstitution = () => {
     const [instData, setinstData] = useState([])
     const [filteredData, setFilteredData] = useState(instData);
+    const [errors, setErrors] = useState({});
     const columns = [
         {
             selector: row => (<div>
@@ -214,12 +215,15 @@ const ListInstitution = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
-                setinstData(result.data);
-                setFilteredData(result.data);
+                const sortedData = result.data.sort((a, b) => {
+                    return a.IN_InstitutionName.localeCompare(b.IN_InstitutionName);
+                });
+                ;
+                setTutorData(sortedData);
+                setFilteredData(sortedData);
             } catch (error) {
                 // Handle errors here
-                setError(error.message);
+                setErrors(error.message);
             }
         };
 
@@ -275,19 +279,19 @@ const ListInstitution = () => {
                                 </div>
                             </div>
                             <div style={{ width: '100%' }}>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                keyField="id"
-                                responsive
-                                className="custom-table "
-                            />
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    pagination
+                                    keyField="id"
+                                    responsive
+                                    className="custom-table "
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </section >
     )
 }

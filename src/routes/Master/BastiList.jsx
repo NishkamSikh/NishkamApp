@@ -4,6 +4,7 @@ import DataTable from 'react-data-table-component';
 
 const BastiList = () => {
     const [BastiData, setBastiData] = useState([])
+    const [errors, setError] = useState({});
     const columns = [
         {
             selector: row => (<div>

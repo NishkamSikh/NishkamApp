@@ -9,6 +9,7 @@ const VendorList = () => {
 
     const [vendorData, setVendorData] = useState([])
     const [filteredData, setFilteredData] = useState(vendorData);
+    const [errors, setError] = useState({});
     const columns = [
         {
             selector: row => (<div>
@@ -40,7 +41,14 @@ const VendorList = () => {
                 <b>Ph#:</b> {row.Phone} <br />
                 <b>Shop Name:</b> {row.VendorShopName} <br />
             </div>),
-            sortable: false,
+            name: 'Name',
+            sortable: true, // Enable sorting on this column
+            sortFunction: (a, b) => {
+                // Custom sort function for alphabetical sorting
+                if (a.VendorName < b.VendorName) return -1;
+                if (a.VendorName > b.VendorName) return 1;
+                return 0;
+            },
             compact: true,
             wrap: true,
         },
@@ -99,9 +107,14 @@ const VendorList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result);
-                setVendorData(result.data);
-                setFilteredData(result.data);
+                  // Sort the data alphabetically by VendorName
+        const sortedData = result.data.sort((a, b) => {
+            return a.VendorName.localeCompare(b.VendorName);
+        });
+
+        console.log(sortedData);
+        setVendorData(sortedData);
+        setFilteredData(sortedData);
             } catch (error) {
                 // Handle errors here
                 setError(error.message);

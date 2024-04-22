@@ -4,6 +4,7 @@ import DataTable from 'react-data-table-component';
 
 const VoulnteerList = () => {
     const [VolnData, setVolnData] = useState([])
+    const [errors, setError] = useState({});
     const columns = [
         {
             selector: row => (<div>
@@ -102,8 +103,13 @@ const VoulnteerList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                setVolnData(result.data);
-                setFilteredData(result.data);
+  // Sort the data alphabetically by VolunteerName
+  const sortedData = result.data.sort((a, b) => {
+    return a.VolunteerName.localeCompare(b.VolunteerName);
+    });
+                   ;
+                    setTutorData(sortedData);
+                    setFilteredData(sortedData);
             } catch (error) {
                 // Handle errors here
                 setError(error.message);
