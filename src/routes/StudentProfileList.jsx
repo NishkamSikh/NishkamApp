@@ -7,18 +7,17 @@ const StudentProfileList = () => {
 
     const columns = [
         {
-            name: <strong>Id</strong>,
-            selector: row => (<div>
-                {row.StudentId}
-            </div>),
-            width: "4rem",
-            sortable: false,
+            id: '1',
+            name: 'Id',
+            selector: row =>row.StudentId,
+            width: "3rem",
+            sortable: true,
+            reorder: true,
             compact: true,
             center: true,
             wrap: true,
         },
         {
-
             selector: row => (<div>
                 <Link to={`/StudentProfileEdit?Id=${row.StudentId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
@@ -27,120 +26,143 @@ const StudentProfileList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width: "4rem",
+            width: "3rem",
             compact: true,
         },
 
         {
-            name: <strong>Code</strong>,
-            selector: row => (<div>{row.StudentCode}</div>),
-            sortable: false,
+            id: '3',
+            name: 'Code',
+            selector: row => row.StudentCode,
+            sortable: true,
+            reorder: true,            
             compact: true,
             width: "4rem",
             wrap: true,
         },
         {
-            name: <strong>Year</strong>,
-            selector: row => (<div>{row.AcademicYear}</div>),
-            sortable: false,
-            compact: true,
-            width: "5rem",
-            wrap: true,
-        },
-        {
-            name: <strong>Name</strong>,
-            selector: row => (<div>{row.firstname + ' ' + row.middlename + ' ' + row.lastname}</div>),
-            sortable: false,
-            compact: true,
+            id: '4',
+            name: 'Year',
+            selector: row => row.AcademicYear,
+            sortable: true,
+            reorder: true,   
             width: "6rem",
             wrap: true,
         },
-
         {
-            name: <strong>DOB</strong>,
-            selector: row => (<div>{row.dob}</div>),
-            sortable: false,
-            compact: true,
-            width: "5rem",
-            wrap: true,
-        },
-
-        {
-            name: <strong>Gender</strong>,
-            selector: row => (<div>{row.gender}</div>),
-            sortable: false,
-            compact: true,
-            width: "4rem",
-            wrap: true,
-        },
-        {
-            name: <strong>Join Dt</strong>,
-            selector: row => (<div>{row.joindate}</div>),
-            sortable: false,
-            compact: true,
-            width: "5rem",
-            wrap: true,
-        },
-        {
-            name: <strong>Status</strong>,
-            selector: row => (<div>{row.status}</div>),
-            sortable: false,
-            compact: true,
-            width: "4rem",
-            wrap: true,
-        },
-
-        {
-            name: <strong>Religion</strong>,
-            selector: row => (<div>
-                {row.religion}
-            </div>),
-            sortable: false,
-            compact: true,
-            width: "4rem",
-            wrap: true,
-        },
-
-        {
-            name: <strong>Sikligar</strong>,
-            selector: row => (<div>{row.sikligar}</div>),
-            sortable: false,
-            compact: true,
-            width: "4rem",
-            wrap: true,
-        },
-
-        {
-            name: <strong>Contact-1</strong>,
-            selector: row => (<div>{row.contact1type} {row.contact1}</div>),
-            sortable: false,
+            id: '5',
+            name: 'Name',
+            selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
+            sortable: true,
+            reorder: true,   
             compact: true,
             width: "8rem",
             wrap: true,
         },
 
         {
-            name: <strong>Contact-2</strong>,
-            selector: row => (<div>
-                {row.contact2type} {row.contact2}</div>), sortable: false,
+            id:'6',
+            name: 'DOB',
+            selector: row => row.dob,
+            sortable: true,
+            reorder: true,  
             compact: true,
-            width: "8rem",
+            width: "5rem",
             wrap: true,
         },
 
         {
-            name: <strong>Ref By</strong>,
-            selector: row => (<div>{row.refby}</div>),
-            sortable: false,
+            id:'7',
+            name: 'Gender',
+            selector: row => row.gender,
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+        {
+            id:'8',
+            name: 'Join Dt',
+            selector: row => row.joindate,
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+        {
+            id:'9',
+            name: 'Status',
+            selector: row => row.status,
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            id:'10',
+            name: 'Religion',
+            selector: row =>row.religion,
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            id:'11',
+            name: 'Sikligar',
+            selector: row => row.sikligar,
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            id:'12',
+            name: 'Contact-1',
+            selector: row =>row.contact1,
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+        {
+            id:'13',
+            name: 'Contact-2',
+            selector: row => row.contact2, 
+            sortable: true,
+            reorder: true,  
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+        {
+            id:'14',
+            name: 'Ref By',
+            selector: row => row.refby,
+            sortable: true,
+            reorder: true,  
             compact: true,
             width: "6rem",
             wrap: true,
         },
 
         {
-            name: <strong>Approve By</strong>,
-            selector: row => (<div>{row.approveby}</div>),
-            sortable: false,
+            id:'15',
+            name: 'Approve By',
+            selector: row => row.approveby,
+            sortable: true,
+            reorder: true,  
             compact: true,
             width: "6rem",
             wrap: true,

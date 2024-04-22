@@ -7,17 +7,17 @@ const StudentSummaryList = () => {
 
     const columns = [
         {
-            id: 'id-1',
-            name: <strong>Id</strong>
-            , selector: row => (<div><h3>{row.ProfileId}</h3>
-            </div>),
+            id: '1',
+            name: 'Id',
+            selector: row => row.ProfileId,
             width: "4rem",
-            sortable: false,
+            sortable: true,
+            reorder: true,
             wrap: true,
         },
 
         {
-            id: 'id-2',
+            id: '2',
             name: '',
             selector: row => (<div>
                 <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
@@ -31,143 +31,194 @@ const StudentSummaryList = () => {
             compact: true,
         },
 
-        { id: 'Code', name: 'Code', cell: row => (<div>{row.StudentCode}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
-        { id: 'id-3', name: 'Year', selector: row => (<div>{row.AcademicYear}</div>), sortable: false, compact: true, width: "5rem", wrap: true, },
-        { id: 'id-4', name: 'Name', selector: row => (<div>{row.Name}</div>), sortable: true, compact: true, width: "9rem", wrap: true, },
-        { id: 'id-5', name: 'DOB', selector: row => (<div>{row.DOB}</div>), sortable: false,compact: true,width: "7rem",wrap: true,},
         {
-            id: 'id-6',
+            id: '3',
+            name: 'Code',
+            selector: row => row.StudentCode,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'Year',
+            selector: row => row.AcademicYear,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+        {
+            id:'5',
+            name: 'Name',
+            selector: row => row.Name,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "10rem",
+            wrap: true,
+        },
+        {
+            id: '6',
+            name: 'DOB',
+            selector: row => row.DOB,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "7rem",
+            rap: true,
+        },
+
+        {
+            id: '7',
             name: 'Join Date',
-            selector: row => (<div>
-                {row.joindate}
-            </div>),
-            sortable: false,
+            selector: row => row.joindate,
+            sortable: true,
+            reorder: true,
             compact: true,
             width: "7rem",
             wrap: true,
         },
 
         {
-            id: 'id-7',
+            id: '8',
             name: 'Class',
-            selector: row => (<div>{row.Class}</div>),
-            sortable: false,
-            compact: true,
-            width: "3rem",
-            wrap: true,
-        },
-        {
-            id: 'id-8',
-            name: 'Result', selector: row => (<div>{row.result}</div>),
-            sortable: false,
+            selector: row => row.Class,
+            sortable: true,
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
-
         {
             id: 'id-9',
-            name: 'M%',
-            selector: row => (<div>{row.MarksPercentage}</div>),
-            sortable: false,
+            name: 'Result',
+            selector: row =>row.result,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            id: '10',
+            name: '%',
+            selector: row => row.MarksPercentage,
+            sortable: true,
+            reorder: true,
             compact: true,
             width: "3rem",
             wrap: true,
         },
 
         {
-            id: 'id-10',
+            id: '11',
             name: 'Gender',
-            selector: row => (<div>{row.gender}</div>),
-            sortable: false,
+            selector: row => row.gender,
+            sortable: true,
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
-            id: 'id-11',
+            id: '12',
             name: 'Religion',
-            selector: row => (<div>{row.religion}</div>),
-            sortable: false,
+            selector: row => row.religion,
+            sortable: true,
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
-            id: 'id-12',
+            id: '13',
             name: 'Catg.',
-            selector: row => (<div>{row.category}</div>),
-            sortable: false,
+            selector: row => row.category,
+            sortable: true,
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
-            id: 'id-13',
+            id: '14',
             name: 'Status',
-            selector: row => (<div>{row.status}</div>),
-            sortable: false,
+            selector: row => row.status,
+            sortable: true,
+            reorder: true,
             compact: true,
-            width: "3rem",
+            width: "4rem",
             wrap: true,
         },
 
         {
-            id: 'id-14',
+            id: '15',
             name: 'Father',
-            selector: row => (<div>{row.Father}</div>),
+            selector: row => row.Father,
             sortable: false,
+            reorder: true,
             compact: true,
             width: "6rem",
             wrap: true,
         },
         {
-            id: 'id-15',
+            id: '16',
             name: 'Mother',
-            selector: row => (<div>{row.Mother}</div>),
+            selector: row => row.Mother,
             sortable: false,
+            reorder: true,
             compact: true,
             width: "6rem",
             wrap: true,
         },
         {
-            id: 'id-15',
+            id: '17',
             name: 'State',
-            selector: row => (<div>{row.State}</div>),
-            sortable: false,
-            width: "3rem",
-            compact: true,
-            wrap: true,
-        },
-
-        {
-            id: 'id-15',
-            name: 'District',
-            selector: row => (<div>{row.District}</div>),
-            sortable: false,
+            selector: row => row.State,
+            sortable: true,
+            reorder: true,
             width: "5rem",
             compact: true,
             wrap: true,
         },
 
         {
-            id: 'id-15',
+            id: '18',
+            name: 'District',
+            selector: row => row.District,
+            sortable: true,
+            reorder: true,
+            width: "5rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '19',
             name: 'Basti',
-            selector: row => (<div>{row.Basti}</div>),
-            sortable: false,
+            selector: row => row.Basti,
+            sortable: true,
+            reorder: true,
             width: "6rem",
             compact: true,
             wrap: true,
         },
 
         {
-            id: 'id-16',
+            id: '20',
             name: 'Institution',
-            selector: row => (<div>{row.Institution}</div>),
-            sortable: false,
+            selector: row => row.Institution,
+            sortable: true,
+            reorder: true,
             width: "10rem",
             compact: true,
             wrap: true,
@@ -223,8 +274,8 @@ const StudentSummaryList = () => {
             const newData = StudentData.filter(row =>
                 (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
                 (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
-                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))  ||
-                (row.Basti && row.Basti.toLowerCase().includes(inputValue)) 
+                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue)) ||
+                (row.Basti && row.Basti.toLowerCase().includes(inputValue))
 
             );
             setFilteredData(newData);
@@ -317,7 +368,7 @@ const StudentSummaryList = () => {
                                     fixedHeader
                                     responsive
                                     highlightOnHover
-                                    //defaultSortFieldId="Name"
+                                    //defaultSorted={defaultSort} 
                                     striped
                                     defaultSortAsc={true}
                                     //sortFunction={customSort} // Use the custom sort function

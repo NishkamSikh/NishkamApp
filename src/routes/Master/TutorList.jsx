@@ -35,7 +35,7 @@ const TutorList = () => {
         {
             name: <strong>Name</strong>,
             selector: row => (<div>
-                {row.TutorName} 
+                {row.TutorName}
             </div>),
             width: "6rem",
             sortable: false,
@@ -79,7 +79,7 @@ const TutorList = () => {
         {
             name: <strong>Subject</strong>,
             selector: row => (<div>
-                {row.Subject} 
+                {row.Subject}
             </div>),
             sortable: false,
             compact: true,
@@ -91,7 +91,7 @@ const TutorList = () => {
         {
             name: <strong>Class</strong>,
             selector: row => (<div>
-                {row.Class} 
+                {row.Class}
             </div>),
             sortable: false,
             compact: true,
@@ -157,22 +157,22 @@ const TutorList = () => {
                 // Make API request using fetch
                 //const response = await fetch('https://nishkamapi.onrender.com/api/v1/tutorlist');
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/tutorlist');
-                
+
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-    // Parse the response as JSON
-    const result = await response.json();
-    // Sort the data alphabetically by VendorName
-const sortedData = result.data.sort((a, b) => {
-return a.TutorName.localeCompare(b.TutorName);
-});
-               ;
+                // Parse the response as JSON
+                const result = await response.json();
+                // Sort the data alphabetically by VendorName
+                const sortedData = result.data.sort((a, b) => {
+                    return a.TutorName.localeCompare(b.TutorName);
+                });
+                ;
                 setTutorData(sortedData);
                 setFilteredData(sortedData);
-                
+
             } catch (error) {
                 // Handle errors here
                 setError(error.message);
