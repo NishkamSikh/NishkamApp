@@ -153,7 +153,7 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,  
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
