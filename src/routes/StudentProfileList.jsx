@@ -46,7 +46,7 @@ const StudentProfileList = () => {
             selector: row => row.AcademicYear,
             sortable: true,
             reorder: true,   
-            width: "6rem",
+            width: "7rem",
             wrap: true,
         },
         {
@@ -131,7 +131,7 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,  
             compact: true,
-            width: "5rem",
+            width: "6rem",
             wrap: true,
         },
 
@@ -142,7 +142,7 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,  
             compact: true,
-            width: "5rem",
+            width: "6rem",
             wrap: true,
         },
 
@@ -164,7 +164,7 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,  
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
     ];
