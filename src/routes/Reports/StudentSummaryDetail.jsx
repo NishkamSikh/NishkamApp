@@ -65,7 +65,7 @@ const StudentDetail = () => {
                                 </Link>
                             </p>
                             <p><b>ProfileId:</b> {data.ProfileId} </p>
-                            <p><b>Student:</b> {data.StudentCode} / {data.firstname} {data.lastname}</p>
+                            <p><b>Student:</b> {data.StudentCode} / {data.firstname} {data.middlename} {data.lastname}</p>
                             <p><b>DOB:</b> {data.dob} <b>Gender:</b> {data.gender}</p>
                             <p><b>Join Dt:</b> {data.joindate} <b>Status:</b> {data.status}</p>
                             <p><b>Religion:</b> {data.religion} <b>Sikligar:</b> {data.sikligar}</p>
