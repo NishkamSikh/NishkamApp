@@ -165,10 +165,6 @@ const VendorAdd = () => {
         }
         setFormError(false);
 
-        // const check = JSON.stringify({ ...formData, vendor_state: selectedState })
-
-        console.log(formData, "======")
-
         //Proceed with the second API call 
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addvendor", {
             method: "POST",
@@ -198,7 +194,6 @@ const VendorAdd = () => {
                 ),
             }),
         });
-        console.log(formData, "After ======")
 
         if (!response.ok) {
             console.error("Error:", response.statusText);
@@ -289,7 +284,7 @@ const VendorAdd = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="vendor_name" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Vendor Name
+                                                Vendor Name*
                                             </label>
                                             <div className="mt-0">
                                                 <input
@@ -308,7 +303,7 @@ const VendorAdd = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="vendor_shop_name" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Vendor Shop Name
+                                                Vendor Shop Name*
                                             </label>
                                             <div className="mt-0">
                                                 <input

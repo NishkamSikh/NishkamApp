@@ -38,103 +38,6 @@ const TutorEdit = () => {
     });
 
 
-    const handleStateChange = (value) => {
-        setSelectedState(value);
-    };
-
-    const handleDistrictChange = (value) => {
-        setSelectedDistrict(value);
-    };
-
-    const handleTehsilChange = (value) => {
-        setSelectedTehsil(value);
-    };
-    const handleBankChange = (value) => {
-        setBankselect(value);
-    };
-    const handleAddressChange = (value) => {
-        console.log(value, "Address value");
-        setselectedAddress(value);
-
-    };
-    const handlePinCodeChange = (value) => {
-        setSelectedpincode(value);
-
-    };
-    const handleVillageChange = (value) => {
-        setSelectedVillage(value);
-
-    };
-    const handleAccountNameChange = (value) => {
-        setAccountName(value);
-
-    };
-    const handleIFSCcode = (value) => {
-        setIFSCcode(value);
-
-    };
-    const handleAccountNumberChange = (value) => {
-        setAccountNumber(value);
-    };
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    const handleChange = (selectedOptions) => {
-        setSelectedOptions(selectedOptions);
-    };
-    const handleSubjectChange = (selectedOptions) => {
-        setSelectedSubjectOptions(selectedOptions);
-    };
-
-    const uniqueschoollist = [
-        ...new Set(sechoolData.map((item) => item.type)),
-    ];
-
-    useEffect(() => {
-        if (!localStorage.getItem("UserauthToken")) {
-            navigate("/");
-        }
-        fetchUserInfo()
-        fetchBastiData()
-        setloading(true)
-        setTimeout(() => {
-            setloading(false)
-
-        }, 1000)
-
-
-    }, [])
-    const navigate = useNavigate();
-
-    const fetchBastiData = () => {
-        fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
-            .then(response => response.json())
-            .then(data => {
-                // Assuming the API response contains basti name, state, and city
-                const bastiData = data;
-                // Parse the json string within the data object and setOptions
-                const parsedData = bastiData.data.map(item => JSON.parse(item.Json));
-                setOptions(parsedData);
-                if (parsedData.length > 0) {
-                    // Assuming the API response contains basti name, state, and city
-                    const { basti_name, State, District, Tehsil } = parsedData[0];
-                    setSelectedBasti(basti_name);
-
-                }
-
-            })
-            .catch(error => {
-                console.error('Error fetching basti data:', error);
-            });
-    };
-
     const studentDetails = [
         {
             id: "1",
@@ -217,13 +120,110 @@ const TutorEdit = () => {
 
     ];
 
-    const handleSubmit1 = async (e) => {
 
-        e.preventDefault();
 
-        console.log(formData, "formData ===");
+    const handleStateChange = (value) => {
+        setSelectedState(value);
+    };
 
+    const handleDistrictChange = (value) => {
+        setSelectedDistrict(value);
+    };
+
+    const handleTehsilChange = (value) => {
+        setSelectedTehsil(value);
+    };
+    const handleBankChange = (value) => {
+        setBankselect(value);
+    };
+    const handleAddressChange = (value) => {
+        console.log(value, "Address value");
+        setselectedAddress(value);
+
+    };
+    const handlePinCodeChange = (value) => {
+        setSelectedpincode(value);
+
+    };
+    const handleVillageChange = (value) => {
+        setSelectedVillage(value);
+
+    };
+    const handleAccountNameChange = (value) => {
+        setAccountName(value);
+
+    };
+    const handleIFSCcode = (value) => {
+        setIFSCcode(value);
+
+    };
+    const handleAccountNumberChange = (value) => {
+        setAccountNumber(value);
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleChange = (selectedOptions) => {
+        if(!isEmpty(selectedOptions)) setSelectedOptions(selectedOptions);
+    };
+
+
+    const isEmpty = function(obj) {
+        if (obj == null) return true;
+        if (obj.constructor.name == "Array" || obj.constructor.name == "String") return obj.length === 0;
+        for (var key in obj) if (isEmpty(obj[key])) return true;
+        return false;
     }
+
+
+    const handleSubjectChange = (selectedOptions) => {
+        if(!isEmpty(selectedOptions)) setSelectedSubjectOptions(selectedOptions);
+    };
+
+    useEffect(() => {
+        if (!localStorage.getItem("UserauthToken")) {
+            navigate("/");
+        }
+        fetchUserInfo()
+        fetchBastiData()
+        setloading(true)
+        setTimeout(() => {
+            setloading(false)
+
+        }, 1000)
+
+
+    }, [])
+    const navigate = useNavigate();
+
+    const fetchBastiData = () => {
+        fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
+            .then(response => response.json())
+            .then(data => {
+                // Assuming the API response contains basti name, state, and city
+                const bastiData = data;
+                // Parse the json string within the data object and setOptions
+                const parsedData = bastiData.data.map(item => JSON.parse(item.Json));
+                setOptions(parsedData);
+                if (parsedData.length > 0) {
+                    // Assuming the API response contains basti name, state, and city
+                    const { basti_name, State, District, Tehsil } = parsedData[0];
+                    setSelectedBasti(basti_name);
+                }
+
+            })
+            .catch(error => {
+                console.error('Error fetching basti data:', error);
+            });
+    };
+
 
 
     const handleSubmit = async (e) => {
@@ -242,6 +242,8 @@ const TutorEdit = () => {
                 data: JSON.stringify(
                     {
                         ...formData,
+                        Subject: selectedSubjectOptions,
+                        Class: selectedOptions,
                         State: selectedState,
                         District: selectedDistrict,
                         Tehsil: selectedTehsil,
@@ -353,13 +355,7 @@ const TutorEdit = () => {
                                                     id="TutorName"
                                                     name="TutorName"
                                                     maxLength={25}
-                                                    value={
-                                                        formData.TutorName ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).TutorName
-                                                            : "No Data")
-                                                    }
-                                                    // value={formData['TutorName']}
+                                                    value={formData['TutorName']}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                 />
@@ -375,13 +371,8 @@ const TutorEdit = () => {
                                                 <select
                                                     id="Basti"
                                                     name="Basti"
-                                                    value={
-                                                        formData.Basti ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).Basti
-                                                            : "No Data")
-                                                    }
-                                                    // value={formData['Basti']}
+
+                                                    value={formData['Basti']}
                                                     onChange={handleInputChange}
                                                     className={'block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'}
 
@@ -408,12 +399,7 @@ const TutorEdit = () => {
                                                     id="Email"
                                                     name="Email"
                                                     maxLength={125}
-                                                    value={
-                                                        formData.Email ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).Email
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.Email}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                 />
@@ -431,12 +417,7 @@ const TutorEdit = () => {
                                                     id="PhoneNumber"
                                                     name="PhoneNumber"
                                                     maxLength={15}
-                                                    value={
-                                                        formData.PhoneNumber ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).PhoneNumber
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.PhoneNumber}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                 />
@@ -446,7 +427,6 @@ const TutorEdit = () => {
                                             <label htmlFor="Subject" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Subject
                                             </label>
-                                            {alert(selectedSubjectOptions)}
                                             <div className="mt-0">
                                                 <Select
                                                     options={subjectDetails && subjectDetails.map((student) => ({
@@ -460,8 +440,6 @@ const TutorEdit = () => {
                                                     value={selectedSubjectOptions}
                                                     onChange={handleSubjectChange}
                                                 />
-
-                                               
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">
@@ -474,12 +452,7 @@ const TutorEdit = () => {
                                                     id="MonthlyFee"
                                                     name="MonthlyFee"
                                                     maxLength={15}
-                                                    value={
-                                                        formData.MonthlyFee ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).MonthlyFee
-                                                            : "No Data")
-                                                    }
+                                                    value={formData.MonthlyFee}
                                                     onChange={handleInputChange}
                                                     className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                 />
@@ -503,20 +476,6 @@ const TutorEdit = () => {
                                                     value={selectedOptions}
                                                     onChange={handleChange}
                                                 />
-                                                {/* <input
-                                                    type="text"
-                                                    id="Class"
-                                                    name="Class"
-                                                    maxLength={15}
-                                                    value={
-                                                        formData.Class ||
-                                                        (fetchData.Json
-                                                            ? JSON.parse(fetchData.Json).Class
-                                                            : "No Data")
-                                                    }
-                                                    onChange={handleInputChange}
-                                                    className="block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                /> */}
                                             </div>
                                         </div>
                                         <div className="sm:col-span-6">

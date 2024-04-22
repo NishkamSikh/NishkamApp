@@ -167,8 +167,6 @@ const VendorEdit = () => {
             console.log("Fetched vendor data=======", data)
 
             // Initialize fetchData with the expected structure
-            //console.log(data.data.data[0].Id, "Data ============")
-            //console.log(JSON.parse(data.data.data[0].Json), "Village ============")
             if (data.data.data.length > 0) {
                 setfetchData(data.data.data[0]);
                 setSelectedState(JSON.parse(data.data.data[0].Json).vendor_state);
@@ -241,7 +239,6 @@ const VendorEdit = () => {
             console.error("Error:", response.statusText);
             return;
         }
-
         setloading(false);
         navigate('/VendorList');
     };
@@ -369,11 +366,11 @@ const VendorEdit = () => {
                                                     onChange={handleInputChange}
                                                     value={formData['vendor_items']}
                                                 >
-                                                    <option >Items</option>
+                                                    <option value="">Select Items</option>
                                                     <option value="Stationary">Stationary</option>
-                                                    <option value="Uniforum" >Uniforum</option>
-                                                    <option value="Books" >Books</option>
-                                                    <option value="Shoes" >Shoes</option>
+                                                    <option value="Uniforum">Uniforum</option>
+                                                    <option value="Books">Books</option>
+                                                    <option value="Shoes">Shoes</option>
 
                                                 </select>
                                             </div>

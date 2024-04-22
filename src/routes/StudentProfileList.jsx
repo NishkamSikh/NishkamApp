@@ -58,7 +58,7 @@ const StudentProfileList = () => {
 
         {
             name: <strong>DOB</strong>,
-            selector: row => (<div>{row.dob1}</div>),
+            selector: row => (<div>{row.dob}</div>),
             sortable: false,
             compact: true,
             width: "5rem",
@@ -203,6 +203,57 @@ const StudentProfileList = () => {
         }
     };
 
+    function convertArrayOfObjectsToCSV(args) {
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || '|';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function (item) {
+            ctr = 0;
+            keys.forEach(function (key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+
+    function downloadCSV() {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: filteredData
+        });
+        if (csv == null) return;
+
+        filename = 'StudentProfileList' + new Date() + '.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
@@ -220,6 +271,8 @@ const StudentProfileList = () => {
                                         <input type='text'
                                             placeholder='Search by Code, Name'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
+                                            <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
+
                                     </div>
                                 </div>
                             </div>

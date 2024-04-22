@@ -124,8 +124,6 @@ const isEmpty = function(obj) {
   }
 
     const handleAssistanceChange = (selectedOptions) => {
-       // alert(JSON.stringify(selectedOptions));
-        //setSelectedAssistanceOptions(selectedOptions);
         if(!isEmpty(selectedOptions))  setSelectedAssistanceOptions(selectedOptions);
 
     };
