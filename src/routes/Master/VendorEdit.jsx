@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom'
 import Form from '../../components/Form'
 import BankDetails from '../../components/BankDetails'
-
+import Select from 'react-select';
 const VendorEdit = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [loading, setloading] = useState(false);
@@ -21,6 +21,9 @@ const VendorEdit = () => {
     const [AccountNumber, setAccountNumber] = useState('');
     const [Bankselect, setBankselect] = useState('');
     const [formError, setFormError] = useState(false);
+
+    const [selectedItems, setselectedItems] = useState([]);
+    const [selectedInst, setselectedInst] = useState([]);
 
     const navigate = useNavigate();
 
@@ -69,6 +72,15 @@ const VendorEdit = () => {
     const handleAccountNumberChange = (value) => {
         setAccountNumber(value);
     };
+    const handleInstChange = (selectedOptions) => {
+
+        setselectedInst(selectedOptions);
+    };
+    const handleSubChange = (selectedOptions) => {
+
+        setselectedItems(selectedOptions);
+    };
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -116,6 +128,25 @@ const VendorEdit = () => {
             setloading(false)
         }, 1000)
     }, [])
+    const itemDetails = [
+        {
+            id: "1",
+            option: "Stationary",
+        },
+        {
+            id: "2",
+            option: "Uniforum",
+        },
+        {
+            id: "3",
+            option: "Shoes",
+        },
+        {
+            id: "3",
+            option: "Books",
+        },
+
+    ];
 
 
     const fetchUserInfo = async () => {
@@ -150,6 +181,8 @@ const VendorEdit = () => {
                 setIFSCcode(JSON.parse(data.data.data[0].Json).vendor_IFSCCode);
                 setAccountNumber(JSON.parse(data.data.data[0].Json).vendor_AccountNumber);
                 setBankselect(JSON.parse(data.data.data[0].Json).vendor_bank);
+                setselectedItems(JSON.parse(data.data.data[0].Json).vendor_items);
+                setselectedInst(JSON.parse(data.data.data[0].Json).vendor_institution);
 
                 setFormData(JSON.parse(data.data.data[0].Json));
 
@@ -303,12 +336,32 @@ const VendorEdit = () => {
                                                 />
                                             </div>
                                         </div>
-
                                         <div className="sm:col-span-3">
                                             <label htmlFor="vendor_items" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Items
                                             </label>
                                             <div className="mt-0">
+                                                <Select
+                                                    options={itemDetails.map((student) => ({
+                                                        value: student.option,
+                                                        label: student.option,
+                                                    }))}
+                                                    id="vendor_items"
+                                                    name="vendor_items"
+                                                    className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                    isMulti={true}
+                                                    value={selectedItems}
+                                                    onChange={handleSubChange}
+                                                />
+
+                                            </div>
+                                        </div>
+                                        {/* <div className="sm:col-span-3">
+                                            <label htmlFor="vendor_items" className="block text-sm font-medium leading-6 text-grey-900">
+                                                Items
+                                            </label>
+                                            <div className="mt-0">
+                                                
                                                 <select
                                                     className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                                                     aria-label="Items"
@@ -324,9 +377,28 @@ const VendorEdit = () => {
 
                                                 </select>
                                             </div>
-                                        </div>
-
+                                        </div> */}
                                         <div className="sm:col-span-3">
+                                            <label htmlFor="vendor_institution" className="block text-sm font-medium leading-6 text-grey-900">
+                                                Select Institution
+                                            </label>
+                                            <div className="mt-0">
+
+                                                <Select
+                                                    options={sechoolData.map((student) => ({
+                                                        value: JSON.parse(student.Json).Institution_Name,
+                                                        label: JSON.parse(student.Json).Institution_Name,
+                                                    }))}
+                                                    id="vendor_institution"
+                                                    name="vendor_institution"
+                                                    className='block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                                    isMulti={true}
+                                                    value={selectedInst}
+                                                    onChange={handleInstChange}
+                                                />
+                                            </div>
+                                        </div>
+                                        {/* <div className="sm:col-span-3">
                                             <label htmlFor="vendor_institution" className="block text-sm font-medium leading-6 text-grey-900">
                                                 Select Institution Name
                                             </label>
@@ -345,7 +417,7 @@ const VendorEdit = () => {
                                                     ))}
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                         <div className="sm:col-span-6">
 
@@ -393,8 +465,8 @@ const VendorEdit = () => {
                                 </button>
                                 <button
                                     type="submit"
-
-                                    // style={{ opacity: formData.studentcode && formData.stuyear ? 1 : 0.5 }}
+                                    disabled={!selectedItems.length || !selectedInst.length || !formData.vendor_items || !formData.vendor_institution}
+                                    style={{ opacity: (!selectedItems.length || !selectedInst.length || !formData.vendor_items || !formData.vendor_institution) ? 0.5 : 1 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save

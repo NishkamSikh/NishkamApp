@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Form from '../../components/Form'
 import BankDetails from '../../components/BankDetails'
+import Select from 'react-select';
 
 const AddInstitution = () => {
 

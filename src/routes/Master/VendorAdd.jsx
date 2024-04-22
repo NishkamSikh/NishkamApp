@@ -449,12 +449,13 @@ const VendorAdd = () => {
                                     Cancel
                                 </button>
                                 <button
-                                    type="submit"
-                                    style={{ opacity: formData.vendor_name && formData.vendor_shop_name ? 1 : 0.5 }}
-                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                    Save
-                                </button>
+    type="submit"
+    disabled={!selectedItems.length || !selectedInst.length || !formData.vendor_name || !formData.vendor_shop_name}
+    style={{ opacity: (selectedItems.length && selectedInst.length && formData.vendor_name && formData.vendor_shop_name) ? 1 : 0.5 }}
+    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+>
+    Save
+</button>
                             </div>
                         </form>
                     </div>
