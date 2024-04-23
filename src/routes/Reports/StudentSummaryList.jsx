@@ -262,7 +262,6 @@ const StudentSummaryList = () => {
                 const result = await response.json();
                 setStudentData(result.data);
                 setFilteredData(result.data);
-                setIsFetching(false);
             } catch (error) {
                 // Handle errors here
                 setError(error.message);
@@ -341,10 +340,10 @@ const StudentSummaryList = () => {
 
     return (
 
-
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
 
-            {FetchData ? <div
+            {FetchData ? 
+            <div
                 className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                 role="status">
             </div>
@@ -389,7 +388,8 @@ const StudentSummaryList = () => {
                             </div>
                         </div>
                     </div>
-                </div>}
+                </div>
+            }
 
 
 
