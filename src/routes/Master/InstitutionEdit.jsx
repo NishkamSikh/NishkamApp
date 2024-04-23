@@ -97,10 +97,11 @@ const EditInstitution = () => {
         e.preventDefault();
         setloading(true);
 
-        if (!selectedState || !selectedDistrict || !selectedTehsil) {
-            setFormError(true);
-            return;
-        }
+        // if (!selectedState || !selectedDistrict || !selectedTehsil) {
+        //     setFormError(true);
+        //     return;
+        // }
+
         setFormError(false);
 
         // const check = JSON.stringify({ ...formData, vendor_state: selectedState })
@@ -160,7 +161,7 @@ const EditInstitution = () => {
     }, [])
 
     const fetchUserInfo = async () => {
-        console.log(typeof searchParams.get('id'), 'fetch');
+        //console.log(typeof searchParams.get('id'), 'fetch');
         setloading(true);
         try {
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
@@ -176,7 +177,7 @@ const EditInstitution = () => {
             const data = await response.json();
 
             // Initialize fetchData with the expected structure
-            console.log(data.data.data[0], "Data ============")
+            //console.log(data.data.data[0], "Data ============")
             if (data.data.data.length > 0) {
                 setfetchData(data.data.data[0]);
                 // setstuCodeYear(data.data.data);

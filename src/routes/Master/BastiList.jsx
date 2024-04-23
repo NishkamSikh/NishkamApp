@@ -7,11 +7,11 @@ const BastiList = () => {
     const [errors, setError] = useState({});
     const columns = [
         {
-            selector: row => (<div>
-                {row.BastiId}
-            </div>),
-            width: "4rem",
-            sortable: false,
+            id:'1',
+            name:'Id',
+            selector: row => row.BastiId,
+            width: "3rem",
+            sortable: true,
             compact: true,
             center: true,
             wrap: true,
@@ -25,72 +25,75 @@ const BastiList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width: "4rem",
+            width: "3rem",
             compact: true,
         },
 
         {
-            name: <strong>Basti</strong>,
-            selector: row => (<div>
-                {row.BastiName}
-            </div>),
+            id:'2',
+            name: 'Basti',
+            selector: row => row.BastiName,
             width: "10rem",
-            sortable: false,
+            sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            name: <strong>State</strong>,
-            selector: row => (<div>
-                {row.State}
-            </div>),
-            width: "10rem",
-            sortable: false,
+            id:'3',
+            name:'State',
+            selector: row => row.State,
+            width: "8rem",
+            sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            name: <strong>District</strong>,
-            selector: row => (<div>
-                {row.District}
-            </div>),
-            width: "10rem",
-            sortable: false,
+            id:'4',
+            name: 'District',
+            selector: row => row.District,
+            width: "8rem",
+            sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            name: <strong>Tehsil</strong>,
-            selector: row => (<div>
-                {row.Tehsil}
-            </div>),
-            width: "10rem",
-            sortable: false,
+            id:'5',
+            name: 'Tehsil',
+            selector: row => row.Tehsil,
+            width: "8rem",
+            sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            name: <strong>Address</strong>,
-            selector: row => (<div>
-                {row.Address} {row.Village} 
-            </div>),
+            id:'6',
+            name: 'Address',
+            selector: row => row.Address,
             width: "15rem",
-            sortable: false,
+            sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            name: <strong>PIN</strong>,
-            selector: row => (<div>
-                {row.Pincode}
-            </div>),
+            id:'7',
+            name: 'Village',
+            selector: row => row.Village,
+            width: "12rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+        {
+            id:'8',
+            name: 'PIN',
+            selector: row => row.Pincode,
             width: "6rem",
-            sortable: false,
+            sortable: true,
             compact: true,
             wrap: true,
         },
@@ -139,6 +142,17 @@ const BastiList = () => {
             setFilteredData(newData);
         }
     };
+
+    const tableHeaderstyle = {
+        headCells: {
+            style: {
+                fontWeight: "bold",
+                fontSize: "14px",
+                backgroundColor: "#eee"
+            },
+        },
+    }
+
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-0">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
@@ -160,14 +174,22 @@ const BastiList = () => {
                                     </div>
                                 </div>
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                keyField="id"
-                                responsive
-                                className="custom-table "
-                            />
+                            <div style={{ width: '100%' }}>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    customStyles={tableHeaderstyle}
+                                    fixedHeader
+                                    highlightOnHover
+                                    pagination
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                    responsive
+                                    striped
+                                    keyField="id"
+                                    className="custom-table "
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

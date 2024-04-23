@@ -3,22 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
 
 const ListInstitution = () => {
-    const [instData, setinstData] = useState([])
+    const [instData, setInstData] = useState([])
     const [filteredData, setFilteredData] = useState(instData);
     const [errors, setErrors] = useState({});
     const columns = [
         {
-            selector: row => (<div>
-                {row.InstId}
-            </div>),
-            width: "3rem",
-            sortable: false,
+            id:'1',
+            name:'Id',
+            selector: row => row.InstId,
+            width: "2rem",
+            sortable: true,
             compact: true,
             center: true,
             wrap: true,
         },
 
-        {
+         {
             selector: row => (<div>
                 <Link to={`/InstitutionEdit?id=${row.InstId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
@@ -32,44 +32,40 @@ const ListInstitution = () => {
         },
 
         {
+            id:'3',
             name: 'Name',
-            selector: row => (<div>
-                {row.IN_InstitutionName}
-            </div>),
-            sortable: false,
+            selector: row => row.IN_InstitutionName,
+            sortable: true,
             compact: true,
-            width: "7rem",
+            width: "10rem",
             wrap: true,
         },
 
         {
+            id:'4',
             name: 'Type',
-            selector: row => (<div>
-                {row.IN_InstitutionType}
-            </div>),
-            sortable: false,
+            selector: row => row.IN_InstitutionType,
+            sortable: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
+            id:'5',
             name: 'Catg',
-            selector: row => (<div>
-                {row.IN_InstitutionCatg}
-            </div>),
-            sortable: false,
+            selector: row => row.IN_InstitutionCatg,
+            sortable: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
+            id:'6',
             name: 'Board',
-            selector: row => (<div>
-                {row.IN_InstitutionBoard}
-            </div>),
-            sortable: false,
+            selector: row => row.IN_InstitutionBoard,
+            sortable: true,
             compact: true,
             width: "4rem",
             wrap: true,
@@ -77,20 +73,16 @@ const ListInstitution = () => {
 
         {
             name: 'Principal',
-            selector: row => (<div>
-                {row.IN_PrincipalName} {row.IN_PrincipalPhone}
-            </div>),
-            sortable: false,
+            selector: row => row.IN_PrincipalName+' '+row.IN_PrincipalPhone,
+            sortable: true,
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
         {
             name: 'Email',
-            selector: row => (<div>
-                {row.IN_InstitutionEmail}
-            </div>),
+            selector: row => row.IN_InstitutionEmail,
             sortable: false,
             compact: true,
             width: "6rem",
@@ -99,9 +91,7 @@ const ListInstitution = () => {
 
         {
             name: 'Phone',
-            selector: row => (<div>
-                {row.IN_InstitutionPhone} {row.IN_AlternatePhone}
-            </div>),
+            selector: row => row.IN_InstitutionPhone +' ' + row.IN_AlternatePhone,
             sortable: false,
             compact: true,
             width: "6rem",
@@ -110,43 +100,34 @@ const ListInstitution = () => {
 
         {
             name: 'Medium',
-            selector: row => (<div>
-                {row.IN_InstitutionMedium}
-            </div>),
-            sortable: false,
+            selector: row => row.IN_InstitutionMedium,
+            sortable: true,
             compact: true,
-            width: "4rem",
+            width: "5rem",
             wrap: true,
         },
 
         {
             name: 'Contact-1',
-            selector: row => (<div>
-                {row.IN_ContactPhone_1} {row.IN_ContactDesignation_1}
-            </div>),
+            selector: row => row.IN_ContactDesignation_1+' '+ row.IN_ContactPhone_1 ,
             sortable: false,
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
         {
             name: 'Contact-2',
-            selector: row => (<div>
-                {row.IN_ContactPhone_2} {row.IN_ContactDesignation_2}
-            </div>),
+            selector: row => row.IN_ContactDesignation_2 + ' '+ row.IN_ContactPhone_2,
             sortable: false,
             compact: true,
             width: "6rem",
             wrap: true,
         },
 
-
         {
             name: 'Address',
-            selector: row => (<div>
-                {row.IN_State} {row.IN_District} {row.IN_Tehsil} {row.IN_Address} {row.IN_Pincode}
-            </div>),
+            selector: row => row.IN_State +' ' + row.IN_District + ' ' + row.IN_Tehsil +' ' + row.IN_Address +' '+ row.IN_Pincode,
             sortable: false,
             compact: true,
             width: "10rem",
@@ -155,9 +136,7 @@ const ListInstitution = () => {
 
         {
             name: 'Bank',
-            selector: row => (<div>
-                {row.IN_BankName}
-            </div>),
+            selector: row => row.IN_BankName,
             sortable: false,
             compact: true,
             width: "6rem",
@@ -166,9 +145,7 @@ const ListInstitution = () => {
 
         {
             name: 'Acct Name',
-            selector: row => (<div>
-                {row.IN_AccountName}
-            </div>),
+            selector: row => row.IN_AccountName,
             sortable: false,
             compact: true,
             width: "6rem",
@@ -177,9 +154,7 @@ const ListInstitution = () => {
 
         {
             name: 'IFSCCode',
-            selector: row => (<div>
-                {row.IN_IFSCCode}
-            </div>),
+            selector: row => row.IN_IFSCCode,
             sortable: false,
             compact: true,
             width: "6rem",
@@ -188,15 +163,13 @@ const ListInstitution = () => {
 
         {
             name: 'Acct#',
-            selector: row => (<div>
-                {row.IN_AccountNumber}
-            </div>),
+            selector: row => row.IN_AccountNumber,
             sortable: false,
             compact: true,
             width: "8rem",
             wrap: true,
         },
-
+ 
     ];
     useEffect(() => {
         if (!localStorage.getItem("UserauthToken")) {
@@ -215,12 +188,12 @@ const ListInstitution = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                const sortedData = result.data.sort((a, b) => {
-                    return a.IN_InstitutionName.localeCompare(b.IN_InstitutionName);
-                });
-                ;
-                setTutorData(sortedData);
-                setFilteredData(sortedData);
+                // const sortedData = result.data.sort((a, b) => {
+                //     return a.IN_InstitutionName.localeCompare(b.IN_InstitutionName);
+                // });
+
+                setInstData(result.data);
+                setFilteredData(result.data);
             } catch (error) {
                 // Handle errors here
                 setErrors(error.message);
@@ -230,19 +203,8 @@ const ListInstitution = () => {
         fetchData()
     }, []);
 
-    const handleFilter2 = (event) => {
-        const inputValue = event.target.value.toLowerCase();
-
-        if (inputValue === '') {
-            setFilteredData(instData);
-        } else {
-            const newData = instData.filter(row => row.IN_InstitutionName.toLowerCase().includes(inputValue));
-            setFilteredData(newData);
-        }
-    };
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-
         if (inputValue === '') {
             setFilteredData(instData);
         } else {
@@ -255,23 +217,35 @@ const ListInstitution = () => {
             setFilteredData(newData);
         }
     };
+
+
+    const tableHeaderstyle = {
+        headCells: {
+            style: {
+                fontWeight: "bold",
+                fontSize: "14px",
+                backgroundColor: "#eee"
+            },
+        },
+    }
+
+
+
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-0">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <h2 className="text-center text-lg font-semibold  bg-blue-100" >Institution List</h2>
+                    <p className="text-center text-lg font-semibold  bg-blue-100" >Institution List</p>
                 </div>
 
-
-
-            </div>
-            <div className="mt-2 flex flex-col">
+           </div>
+            <div className="mt-0 flex flex-col">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-1 align-middle md:px-6 lg:px-8">
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                             <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
                                 <div className="sm:col-span-1">
-                                    <div className="mt-0 p-2">
+                                    <div className="mt-0 p-2 text-sm">
                                         <input type='text'
                                             placeholder='Search by Name'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
@@ -282,10 +256,17 @@ const ListInstitution = () => {
                                 <DataTable
                                     columns={columns}
                                     data={filteredData}
+                                    customStyles={tableHeaderstyle}
+                                    fixedHeader
+                                    highlightOnHover
                                     pagination
-                                    keyField="id"
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}                                    
                                     responsive
+                                    striped
+                                    keyField="id"
                                     className="custom-table "
+
                                 />
                             </div>
                         </div>

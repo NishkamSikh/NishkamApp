@@ -7,11 +7,11 @@ const VoulnteerList = () => {
     const [errors, setError] = useState({});
     const columns = [
         {
-            selector: row => (<div>
-                {row.VolnId}
-            </div>),
-            width: "4rem",
-            sortable: false,
+            id: 'Id',
+            name: 'Id',
+            selector: row => row.VolnId,
+            width: "3rem",
+            sortable: true,
             compact: true,
             center: true,
             wrap: true,
@@ -25,61 +25,131 @@ const VoulnteerList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width: "4rem",
+            width: "3rem",
             compact: true,
         },
 
         {
-            selector: row => (<div>
-                <b>Name:</b> {row.VolunteerName} <br />
-                <b>Ph#:</b> {row.phone} <br />
-                <b>Email:</b> {row.Email} <br />
-
-            </div>),
-            sortable: false,
+            id: '2',
+            name: 'Name',
+            selector: row => row.VolunteerName,
+            sortable: true,
             compact: true,
-            wrap: true,
-        },
-        {
-            selector: row => (<div>
-                <b>State:</b> {row.State} <br />
-                <b>Dist:</b> {row.District} <br />
-                <b>Tehsil:</b> {row.Tehsil} <br />
-                <b>Basti:</b> {row.BastiName} <br />
-
-            </div>),
-            sortable: false,
-            compact: true,
+            width: "6rem",
             wrap: true,
         },
 
         {
-            selector: row => (<div> {console.log(row)}
-                <b>Addr:</b> {row.Address} <br />
-                <b>Vill:</b> {row.Village} <br />
-                <b>PIN:</b> {row.Pincode} <br />
-
-            </div>),
-            sortable: false,
+            id: '3',
+            name: 'Phone',
+            selector: row => row.phone,
+            sortable: true,
             compact: true,
+            width: "6rem",
             wrap: true,
         },
+
         {
-            selector: row => (<div>
-                <b>Bank:</b> {row.BankName} <br />
-                <b>Acct Name:</b> {row.AccountName} <br />
-                <b>IFSC Code:</b> {row.IFSCCode} <br />
-                <b>Acct#:</b> {row.AccountNumber} <br />
-            </div>),
+            id: '4',
+            name: 'Email',
+            selector: row => row.Email,
+            sortable: true,
+            compact: true,
+            width: "8rem",
+            wrap: true,
+        },
 
+        {
+            id: '5',
+            name: 'State',
+            selector: row => row.State,
+            sortable: true,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+
+        {
+            id: '6',
+            name: 'District',
+            selector: row => row.District,
+            sortable: true,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+        {
+            id: '7',
+            name: 'Tehsil',
+            selector: row => row.Tehsil,
+            sortable: true,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+        {
+            id: '8',
+            name: 'Basti',
+            selector: row => row.BastiName,
+            sortable: true,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+
+        {
+            id:'9',
+            name:'Address',
+            selector: row => row.Address + ' ' + row.Village + row.Pincode,
             sortable: false,
             compact: true,
+            width: "8rem",
             wrap: true,
-            // style: {
-            //     whiteSpace: 'normal', // Allow text to wrap
-            //     wordWrap: 'break-word', // Break words if they exceed the container width
-            // },
         },
+
+        {
+            name: 'Bank',
+            selector: row => row.BankName,
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Acct Name',
+            selector: row => row.AccountName,
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'IFSCCode',
+            selector: row => row.IFSCCode,
+            sortable: false,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Acct#',
+            selector: row => row.AccountNumber,
+            sortable: false,
+            compact: true,
+            width: "8rem",
+            wrap: true,
+        },
+
+
+
+
 
     ];
 
@@ -93,8 +163,7 @@ const VoulnteerList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                //const response = await fetch('https://nishkamapi.onrender.com/api/v1/volunteerlist2');
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/volunteerlist2');                
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/volunteerlist2');
 
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -103,13 +172,8 @@ const VoulnteerList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-  // Sort the data alphabetically by VolunteerName
-  const sortedData = result.data.sort((a, b) => {
-    return a.VolunteerName.localeCompare(b.VolunteerName);
-    });
-                   ;
-                    setTutorData(sortedData);
-                    setFilteredData(sortedData);
+                setVolnData(result.data);
+                setFilteredData(result.data);
             } catch (error) {
                 // Handle errors here
                 setError(error.message);
@@ -130,6 +194,16 @@ const VoulnteerList = () => {
             setFilteredData(newData);
         }
     };
+
+    const tableHeaderstyle = {
+        headCells: {
+            style: {
+                fontWeight: "bold",
+                fontSize: "14px",
+                backgroundColor: "#eee"
+            },
+        },
+    }
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
@@ -152,14 +226,24 @@ const VoulnteerList = () => {
                                     </div>
                                 </div>
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                keyField="id"
-                                responsive
-                                className="custom-table "
-                            />
+
+                            <div style={{ width: '100%' }}>
+
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    customStyles={tableHeaderstyle}
+                                    fixedHeader
+                                    highlightOnHover
+                                    pagination
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                    responsive
+                                    striped
+                                    keyField="id"
+                                    className="custom-table "
+                                />
+                            </div>
 
                         </div>
                     </div>

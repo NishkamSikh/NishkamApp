@@ -8,12 +8,10 @@ const TutorList = () => {
     const [errors, setError] = useState({});
     const columns = [
         {
-            //name: 'Column 1',
-            selector: row => (<div>
-                {row.TutorId}
-            </div>),
+            name: 'Id',
+            selector: row => row.TutorId,
             width: "4rem",
-            sortable: false,
+            sortable: true,
             compact: true,
             center: true,
             wrap: true,
@@ -33,23 +31,19 @@ const TutorList = () => {
         },
 
         {
-            name: <strong>Name</strong>,
-            selector: row => (<div>
-                {row.TutorName}
-            </div>),
+            name: 'Name',
+            selector: row => row.TutorName,
             width: "6rem",
-            sortable: false,
+            sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            name: <strong>Phone</strong>,
-            selector: row => (<div>
-                {row.PhoneNumber}
-            </div>),
+            name: 'Phone',
+            selector: row => row.PhoneNumber,
             width: "6rem",
-            sortable: false,
+            sortable: true,
             compact: true,
             wrap: true,
         },
@@ -145,6 +139,8 @@ const TutorList = () => {
 
     ];
 
+
+    
     const [filteredData, setFilteredData] = useState(TutorData);
     const navigate = useNavigate();
     useEffect(() => {
@@ -166,12 +162,12 @@ const TutorList = () => {
                 // Parse the response as JSON
                 const result = await response.json();
                 // Sort the data alphabetically by VendorName
-                const sortedData = result.data.sort((a, b) => {
-                    return a.TutorName.localeCompare(b.TutorName);
-                });
-                ;
-                setTutorData(sortedData);
-                setFilteredData(sortedData);
+                // const sortedData = result.data.sort((a, b) => {
+                //     return a.TutorName.localeCompare(b.TutorName);
+                // });
+                
+                setTutorData(result.data);
+                setFilteredData(result.data);
 
             } catch (error) {
                 // Handle errors here
@@ -181,6 +177,18 @@ const TutorList = () => {
 
         fetchData()
     }, []);
+
+
+    const tableHeaderstyle = {
+        headCells: {
+            style: {
+                fontWeight: "bold",
+                fontSize: "14px",
+                backgroundColor: "#eee"
+            },
+        },
+    }
+
 
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
@@ -223,6 +231,7 @@ const TutorList = () => {
                             <DataTable
                                 columns={columns}
                                 data={filteredData}
+                                customStyles={tableHeaderstyle}
                                 pagination
                                 responsive
                                 keyField="id"
