@@ -6,9 +6,6 @@ import DataTable from 'react-data-table-component';
 
 const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([]);
-    const [FetchData, setFetchData] = useState(true);
-
-
     const columns = [
         {
             id: '1',
@@ -57,7 +54,7 @@ const StudentSummaryList = () => {
             wrap: true,
         },
         {
-            id: '5',
+            id:'5',
             name: 'Name',
             selector: row => row.Name,
             sortable: true,
@@ -101,7 +98,7 @@ const StudentSummaryList = () => {
         {
             id: 'id-9',
             name: 'Result',
-            selector: row => row.result,
+            selector: row =>row.result,
             sortable: true,
             reorder: true,
             compact: true,
@@ -252,7 +249,7 @@ const StudentSummaryList = () => {
 
                 // Make API request using fetch
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
-                setFetchData(false);
+
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -340,59 +337,54 @@ const StudentSummaryList = () => {
 
 
     return (
-
-
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
-
-            {FetchData ? <div
-                className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                role="status">
-            </div>
-                :
+            <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-                        <div>
-                            <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
-                        </div>
-                    </div>
-                    <div className="mt-0 flex flex-col">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                                <div className="overflow-hidden border border-grey-200 md:rounded-lg">
-                                    <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-                                        <div className="sm:col-span-1">
-                                            <div className="mt-0 p-2">
-                                                <input type='text'
-                                                    placeholder='Search by Code, Name, Parents, Basti'
-                                                    className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
-                                                <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div style={{ width: '100%' }}>
-                                        <DataTable
-                                            columns={columns}
-                                            data={filteredData}
-                                            customStyles={tableHeaderstyle}
-                                            pagination
-                                            paginationPerPage={10}
-                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
-                                            fixedHeader
-                                            responsive
-                                            highlightOnHover
-                                            striped
-                                            className="custom-table "
-                                        />
+                    <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
+                </div>
+            </div>
+            <div className="mt-0 flex flex-col">
+                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                        <div className="overflow-hidden border border-grey-200 md:rounded-lg">
+                            <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                                <div className="sm:col-span-1">
+                                    <div className="mt-0 p-2">
+                                        <input type='text'
+                                            placeholder='Search by Code, Name, Parents, Basti'
+                                            className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
+                                        <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                     </div>
                                 </div>
                             </div>
+
+                            <div style={{ width: '100%' }}>
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    customStyles={tableHeaderstyle}
+                                    //paginationPosition="top"
+                                    //selectableRows
+                                    pagination
+                                    paginationPerPage={10}
+                                    paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                    fixedHeader
+                                    responsive
+                                    highlightOnHover
+                                    //defaultSorted={defaultSort} 
+                                    striped
+                                    defaultSortAsc={true}
+                                    //sortFunction={customSort} // Use the custom sort function
+                                    //onSort={handleSort} // Handle sort changes
+                                    //sortField={sortedField} // Current sorted field
+                                    //sortDirection={sortDirection} // Current sort direction
+                                    className="custom-table "
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>}
-
-
-
+                </div>
+            </div>
         </section>
     )
 }
