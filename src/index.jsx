@@ -9,29 +9,29 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import './index.css'
-import StudentProfileAdd from "./routes/StudentProfileAdd";
-import StudentProfileEdit from "./routes/StudentProfileEdit";
-import StudentProfileList from "./routes/StudentProfileList";
+import StudentProfileAdd from "./routes/StudentData/StudentProfileAdd";
+import StudentProfileEdit from "./routes/StudentData/StudentProfileEdit";
+import StudentProfileList from "./routes/StudentData/StudentProfileList";
 
-import StudentAddressAdd from "./routes/StudentAddressAdd";
-import StudentAddressEdit from "./routes/StudentAddressEdit";
-import StudentAddressList from "./routes/StudentAddressList";
+import StudentAddressAdd from "./routes/StudentData/StudentAddressAdd";
+import StudentAddressEdit from "./routes/StudentData/StudentAddressEdit";
+import StudentAddressList from "./routes/StudentData/StudentAddressList";
 
-import StudentFamilyAdd from "./routes/StudentFamilyAdd";
-import StudentFamilyEdit from "./routes/StudentFamilyEdit";
-import StudentFamilyList from "./routes/StudentFamilyList";
+import StudentFamilyAdd from "./routes/StudentData/StudentFamilyAdd";
+import StudentFamilyEdit from "./routes/StudentData/StudentFamilyEdit";
+import StudentFamilyList from "./routes/StudentData/StudentFamilyList";
 
-import StudentInstitutionAdd from "./routes/StudentInstitutionAdd";
-import StudentInstitutionEdit from "./routes/StudentInstitutionEdit";
-import StudentInstitutionList from "./routes/StudentInstitutionList";
+import StudentInstitutionAdd from "./routes/StudentData/StudentInstitutionAdd";
+import StudentInstitutionEdit from "./routes/StudentData/StudentInstitutionEdit";
+import StudentInstitutionList from "./routes/StudentData/StudentInstitutionList";
 
-import StudentAcademicAdd from "./routes/StudentAcademicAdd";
-import StudentAcademicEdit from "./routes/StudentAcademicEdit";
-import StudentAcademicList from "./routes/StudentAcademicList";
+import StudentAcademicAdd from "./routes/StudentData/StudentAcademicAdd";
+import StudentAcademicEdit from "./routes/StudentData/StudentAcademicEdit";
+import StudentAcademicList from "./routes/StudentData/StudentAcademicList";
 
-import StudentReportCardAdd from "./routes/StudentReportCardAdd";
-import StudentReportCardEdit from "./routes/StudentReportCardEdit";
-import StudentReportCardList from "./routes/StudentReportCardList";
+import StudentReportCardAdd from "./routes/StudentData/StudentReportCardAdd";
+import StudentReportCardEdit from "./routes/StudentData/StudentReportCardEdit";
+import StudentReportCardList from "./routes/StudentData/StudentReportCardList";
 import Dashboard from "./routes/Dashboard";
 
 import StudentSummaryList from "./routes/Reports/StudentSummaryList";
@@ -60,9 +60,9 @@ import VoulnteerEdit from "./routes/Master/VoulnteerEdit";
 import VoulnteerList from "./routes/Master/VoulnteerList";
 
 
-import StudentDocsAdd from "./routes/StudentDocsAdd";
-import StudentDocsList from "./routes/StudentDocsList";
-import StudentDocsEdit from "./routes/StudentDocsEdit";
+import StudentDocsAdd from "./routes/StudentData/StudentDocsAdd";
+import StudentDocsList from "./routes/StudentData/StudentDocsList";
+import StudentDocsEdit from "./routes/StudentData/StudentDocsEdit";
 
 import ProgressReport from "./routes/Reports/ProgressReport";
 import DashBoardSummary from "./routes/Reports/DashBoardSummary";
