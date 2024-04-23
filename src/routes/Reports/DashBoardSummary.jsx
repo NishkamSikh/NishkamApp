@@ -137,11 +137,10 @@ const DashBoardSummary = () => {
     return (
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
 
-
-            {FetchData ? <div
-                className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                role="status">
-            </div>
+            {FetchData ?
+                <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+                </div>
                 :
                 <div>
                     <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
@@ -166,21 +165,14 @@ const DashBoardSummary = () => {
                                             columns={columns}
                                             data={filteredData}
                                             customStyles={tableHeaderstyle}
-                                            //paginationPosition="top"
-                                            //selectableRows
                                             pagination
                                             paginationPerPage={10}
                                             paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
                                             fixedHeader
                                             responsive
                                             highlightOnHover
-                                            //defaultSortFieldId="Name"
                                             striped
                                             defaultSortAsc={true}
-                                            //sortFunction={customSort} // Use the custom sort function
-                                            //onSort={handleSort} // Handle sort changes
-                                            //sortField={sortedField} // Current sorted field
-                                            //sortDirection={sortDirection} // Current sort direction
                                             className="custom-table "
                                         />
                                     </div>

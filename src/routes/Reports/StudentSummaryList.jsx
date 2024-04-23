@@ -342,11 +342,11 @@ const StudentSummaryList = () => {
 
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
 
-            {FetchData ? 
-            <div
-                className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                role="status">
-            </div>
+            {FetchData ?
+
+                <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+                </div>
                 :
                 <div>
                     <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
