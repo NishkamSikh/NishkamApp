@@ -181,14 +181,7 @@ const DashBoardSummary = () => {
                         </div>
                     </div>
                 </div>
-
             }
-
-
-
-
-
-
         </section>
     )
 }
