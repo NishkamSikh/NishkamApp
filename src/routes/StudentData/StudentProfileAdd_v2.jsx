@@ -34,7 +34,6 @@ const StudentProfile = () => {
   const { ...allData } = formData;
 
   const canSubmit = (allData.firstname && allData.studentcode && allData.stuyear && allData.gender && isValidDate(allData.dob) && isValidDate(allData.joindate) && allData.status) ? true : false;
-  console.log("allData=", allData);
 
   function isValidDate(dateString) {
     const regex = /^\d{4}-\d{2}-\d{2}$/;
@@ -43,9 +42,6 @@ const StudentProfile = () => {
 
   useEffect(() => {
     const getUserid = localStorage.getItem("UserId")
-    console.log("Updated FormData:", formData);
-    // console.log(getUserid);
-    // console.log(image, "image");
     fetchAllStudentDetails();
 
     setUserId(getUserid)
@@ -55,7 +51,7 @@ const StudentProfile = () => {
   }, [formData])
 
 
-  const fetchAllStudentDetails = () => {
+  const fetchAllStudentDetails_old = () => {
     // setloading(true);
     fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
       .then(response => response.json())
@@ -68,10 +64,25 @@ const StudentProfile = () => {
         setloading(false);
       });
   };
+
+  const fetchAllStudentDetails = () => {
+    // setloading(true);
+    //fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+    fetch('http://localhost:3000/api/v1/fetchAllStudentCode')
+      .then(response => response.json())
+      .then(data => {
+        setStudentDetails(data.data);
+        console.log(data.data);
+        setloading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching student details:', error);
+        setloading(false);
+      });
+  };
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
-    console.log(image, "Handle Start");
     e.preventDefault();
 
     // Check if any select is not selected
@@ -84,8 +95,6 @@ const StudentProfile = () => {
 
     setErrors({}); // Reset errors
     setloading(true);
-
-    console.log("Formdata=", formData)
 
     const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
@@ -170,7 +179,7 @@ const StudentProfile = () => {
                           required
                           placeholder='Student Code (8)'
                           maxLength={8}
-                          pattern="[0-9a-zA-Z-]{6,}"
+                          //pattern="[0-9a-zA-Z-]{6,}"
                           value={formData['studentcode']}
                           onChange={(e) => { setFormData({ ...formData, studentcode: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
@@ -290,9 +299,6 @@ const StudentProfile = () => {
                           <option selected value="Male">Male</option>
                           <option value="Female">Female</option>
                         </select>
-                        <span className="mt-1 hidden text-sm text-red-400">
-                          Last name sdssd must be at least 1 characters long
-                        </span>
                       </div>
                     </div>
 
