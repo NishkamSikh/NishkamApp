@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useNavigate } from 'react-router-dom';
-
+import { Cloudinary } from "@cloudinary/url-gen";
 
 const StudentProfile = () => {
   const [userID, setUserId] = useState('')
@@ -31,27 +32,21 @@ const StudentProfile = () => {
   }
   );
 
-  const { ...allData } = formData;
-
-  const canSubmit = (allData.firstname && allData.studentcode && allData.stuyear && allData.gender && isValidDate(allData.dob) && isValidDate(allData.joindate) && allData.status) ? true : false;
-
-  function isValidDate(dateString) {
-    const regex = /^\d{4}-\d{2}-\d{2}$/;
-    return regex.test(dateString);
-  }
-
   useEffect(() => {
     const getUserid = localStorage.getItem("UserId")
+    console.log("Updated FormData:", formData);
+    // console.log(getUserid);
+    // console.log(image, "image");
     fetchAllStudentDetails();
 
     setUserId(getUserid)
     if (!localStorage.getItem("UserauthToken")) {
       navigate("/");
     }
-  }, [])
+  }, [formData])
 
 
-  const fetchAllStudentDetails_old = () => {
+  const fetchAllStudentDetails = () => {
     // setloading(true);
     fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
       .then(response => response.json())
@@ -64,25 +59,11 @@ const StudentProfile = () => {
         setloading(false);
       });
   };
-
-  const fetchAllStudentDetails = () => {
-    // setloading(true);
-    fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentCode')
-   // fetch('http://localhost:3000/api/v1/fetchAllStudentCode')
-      .then(response => response.json())
-      .then(data => {
-        setStudentDetails(data.data);
-        console.log(data.data);
-        setloading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching student details:', error);
-        setloading(false);
-      });
-  };
+  
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
+    console.log(image, "Handle Start");
     e.preventDefault();
 
     // Check if any select is not selected
@@ -93,8 +74,15 @@ const StudentProfile = () => {
       }
     });
 
+    // if (Object.keys(errorsObj).length > 0) {
+    //   setErrors(errorsObj);
+    //   return;
+    // }
+
     setErrors({}); // Reset errors
     setloading(true);
+
+    console.log("Formdata=", formData)
 
     const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
@@ -128,8 +116,6 @@ const StudentProfile = () => {
     }
   };
 
-
-  /*
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -138,7 +124,30 @@ const StudentProfile = () => {
       alert('Student code already exists!');
       // You can also handle the error state or display a message in your UI
     }
+    // Validation based on the field name
+    // let updatedValue = value;
 
+    // switch (name) {
+    //   case "firstname":
+    //   case "middlename":
+    //   case "lastname":
+    //   case "refby":
+    //   case "approveby":
+    //     // Allow only alphabets in the name fields
+    //     updatedValue = value.replace(/[^a-zA-Z]/g, '');
+    //     break;
+
+    //   case "contact1":
+    //   case "contact2":
+    //     // Allow only numeric values in the contact number fields
+    //     updatedValue = value.replace(/[^0-9]/g, '');
+    //     break;
+
+    //   // Add additional cases for other fields with specific validation requirements
+
+    //   default:
+    //     break;
+    // }
 
     // Update the state with the sanitized value
     setFormData((prevData) => ({
@@ -147,15 +156,23 @@ const StudentProfile = () => {
     }));
 
   };
-*/
-
   return (
     <section className="mx-auto w-full max-w-7xl px-2 py-2">
       {
         loading
           ?
-          <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-            <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-1">
+            <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+              <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md text-center">
+                <div
+                  className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  role="status">
+                  <span
+                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                  >Loading...</span>
+                </div>
+              </div>
+            </div>
           </div>
           :
 
@@ -176,17 +193,15 @@ const StudentProfile = () => {
                           type="text"
                           name="studentcode"
                           id="studentcode"
-                          required
                           placeholder='Student Code (8)'
                           maxLength={8}
-                          //pattern="[0-9a-zA-Z-]{6,}"
+
                           value={formData['studentcode']}
-                          onChange={(e) => { setFormData({ ...formData, studentcode: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange2}
+
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.studentcode ? 'border-red-500' : ''
+                            }`}
                         />
-                        <span className="mt-1 hidden text-sm text-red-400">
-                          Student code must be at least 6 characters long
-                        </span>
                       </div>
                     </div>
 
@@ -199,15 +214,14 @@ const StudentProfile = () => {
                           id="stuyear"
                           name="stuyear"
                           value={formData['stuyear']}
-                          required
-                          onChange={(e) => { setFormData({ ...formData, stuyear: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
+                            }`}
                         >
                           <option >Select Year</option>
                           <option value="2023-2024">2023-2024</option>
-                          <option value="2022-2023">2022-2023</option>
-                          <option value="2021-2022">2021-2022</option>
+                          {/* <option value="2022-2023">2022-2023</option>
+                          <option value="2021-2022">2021-2022</option> */}
                         </select>
                       </div>
                     </div>
@@ -216,22 +230,18 @@ const StudentProfile = () => {
                       <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                         First name*
                       </label>
-                      <div className="flex flex-col items-start">
+                      <div className="mt-0">
                         <input
                           type="text"
-                          id="firstname"
                           name="firstname"
-                          required
                           placeholder='First Name(20)'
-                          maxLength={20}
-                          pattern="[0-9a-zA-Z]{2,}"
+                          maxLength={15}
+                          id="firstname"
                           value={formData['firstname']}
-                          onChange={(e) => { setFormData({ ...formData, firstname: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.firstname ? 'border-red-500' : ''
+                            }`}
                         />
-                        <span className="mt-1 hidden text-sm text-red-400">
-                          First name must be at least 2 characters long
-                        </span>
                       </div>
                     </div>
 
@@ -242,20 +252,15 @@ const StudentProfile = () => {
                       <div className="mt-0">
                         <input
                           type="text"
-                          id="middlename"
                           name="middlename"
-                          placeholder='Middle Name {20}'
-                          maxLength={20}
+                          placeholder='Middle Name {15}'
+                          maxLength={15}
+                          id="middlename"
                           value={formData['middlename']}
-                          pattern="[0-9a-zA-Z ]{1,}"
-                          onChange={(e) => {
-                            setFormData({ ...formData, middlename: e.target.value, });
-                          }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.middlename ? 'border-red-500' : ''
+                            }`}
                         />
-                        <span className="mt-1 hidden text-sm text-red-400">
-                          Middle name must be at least 1 characters long
-                        </span>
                       </div>
                     </div>
 
@@ -266,18 +271,15 @@ const StudentProfile = () => {
                       <div className="mt-0">
                         <input
                           type="text"
-                          id="lastname"
                           name="lastname"
-                          placeholder='Last Name (20)'
-                          maxLength={20}
-                          pattern="[0-9a-zA-Z ]{1,}"
+                          placeholder='Last Name (15)'
+                          id="lastname"
+                          maxLength={15}
                           value={formData['lastname']}
-                          onChange={(e) => { setFormData({ ...formData, lastname: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.lastname ? 'border-red-500' : ''
+                            }`}
                         />
-                        <span className="mt-1 hidden text-sm text-red-400">
-                          Last name must be at least 1 characters long
-                        </span>
                       </div>
                     </div>
 
@@ -289,51 +291,46 @@ const StudentProfile = () => {
                         <select
                           id="gender"
                           name="gender"
-                          required
                           value={formData.gender}
-                          //placeholder="Gender"
-                          onChange={(e) => { setFormData({ ...formData, gender: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                          >
-                          <option>Select Gender</option>
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.gender ? 'border-red-500' : ''
+                            }`}
+                        >
+                          <option >Select Gender</option>
                           <option selected value="Male">Male</option>
                           <option value="Female">Female</option>
+
                         </select>
                       </div>
                     </div>
 
                     <div className="sm:col-span-3">
                       <label htmlFor="dob" className="block text-sm font-medium leading-6 text-gray-900">
-                        Date of Birth*
+                        Date of Birth
                       </label>
                       <div className="mt-0">
                         <input
                           type="date"
-                          id="dob"
                           name="dob"
-                          required
-                          placeholder="Date of Birth"
-                          onKeyDown={(e) => e.preventDefault()} // Disable keyboard input
-                          onChange={(e) => { setFormData({ ...formData, dob: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
-
+                          id="dob"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.dob ? 'border-red-500' : ''
+                            }`}
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-3">
                       <label htmlFor="joindate" className="block text-sm font-medium leading-6 text-gray-900">
-                        Date of Joining*
+                        Date of Joining
                       </label>
                       <div className="mt-0">
                         <input
                           type="date"
-                          id="joindate"
-                          required
                           name="joindate"
-                          onKeyDown={(e) => e.preventDefault()} // Disable keyboard input
-                          onChange={(e) => { setFormData({ ...formData, joindate: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
+                          onChange={handleInputChange}
+                          id="joindate"
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.joindate ? 'border-red-500' : ''
+                            }`}
                         />
                       </div>
                     </div>
@@ -346,10 +343,11 @@ const StudentProfile = () => {
                         <select
                           id="religion"
                           name="religion"
-                          onChange={(e) => { setFormData({ ...formData, religion: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                          >
-                          <option>Select Religion</option>
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.religion ? 'border-red-500' : ''
+                            }`}
+                        >
+                          <option >Select Religion</option>
                           <option value="Sikh">Sikh</option>
                           <option value="Hindu">Hindu</option>
                           <option value="Muslim">Muslim</option>
@@ -366,13 +364,14 @@ const StudentProfile = () => {
                       <div className="mt-0">
                         <input
                           type="text"
-                          id="refby"
                           name="refby"
                           value={formData['refby']}
                           placeholder='Referred By (25)'
+                          id="refby"
                           maxLength={25}
-                          onChange={(e) => { setFormData({ ...formData, refby: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.refby ? 'border-red-500' : ''
+                            }`}
                         />
                       </div>
                     </div>
@@ -384,13 +383,14 @@ const StudentProfile = () => {
                       <div className="mt-0">
                         <input
                           type="text"
-                          id="approveby"
                           name="approveby"
                           placeholder='Approved By (25)'
-                          maxLength={25}
                           value={formData['approveby']}
-                          onChange={(e) => { setFormData({ ...formData, approveby: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          maxLength={55}
+                          id="approveby"
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.approveby ? 'border-red-500' : ''
+                            }`}
                         />
                       </div>
                     </div>
@@ -403,9 +403,10 @@ const StudentProfile = () => {
                         <select
                           id="sikligar"
                           name="sikligar"
-                          onChange={(e) => { setFormData({ ...formData, sikligar: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                          >
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.sikligar ? 'border-red-500' : ''
+                            }`}
+                        >
                           <option >Select Student is Sikligar</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
@@ -422,9 +423,10 @@ const StudentProfile = () => {
                         <select
                           id="status"
                           name="status"
-                          onChange={(e) => { setFormData({ ...formData, status: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                          >
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.status ? 'border-red-500' : ''
+                            }`}
+                        >
                           <option >Select Student Status</option>
                           <option value="Active">Active</option>
                           <option value="Inactive">Inactive</option>
@@ -441,9 +443,10 @@ const StudentProfile = () => {
                         <select
                           id="contact1type"
                           name="contact1type"
-                          onChange={(e) => { setFormData({ ...formData, contact1type: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                          >
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1type ? 'border-red-500' : ''
+                            }`}
+                        >
                           <option value="">Select Number belongd to</option>
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
@@ -463,14 +466,14 @@ const StudentProfile = () => {
                       <div className="mt-0">
                         <input
                           type="Number"
-                          id="contact1"
                           name="contact1"
-                          pattern="[0-9]{10}$"
                           value={formData['contact1']}
                           maxLength={10}
                           placeholder='Contact-1 &#9742; (10)'
-                          onChange={(e) => { setFormData({ ...formData, contact1: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          id="contact1"
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact1 ? 'border-red-500' : ''
+                            }`}
                         />
                       </div>
                     </div>
@@ -483,9 +486,10 @@ const StudentProfile = () => {
                         <select
                           id="contact2type"
                           name="contact2type"
-                          onChange={(e) => { setFormData({ ...formData, contact2type: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                          >
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2type ? 'border-red-500' : ''
+                            }`}
+                        >
                           <option value="">Select Number belongd to</option>
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
@@ -507,16 +511,34 @@ const StudentProfile = () => {
                           type="Number"
                           name="contact2"
                           id="contact2"
-                          pattern="[0-9]{10}$"
                           maxLength={10}
                           value={formData['contact2']}
                           placeholder='Contact-2 &#9742; (10)'
-                          onChange={(e) => { setFormData({ ...formData, contact2: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.contact2 ? 'border-red-500' : ''
+                            }`}
                         />
                       </div>
                     </div>
 
+                    {/* <div className="sm:col-span-1">
+                      <label htmlFor="identity" className="block text-sm font-medium leading-6 text-gray-900">
+                        Identity Document Type
+                      </label>
+                      <div className="mt-0">
+                        <select
+                          id="identity"
+                          name="identity"
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.identity ? 'border-red-500' : ''
+                            }`}
+                        >
+                          <option>Select Identity Option</option>
+                          <option value="Adhard Card">Adhard Card</option>
+                          <option value="Birth Certificate">Birth Certificate</option>
+                        </select>
+                      </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -527,9 +549,9 @@ const StudentProfile = () => {
                 </button>
                 <button
                   type="submit"
-                  disabled={!canSubmit}
-                  // style={{ opacity: formData.studentcode && formData.stuyear && formData.firstname && formData.gender && formData.status ? 1 : 0.5 }}
-                  className="text-white bg-purple-700 hover:bg-purple-600 focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center mt-2 disabled:bg-gradient-to-br disabled:from-gray-100 disabled:to-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed group-invalid:bg-gradient-to-br group-invalid:from-gray-100 group-invalid:to-gray-300 group-invalid:text-gray-400 group-invalid:pointer-events-none group-invalid:opacity-70"
+                  disabled={!formData.studentcode || !formData.stuyear || !formData.firstname || !formData.status || !formData.gender}
+                  style={{ opacity: formData.studentcode && formData.stuyear && formData.firstname && formData.gender && formData.status ? 1 : 0.5 }}
+                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Save
                 </button>
