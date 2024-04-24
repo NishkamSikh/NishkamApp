@@ -343,18 +343,19 @@ const EditInstitution = () => {
                                                 Institution Certification Board
                                             </label>
                                             <div className="mt-0">
-                                                <select
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-2 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                            <select
+                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                                                     aria-label="Select_Board"
                                                     value={formData['Select_Board']}
                                                     onChange={handleInputChange}
-                                                    name='Select_Board'
+                                                    name='Institution_Board'
                                                 >
                                                     <option>Select Certification Board</option>
-                                                    <option value="Board 1">Board 1</option>
-                                                    <option value="Board 2">Board 2</option>
-                                                    <option value="Board 3">Board 3</option>
-                                                    <option value="Other">Other</option>
+                                                    <option value="CBSE">CBSE</option>
+                                                    <option value="ICSE">ICSE</option>
+                                                    <option value="U.P. Board">U.P. Board</option>
+                                                    <option value="Punjab Board">Punjab Board</option>
+                                                    <option value="Karnataka Board">Haryana  Board</option>
                                                 </select>
                                             </div>
                                         </div>

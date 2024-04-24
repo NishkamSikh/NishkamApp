@@ -307,6 +307,7 @@ const StudentProfile = () => {
                           name="dob"
                           required
                           placeholder="Date of Birth"
+                          onKeyDown={(e) => e.preventDefault()} // Disable keyboard input
                           onChange={(e) => { setFormData({ ...formData, dob: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
 
@@ -324,6 +325,7 @@ const StudentProfile = () => {
                           id="joindate"
                           required
                           name="joindate"
+                          onKeyDown={(e) => e.preventDefault()} // Disable keyboard input
                           onChange={(e) => { setFormData({ ...formData, joindate: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         />

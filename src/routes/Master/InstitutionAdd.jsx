@@ -279,6 +279,7 @@ const AddInstitution = () => {
                                                     <option value="ICSE">ICSE</option>
                                                     <option value="U.P. Board">U.P. Board</option>
                                                     <option value="Punjab Board">Punjab Board</option>
+                                                    <option value="Karnataka Board">Haryana  Board</option>
                                                 </select>
                                             </div>
                                         </div>
