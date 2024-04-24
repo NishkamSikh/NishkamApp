@@ -10,6 +10,8 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import './index.css'
 import StudentProfileAdd from "./routes/StudentData/StudentProfileAdd";
+import StudentProfileAdd_v2 from "./routes/StudentData/StudentProfileAdd_v2";
+
 import StudentProfileEdit from "./routes/StudentData/StudentProfileEdit";
 import StudentProfileList from "./routes/StudentData/StudentProfileList";
 
@@ -85,6 +87,12 @@ const router = createBrowserRouter([
         path: "StudentProfileAdd",
         element: <StudentProfileAdd />,
       },
+
+      {
+        path: "StudentProfileAdd_v2",
+        element: <StudentProfileAdd_v2 />,
+      },
+
       {
         path: "StudentProfileEdit",
         element: <StudentProfileEdit />,

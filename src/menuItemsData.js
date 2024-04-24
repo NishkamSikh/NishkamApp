@@ -22,6 +22,10 @@ export const menuItemsData = [
         submenu: [
           {
             title: "Add",
+            url: "StudentProfileAdd_v2",
+          },
+          {
+            title: "Add-Old",
             url: "StudentProfileAdd",
           },
           {
