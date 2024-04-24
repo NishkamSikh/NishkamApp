@@ -73,8 +73,8 @@ const StudentSummaryList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "7rem",
-            rap: true,
+            width: "8rem",
+            wrap: true,
         },
 
         {

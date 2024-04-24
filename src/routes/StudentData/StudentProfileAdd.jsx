@@ -219,8 +219,8 @@ const StudentProfile = () => {
                         >
                           <option >Select Year</option>
                           <option value="2023-2024">2023-2024</option>
-                          <option value="2022-2023">2022-2023</option>
-                          <option value="2021-2022">2021-2022</option>
+                          {/* <option value="2022-2023">2022-2023</option>
+                          <option value="2021-2022">2021-2022</option> */}
                         </select>
                       </div>
                     </div>
@@ -542,14 +542,14 @@ const StudentProfile = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-end gap-x-6">
+              <div className="mt-1 flex items-center justify-end gap-x-6">
                 <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  //disabled={!formData.studentcode || !formData.stuyear || !formData.firstname || !formData.status || !formData.gender}
-                  //style={{ opacity: formData.studentcode && formData.stuyear && formData.firstname && formData.gender && formData.status ? 1 : 0.5 }}
+                  disabled={!formData.studentcode || !formData.stuyear || !formData.firstname || !formData.status || !formData.gender}
+                  style={{ opacity: formData.studentcode && formData.stuyear && formData.firstname && formData.gender && formData.status ? 1 : 0.5 }}
                   className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Save

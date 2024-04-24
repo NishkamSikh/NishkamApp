@@ -4,12 +4,13 @@ import DataTable from 'react-data-table-component';
 
 const StudentProfileList = () => {
     const [StudentData, setStudentData] = useState([])
+    const [FetchData, setFetchData] = useState(true);
 
     const columns = [
         {
             id: '1',
             name: 'Id',
-            selector: row =>row.StudentId,
+            selector: row => row.StudentId,
             width: "3rem",
             sortable: true,
             reorder: true,
@@ -35,7 +36,7 @@ const StudentProfileList = () => {
             name: 'Code',
             selector: row => row.StudentCode,
             sortable: true,
-            reorder: true,            
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
@@ -45,7 +46,7 @@ const StudentProfileList = () => {
             name: 'Year',
             selector: row => row.AcademicYear,
             sortable: true,
-            reorder: true,   
+            reorder: true,
             width: "7rem",
             wrap: true,
         },
@@ -54,115 +55,115 @@ const StudentProfileList = () => {
             name: 'Name',
             selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
             sortable: true,
-            reorder: true,   
+            reorder: true,
             compact: true,
             width: "8rem",
             wrap: true,
         },
 
         {
-            id:'6',
+            id: '6',
             name: 'DOB',
             selector: row => row.dob,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "5rem",
             wrap: true,
         },
 
         {
-            id:'7',
+            id: '7',
             name: 'Gender',
             selector: row => row.gender,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
         {
-            id:'8',
+            id: '8',
             name: 'Join Dt',
             selector: row => row.joindate,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "5rem",
             wrap: true,
         },
         {
-            id:'9',
+            id: '9',
             name: 'Status',
             selector: row => row.status,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
-            id:'10',
+            id: '10',
             name: 'Religion',
-            selector: row =>row.religion,
+            selector: row => row.religion,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
-            id:'11',
+            id: '11',
             name: 'Sikligar',
             selector: row => row.sikligar,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "4rem",
             wrap: true,
         },
 
         {
-            id:'12',
+            id: '12',
             name: 'Contact-1',
-            selector: row =>row.contact1,
+            selector: row => row.contact1,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "6rem",
             wrap: true,
         },
 
         {
-            id:'13',
+            id: '13',
             name: 'Contact-2',
-            selector: row => row.contact2, 
+            selector: row => row.contact2,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "6rem",
             wrap: true,
         },
 
         {
-            id:'14',
+            id: '14',
             name: 'Ref By',
             selector: row => row.refby,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "8rem",
             wrap: true,
         },
 
         {
-            id:'15',
+            id: '15',
             name: 'Approve By',
             selector: row => row.approveby,
             sortable: true,
-            reorder: true,  
+            reorder: true,
             compact: true,
             width: "8rem",
             wrap: true,
@@ -192,7 +193,7 @@ const StudentProfileList = () => {
             try {
                 // Make API request using fetch
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentprofilelist');
-
+                setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -278,43 +279,57 @@ const StudentProfileList = () => {
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
-            <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-                <div>
-                    <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
+
+            {FetchData ?
+
+                <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
                 </div>
-            </div>
-            <div className="mt-1 flex flex-col">
-                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div className="overflow-hidden border border-grey-200 md:rounded-lg">
-                            <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-                                <div className="sm:col-span-2">
-                                    <div className="mt-0 p-2">
-                                        <input type='text'
-                                            placeholder='Search by Code, Name'
-                                            className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
-                                            <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
+                :
+                <div>
+                    <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                        <div>
+                            <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
+                        </div>
+                    </div>
+                    <div className="mt-1 flex flex-col">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                <div className="overflow-hidden border border-grey-200 md:rounded-lg">
+                                    <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                                        <div className="sm:col-span-2">
+                                            <div className="mt-0 p-2">
+                                                <input type='text'
+                                                    placeholder='Search by Code, Name'
+                                                    className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
+                                                <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style={{ width: '100%' }}>
+                                        <DataTable
+                                            columns={columns}
+                                            data={filteredData}
+                                            customStyles={tableHeaderstyle}
+                                            pagination
+                                            paginationPerPage={10}
+                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                            fixedHeader
+                                            responsive
+                                            highlightOnHover
+                                            striped
+                                            className="custom-table "
+                                        />
 
                                     </div>
                                 </div>
                             </div>
-                            <div style={{ width: '100%' }}>
-                                <DataTable
-                                    columns={columns}
-                                    data={filteredData}
-                                    customStyles={tableHeaderstyle}
-                                    pagination
-                                    responsive
-                                    keyField="id"
-                                    // padding="10px"
-                                    className="custom-table "
-                                />
-
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
+
         </section>
     )
 }
