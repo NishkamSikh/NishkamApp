@@ -52,7 +52,7 @@ const StudentProfile = () => {
     if (!localStorage.getItem("UserauthToken")) {
       navigate("/");
     }
-  }, [formData])
+  }, [])
 
 
   const fetchAllStudentDetails = () => {
