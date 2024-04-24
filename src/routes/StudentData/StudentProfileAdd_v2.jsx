@@ -307,7 +307,7 @@ const StudentProfile = () => {
                           required
                           placeholder="Date of Birth"
                           onChange={(e) => { setFormData({ ...formData, dob: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
 
                         />
                       </div>
@@ -324,7 +324,7 @@ const StudentProfile = () => {
                           required
                           name="joindate"
                           onChange={(e) => { setFormData({ ...formData, joindate: e.target.value, }); }}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         />
                       </div>
                     </div>
@@ -340,7 +340,7 @@ const StudentProfile = () => {
                           onChange={(e) => { setFormData({ ...formData, religion: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                         >
-                          <option >Select Religion</option>
+                          <option>Select Religion</option>
                           <option value="Sikh">Sikh</option>
                           <option value="Hindu">Hindu</option>
                           <option value="Muslim">Muslim</option>
@@ -456,6 +456,7 @@ const StudentProfile = () => {
                           type="Number"
                           id="contact1"
                           name="contact1"
+                          pattern="[0-9]{10}$"
                           value={formData['contact1']}
                           maxLength={10}
                           placeholder='Contact-1 &#9742; (10)'
@@ -497,6 +498,7 @@ const StudentProfile = () => {
                           type="Number"
                           name="contact2"
                           id="contact2"
+                          pattern="[0-9]{10}$"
                           maxLength={10}
                           value={formData['contact2']}
                           placeholder='Contact-2 &#9742; (10)'
