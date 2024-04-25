@@ -14,7 +14,7 @@ const StudentSummaryList = () => {
             id: '1',
             name: 'Id',
             selector: row => row.ProfileId,
-            width: "4rem",
+            width: "4.5rem",
             sortable: true,
             reorder: true,
             wrap: true,

@@ -11,7 +11,7 @@ const StudentProfileList = () => {
             id: '1',
             name: 'Id',
             selector: row => row.StudentId,
-            width: "3rem",
+            width: "4rem",
             sortable: true,
             reorder: true,
             compact: true,
@@ -279,15 +279,15 @@ const StudentProfileList = () => {
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
-
+          
             {FetchData ?
 
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-10 w-10"></div>
                 </div>
                 :
                 <div>
-                    <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                    <div className="flex flex-col space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
                             <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
                         </div>

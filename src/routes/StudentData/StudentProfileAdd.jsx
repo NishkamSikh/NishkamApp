@@ -458,17 +458,17 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="contact1" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact #1
+                        Contact #1 &#9742;
                       </label>
                       <div className="mt-0">
                         <input
                           type="Number"
                           id="contact1"
                           name="contact1"
-                          pattern="[0-9]{10}$"
+                          pattern="^\d{10}$"
                           value={formData['contact1']}
                           maxLength={10}
-                          placeholder='Contact-1 &#9742; (10)'
+                          placeholder=''
                           onChange={(e) => { setFormData({ ...formData, contact1: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                         />
@@ -500,17 +500,16 @@ const StudentProfile = () => {
 
                     <div className="sm:col-span-2">
                       <label htmlFor="contact2" className="block text-sm font-medium leading-6 text-gray-900">
-                        Contact #2
+                        Contact #2 &#9742;
                       </label>
                       <div className="mt-0">
                         <input
-                          type="Number"
+                          type="number"
                           name="contact2"
                           id="contact2"
-                          pattern="[0-9]{10}$"
-                          maxLength={10}
+                          pattern="^\d{10}$"
                           value={formData['contact2']}
-                          placeholder='Contact-2 &#9742; (10)'
+                          placeholder=''
                           onChange={(e) => { setFormData({ ...formData, contact2: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                         />

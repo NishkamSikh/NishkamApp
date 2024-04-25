@@ -269,7 +269,7 @@ const Form = ({
 
                     <select
                         name='State'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 text-sm font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="state"
                         value={selectedState}
                         onChange={(e) => handleStateChange(e.target.value)}>
@@ -286,7 +286,7 @@ const Form = ({
                 <div className="">
                     <label htmlFor="district" className="block text-sm font-medium leading-6 text-gray-900">District:</label>
                     <select name='District'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="district"
                         value={selectedDistrict}
                         onChange={(e) => handleDistrictChange(e.target.value)}
@@ -305,7 +305,7 @@ const Form = ({
             <div className="sm:col-span-3">
                 <div className="">
                     <label htmlFor="tehsil" className="block text-sm font-medium leading-6 text-gray-900">Tehsil:</label>
-                    <select className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' name='Tehsil' id="tehsil" value={selectedTehsil} onChange={(e) => handleTehsilChange(e.target.value)} disabled={!selectedDistrict}>
+                    <select className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' name='Tehsil' id="tehsil" value={selectedTehsil} onChange={(e) => handleTehsilChange(e.target.value)} disabled={!selectedDistrict}>
                         <option value="">Select Tehsil</option>
                         {selectedDistrict && Tehsils[selectedDistrict] && Tehsils[selectedDistrict].map((tehsil) => (
                             <option key={tehsil} value={tehsil}>
@@ -324,7 +324,7 @@ const Form = ({
                         name='Address'
                         value={selectedAddress}
                         onChange={(e) => handleAddressChange(e.target.value)}
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="Address"
 
                         placeholder='Address'
@@ -339,7 +339,7 @@ const Form = ({
                         value={selectedPincode}
                         onChange={(e) => handlePinCodeChange(e.target.value)}
                         name='Pin_Code'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="pincode" placeholder='Pin Code' aria-describedby="pincode" />
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="pincode" placeholder='Pin Code' aria-describedby="pincode" />
                 </div>
             </div>
             <div className="sm:col-span-3">
@@ -351,7 +351,7 @@ const Form = ({
                         name='Village'
                         onChange={(e) => handleVillageChange(e.target.value)}
                         value={selectedVillage}
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="village" placeholder='Village Name' aria-describedby="Village" />
+                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="village" placeholder='Village Name' aria-describedby="Village" />
                 </div>
             </div>
 

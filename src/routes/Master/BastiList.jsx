@@ -138,7 +138,12 @@ const BastiList = () => {
         if (inputValue === '') {
             setFilteredData(BastiData);
         } else {
-            const newData = BastiData.filter(row => row.BastiName.toLowerCase().includes(inputValue));
+            const newData = BastiData.filter(row => 
+                
+                (row.BastiName.toLowerCase().includes(inputValue)) ||
+                (row.State.toLowerCase().includes(inputValue)) ||
+                (row.District.toLowerCase().includes(inputValue)) 
+            )
             setFilteredData(newData);
         }
     };
@@ -164,12 +169,12 @@ const BastiList = () => {
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-4 lg:-mx-6">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                         <div className="overflow-hidden border border-grey-200 md:rounded-lg">
-                            <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                            <div className="mt-0 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
 
-                                <div className="sm:col-span-1">
+                                <div className="sm:col-span-2">
                                     <div className="mt-0 p-2">
                                         <input type='text'
-                                            placeholder='Search by Basti'
+                                            placeholder='Search by State, District, Basti'
                                             className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                     </div>
                                 </div>
