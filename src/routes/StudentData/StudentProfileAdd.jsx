@@ -51,20 +51,6 @@ const StudentProfile = () => {
   }, [])
 
 
-  const fetchAllStudentDetails_old = () => {
-    // setloading(true);
-    fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
-      .then(response => response.json())
-      .then(data => {
-        setStudentDetails(data.data);
-        setloading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching student details:', error);
-        setloading(false);
-      });
-  };
-
   const fetchAllStudentDetails = () => {
     // setloading(true);
     fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentCode')
@@ -72,7 +58,6 @@ const StudentProfile = () => {
       .then(response => response.json())
       .then(data => {
         setStudentDetails(data.data);
-        console.log(data.data);
         setloading(false);
       })
       .catch(error => {
@@ -127,7 +112,6 @@ const StudentProfile = () => {
       console.error("Error:", error.message);
     }
   };
-
 
   /*
   const handleInputChange = (e) => {

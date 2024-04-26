@@ -269,7 +269,7 @@ const Form = ({
 
                     <select
                         name='State'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 text-sm font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         id="state"
                         value={selectedState}
                         onChange={(e) => handleStateChange(e.target.value)}>
@@ -286,7 +286,7 @@ const Form = ({
                 <div className="">
                     <label htmlFor="district" className="block text-sm font-medium leading-6 text-gray-900">District:</label>
                     <select name='District'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         id="district"
                         value={selectedDistrict}
                         onChange={(e) => handleDistrictChange(e.target.value)}
@@ -324,9 +324,8 @@ const Form = ({
                         name='Address'
                         value={selectedAddress}
                         onChange={(e) => handleAddressChange(e.target.value)}
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         id="Address"
-
                         placeholder='Address'
                         aria-describedby="Address" />
                 </div>
@@ -339,7 +338,10 @@ const Form = ({
                         value={selectedPincode}
                         onChange={(e) => handlePinCodeChange(e.target.value)}
                         name='Pin_Code'
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="pincode" placeholder='Pin Code' aria-describedby="pincode" />
+                        id='Pin_Code'
+                        placeholder='PIN'
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
+                        />
                 </div>
             </div>
             <div className="sm:col-span-3">
@@ -348,10 +350,13 @@ const Form = ({
                         className="block text-sm font-medium leading-6 text-gray-900">Village Name</label>
                     <input
                         type="text"
+                        id='Village'
                         name='Village'
+                        placeholder='Village Name'
                         onChange={(e) => handleVillageChange(e.target.value)}
                         value={selectedVillage}
-                        className='w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal text-sm outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="village" placeholder='Village Name' aria-describedby="Village" />
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
+                        />
                 </div>
             </div>
 

@@ -172,11 +172,11 @@ const AddInstitution = () => {
 
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Institution_Type" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Institution Type
+                                                Institution Type*
                                             </label>
                                             <div className="mt-0">
                                                 <select
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     aria-label="Institution_Type"
                                                     value={formData['Institution_Type']}
                                                     onChange={handleInputChange}
@@ -192,11 +192,11 @@ const AddInstitution = () => {
                                         </div>
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Institution_Catg" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Institution Category
+                                                Institution Category*
                                             </label>
                                             <div className="mt-0">
                                                 <select
-                                                    className='text-sm  w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     aria-label="Institution_Catg"
                                                     value={formData['Institution_Catg']}
                                                     onChange={handleInputChange}
@@ -212,11 +212,11 @@ const AddInstitution = () => {
 
                                         <div className="sm:col-span-2">
                                             <label htmlFor="Institution_Name" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Name of Institution
+                                                Name of Institution*
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Institution_Name"
                                                     name="Institution_Name"
@@ -233,12 +233,12 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="number"
                                                     name="number"
                                                     value={formData['number']}
-                                                    placeholder='Institution &#9742; (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     onChange={handleInputChange}
                                                 />
@@ -250,11 +250,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="alternate_number"
                                                     name="alternate_number"
-                                                    placeholder='Alternate &#9742; (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     value={formData['alternate_number']}
                                                     onChange={handleInputChange}
@@ -268,7 +268,7 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <select
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     aria-label="Select_Board"
                                                     value={formData['Select_Board']}
                                                     onChange={handleInputChange}
@@ -291,11 +291,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Email"
                                                     name="Email"
-                                                    placeholder='Email (125)'
+                                                    placeholder=''
                                                     maxLength={125}
                                                     value={formData['Email']}
                                                     onChange={handleInputChange}
@@ -308,11 +308,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Principal_Name"
                                                     name="Principal_Name"
-                                                    placeholder='Principal Name (40)'
+                                                    placeholder=''
                                                     maxLength={40}
                                                     value={formData['Principal_Name']}
                                                     onChange={handleInputChange}
@@ -325,11 +325,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Principal_Number"
                                                     name="Principal_Number"
-                                                    placeholder='Principal &#9742; (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     value={formData['Principal_Number']}
                                                     onChange={handleInputChange}
@@ -343,11 +343,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Contact_Number_1"
                                                     name="Contact_Number_1"
-                                                    placeholder='Contact-1 &#9742; (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     value={formData['Contact_Number_1']}
                                                     onChange={handleInputChange}
@@ -361,11 +361,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Contact_Number_1_Designation"
                                                     name="Contact_Number_1_Designation"
-                                                    placeholder='Contact-1 Designation (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     value={formData['Contact_Number_1_Designation']}
                                                     onChange={handleInputChange}
@@ -378,11 +378,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Contact_Number_2"
                                                     name="Contact_Number_2"
-                                                    placeholder='Contact-2 &#9742; (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     value={formData['Contact_Number_2']}
                                                     onChange={handleInputChange}
@@ -395,11 +395,11 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Contact_Number_2_Designation"
                                                     name="Contact_Number_2_Designation"
-                                                    placeholder='Contact-2 Designation (25)'
+                                                    placeholder=''
                                                     maxLength={25}
                                                     value={formData['Contact_Number_2_Designation']}
                                                     onChange={handleInputChange}
@@ -412,7 +412,7 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Website"
                                                     name="Website"
@@ -430,7 +430,7 @@ const AddInstitution = () => {
                                             </label>
                                             <div className="mt-0">
                                                 <input
-                                                    className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                                                     type="text"
                                                     id="Medium"
                                                     name="Medium"

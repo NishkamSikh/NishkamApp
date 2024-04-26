@@ -84,7 +84,7 @@ const BankDetails = ({
             <div className="sm:col-span-3">
                 <div className="my-0">
                     <label htmlFor="state" className="form-label font-medium text-sm" >Bank Name</label>
-                    <select name='Bank_Name' className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' value={Bankselect} id="state" onChange={(e) => handleBankChange(e.target.value)} >
+                    <select name='Bank_Name' className='bg-gray-50 border border-gray-300 text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-3 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' value={Bankselect} id="state" onChange={(e) => handleBankChange(e.target.value)} >
                         <option value="">Select Bank</option>
                         {Bank_List.map((bank) => (
                             <option key={bank.id} value={bank.name}>
@@ -101,7 +101,7 @@ const BankDetails = ({
                     <input
                         type="text"
                         name='Account_Name'
-                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className='bg-gray-50 border border-gray-300 text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                         id="Account_Name"
                         value={AccountName}
                         maxLength={75}
@@ -118,7 +118,7 @@ const BankDetails = ({
                         name='IFSC_Code'
                         value={IFSCcode}
                         maxLength={20}
-                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         id="IFSC_Code"
                         onChange={(e) => handleIFSCcode(e.target.value)}
                         placeholder='IFSC Code (20)'
@@ -132,11 +132,13 @@ const BankDetails = ({
                     <input
                         type="number"
                         name='Account_Number'
-                        
+                        id='Account_Number'
+                        placeholder='Account Number'
                         maxLength={20}
                         onChange={(e) => handleAccountNumberChange(e.target.value)}
                         value={AccountNumber}
-                        className='text-sm w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 normal outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary' id="Account_Number" placeholder='Account Number (20)' aria-describedby="Account_Number" />
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
+                        />
                 </div>
             </div>
 
