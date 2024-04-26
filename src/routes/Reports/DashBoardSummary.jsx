@@ -166,8 +166,8 @@ const DashBoardSummary = () => {
                                             data={filteredData}
                                             customStyles={tableHeaderstyle}
                                             pagination
-                                            paginationPerPage={20}
-                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                            paginationPerPage={25}
+                                            paginationRowsPerPageOptions={[25, 50, 75, 100, 10000]}
                                             defaultSortFieldId={1}
                                             fixedHeader
                                             responsive

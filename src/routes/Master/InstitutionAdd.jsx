@@ -131,7 +131,6 @@ const AddInstitution = () => {
                 ),
             }),
         });
-        console.log(formData, "After ======")
 
         if (!response.ok) {
             console.error("Error:", response.statusText);
@@ -205,7 +204,8 @@ const AddInstitution = () => {
                                                 >
                                                     <option>Select Institution Category</option>
                                                     <option value="Public">Public</option>
-                                                    <option value="Private" >Private</option>
+                                                    <option value="Private">Private</option>
+                                                    <option value="Government">Government</option>
                                                 </select>
                                             </div>
                                         </div>
