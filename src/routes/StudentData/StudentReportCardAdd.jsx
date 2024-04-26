@@ -161,10 +161,10 @@ const StudentReportCardAdd = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('subjectList:', subjectList);
         setloading(true);
 
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
+        
         // Proceed with the second API call
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
             method: "POST",

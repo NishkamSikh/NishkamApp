@@ -57,7 +57,7 @@ const StudentReportCardList = () => {
 
         {
             name: <strong>DOB</strong>,
-            selector: row => (<div>{row.DOB1}</div>),
+            selector: row => (<div>{row.DOB}</div>),
             sortable: false,
             compact: true,
             width: "7rem",

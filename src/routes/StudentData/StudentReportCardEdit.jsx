@@ -78,7 +78,6 @@ const StudentReportCardEdit = () => {
         const list = [...subjectList];
 
         list[index][name] = value;
-        console.log(list, "list")
         setsubjectList(list);
         subjectmarkscount(subjectList);
     };
@@ -186,13 +185,20 @@ const StudentReportCardEdit = () => {
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
         // Check if any select is not selected
         const errorsObj = {};
 
+        const { StudentId, ReportCardId,StudentCode,AcademicYear,CatgCode,FirstName,LastName,MiddleName,DOB,MarksObtained,MarksTotal,MarksPercentage,json, ...formDataWithoutCodeYear } = formData;
         setloading(true);
+
+
+
+        console.log("formData=" , formData);
+
+        console.log("FreshData=" , formDataWithoutCodeYear);
+alert("232323");
 
         try {
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
@@ -203,7 +209,7 @@ const StudentReportCardEdit = () => {
                 body: JSON.stringify({
 
                     data: JSON.stringify({
-                        ...formData,
+                        ...formDataWithoutCodeYear,
                         subjectList: subjectList,
                         extra: selectedItems
                     }),

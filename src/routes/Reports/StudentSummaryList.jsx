@@ -63,7 +63,7 @@ const StudentSummaryList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "10rem",
+            width: "9em",
             wrap: true,
         },
         {
@@ -190,7 +190,7 @@ const StudentSummaryList = () => {
             selector: row => row.State,
             sortable: true,
             reorder: true,
-            width: "5rem",
+            width: "3.5rem",
             compact: true,
             wrap: true,
         },
@@ -201,7 +201,7 @@ const StudentSummaryList = () => {
             selector: row => row.District,
             sortable: true,
             reorder: true,
-            width: "5rem",
+            width: "6rem",
             compact: true,
             wrap: true,
         },
@@ -337,6 +337,11 @@ const StudentSummaryList = () => {
         link.click();
     }
 
+    const paginationComponentOptions = {
+        selectAllRowsItem: true,
+        selectAllRowsItemText: 'ALL',
+      };
+
 
     return (
 
@@ -345,7 +350,7 @@ const StudentSummaryList = () => {
             {FetchData ?
 
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                 </div>
                 :
                 <div>
@@ -369,14 +374,16 @@ const StudentSummaryList = () => {
                                         </div>
                                     </div>
 
-                                    <div style={{ width: '100%' }}>
+                                    <div style={{ width: '100%'}}>
                                         <DataTable
                                             columns={columns}
                                             data={filteredData}
                                             customStyles={tableHeaderstyle}
                                             pagination
                                             paginationPerPage={10}
-                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                            defaultSortFieldId={1}
+                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100,10000]}
+                                           // paginationComponentOptions={paginationComponentOptions}
                                             fixedHeader
                                             responsive
                                             highlightOnHover

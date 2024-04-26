@@ -184,9 +184,9 @@ const StudentDetail = () => {
                 <div class="p-2 bg-orange-100  text-sm">
                     {StudentData.map((data, index) => (
                         <div>
-                            {data.AcademicId > 0 ? (
+                            {data.ReportCardId > 0 ? (
                                 <p>
-                                    <Link to={`/StudentAcademicEdit?Id=${data.AcademicId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                    <Link to={`/StudentReportCardEdit?Id=${data.ReportCardId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                         <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                             Edit-ReportCard data
                                         </span>
@@ -195,7 +195,7 @@ const StudentDetail = () => {
                             )
                                 : (<p></p>)
                             }
-                            <p><b>ReportCardId:</b> {data.AcademicId} </p>
+                            <p><b>ReportCardId:</b> {data.ReportCardId} </p>
                             <p><b>Result:</b> {data.Result}</p>
                             <p><b>Marks Obtained:</b> {data.MarksObtained}</p>
                             <p><b>Marks Total:</b> {data.MarksTotal}</p>

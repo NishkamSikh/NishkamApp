@@ -139,7 +139,7 @@ const DashBoardSummary = () => {
 
             {FetchData ?
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                 </div>
                 :
                 <div>
@@ -167,6 +167,7 @@ const DashBoardSummary = () => {
                                             customStyles={tableHeaderstyle}
                                             pagination
                                             paginationPerPage={10}
+
                                             paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
                                             fixedHeader
                                             responsive
