@@ -193,13 +193,6 @@ const StudentReportCardEdit = () => {
         const { StudentId, ReportCardId,StudentCode,AcademicYear,CatgCode,FirstName,LastName,MiddleName,DOB,MarksObtained,MarksTotal,MarksPercentage,json, ...formDataWithoutCodeYear } = formData;
         setloading(true);
 
-
-
-        console.log("formData=" , formData);
-
-        console.log("FreshData=" , formDataWithoutCodeYear);
-alert("232323");
-
         try {
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
@@ -250,7 +243,7 @@ alert("232323");
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Student Report Card Data
+                        (Not working............)  Edit - Student Report Card Data   (Not working............)
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-2">
@@ -414,12 +407,12 @@ alert("232323");
                                 <button type="button" onClick={() => navigate("/StudentReportCardList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
-                                <button
+{/*                                 <button
                                     type="submit"
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save
-                                </button>
+                                </button> */}
                             </div>
                         </form>
                     </div>
