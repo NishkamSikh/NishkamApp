@@ -181,7 +181,7 @@ const StudentDetail = () => {
                         <div>
                             {data.ReportCardId > 0 ? (
                                 <p>
-                                    <Link to={`/StudentReportCardEdit?Id=${data.ReportCardId}&flag=academic&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
+                                    <Link to={`/StudentReportCardEdit?Id=${data.ReportCardId}&flag=reportcard&proId=${data.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                                         <span className="inline-flex rounded-full bg-blue-400 px-5 py-1  text-medium font-semibold leading-15 text-white">
                                             Edit-ReportCard data
                                         </span>

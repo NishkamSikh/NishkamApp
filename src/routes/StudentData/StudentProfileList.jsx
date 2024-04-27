@@ -265,7 +265,7 @@ const StudentProfileList = () => {
         });
         if (csv == null) return;
 
-        filename = 'StudentProfileList' + new Date() + '.csv';
+        filename = 'Student_Profile_Data' + '(' + new Date().toLocaleDateString("IN") + ').csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;
@@ -323,7 +323,6 @@ const StudentProfileList = () => {
                                             striped
                                             className="custom-table "
                                         />
-
                                     </div>
                                 </div>
                             </div>

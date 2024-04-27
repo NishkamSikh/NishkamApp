@@ -89,10 +89,8 @@ const StudentProfileEdit = () => {
     e.preventDefault();
     const { StudentCode, StudentId, AcademicYear, CatgCode, StudentLabel, ProfileId, ...formDataWithoutCodeYear } = formData;
     
-    
-    // Check if any select is not selected
+        // Check if any select is not selected
     const errorsObj = {};
-
     setloading(true);
 
     try {
@@ -123,35 +121,6 @@ const StudentProfileEdit = () => {
     } catch (error) {
       setloading(false);
       console.error("Error:", error.message);
-    }
-  };
-
-  const imageupload = async () => {
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "employeeApp");
-    data.append("cloud_name", "dxwge5g8f");
-    try {
-      const cloudinaryResponse = await fetch(
-        "https://api.cloudinary.com/v1_1/dxwge5g8f/image/upload",
-        {
-          method: "post",
-          body: data,
-        }
-      );
-
-      if (!cloudinaryResponse.ok) {
-        console.error("Error uploading image to Cloudinary:", cloudinaryResponse.statusText);
-        return;
-      }
-
-      const cloudinaryData = await cloudinaryResponse.json();
-      // console.log("Cloudinary URL:", cloudinaryData.url);
-
-      return cloudinaryData.url;
-    } catch (error) {
-      console.error("Error uploading image to Cloudinary:", error.message);
-      return null;
     }
   };
 

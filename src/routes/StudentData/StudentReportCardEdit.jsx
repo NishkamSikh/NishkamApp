@@ -213,8 +213,13 @@ const StudentReportCardEdit = () => {
                 return;
             }
 
-            setloading(false);
-            navigate('/dashboard')
+            if (searchParams.get('flag') == "reportcard") {
+                navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
+              } else {
+                navigate('/StudentReportCardList')
+              }
+
+              setloading(false);
 
         } catch (error) {
             setloading(false);
@@ -243,7 +248,7 @@ const StudentReportCardEdit = () => {
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                        (Not working............)  Edit - Student Report Card Data   (Not working............)
+                        Edit - Student Report Card Data
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-2">
@@ -258,7 +263,7 @@ const StudentReportCardEdit = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="reportcard" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Report Card Received  {console.log("FormData ====",formData)}
+                                                Report Card Received
                                             </label>
                                            
                                             <div className="mt-1">
@@ -329,7 +334,6 @@ const StudentReportCardEdit = () => {
 
                                             <div className="mt-1">
                                                 {subjectList.map((input, i) => {
-                                                    // console.log(input,i, "Print")
                                                     return (
                                                         <div className="grid grid-cols-4 gap-2" key={i}>
                                                             <div className="">
@@ -369,7 +373,7 @@ const StudentReportCardEdit = () => {
                                                             </div>
                                                             <div className="">
                                                                 <label htmlFor={`max_marks-${i}`} className="block text-sm font-medium leading-6 text-gray-900">
-                                                                    Max Marks
+                                                                    Marks Obtained
                                                                 </label>
                                                                 <input type="text"
                                                                     name={'max_marks' + i}
