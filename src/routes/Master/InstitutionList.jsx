@@ -68,7 +68,7 @@ const ListInstitution = () => {
             selector: row => row.IN_InstitutionBoard,
             sortable: true,
             compact: true,
-            width: "4rem",
+            width: "6rem",
             wrap: true,
         },
 
@@ -86,7 +86,7 @@ const ListInstitution = () => {
             selector: row => row.IN_InstitutionEmail,
             sortable: false,
             compact: true,
-            width: "6rem",
+            width: "10rem",
             wrap: true,
         },
 
@@ -131,7 +131,7 @@ const ListInstitution = () => {
             selector: row => row.IN_State + ' ' + row.IN_District + ' ' + row.IN_Tehsil + ' ' + row.IN_Address + ' ' + row.IN_Pincode,
             sortable: false,
             compact: true,
-            width: "10rem",
+            width: "12rem",
             wrap: true,
         },
 
@@ -140,7 +140,7 @@ const ListInstitution = () => {
             selector: row => row.IN_BankName,
             sortable: false,
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
@@ -149,7 +149,7 @@ const ListInstitution = () => {
             selector: row => row.IN_AccountName,
             sortable: false,
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
@@ -158,7 +158,7 @@ const ListInstitution = () => {
             selector: row => row.IN_IFSCCode,
             sortable: false,
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
