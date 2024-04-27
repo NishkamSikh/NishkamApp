@@ -66,7 +66,7 @@ const StudentReportCardList = () => {
 
         {
             name: <strong>Report Card</strong>,
-            selector: row => (<div>{row.ReportCard}</div>),
+            selector: row => (<div>{row.reportcard}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
@@ -75,7 +75,7 @@ const StudentReportCardList = () => {
 
         {
             name: <strong>Result</strong>,
-            selector: row => (<div>{row.Result}</div>),
+            selector: row => (<div>{row.result}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
@@ -83,7 +83,7 @@ const StudentReportCardList = () => {
         },
         {
             name: <strong>Marks obtained</strong>,
-            selector: row => (<div>{row.MarksTotal}</div>),
+            selector: row => (<div>{row.markstotal}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
@@ -91,7 +91,7 @@ const StudentReportCardList = () => {
         },
         {
             name: <strong>Marks Total</strong>,
-            selector: row => (<div>{row.MarksObtained}</div>),
+            selector: row => (<div>{row.marksobtained}</div>),
             sortable: false,
             compact: true,
             width: "7rem",
