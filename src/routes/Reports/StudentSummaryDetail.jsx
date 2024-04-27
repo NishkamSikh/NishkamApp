@@ -4,7 +4,6 @@ import DataTable from 'react-data-table-component';
 import { useSearchParams } from 'react-router-dom'
 
 
-
 const StudentDetail = () => {
     const [StudentData, setStudentData] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
@@ -19,17 +18,13 @@ const StudentDetail = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                //              const response = await fetch(`https://nishkamapi.onrender.com/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
                 const response = await fetch(`https://nishkamapi.onrender.com/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
-
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log("result=", result);
                 setStudentData(result);
             } catch (error) {
                 // Handle errors here

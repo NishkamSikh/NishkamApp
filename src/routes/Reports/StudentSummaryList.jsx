@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
 
-
-
 const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([]);
     const [FetchData, setFetchData] = useState(true);
@@ -239,7 +237,6 @@ const StudentSummaryList = () => {
         },
     }
 
-
     const [filteredData, setFilteredData] = useState(StudentData);
     const navigate = useNavigate();
     useEffect(() => {
@@ -270,6 +267,7 @@ const StudentSummaryList = () => {
 
         fetchData()
     }, []);
+
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
         if (inputValue === '') {
@@ -340,7 +338,7 @@ const StudentSummaryList = () => {
     const paginationComponentOptions = {
         selectAllRowsItem: true,
         selectAllRowsItemText: 'ALL',
-      };
+    };
 
 
     return (
@@ -374,7 +372,7 @@ const StudentSummaryList = () => {
                                         </div>
                                     </div>
 
-                                    <div style={{ width: '100%'}}>
+                                    <div style={{ width: '100%' }}>
                                         <DataTable
                                             columns={columns}
                                             data={filteredData}
@@ -382,8 +380,8 @@ const StudentSummaryList = () => {
                                             pagination
                                             paginationPerPage={10}
                                             defaultSortFieldId={1}
-                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100,10000]}
-                                           // paginationComponentOptions={paginationComponentOptions}
+                                            paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                            // paginationComponentOptions={paginationComponentOptions}
                                             fixedHeader
                                             responsive
                                             highlightOnHover
