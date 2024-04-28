@@ -168,7 +168,7 @@ const router = createBrowserRouter([
       },
       {
         path: "PaymentInstitutionList",
-        element: <PaymentInstitutionEdit/>,
+        element: <PaymentInstitutionList/>,
       }, 
 
 

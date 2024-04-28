@@ -305,7 +305,7 @@ export const menuItemsData = [
               },
               {
                 title: "View/Edit",
-                url: 'PaymentVendorEdit',
+                url: 'PaymentVendorList',
               }
             ]
           },
@@ -320,7 +320,7 @@ export const menuItemsData = [
               },
               {
                 title: "View/Edit",
-                url: 'PaymentInstitutionEdit',
+                url: 'PaymentInstitutionList',
               }
             ]
           },
@@ -335,7 +335,7 @@ export const menuItemsData = [
               },
               {
                 title: "View/Edit",
-                url: 'PaymentOtherEdit',
+                url: 'PaymentOtherList',
               }
             ]
           },
