@@ -67,6 +67,31 @@ import StudentDocsEdit from "./routes/StudentData/StudentDocsEdit";
 import ProgressReport from "./routes/Reports/ProgressReport";
 import DashBoardSummary from "./routes/Reports/DashBoardSummary";
 
+import FamilyUnitAdd from "./routes/Account/FamilyUnit/FamilyUnitAdd";
+import FamilyUnitEdit from "./routes/Account/FamilyUnit/FamilyUnitEdit";
+import FamilyUnitList from "./routes/Account/FamilyUnit/FamilyUnitList";
+
+import SponsorAdd from "./routes/Account/Sponsor/SponsorAdd";
+import SponsorEdit from "./routes/Account/Sponsor/SponsorEdit";
+import SponsorList from "./routes/Account/Sponsor/SponsorList";
+
+import SponsorChildAdd from "./routes/Account/SponsorChild/SponsorChildAdd";
+import SponsorChildEdit from "./routes/Account/SponsorChild/SponsorChildEdit";
+import SponsorChildList from "./routes/Account/SponsorChild/SponsorChildList";
+
+import PaymentVendorAdd from "./routes/Account/Payment/Vendor/PaymentVendorAdd";
+import PaymentVendorEdit from "./routes/Account/Payment/Vendor/PaymentVendorEdit";
+import PaymentVendorList from "./routes/Account/Payment/Vendor/PaymentVendorList";
+
+
+import PaymentInstitutionAdd from "./routes/Account/Payment/Institution/PaymentInstitutionAdd";
+import PaymentInstitutionEdit from "./routes/Account/Payment/Institution/PaymentInstitutionEdit";
+import PaymentInstitutionList from "./routes/Account/Payment/Institution/PaymentInstitutionList";
+
+import PaymentOtherAdd from "./routes/Account/Payment/Other/PaymentOtherAdd";
+import PaymentOtherEdit from "./routes/Account/Payment/Other/PaymentOtherEdit";
+import PaymentOtherList from "./routes/Account/Payment/Other/PaymentOtherList";
+
 const router = createBrowserRouter([
   {
     element: <Root />,
@@ -80,6 +105,87 @@ const router = createBrowserRouter([
         path: "Dashboard",
         element: <Dashboard />,
       },
+
+      {
+        path: "FamilyUnitAdd",
+        element: <FamilyUnitAdd />,
+      },
+      {
+        path: "FamilyUnitEdit",
+        element: <FamilyUnitEdit />,
+      },
+      {
+        path: "FamilyUnitList",
+        element: <FamilyUnitList />,
+      },      
+
+      {
+        path: "SponsorAdd",
+        element: <SponsorAdd />,
+      },
+      {
+        path: "SponsorEdit",
+        element: <SponsorEdit />,
+      },
+      {
+        path: "SponsorList",
+        element: <SponsorList />,
+      },      
+
+      {
+        path: "SponsorChildAdd",
+        element: <SponsorChildAdd />,
+      },
+      {
+        path: "SponsorChildEdit",
+        element: <SponsorChildEdit />,
+      },
+      {
+        path: "SponsorChildList",
+        element: <SponsorChildList />,
+      }, 
+
+      {
+        path: "PaymentVendorAdd",
+        element: <PaymentVendorAdd />,
+      },
+      {
+        path: "PaymentVendorEdit",
+        element: <PaymentVendorEdit />,
+      },
+      {
+        path: "PaymentVendorList",
+        element: <PaymentVendorList/>,
+      }, 
+
+      {
+        path: "PaymentInstitutionAdd",
+        element: <PaymentInstitutionAdd />,
+      },
+      {
+        path: "PaymentInstitutionEdit",
+        element: <PaymentInstitutionEdit />,
+      },
+      {
+        path: "PaymentInstitutionList",
+        element: <PaymentInstitutionEdit/>,
+      }, 
+
+
+      {
+        path: "PaymentOtherAdd",
+        element: <PaymentOtherAdd />,
+      },
+      {
+        path: "PaymentOtherEdit",
+        element: <PaymentOtherEdit />,
+      },
+      {
+        path: "PaymentOtherList",
+        element: <PaymentOtherList/>,
+      }, 
+
+
 
       {
         path: "StudentProfileAdd",

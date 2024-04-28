@@ -1,16 +1,16 @@
 export const menuItemsData = [
-  {
+/*   {
     title: "Home",
     url: "/",
-    
-  },
+
+  }, */
   // {
   //   title: "Dashboard",
   //   url: "Dashboard",
   // },
 
-  
-  
+
+
 
   {
     title: "Student Data",
@@ -94,8 +94,6 @@ export const menuItemsData = [
           },
         ]
       },
-
-
 
 
       {
@@ -235,23 +233,118 @@ export const menuItemsData = [
     ]
   },
 
-/*   {
-    title: "Reports",
+  {
+    title: "Accounts",
     url: "/",
 
     submenu: [
       {
-        title: "Lists",
+        title: "Sponsors",
         url: "",
         submenu: [
           {
-            title: "Student Summary",
-            url: "StudentSummaryList",
+            title: "Sponsor",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'SponsorAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'SponsorList',
+              }
+            ]
+          },
+
+          {
+            title: "Sponsor-Child",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'SponsorChildAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'SponsorChildList',
+              }
+            ]
           },
         ]
       },
+
+
+      {
+        title: "Family Unit",
+        url: "",
+
+        submenu: [
+          {
+            title: "Add",
+            url: 'FamilyUnitAdd',
+          },
+          {
+            title: "View/Edit",
+            url: 'FamilyUnitList',
+
+          },
+        ]
+      },
+      {
+        title: "Payments",
+        url: "",
+        submenu: [
+          {
+            title: "Vendor",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'PaymentVendorAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'PaymentVendorEdit',
+              }
+            ]
+          },
+
+          {
+            title: "Institution",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'PaymentInstitutionAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'PaymentInstitutionEdit',
+              }
+            ]
+          },
+
+          {
+            title: "Other",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'PaymentOtherAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'PaymentOtherEdit',
+              }
+            ]
+          },
+        ]
+      },
+
+
     ]
-  }, */
+  },
 
 
 ];
