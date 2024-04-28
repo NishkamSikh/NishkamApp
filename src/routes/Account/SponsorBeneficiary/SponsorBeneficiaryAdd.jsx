@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 
 
-const SponsorChildAdd = () => {
+const SponsorBeneficiaryAdd = () => {
  
     return (
-        <h1>Add SponsorChild</h1>   
+        <h1>Add Sponsor Beneficiary</h1>   
     )
 }
-export default SponsorChildAdd;
+export default SponsorBeneficiaryAdd;

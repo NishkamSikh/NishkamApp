@@ -13,8 +13,10 @@ const DashBoardSummary = () => {
         { name: 'Basti', selector: row => (<div>{row.Basti}</div>), sortable: false, compact: true, width: "7rem", wrap: true, },
         { name: 'Male', selector: row => (<div>{row.Male}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
         { name: 'Female', selector: row => (<div>{row.Female}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
-        //  {name: 'Sikligar', selector: row => (<div>{row.Sikligar}</div>), sortable: true, compact: true, width: "6rem", wrap: true, },
-        //  {name: 'Non-Sikligar', selector: row => (<div>{row.NonSikligar}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
+        {name: 'SPNSR', selector: row => (<div>{row.hasSponsor}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },
+
+        {name: 'Sikligar', selector: row => (<div>{row.Sikligar}</div>), sortable: true, compact: true, width: "5rem", wrap: true, },
+        {name: 'Non-Sikligar', selector: row => (<div>{row.NonSikligar}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
         { name: 'Nur', selector: row => (<div>{row.Nur}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'LKG', selector: row => (<div>{row.LKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'I', selector: row => (<div>{row.I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },

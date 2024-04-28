@@ -258,16 +258,16 @@ export const menuItemsData = [
           },
 
           {
-            title: "Sponsor-Child",
+            title: "Sponsor---Beneficiary",
             url: "",
             submenu: [
               {
                 title: "Add",
-                url: 'SponsorChildAdd',
+                url: 'SponsorBeneficiaryAdd',
               },
               {
                 title: "View/Edit",
-                url: 'SponsorChildList',
+                url: 'SponsorBeneficiaryList',
               }
             ]
           },

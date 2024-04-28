@@ -75,9 +75,9 @@ import SponsorAdd from "./routes/Account/Sponsor/SponsorAdd";
 import SponsorEdit from "./routes/Account/Sponsor/SponsorEdit";
 import SponsorList from "./routes/Account/Sponsor/SponsorList";
 
-import SponsorChildAdd from "./routes/Account/SponsorChild/SponsorChildAdd";
-import SponsorChildEdit from "./routes/Account/SponsorChild/SponsorChildEdit";
-import SponsorChildList from "./routes/Account/SponsorChild/SponsorChildList";
+import SponsorBeneficiaryAdd from "./routes/Account/SponsorBeneficiary/SponsorBeneficiaryAdd";
+import SponsorBeneficiaryEdit from "./routes/Account/SponsorBeneficiary/SponsorBeneficiaryEdit";
+import SponsorBeneficiaryList from "./routes/Account/SponsorBeneficiary/SponsorBeneficiaryList";
 
 import PaymentVendorAdd from "./routes/Account/Payment/Vendor/PaymentVendorAdd";
 import PaymentVendorEdit from "./routes/Account/Payment/Vendor/PaymentVendorEdit";
@@ -133,16 +133,16 @@ const router = createBrowserRouter([
       },      
 
       {
-        path: "SponsorChildAdd",
-        element: <SponsorChildAdd />,
+        path: "SponsorBeneficiaryAdd",
+        element: <SponsorBeneficiaryAdd />,
       },
       {
-        path: "SponsorChildEdit",
-        element: <SponsorChildEdit />,
+        path: "SponsorBeneficiaryEdit",
+        element: <SponsorBeneficiaryEdit />,
       },
       {
-        path: "SponsorChildList",
-        element: <SponsorChildList />,
+        path: "SponsorBeneficiaryList",
+        element: <SponsorBeneficiaryList />,
       }, 
 
       {
