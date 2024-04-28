@@ -12,7 +12,7 @@ const StudentSummaryList = () => {
             id: '1',
             name: 'Id',
             selector: row => row.ProfileId,
-            width: "4.5rem",
+            width: "4rem",
             sortable: true,
             reorder: true,
             wrap: true,
@@ -45,13 +45,25 @@ const StudentSummaryList = () => {
         },
 
         {
+            id: '3a',
+            name: 'SPNSR',
+            selector: row => row.hasSponsor,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+
+        {
             id: '4',
             name: 'Year',
             selector: row => row.AcademicYear,
             sortable: true,
             reorder: true,
             compact: true,
-            width: "5rem",
+            width: "4.3rem",
             wrap: true,
         },
         {
@@ -61,7 +73,7 @@ const StudentSummaryList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "9em",
+            width: "7rem",
             wrap: true,
         },
         {
@@ -71,7 +83,7 @@ const StudentSummaryList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "8rem",
+            width: "6rem",
             wrap: true,
         },
 
