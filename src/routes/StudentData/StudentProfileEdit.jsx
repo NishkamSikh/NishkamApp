@@ -256,6 +256,7 @@ const StudentProfileEdit = () => {
                         <input
                           type="date"
                           name="dob"
+                          onKeyDown={(e) => e.preventDefault()} // Disable keyboard input
                           defaultValue={formData.dob || (fetchData.Json ? JSON.parse(fetchData.Json).dob : "No Data")}
                           id="dob"
                           onChange={handleInputChange}
@@ -272,6 +273,7 @@ const StudentProfileEdit = () => {
                         <input
                           type="date"
                           name="joindate"
+                          onKeyDown={(e) => e.preventDefault()} // Disable keyboard input
                           defaultValue={formData.joindate || (fetchData.Json ? JSON.parse(fetchData.Json).joindate : "No Data")}
                           onChange={handleInputChange}
                           id="joindate"
