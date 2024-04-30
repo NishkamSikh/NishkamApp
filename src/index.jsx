@@ -78,6 +78,9 @@ import SponsorList from "./routes/Account/Sponsor/SponsorList";
 import SponsorBeneficiaryAdd from "./routes/Account/SponsorBeneficiary/SponsorBeneficiaryAdd";
 import SponsorBeneficiaryEdit from "./routes/Account/SponsorBeneficiary/SponsorBeneficiaryEdit";
 import SponsorBeneficiaryList from "./routes/Account/SponsorBeneficiary/SponsorBeneficiaryList";
+import BeneficiaryList_UnSponsored from "./routes/Reports/BeneficiaryList_UnSponsored";
+import BeneficiaryList_Sponsored from "./routes/Reports/BeneficiaryList_Sponsored";
+
 
 import PaymentVendorAdd from "./routes/Account/Payment/Vendor/PaymentVendorAdd";
 import PaymentVendorEdit from "./routes/Account/Payment/Vendor/PaymentVendorEdit";
@@ -143,6 +146,16 @@ const router = createBrowserRouter([
       {
         path: "SponsorBeneficiaryList",
         element: <SponsorBeneficiaryList />,
+      }, 
+
+      {
+        path: "BeneficiaryList_Sponsored",
+        element: <BeneficiaryList_Sponsored />,
+      }, 
+
+      {
+        path: "BeneficiaryList_UnSponsored",
+        element: <BeneficiaryList_UnSponsored />,
       }, 
 
       {

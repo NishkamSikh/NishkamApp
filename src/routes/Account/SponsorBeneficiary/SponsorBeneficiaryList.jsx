@@ -12,7 +12,7 @@ const SponsorBeneficiaryList = () => {
         {
             id: '1',
             name: 'Id',
-            selector: row => row.DonorId,
+            selector: row => row.Id,
             width: "3rem",
             sortable: true,
             compact: true,
@@ -55,7 +55,7 @@ const SponsorBeneficiaryList = () => {
         {
             id: '4',
             name: 'Donor',
-            selector: row => row.dn_FirstName+' '+row.dn_MiddleName+ ' '+row.dn_LastName + ' - '+row.dn_Country,
+            selector: row => row.dn_FirstName+' '+row.dn_LastName + ' - '+row.dn_CountryInitial,
             width: "15rem",
             sortable: true,
             compact: true,
@@ -133,7 +133,7 @@ const SponsorBeneficiaryList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchDonorBeneficiaryData');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchDonorBeneficiaryData_All');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

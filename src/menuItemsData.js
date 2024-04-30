@@ -227,6 +227,14 @@ export const menuItemsData = [
       },
 
       {
+        title: "List Sponsored Child",
+        url: 'BeneficiaryList_Sponsored',
+      },
+      {
+        title: "List Unsponsored Child",
+        url: 'BeneficiaryList_UnSponsored',
+      },
+      {
         title: "Progress Report",
         url: "ProgressReport",
       },
@@ -242,20 +250,20 @@ export const menuItemsData = [
         title: "Sponsors",
         url: "",
         submenu: [
-          {
-            title: "Sponsor",
-            url: "",
-            submenu: [
-              {
-                title: "Add",
-                url: 'SponsorAdd',
-              },
-              {
-                title: "View/Edit",
-                url: 'SponsorList',
-              }
-            ]
-          },
+//           {
+//             title: "Sponsor",
+//             url: "",
+// /*             submenu: [
+//               {
+//                 title: "Add",
+//                 url: 'SponsorAdd',
+//               },
+//               {
+//                 title: "View/Edit",
+//                 url: 'SponsorList',
+//               }
+//             ] */
+//           },
 
           {
             title: "Sponsor---Beneficiary",
@@ -269,6 +277,8 @@ export const menuItemsData = [
                 title: "View/Edit",
                 url: 'SponsorBeneficiaryList',
               }
+
+
             ]
           },
         ]

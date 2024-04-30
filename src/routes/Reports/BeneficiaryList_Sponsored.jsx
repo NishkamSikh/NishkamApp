@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 import DataTable from 'react-data-table-component';
 
-const SponsorList = () => {
-    const [DonorData, setDonorData] = useState([]);
+const SponsorBeneficiaryList_Sponsored = () => {
+ 
+    const [DonorBeneficiaryData, setDonorBeneficiaryData] = useState([]);
     const [FetchData, setFetchData] = useState(true);
     const [errors, setError] = useState({});
     const columns = [
         {
             id: '1',
             name: 'Id',
-            selector: row => row.DonorId,
+            selector: row => row.Id,
             width: "3rem",
             sortable: true,
             compact: true,
@@ -32,9 +34,9 @@ const SponsorList = () => {
 
         {
             id: '2',
-            name: 'Code',
+            name: 'DN-Code',
             selector: row => row.DonorCode,
-            width: "6rem",
+            width: "7rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -42,38 +44,87 @@ const SponsorList = () => {
 
         {
             id: '3',
-            name: 'Name',
-            selector: row => row.FirstName + ' '+ row.LastName,
-            width: "18rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-
-        {
-            id: '3',
-            name: 'C/O',
-            selector: row => row.Name2,
-            width: "25rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },        
-
-        {
-            id: '5',
-            name: 'Country',
-            selector: row => row.Country,
+            name: 'BF-Code',
+            selector: row => row.BeneficiaryCode,
             width: "6rem",
             sortable: true,
             compact: true,
             wrap: true,
         },
+
+        {
+            id: '4',
+            name: 'Donor',
+            selector: row => row.dn_FirstName+' '+row.dn_LastName + ' - '+row.dn_CountryInitial,
+            width: "15rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'Beneficiary',
+            selector: row => row.firstname+' '+row.middlename+ ' '+row.lastname,
+            width: "9rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+        {
+            id: '4',
+            name: 'DOB',
+            selector: row => row.dob,
+            width: "6rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+        {
+            id: '4',
+            name: 'Class',
+            selector: row => row.class,
+            width: "4rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'State',
+            selector: row => row.stustate,
+            width: "8rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'District',
+            selector: row => row.studistrict,
+            width: "8rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'Basti',
+            selector: row => row.stubastiname,
+            width: "8rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+
 
     ];
 
-    const [filteredData, setFilteredData] = useState(DonorData);
+    const [filteredData, setFilteredData] = useState(DonorBeneficiaryData);
 
     useEffect(() => {
         if (!localStorage.getItem("UserauthToken")) {
@@ -82,7 +133,7 @@ const SponsorList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchDonorData');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchDonorBeneficiaryData_Sponsored');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -91,7 +142,7 @@ const SponsorList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                setDonorData(result);
+                setDonorBeneficiaryData(result);
                 setFilteredData(result);
             } catch (error) {
                 // Handle errors here
@@ -103,15 +154,19 @@ const SponsorList = () => {
 
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-
+        console.log("input=",inputValue);
+        
         if (inputValue === '') {
-            setFilteredData(DonorData);
+            setFilteredData(DonorBeneficiaryData);
         } else {
-            const newData = DonorData.filter(row =>
+            const newData = DonorBeneficiaryData.filter(row =>
 
-                (row.FirstName.toLowerCase().includes(inputValue)) ||
-                (row.Name2.toLowerCase().includes(inputValue)) ||
-                (row.Country.toLowerCase().includes(inputValue))
+                (row.dn_FirstName.toLowerCase().includes(inputValue)) ||
+                (row.firstname.toLowerCase().includes(inputValue)) ||
+                (row.stustate.toLowerCase().includes(inputValue)) ||
+                (row.studistrict.toLowerCase().includes(inputValue)) ||
+                (row.stubastiname.toLowerCase().includes(inputValue))
+
             )
             setFilteredData(newData);
         }
@@ -165,7 +220,7 @@ const SponsorList = () => {
         });
         if (csv == null) return;
 
-        filename = 'Donor_Data' + '(' + new Date().toLocaleDateString("IN") + ').csv';
+        filename = 'DonorBeneficiary_Data' + '(' + new Date().toLocaleDateString("IN") + ').csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;
@@ -181,7 +236,7 @@ const SponsorList = () => {
 
 
     return (
-        <section className="mx-auto w-full max-w-6xl px-4 py-0">
+        <section className="mx-auto w-full max-w-7xl px-4 py-0">
             {FetchData ?
 
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
@@ -192,7 +247,7 @@ const SponsorList = () => {
                 <div>
                     <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
-                            <h2 className="text-lg font-semibold pb-3">Donor List</h2>
+                            <h2 className="text-lg font-semibold pb-3">Sponsored Beneficiary List</h2>
                         </div>
                     </div>
                     <div className="mt-0 flex flex-col">
@@ -200,10 +255,10 @@ const SponsorList = () => {
                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                                 <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                                     <div className="mt-0 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-                                        <div className="sm:col-span-2">
+                                        <div className="sm:col-span-3">
                                             <div className="mt-0 p-2">
                                                 <input type='text'
-                                                    placeholder='Search by Name, Country'
+                                                    placeholder='Search by Donor Name, Country, Student Name, State, District, Basti'
                                                     className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} 
                                                 />
                                                 <button type="button" onClick={() => downloadCSV()} className="mt-2 rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
@@ -237,4 +292,4 @@ const SponsorList = () => {
     )
 }
 
-export default SponsorList
+export default SponsorBeneficiaryList_Sponsored;
