@@ -211,7 +211,7 @@ const StudentAddress = () => {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stubasti" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Basti* 
+                                                Basti* {console.log("options Data from ADD",options)}
                                             </label>
                                             <div className="mt-0">
                                                 <select
