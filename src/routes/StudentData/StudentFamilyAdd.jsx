@@ -14,7 +14,7 @@ const StudentFamilyAdd = () => {
     const [loading, setloading] = useState(false);
     //const [AnyAssi, setAnyAssi] = useState([]);
     const [selectedAssistanceOptions, setSelectedAssistanceOptions] = useState([]);
-    
+
     const [formData, setFormData] = useState({
         studentcode: "",
         stuyear: "",
@@ -156,18 +156,8 @@ const StudentFamilyAdd = () => {
             {
                 loading
                     ?
-                    <div className="grid grid-cols-1 lg:grid-cols-1">
-                        <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-                            <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md text-black text-center">
-                                <div
-                                    className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                    role="status">
-                                    <span
-                                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-                                    >Loading...</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                        <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                     </div>
                     :
                     <div className="mt-0 flex flex-col">
@@ -175,7 +165,7 @@ const StudentFamilyAdd = () => {
                             Student Family Detail
                         </p>
                         <form onSubmit={handleSubmit}>
-                            
+
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
@@ -468,7 +458,7 @@ const StudentFamilyAdd = () => {
                                                         <label htmlFor="M_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Mobile Number
                                                         </label>
-                                                        <input 
+                                                        <input
                                                             type="number"
                                                             maxLength={10}
                                                             value={formData['M_Mobile_No']}
@@ -608,7 +598,7 @@ const StudentFamilyAdd = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    disabled={!formData.studentcode || !formData.stuyear ||!formData.Father_Name}
+                                    disabled={!formData.studentcode || !formData.stuyear || !formData.Father_Name}
                                     style={{ opacity: formData.studentcode && formData.stuyear && formData.category && formData.Father_Name ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
