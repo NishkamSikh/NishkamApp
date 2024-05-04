@@ -289,7 +289,8 @@ const StudentSummaryList = () => {
                 (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
                 (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
                 (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue)) ||
-                (row.Basti && row.Basti.toLowerCase().includes(inputValue))
+                (row.Basti && row.Basti.toLowerCase().includes(inputValue)) ||
+                (row.Institution && row.Institution.toLowerCase().includes(inputValue)) 
 
             );
             setFilteredData(newData);
@@ -374,10 +375,10 @@ const StudentSummaryList = () => {
                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                                 <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                                     <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-                                        <div className="sm:col-span-1">
+                                        <div className="sm:col-span-2">
                                             <div className="mt-0 p-2">
                                                 <input type='text'
-                                                    placeholder='Search by Code, Name, Parents, Basti'
+                                                    placeholder='Search by Code, Name, Parents, Basti, School'
                                                     className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
                                                 <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                             </div>

@@ -139,7 +139,7 @@ const StudentProfile = () => {
         loading
           ?
           <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-            <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-8 h-16 w-16"></div>
+            <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
           </div>
           :
 
@@ -163,13 +163,14 @@ const StudentProfile = () => {
                           required
                           placeholder='Student Code (8)'
                           maxLength={8}
-                          //pattern="[0-9a-zA-Z-]{6,}"
+                          pattern="[0-9a-zA-Z-]{5,}"
+                          //pattern="/^([A-z]-)*[^\s]\1*$/"
                           value={formData['studentcode']}
-                          onChange={(e) => { setFormData({ ...formData, studentcode: e.target.value, }); }}
+                          onChange={(e) => { setFormData({ ...formData, studentcode: e.target.valuesd, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                         />
                         <span className="mt-1 hidden text-sm text-red-400">
-                          Student code must be at least 6 characters long
+                          Student code must be at least 5 characters long with no spaces
                         </span>
                       </div>
                     </div>

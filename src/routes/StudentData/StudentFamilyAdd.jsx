@@ -175,7 +175,7 @@ const StudentFamilyAdd = () => {
                             Student Family Detail
                         </p>
                         <form onSubmit={handleSubmit}>
-                            {console.log("Submit: ", formData)}
+                            
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">

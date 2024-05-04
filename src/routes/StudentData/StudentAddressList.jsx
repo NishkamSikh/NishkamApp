@@ -171,7 +171,7 @@ const StudentAddressList = () => {
 
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-        // alert(event.target.value.toLowerCase())
+         //alert(event.target.value.toLowerCase())
         if (inputValue === '') {
             setFilteredData(StudentData);
         } else {
@@ -247,8 +247,6 @@ const StudentAddressList = () => {
         },
     }
 
-
-
     return (
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
             {FetchData ?
@@ -297,9 +295,6 @@ const StudentAddressList = () => {
                     </div>
                 </div>
             </div>
-
-
-
 </div>
 }
         </section>
