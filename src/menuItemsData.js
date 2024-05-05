@@ -234,10 +234,30 @@ export const menuItemsData = [
         title: "List Unsponsored Child",
         url: 'BeneficiaryList_UnSponsored',
       },
+
+      {
+        title: "Area Summary",
+        url: "/",
+        submenu: [
+          {
+            title: "State wise",
+            url: "AreaSummary_State",
+          },
+          {
+            title: "District wise",
+            url: "AreaSummary_District",
+          },
+          {
+            title: "Basti wise",
+            url: "AreaSummary_Basti",
+          },
+        ]
+      },
       {
         title: "Progress Report",
         url: "ProgressReport",
       },
+
     ]
   },
 
@@ -250,20 +270,20 @@ export const menuItemsData = [
         title: "Sponsors",
         url: "",
         submenu: [
-//           {
-//             title: "Sponsor",
-//             url: "",
-// /*             submenu: [
-//               {
-//                 title: "Add",
-//                 url: 'SponsorAdd',
-//               },
-//               {
-//                 title: "View/Edit",
-//                 url: 'SponsorList',
-//               }
-//             ] */
-//           },
+/*           {
+            title: "Sponsor",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'SponsorAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'SponsorList',
+              }
+            ]
+          }, */
 
           {
             title: "Sponsor---Beneficiary",

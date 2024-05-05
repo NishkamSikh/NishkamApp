@@ -38,6 +38,11 @@ import StudentSummaryList from "./routes/Reports/StudentSummaryList";
 import StudentSummaryDetail from "./routes/Reports/StudentSummaryDetail";
 
 
+import AreaSummary_State from "./routes/Reports/AreaSummary_State";
+import AreaSummary_District from "./routes/Reports/AreaSummary_District";
+import AreaSummary_Basti from "./routes/Reports/AreaSummary_Basti";
+
+
 // Master Routes
 import VendorAdd from "./routes/Master/VendorAdd";
 import VendorEdit from "./routes/Master/VendorEdit";
@@ -94,6 +99,9 @@ import PaymentInstitutionList from "./routes/Account/Payment/Institution/Payment
 import PaymentOtherAdd from "./routes/Account/Payment/Other/PaymentOtherAdd";
 import PaymentOtherEdit from "./routes/Account/Payment/Other/PaymentOtherEdit";
 import PaymentOtherList from "./routes/Account/Payment/Other/PaymentOtherList";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -388,6 +396,20 @@ const router = createBrowserRouter([
         element: <DashBoardSummary />,
       },
       
+      {
+        path: "AreaSummary_State",
+        element: <AreaSummary_State />,
+      },
+
+      {
+        path: "AreaSummary_District",
+        element: <AreaSummary_District />,
+      },
+
+      {
+        path: "AreaSummary_Basti",
+        element: <AreaSummary_Basti />,
+      },
 
     ],
   },
