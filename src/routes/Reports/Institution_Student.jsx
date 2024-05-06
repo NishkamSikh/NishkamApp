@@ -18,6 +18,7 @@ const Institution_Student = () => {
 
         { name: 'Nur', selector: row => (<div>{row.Nur}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'LKG', selector: row => (<div>{row.LKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'UKG', selector: row => (<div>{row.UKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'I', selector: row => (<div>{row.I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'II', selector: row => (<div>{row.II}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'III', selector: row => (<div>{row.III}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
