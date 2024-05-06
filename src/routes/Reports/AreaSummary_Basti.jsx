@@ -128,7 +128,7 @@ const AreaSummary_Basti = () => {
         });
         if (csv == null) return;
 
-        filename = 'AreaSummary_Bastiwise' + new Date() + '.csv';
+        filename = 'AreaSummary_Bastiwise' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;

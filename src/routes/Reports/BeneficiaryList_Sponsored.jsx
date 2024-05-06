@@ -218,7 +218,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
         });
         if (csv == null) return;
 
-        filename = 'SponsoredChild_Data' + '(' + new Date().toLocaleDateString("IN") + ').csv';
+        filename = 'SponsoredChild_Data' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;

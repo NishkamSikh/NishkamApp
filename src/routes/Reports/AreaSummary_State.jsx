@@ -125,7 +125,7 @@ const AreaSummary_State = () => {
         });
         if (csv == null) return;
 
-        filename = 'AreaSummary_Statewise' + new Date() + '.csv';
+        filename = 'AreaSummary_Statewise' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;

@@ -236,7 +236,7 @@ export const menuItemsData = [
       },
 
       {
-        title: "Area Summary",
+        title: "Area wise Summary",
         url: "/",
         submenu: [
           {
@@ -253,6 +253,12 @@ export const menuItemsData = [
           },
         ]
       },
+
+      {
+        title: "Institution wise Student",
+        url: 'Institution_Student',
+      },
+
       {
         title: "Progress Report",
         url: "ProgressReport",

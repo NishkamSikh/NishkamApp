@@ -178,7 +178,7 @@ const StudentInstitutionList = () => {
         });
         if (csv == null) return;
 
-        filename = 'Student_Institution_Data' + '(' + new Date().toLocaleDateString("IN") + ').csv';
+        filename = 'Student_Institution_Data' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;

@@ -42,6 +42,7 @@ import AreaSummary_State from "./routes/Reports/AreaSummary_State";
 import AreaSummary_District from "./routes/Reports/AreaSummary_District";
 import AreaSummary_Basti from "./routes/Reports/AreaSummary_Basti";
 
+import Institution_Student from "./routes/Reports/Institution_Student";
 
 // Master Routes
 import VendorAdd from "./routes/Master/VendorAdd";
@@ -406,6 +407,12 @@ const router = createBrowserRouter([
         element: <AreaSummary_District />,
       },
 
+      {
+        path: "Institution_Student",
+        element: <Institution_Student />,
+      },
+
+  
       {
         path: "AreaSummary_Basti",
         element: <AreaSummary_Basti />,

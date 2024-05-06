@@ -126,7 +126,7 @@ const AreaSummary_District = () => {
         });
         if (csv == null) return;
 
-        filename = 'AreaSummary_Districtwise' + new Date() + '.csv';
+        filename = 'AreaSummary_Districtwise' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;
