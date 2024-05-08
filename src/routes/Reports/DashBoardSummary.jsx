@@ -123,7 +123,7 @@ const DashBoardSummary = () => {
         });
         if (csv == null) return;
 
-        filename = 'DashBoardSummary' + new Date() + '.csv';
+        filename = 'DashBoardSummary' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;

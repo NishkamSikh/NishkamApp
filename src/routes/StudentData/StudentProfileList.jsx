@@ -265,7 +265,7 @@ const StudentProfileList = () => {
         });
         if (csv == null) return;
 
-        filename = 'Student_Profile_Data' + '(' + new Date().toLocaleDateString("IN") + ').csv';
+        filename = 'Student_Profile_Data' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;
@@ -280,10 +280,8 @@ const StudentProfileList = () => {
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
-          
             {FetchData ?
-
-                <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+             <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                   <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                 </div>
                 :
