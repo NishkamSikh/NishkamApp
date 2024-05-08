@@ -418,7 +418,7 @@ const TutorAdd = () => {
                                         </div>
                                         <div className="sm:col-span-3">
                                             <label htmlFor="Class" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Class
+                                                Class{console.log(selectedOptions, "selectedOptions")}
                                             </label>
                                             <div className="mt-0">
 

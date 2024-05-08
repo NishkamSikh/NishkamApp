@@ -425,7 +425,7 @@ const TutorEdit = () => {
                                         </div>
                                         <div className="sm:col-span-3">
                                             <label htmlFor="Subject" className="block text-sm font-medium leading-6 text-grey-900">
-                                                Subject
+                                                Subject {console.log(selectedSubjectOptions, "selectedSubjectOptions")}
                                             </label>
                                             <div className="mt-0">
                                                 <Select

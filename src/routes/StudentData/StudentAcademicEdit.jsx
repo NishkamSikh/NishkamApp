@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom'
-
+import Select from 'react-select';
 const StudentAcademicEdit = () => {
 
     const navigate = useNavigate();
@@ -21,6 +21,10 @@ const StudentAcademicEdit = () => {
     const [fetchDataId, setfetchDataId] = useState('');
     const { studentCode, year, catgcode } = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
+    const [allClass, setallClass] = useState([]);
+    const [selectedallClass, setSelectedallClass] = useState([]);
+    const [allStrem, setallStrem] = useState([]);
+    const [selectedallStrem, setSelectedallStrem] = useState('');
 
 
     useEffect(() => {
@@ -32,8 +36,48 @@ const StudentAcademicEdit = () => {
         const getUserid = localStorage.getItem("UserId")
         setUserId(getUserid)
         fetchUserInfo()
+        fetchAllClass()
+        fetchAllStream()
 
     }, []);
+
+    const fetchAllClass = () => {
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllClassess')
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data, "data");
+                if (Array.isArray(data.data)) {
+                    const parsedData = data.data.map(item => JSON.parse(item.Json)); // Parse the inner JSON strings
+                    console.log(parsedData, "Data");
+                    // Save the parsed data into state
+                    setallClass(parsedData);
+                } else {
+                    console.error('Error: Data fetched is not an array');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching Donor data:', error);
+            });
+    };
+    const fetchAllStream = () => {
+        console.log("fetchAllStream");
+        fetch('http://nishkamapi.onrender.com/api/v1/fetchAllStream')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data, "data ============");
+                if (Array.isArray(data.data)) {
+                    // const parsedData = data.data.map(item => JSON.parse(item.Stream)); // Parse the inner JSON strings
+                    console.log(data.data, "Data parsedData");
+                    // Save the parsed data into state
+                    setallStrem(data.data);
+                } else {
+                    console.error('Error: Data fetched is not an array');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching Donor data:', error);
+            });
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -62,6 +106,9 @@ const StudentAcademicEdit = () => {
             if (data.data.length > 0) {
                setfetchData(data.data[0]);
                setFormData(data.data[0]);
+               setSelectedallClass({value:data.data[0].class, label:data.data[0].class});
+               setSelectedallStrem({value:data.data[0].stream, label:data.data[0].stream});
+               
                 // setfetchDataId(JSON.parse(data.data.data[0].Id));
             } else {
                 alert("No such user found!");
@@ -88,8 +135,14 @@ const StudentAcademicEdit = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-
-                    data: JSON.stringify(formDataWithoutCodeYear),
+                    data: JSON.stringify(
+                        {
+                            ...formDataWithoutCodeYear,
+                            stream: selectedallStrem.value,
+                            class:selectedallClass.value
+                        }
+                       ),
+                    // data: JSON.stringify(formDataWithoutCodeYear),
                 }),
             });
             if (!response.ok) {
@@ -185,7 +238,15 @@ const StudentAcademicEdit = () => {
                                                 Class
                                             </label>
                                             <div className="mt-1">
-                                                <input
+                                            <Select
+                                                    options={allClass.map(donor => ({ value: donor.class, label: donor.class }))}
+                                                    id="class"
+                                                    name="class"
+                                                    className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                    value={selectedallClass}
+                                                    onChange={(selectedOption) => setSelectedallClass(selectedOption)}
+                                                />
+                                                {/* <input
                                                     type="text"
                                                     name="class"
                                                     value={formData.class}
@@ -193,7 +254,7 @@ const StudentAcademicEdit = () => {
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
                                                         }`}
-                                                />
+                                                /> */}
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">
@@ -235,7 +296,16 @@ const StudentAcademicEdit = () => {
                                                 Stream
                                             </label>
                                             <div className="mt-1">
-                                                <input
+                                            <Select
+                                                    options={allStrem.map(donor => ({ value: donor.Stream, label: donor.Stream }))}
+                                                    id="class"
+                                                    name="class"
+                                                    className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+
+                                                    value={selectedallStrem}
+                                                    onChange={(selectedOption) => setSelectedallStrem(selectedOption)}
+                                                />
+                                                {/* <input
                                                     type="text"
                                                     name="stream"
                                                     value={formData.stream}
@@ -243,7 +313,7 @@ const StudentAcademicEdit = () => {
                                                     onChange={handleInputChange}
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
                                                         }`}
-                                                />
+                                                /> */}
                                             </div>
                                         </div>
 
