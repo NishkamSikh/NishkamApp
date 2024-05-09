@@ -47,7 +47,7 @@ const StudentAcademicEdit = () => {
             .then(data => {
                 // console.log(data, "data");
                 if (Array.isArray(data.data)) {
-                    const parsedData = data.data.map(item => JSON.parse(item.Json)); // Parse the inner JSON strings
+                    const parsedData = data.data.map(item => item); // Parse the inner JSON strings
                     console.log(parsedData, "Data");
                     // Save the parsed data into state
                     setallClass(parsedData);
@@ -229,7 +229,7 @@ const StudentAcademicEdit = () => {
                                             </label>
                                             <div className="mt-1">
                                             <Select
-                                                    options={allClass.map(donor => ({ value: donor.class, label: donor.class }))}
+                                                    options={allClass.map(donor => ({ value: donor.ClassId, label: donor.Class }))}
                                                     id="class"
                                                     name="class"
                                                     className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -287,7 +287,7 @@ const StudentAcademicEdit = () => {
                                             </label>
                                             <div className="mt-1">
                                             <Select
-                                                    options={allStrem.map(donor => ({ value: donor.Stream, label: donor.Stream }))}
+                                                    options={allStrem.map(donor => ({ value: donor.StreamId, label: donor.Stream }))}
                                                     id="class"
                                                     name="class"
                                                     className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
