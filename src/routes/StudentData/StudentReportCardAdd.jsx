@@ -328,6 +328,7 @@ const StudentReportCardAdd = () => {
                                                                     defaultValue={subjectandmarks_data.length > 0 ? subjectandmarks_data[0]['total_marks' + i] != null && subjectandmarks_data[0]['total_marks' + i] != undefined ? subjectandmarks_data[0]['total_marks' + i] : "" : ""}
                                                                     onChange={(e) => subjectListhandleInputChange(e, i)}
                                                                     placeholder='ex: 100'
+                                                                    pattern="[0-9]*" title="Please enter only numbers" 
                                                                     required
                                                                     aria-describedby="Total_Marks" />
                                                             </div>
@@ -342,6 +343,7 @@ const StudentReportCardAdd = () => {
                                                                     defaultValue={subjectandmarks_data.length > 0 ? subjectandmarks_data[0]['max_marks' + i] != null && subjectandmarks_data[0]['max_marks' + i] != undefined ? subjectandmarks_data[0]['max_marks' + i] : "" : ""}
                                                                     onChange={(e) => subjectListhandleInputChange(e, i)}
                                                                     placeholder='ex: 60'
+                                                                    pattern="[0-9]*" title="Please enter only numbers" 
                                                                     required
                                                                     aria-describedby="Maximum_Marks" />
                                                             </div>
