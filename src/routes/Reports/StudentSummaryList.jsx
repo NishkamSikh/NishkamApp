@@ -233,7 +233,7 @@ const StudentSummaryList = () => {
             selector: row => row.Institution,
             sortable: true,
             reorder: true,
-            width: "10rem",
+            width: "15rem",
             compact: true,
             wrap: true,
         },

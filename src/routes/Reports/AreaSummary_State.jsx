@@ -18,6 +18,8 @@ const AreaSummary_State = () => {
 
         { name: 'Nur', selector: row => (<div>{row.Nur}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'LKG', selector: row => (<div>{row.LKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'KG', selector: row => (<div>{row.KG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'UKG', selector: row => (<div>{row.UKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'I', selector: row => (<div>{row.I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'II', selector: row => (<div>{row.II}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'III', selector: row => (<div>{row.III}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
@@ -30,6 +32,16 @@ const AreaSummary_State = () => {
         { name: 'X', selector: row => (<div>{row.X}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'XI', selector: row => (<div>{row.XI}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'XII', selector: row => (<div>{row.XII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'XIII', selector: row => (<div>{row.XIII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-I', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-II', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-III', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-IV', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'P-I', selector: row => (<div>{row.P_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'P-II', selector: row => (<div>{row.P_II}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+
+
+
     ];
 
     const tableHeaderstyle = {
@@ -140,7 +152,7 @@ const AreaSummary_State = () => {
 
     return (
 
-        <section className="mx-auto w-full max-w-6xl px-4 py-2">
+        <section className="mx-auto w-full max-w-8xl px-4 py-2">
 
             {FetchData ?
 
@@ -159,7 +171,7 @@ const AreaSummary_State = () => {
                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                                 <div className="overflow-hidden border border-grey-200 md:rounded-lg">
                                     <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6 ">
-                                        <div className="sm:col-span-2">
+                                        <div className="sm:col-span-1">
                                             <div className="mt-0 p-2">
                                                 <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                             </div>

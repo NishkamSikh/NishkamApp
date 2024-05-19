@@ -8,7 +8,7 @@ const DashBoardSummary = () => {
 
     const columns = [
 
-        { id:'1', name: 'State', selector: row => row.State, sortable: false, compact: true, width: "6rem", wrap: true, },
+        { id:'1', name: 'State', selector: row => row.State, sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'District', selector: row => row.District, sortable: true, compact: true, width: "7rem", wrap: true, },
         { name: 'Basti', selector: row => (<div>{row.Basti}</div>), sortable: false, compact: true, width: "7rem", wrap: true, },
         { name: 'Male', selector: row => (<div>{row.Male}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
@@ -16,9 +16,11 @@ const DashBoardSummary = () => {
         {name: 'SPNSR', selector: row => (<div>{row.hasSponsor}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },
 
         {name: 'Sikligar', selector: row => (<div>{row.Sikligar}</div>), sortable: true, compact: true, width: "5rem", wrap: true, },
-        {name: 'Non-Sikligar', selector: row => (<div>{row.NonSikligar}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
+        //{name: 'Non-Sikligar', selector: row => (<div>{row.NonSikligar}</div>), sortable: true, compact: true, width: "7rem", wrap: true, },
         { name: 'Nur', selector: row => (<div>{row.Nur}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'LKG', selector: row => (<div>{row.LKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'KG', selector: row => (<div>{row.KG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'UKG', selector: row => (<div>{row.UKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'I', selector: row => (<div>{row.I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'II', selector: row => (<div>{row.II}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'III', selector: row => (<div>{row.III}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
@@ -31,6 +33,13 @@ const DashBoardSummary = () => {
         { name: 'X', selector: row => (<div>{row.X}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'XI', selector: row => (<div>{row.XI}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: 'XII', selector: row => (<div>{row.XII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'XIII', selector: row => (<div>{row.XIII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-I', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-II', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-III', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'Y-IV', selector: row => (<div>{row.Y_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'P-I', selector: row => (<div>{row.P_I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'P-II', selector: row => (<div>{row.P_II}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: '<5', selector: row => (<div>{row.A1_5}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: '5-10', selector: row => (<div>{row.A5_10}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
         { name: '11-15', selector: row => (<div>{row.A11_15}</div>), sortable: false, compact: true, width: "3.5rem", wrap: true, },
@@ -168,7 +177,7 @@ const DashBoardSummary = () => {
                                             data={filteredData}
                                             customStyles={tableHeaderstyle}
                                             pagination
-                                            paginationPerPage={25}
+                                            paginationPerPage={10}
                                             paginationRowsPerPageOptions={[25, 50, 75, 100, 10000]}
                                             defaultSortFieldId={1}
                                             fixedHeader
