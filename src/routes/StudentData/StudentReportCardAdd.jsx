@@ -28,10 +28,10 @@ const StudentReportCardAdd = () => {
     })
 
 
-    const [subjectList, setsubjectList] = useState([{ subjectname: "", total_marks: "", max_marks: "" }]);
+    const [subjectList, setsubjectList] = useState([{ subjectname: "", total_marks: "0", max_marks: "0" }]);
 
     const subjecthandleAddClick = () => {
-        setsubjectList([...subjectList, { subjectname: "", total_marks: "", max_marks: "" }])
+        setsubjectList([...subjectList, { subjectname: "", total_marks: "0", max_marks: "0" }])
     };
     const handleCheckboxChange = (id, name) => {
         setSelectedItems((prevItems) => {
@@ -313,6 +313,7 @@ const StudentReportCardAdd = () => {
                                                                     defaultValue={subjectandmarks_data.length > 0 ? subjectandmarks_data[0]['subjectname' + i] != null && subjectandmarks_data[0]['subjectname' + i] != undefined ? subjectandmarks_data[0]['subjectname' + i] : "" : ""}
                                                                     onChange={(e) => subjectListhandleInputChange(e, i)}
                                                                     placeholder='Subject Name'
+                                                                    required
                                                                     aria-describedby="SubjectName"
                                                                 />
                                                             </div>
@@ -327,6 +328,8 @@ const StudentReportCardAdd = () => {
                                                                     defaultValue={subjectandmarks_data.length > 0 ? subjectandmarks_data[0]['total_marks' + i] != null && subjectandmarks_data[0]['total_marks' + i] != undefined ? subjectandmarks_data[0]['total_marks' + i] : "" : ""}
                                                                     onChange={(e) => subjectListhandleInputChange(e, i)}
                                                                     placeholder='ex: 100'
+                                                                    pattern="[0-9]*" title="Please enter only numbers" 
+                                                                    required
                                                                     aria-describedby="Total_Marks" />
                                                             </div>
                                                             <div className="">
@@ -340,17 +343,19 @@ const StudentReportCardAdd = () => {
                                                                     defaultValue={subjectandmarks_data.length > 0 ? subjectandmarks_data[0]['max_marks' + i] != null && subjectandmarks_data[0]['max_marks' + i] != undefined ? subjectandmarks_data[0]['max_marks' + i] : "" : ""}
                                                                     onChange={(e) => subjectListhandleInputChange(e, i)}
                                                                     placeholder='ex: 60'
+                                                                    pattern="[0-9]*" title="Please enter only numbers" 
+                                                                    required
                                                                     aria-describedby="Maximum_Marks" />
                                                             </div>
 
                                                             <div className=''>
                                                                 <div className="add-new-service my-2 ">
-                                                                    {subjectList.length !== 1 && <button type="button" className="btn bg-red-500 mb-2 text-white" onClick={() => subjecthandleRemoveClick(i)}>Remove</button>}
+                                                                    {subjectList.length !== 1 && <button type="button" className="btn bg-red-500 p-2 mb-2 text-white" onClick={() => subjecthandleRemoveClick(i)}>Remove</button>}
                                                                 </div>
                                                             </div>
 
                                                             <div className="add-new-service">
-                                                                {subjectList.length - 1 === i && <button type="button" className="btn bg-black text-white" onClick={subjecthandleAddClick}>Add</button>}
+                                                                {subjectList.length - 1 === i && <button type="button" className="btn bg-black p-2 text-white" onClick={subjecthandleAddClick}>Add</button>}
                                                             </div>
                                                         </div>
                                                     );
