@@ -52,7 +52,7 @@ const StudentAcademicList = () => {
             selector: row => row.FirstName + ' ' + row.MiddleName + ' ' + row.LastName,
             sortable: true,
             compact: true,
-            width: "8rem",
+            width: "10rem",
             wrap: true,
         },
 
@@ -76,6 +76,24 @@ const StudentAcademicList = () => {
         },
 
         {
+            name: 'Semester',
+            selector: row => row.semester,
+            sortable: true,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
+        {
+            name: 'Stream',
+            selector: row => row.stream,
+            sortable: true,
+            compact: true,
+            width: "10rem",
+            wrap: true,
+        },
+
+        {
             name: 'Admission#',
             selector: row => row.admissionnumber,
             sortable: true,
@@ -94,15 +112,6 @@ const StudentAcademicList = () => {
         },
 
         {
-            name: 'Stream',
-            selector: row => row.stream,
-            sortable: true,
-            compact: true,
-            width: "6rem",
-            wrap: true,
-        },
-
-        {
             name: 'Section',
             selector: row => row.section,
             sortable: true,
@@ -110,19 +119,6 @@ const StudentAcademicList = () => {
             width: "5rem",
             wrap: true,
         },
-
-        {
-            name: 'Semester',
-            selector: row => row.semester,
-            sortable: true,
-            compact: true,
-            width: "5rem",
-            wrap: true,
-        },
-
-
-
-
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
@@ -237,8 +233,6 @@ const StudentAcademicList = () => {
     }
 
 
-
-
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-1">
             {FetchData ?
@@ -246,7 +240,6 @@ const StudentAcademicList = () => {
                     <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                 </div>
                 :
-
                 <div>
                     <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
