@@ -288,6 +288,7 @@ const StudentReportCardEdit = () => {
                                                     <option >Select result</option>
                                                     <option value="Passed">Passed</option>
                                                     <option value="Failed">Failed</option>
+                                                    <option value="Dropped">Dropped</option>
                                                     <option value="Re-appear">Re-appear</option>
 
                                                 </select>

@@ -34,7 +34,7 @@ const BastiList = () => {
             id: '2',
             name: 'Basti',
             selector: row => row.BastiName,
-            width: "10rem",
+            width: "15rem",
             sortable: true,
             compact: true,
             wrap: true,
