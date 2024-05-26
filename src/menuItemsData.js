@@ -221,10 +221,10 @@ export const menuItemsData = [
         title: "Student Summary",
         url: "StudentSummaryList",
       },
-      {
+/*       {
         title: "Dashboard Summary",
         url: "DashboardSummary",
-      },
+      }, */
 
       {
         title: "List Sponsored Child",

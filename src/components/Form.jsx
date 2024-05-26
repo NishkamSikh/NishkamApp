@@ -147,7 +147,7 @@ const Tehsils = {
     'Hingoli': ['Aundha Nagnath', 'Basmath', 'Hingoli', 'Kalamnuri', 'Sengaon'],
     'Jalgaon': ['Amalner', 'Bhadgaon', 'Bhusawal', 'Bodwad', 'Chalisgaon', 'Chopda', 'Dharangaon', 'Erandol', 'Jalgaon', 'Jamner', 'Muktainagar', 'Pachora', 'Parola', 'Yawal'],
     'Jalna': ['Ambad', 'Badnapur', 'Bhokardan', 'Ghansawangi', 'Jafferabad', 'Jalna', 'Mantha', 'Partur'],
-    'Kolhapur': ['Ajara', 'Bavani', 'Chandgad', 'Gadhinglaj', 'Hatkangale', 'Kagal', 'Karvir', 'Panhala', 'Radhanagari', 'Shahuwadi'],
+    'Kolhapur': ['Ajara', 'Bavani', 'Chandgad', 'Gadhinglaj', 'Hatkangale', 'Kagal','Kolhapur','Kadamvadi', 'Karvir', 'Panhala', 'Radhanagari', 'Shahuwadi'],
     'Latur': ['Ahmadpur', 'Ausa', 'Chakur', 'Deoni', 'Jalkot', 'Latur', 'Nilanga', 'Renapur', 'Shirur-Anantpal', 'Udgir'],
     'Mumbai City': ['Mumbai'],
     'Mumbai Suburban': ['Andheri', 'Borivali', 'Chembur', 'Colaba', 'Dadar', 'Goregaon', 'Kurla', 'Malad', 'Mulund', 'Panvel', 'Thane'],
@@ -244,6 +244,7 @@ const Tehsils = {
     'Sultanpur': ['Amethi', 'Gauriganj', 'Jagdishpur', 'Musafirkhana', 'Sultanpur'],
     'Unnao': ['Bighapur', 'Purwa', 'Safipur', 'Unnao'],
     'Varanasi': ['Pindra', 'Rajatalab', 'Sevapuri', 'Varanasi'],
+    'Uttar Pradesh': ['Uttar Pradesh'],
     "Udaipur": ["Girwa","Badgaon","Bhindar","Gogunda","Jhadol","Kanor","Kherwara","Kotra","Lasadiya","Mavli","Rishabhdeo","Salumbar","Semari","Sarada","Vallabhnagar","Udaipur"]
 
     // Add more tehsils here...
