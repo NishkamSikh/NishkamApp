@@ -38,6 +38,7 @@ const StudentDocsAdd = () => {
         }
         const getUserid = localStorage.getItem("UserId")
         setUserId(getUserid)
+        console.log("getUserid",getUserid);
 
     }, [])
 
@@ -121,12 +122,12 @@ const StudentDocsAdd = () => {
         const { name } = e.target;
         const selectedFile = e.target.files[0];
         if (selectedFile) {
-            const allowedTypes = ["application/pdf"];
+            const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
             const maxSizeMB = 10;
 
             if (!allowedTypes.includes(selectedFile.type)) {
                 alert(selectedFile.type);
-                alert(`Please select a PDF file`);
+                alert("Please select a PDF, JPG, or PNG file");
                 return;
             }
 
@@ -143,32 +144,33 @@ const StudentDocsAdd = () => {
     };
 
     const imageupload = async (imageFile, fieldName) => {
-
         const data = new FormData();
-
+    
         if (!imageFile) {
             alert(`No ${fieldName} selected...`);
             throw new Error(`No ${fieldName} selected.`);
         }
+    
         // Check the file type
-        const allowedTypes = ["application/pdf"];
+        const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
         if (!allowedTypes.includes(imageFile.type)) {
             console.log("Selected file type:", imageFile.type);
-            alert("Please select a PDF file");
-            throw new Error("Please select a PDF file");
+            alert("Please select a PDF, JPG, or PNG file");
+            throw new Error("Please select a PDF, JPG, or PNG file");
         }
-
+    
         // Check the file size (in bytes)
         const maxSizeMB = 10; // Set the maximum file size in megabytes
         const maxSizeBytes = maxSizeMB * 1024 * 1024;
         if (imageFile.size > maxSizeBytes) {
-            alert(`File size exceeds the maximum limit of ${maxSizeMB} MB.`)
+            alert(`File size exceeds the maximum limit of ${maxSizeMB} MB.`);
             throw new Error(`File size exceeds the maximum limit of ${maxSizeMB} MB.`);
         }
+    
         data.append("file", imageFile);
         data.append("upload_preset", "employeeApp");
         data.append("cloud_name", "dxwge5g8f");
-
+    
         try {
             const cloudinaryResponse = await fetch(
                 "https://api.cloudinary.com/v1_1/dxwge5g8f/image/upload",
@@ -177,21 +179,22 @@ const StudentDocsAdd = () => {
                     body: data,
                 }
             );
-
+    
             if (!cloudinaryResponse.ok) {
                 console.error("Error uploading image to Cloudinary:", cloudinaryResponse.statusText);
                 return;
             }
-
+    
             const cloudinaryData = await cloudinaryResponse.json();
             console.log(`${fieldName} Cloudinary URL:`, cloudinaryData.url);
-
+    
             return cloudinaryData.url;
         } catch (error) {
             console.error("Error uploading image to Cloudinary:", error.message);
             return null;
         }
     };
+    
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-0">
@@ -283,7 +286,7 @@ const StudentDocsAdd = () => {
                                             <div className="mt-2">
                                                 <input type="file"
                                                     name='docname'
-                                                    accept=".pdf"
+                                                    accept=".pdf, .jpg, .png"
                                                     onChange={handleInputChange}
                                                     id="docname" />
                                             </div>
