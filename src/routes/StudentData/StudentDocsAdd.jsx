@@ -168,12 +168,12 @@ const StudentDocsAdd = () => {
         }
     
         data.append("file", imageFile);
-        data.append("upload_preset", "employeeApp");
-        data.append("cloud_name", "dxwge5g8f");
+        data.append("upload_preset", "lqmxtc00");
+        data.append("cloud_name", "dehip5g7a");
     
         try {
             const cloudinaryResponse = await fetch(
-                "https://api.cloudinary.com/v1_1/dxwge5g8f/image/upload",
+                "https://api.cloudinary.com/v1_1/dehip5g7a/image/upload",
                 {
                     method: "post",
                     body: data,
