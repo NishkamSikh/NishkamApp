@@ -48,11 +48,13 @@ const StudentFamilyList = () => {
             wrap: true,
         },
 
+     
         {
+            id: '5',
             name: 'Name',
             selector: row => row.FirstName + ' ' + row.MiddleName + ' ' + row.LastName,
+            width: "10rem",
             sortable: true,
-            width: "8rem",
             compact: true,
             wrap: true,
         },
@@ -186,20 +188,16 @@ const StudentFamilyList = () => {
 
         fetchData()
     }, []);
+
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-
         if (inputValue === '') {
             setFilteredData(StudentData);
         } else {
             const newData = StudentData.filter(row =>
-                row.FirstName.toLowerCase().includes(inputValue) ||
-                row.LastName.toLowerCase().includes(inputValue) ||
-                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))
-                // Add more fields here as needed, separated by ||
-                // row.field.toLowerCase().includes(inputValue) ||
-                // row.anotherField.toLowerCase().includes(inputValue) ||
-                // ...
+                (row.FirstName?.toLowerCase().includes(inputValue)) ||
+                (row.LastName?.toLowerCase().includes(inputValue)) ||
+                (row.StudentCode?.toLowerCase().includes(inputValue))
             );
             setFilteredData(newData);
         }

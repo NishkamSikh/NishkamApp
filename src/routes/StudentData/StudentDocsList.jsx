@@ -95,7 +95,7 @@ const StudentDocsList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                console.log(result.data);
+                console.log(result.data, "sddsdsds");
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
