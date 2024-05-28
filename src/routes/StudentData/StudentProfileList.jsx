@@ -57,10 +57,22 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "8rem",
+            width: "10rem",
             wrap: true,
         },
 
+        {
+            id: '5',
+            name: 'F.Name',
+            selector: row => row.Father_Name,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "10rem",
+            wrap: true,
+        },
+
+  
         {
             id: '6',
             name: 'DOB',
@@ -68,7 +80,7 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "5rem",
+            width: "6rem",
             wrap: true,
         },
 
@@ -89,7 +101,7 @@ const StudentProfileList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "5rem",
+            width: "6rem",
             wrap: true,
         },
         {
@@ -193,6 +205,8 @@ const StudentProfileList = () => {
             try {
                 // Make API request using fetch
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentprofilelist');
+                //const response = await fetch('http://localhost:3000/api/v1/studentprofilelist');
+
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -279,7 +293,7 @@ const StudentProfileList = () => {
     }
 
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-1">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
             {FetchData ?
              <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                   <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
