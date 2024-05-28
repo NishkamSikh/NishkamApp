@@ -231,7 +231,7 @@ const StudentDocsAdd = () => {
                                                 options={studentDetails.map((student) => ({
                                                     value: student.StudentKey,
                                                     label: student.dd_label,
-                                                    isDisabled: student.ad_disable === 'Yes'
+                                                    //isDisabled: student.ad_disable === 'Yes'
                                                 }))}
                                                 className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
                                                     }`}
