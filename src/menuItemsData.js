@@ -362,6 +362,21 @@ export const menuItemsData = [
           },
 
           {
+            title: "Student",
+            url: "",
+            submenu: [
+              {
+                title: "Add",
+                url: 'PaymentStudentAdd',
+              },
+              {
+                title: "View/Edit",
+                url: 'PaymentStudentList',
+              }
+            ]
+          },
+
+          {
             title: "Other",
             url: "",
             submenu: [

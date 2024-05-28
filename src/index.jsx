@@ -101,8 +101,9 @@ import PaymentOtherAdd from "./routes/Account/Payment/Other/PaymentOtherAdd";
 import PaymentOtherEdit from "./routes/Account/Payment/Other/PaymentOtherEdit";
 import PaymentOtherList from "./routes/Account/Payment/Other/PaymentOtherList";
 
-
-
+import PaymentStudentAdd from "./routes/Account/Payment/Student/PaymentStudentAdd";
+import PaymentStudentEdit from "./routes/Account/Payment/Student/PaymentStudentEdit";
+import PaymentStudentList from "./routes/Account/Payment/Student/PaymentStudentList";
 
 const router = createBrowserRouter([
   {
@@ -192,6 +193,20 @@ const router = createBrowserRouter([
         path: "PaymentInstitutionList",
         element: <PaymentInstitutionList/>,
       }, 
+
+      {
+        path: "PaymentStudentAdd",
+        element: <PaymentStudentAdd />,
+      },
+      {
+        path: "PaymentStudentEdit",
+        element: <PaymentStudentEdit />,
+      },
+      {
+        path: "PaymentStudentList",
+        element: <PaymentStudentList/>,
+      }, 
+
 
 
       {
