@@ -12,7 +12,7 @@ const StudentSummaryList = () => {
             id: '1',
             name: 'Id',
             selector: row => row.ProfileId,
-            width: "4rem",
+            width: "4.5rem",
             sortable: true,
             reorder: true,
             wrap: true,
@@ -36,8 +36,8 @@ const StudentSummaryList = () => {
         {
             id:'55',
             name: 'Photo',
-            selector: row => <img src={row.DocumentURL} width={40}></img>,
-            sortable: true,
+            selector: row => <img src={row.DocumentURL} width={50} height={40}></img>,
+            sortable: false,
             compact: true,
             width: "4rem",
             wrap: true,
@@ -76,6 +76,18 @@ const StudentSummaryList = () => {
             width: "4.3rem",
             wrap: true,
         },
+/*         {
+            id: '5',
+            name: 'Name',
+            selector: row => (<div>{row.Name}<br/>{row.Father_Name}</div>),
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "7rem",
+            wrap: true,
+        }, */
+
+
         {
             id: '5',
             name: 'Name',
@@ -83,7 +95,18 @@ const StudentSummaryList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "7rem",
+            width: "8rem",
+            wrap: true,
+        },
+
+        {
+            id: '15',
+            name: 'F.Name',
+            selector: row => row.Father,
+            sortable: false,
+            reorder: true,
+            compact: true,
+            width: "8rem",
             wrap: true,
         },
         {
@@ -184,16 +207,7 @@ const StudentSummaryList = () => {
             wrap: true,
         },
 
-        {
-            id: '15',
-            name: 'Father',
-            selector: row => row.Father,
-            sortable: false,
-            reorder: true,
-            compact: true,
-            width: "8rem",
-            wrap: true,
-        },
+
 /*         {
             id: '16',
             name: 'Mother',
@@ -210,7 +224,7 @@ const StudentSummaryList = () => {
             selector: row => row.State,
             sortable: true,
             reorder: true,
-            width: "4rem",
+            width: "3.5rem",
             compact: true,
             wrap: true,
         },
