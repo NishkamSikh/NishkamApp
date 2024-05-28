@@ -58,10 +58,21 @@ const StudentAddressList = () => {
         },
 
         {
+            id: '5',
+            name: 'F.Name',
+            selector: row => row.Father_Name,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "10rem",
+            wrap: true,
+        },
+
+        {
             name: 'Address',
             selector: row => row.stuaddress,
             sortable: true,
-            width: "10rem",
+            width: "20rem",
             compact: true,
             wrap: true,
         },
@@ -70,7 +81,7 @@ const StudentAddressList = () => {
             name: 'State',
             selector: row => row.stustate,
             sortable: true,
-            width: "8rem",
+            width: "4rem",
             compact: true,
             wrap: true,
         },
