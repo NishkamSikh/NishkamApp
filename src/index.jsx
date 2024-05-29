@@ -13,6 +13,16 @@ import StudentProfileAdd from "./routes/StudentData/StudentProfileAdd";
 import StudentProfileEdit from "./routes/StudentData/StudentProfileEdit";
 import StudentProfileList from "./routes/StudentData/StudentProfileList";
 
+import DonorProfileAdd from "./routes/DonorData/DonorProfileAdd";
+import DonorProfileEdit from "./routes/DonorData/DonorProfileEdit";
+import DonorProfileList from "./routes/DonorData/DonorProfileList";
+
+
+import DonorBeneficiaryAdd from "./routes/DonorData/DonorBeneficiaryAdd";
+import DonorBeneficiaryEdit from "./routes/DonorData/DonorBeneficiaryEdit";
+import DonorBeneficiaryList from "./routes/DonorData/DonorBeneficiaryList";
+
+
 import StudentAddressAdd from "./routes/StudentData/StudentAddressAdd";
 import StudentAddressEdit from "./routes/StudentData/StudentAddressEdit";
 import StudentAddressList from "./routes/StudentData/StudentAddressList";
@@ -358,6 +368,38 @@ const router = createBrowserRouter([
         path: "InstitutionList",
         element: <InstitutionList />,
       },
+
+      {
+        path: "DonorProfileAdd",
+        element: <DonorProfileAdd />,
+      },
+
+      {
+        path: "DonorProfileEdit",
+        element: <DonorProfileEdit />,
+      },
+
+      {
+        path: "DonorProfileList",
+        element: <DonorProfileList />,
+      },
+
+      {
+        path: "DonorBeneficiaryAdd",
+        element: <DonorBeneficiaryAdd />,
+      },
+
+      {
+        path: "DonorBeneficiaryEdit",
+        element: <DonorProfileEdit />,
+      },
+
+      {
+        path: "DonorBeneficiaryList",
+        element: <DonorBeneficiaryList />,
+      },
+
+
 
       {
         path: "TutorAdd",
