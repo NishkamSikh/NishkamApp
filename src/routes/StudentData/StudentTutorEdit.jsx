@@ -157,10 +157,7 @@ console.log("Form Data=",formDataWithoutCodeYear)
         }
         navigate('/StudentTutorList')
 
-       
-
-
-    } catch (error) {
+        } catch (error) {
         console.error("Error:", error.message);
     } finally {
         setloading(false);
@@ -186,7 +183,7 @@ console.log("Form Data=",formDataWithoutCodeYear)
                                     <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                                         <div className="sm:col-span-3">
                                             <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
-                                                Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.FirstName} {formData.MiddleName} {formData.LastName} / {formData.DOB}
+                                                Student Code: {formData.StudentCode} 
                                             </label>
                                         </div>
 
@@ -225,15 +222,11 @@ console.log("Form Data=",formDataWithoutCodeYear)
                                                 </select>
                                             </div>
                                         </div>
-
-                                        
-
-                                        
-                                    </div>
+                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-4 flex items-center justify-end gap-x-6">
-                                <button type="button" onClick={() => navigate("/StudentInstitutionList")} className="text-sm font-semibold leading-6 text-grey-900">
+                            <div className="mt-1 flex items-center justify-end gap-x-6">
+                                <button type="button" onClick={() => navigate("/StudentTutorList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

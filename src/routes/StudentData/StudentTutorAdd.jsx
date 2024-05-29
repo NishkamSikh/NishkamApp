@@ -28,6 +28,10 @@ const StudentTutorAdd = () => {
     })
     const [errors, setErrors] = useState({});
 
+    const canSubmit = (formData.studentcode && searchTutorStudentCode && stuStatus)  ? true : false;
+
+
+
     const handleSearchChange = (selectedOption) => {
         const studentkey = selectedOption.value.split("/");
         const studentcode = studentkey[0];
@@ -42,6 +46,7 @@ const StudentTutorAdd = () => {
     const handleTutorSearchChange = (selectedOption) => {
         console.log("selectedOption:", selectedOption.value);
         setSearchTutorStudentCode(selectedOption.value);
+        
     };
 
     // const filteredInstitutions = academicData.filter(
@@ -84,6 +89,7 @@ const StudentTutorAdd = () => {
     const fetchAllStudentDetails = () => {
         setloading(true);
         fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+        //fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "data data");
@@ -128,7 +134,6 @@ const StudentTutorAdd = () => {
     const handlestuStatusChange = (e) => {
         const selectedType = e.target.value;
         setStuStatus(selectedType);
-
     };
 
 
@@ -136,7 +141,6 @@ const StudentTutorAdd = () => {
         e.preventDefault();
         setloading(true);
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
-
         // Proceed with the second API call
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addTutorRecord", {
             method: "POST",
@@ -186,7 +190,7 @@ const StudentTutorAdd = () => {
                                                 options={studentDetails.map((student) => ({
                                                     value: student.StudentKey,
                                                     label: student.dd_label,
-                                                    isDisabled: student.in_disable === 'Yes'
+                                                    //isDisabled: student.in_disable === 'Yes'
 
                                                 }))}
                                                 //value={searchStudentCode ? { value: searchStudentCode, label: searchStudentCode } : null}
@@ -226,8 +230,9 @@ const StudentTutorAdd = () => {
                                                     onChange={handlestuStatusChange}
                                                     className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stubasti ? 'border-red-500' : ''
                                                         }`}
-                                                ><option >Select Status</option>
-                                                <option value="1">Active</option>
+                                                >
+                                                <option >Select Status</option>
+                                                <option value="1" Selected>Active</option>
                                                 <option value="0">Inactive</option>
                                                     
                                                 </select>
@@ -243,8 +248,8 @@ const StudentTutorAdd = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    disabled={!formData.studentcode}
-                                    style={{ opacity: formData.studentcode ? 1 : 0.5 }}
+                                    disabled={!canSubmit}
+                                    style={{ opacity: canSubmit ? 1 : 0.5 }}
 
 
 

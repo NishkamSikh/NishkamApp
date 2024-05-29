@@ -44,6 +44,17 @@ const StudentTutorList = () => {
         },
 
         {
+            id: '3',
+            name: 'Status',
+            selector: row => row.Status,
+            width: "4rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+
+        {
             id: '4',
             name: 'Year',
             selector: row => row.academicyear,

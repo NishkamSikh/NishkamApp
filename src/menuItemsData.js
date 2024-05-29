@@ -113,7 +113,7 @@ export const menuItemsData = [
       },
 
       {
-        title: "Tutor data (Testing)",
+        title: "Tutor data",
         url: "",
 
         submenu: [

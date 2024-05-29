@@ -166,7 +166,7 @@ const StudentProfile = () => {
                           pattern="[0-9a-zA-Z-]{5,}"
                           //pattern="/^([A-z]-)*[^\s]\1*$/"
                           value={formData['studentcode']}
-                          onChange={(e) => { setFormData({ ...formData, studentcode: e.target.valuesd, }); }}
+                          onChange={(e) => { setFormData({ ...formData, studentcode: e.target.value, }); }}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                         />
                         <span className="mt-1 hidden text-sm text-red-400">
