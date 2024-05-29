@@ -7,11 +7,13 @@ const StudentTutorAdd = () => {
     const [userID, setUserId] = useState('')
     const [academicgetdata, setacademicgetdata] = useState([]);
     const [searchStudentCode, setSearchStudentCode] = useState('');
+    const [searchTutorStudentCode, setSearchTutorStudentCode] = useState('');
     const [studentDetails, setStudentDetails] = useState([]);
+    const [tutorDetails, setTutorDetails] = useState([]);
     const [filteredStudentDetails, setFilteredStudentDetails] = useState([]);
     const [academicData, setAcademicData] = useState([]);
 
-    const [institutionType, setInstitutionType] = useState('');
+    const [stuStatus, setStuStatus] = useState('');
     const [selectedInstitution, setSelectedInstitution] = useState('');
 
     const navigate = useNavigate();
@@ -37,10 +39,23 @@ const StudentTutorAdd = () => {
             stuyear: stuyear,
         }));
     };
+    const handleTutorSearchChange = (selectedOption) => {
+        console.log("selectedOption:", selectedOption.value);
+        setSearchTutorStudentCode(selectedOption.value);
 
-    const filteredInstitutions = academicData.filter(
-        (item) => JSON.parse(item.Json).Institution_Type === institutionType
-    );
+        // const studentkey = selectedOption.value.split("/");
+        // const studentcode = studentkey[0];
+        // const stuyear = studentkey[1];
+        // setFormData((prevData) => ({
+        //     ...prevData,
+        //     studentcode: studentcode,
+        //     stuyear: stuyear,
+        // }));
+    };
+
+    // const filteredInstitutions = academicData.filter(
+    //     (item) => JSON.parse(item.Json).Institution_Type === institutionType
+    // );
 
     useEffect(() => {
         if (!localStorage.getItem("UserauthToken")) {
@@ -49,6 +64,7 @@ const StudentTutorAdd = () => {
         const getUserid = localStorage.getItem("UserId")
         setUserId(getUserid)
         fetchAllStudentDetails()
+        fetchAllTutors()
         const fetchData = async () => {
             try {
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist');
@@ -89,6 +105,21 @@ const StudentTutorAdd = () => {
             });
     };
 
+    const fetchAllTutors = () => {
+        setloading(true);
+        fetch('https://nishkamapi.onrender.com/api/v1/tutorlist')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data, "Tutor data");
+                setTutorDetails(data.data);
+                setloading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching student details:', error);
+                setloading(false);
+            });
+    };
+
     const uniqueInstitutionTypes = [
         // console.log(academicData, "academicData")
         ...new Set(academicData.map((item) => JSON.parse(item.Json).Institution_Type)),
@@ -103,32 +134,12 @@ const StudentTutorAdd = () => {
         }));
     };
 
-    const handleInstitutionTypeChange = (e) => {
+    const handlestuStatusChange = (e) => {
         const selectedType = e.target.value;
-        setInstitutionType(selectedType);
+        setStuStatus(selectedType);
 
-        // Reset the selected institution when the institution type changes
-        setSelectedInstitution('');
-
-        setFormData((prevData) => ({
-            ...prevData,
-            institutiontype: selectedType,
-            // institutionname: "",  // Reset institutionname
-            // boardoruniversity: "",  // Reset boardoruniversity
-        }));
     };
-    const handleSelectedInstitutionChange = (e) => {
-        const selectedId = e.target.value;
 
-        //setSelectedInstitution(selectedName);
-        setSelectedInstitution(selectedId);
-        // Update formData with selected institutionname and reset boardoruniversity
-        setFormData((prevData) => ({
-            ...prevData,
-            institutionid: selectedId
-            // boardoruniversity: "",  // Reset boardoruniversity
-        }));
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -136,7 +147,7 @@ const StudentTutorAdd = () => {
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
         // Proceed with the second API call
-        const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
+        const response = await fetch("https://nishkamapi.onrender.com/api/v1/addTutorRecord", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -144,9 +155,8 @@ const StudentTutorAdd = () => {
             body: JSON.stringify({
                 UserId: userID,
                 StudentCode: formData.studentcode,
-                AcademicYear: formData.stuyear,
-                CatgCode: "INST",
-                data: JSON.stringify(formDataWithoutCodeYear),
+                TutorId: searchTutorStudentCode.toString(),
+                isActive: stuStatus
             }),
         });
 
@@ -183,7 +193,6 @@ const StudentTutorAdd = () => {
                                             </label>
                                             <Select
                                                 options={studentDetails.map((student) => ({
-
                                                     value: student.StudentKey,
                                                     label: student.dd_label,
                                                     isDisabled: student.in_disable === 'Yes'
@@ -196,90 +205,43 @@ const StudentTutorAdd = () => {
                                             // onChange={(selectedOption) => setSearchStudentCode(selectedOption ? selectedOption.value : '')}
                                             />
                                         </div>
-
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="institutiontype" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Institution Type
+                                            <label htmlFor="searchTutorStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
+                                                Select Tutor
                                             </label>
-                                            <div className="mt-2">
-                                                <select
-                                                    id="institutiontype"
-                                                    name="institutiontype"
-                                                    value={institutionType}
-                                                    onChange={handleInstitutionTypeChange}
-                                                    className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stubasti ? 'border-red-500' : ''
-                                                        }`}
-                                                ><option >Select Institution Type</option>
-                                                    {uniqueInstitutionTypes.map((type, index) => (
-                                                        <option
-                                                            key={index}
-                                                            value={type}
-                                                            selected={institutionType === type}
-                                                        >
-                                                            {type}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
+                                            <Select
+                                                options={tutorDetails.map((student) => ({
+                                                    value: student.TutorId,
+                                                    label: student.TutorName
+
+                                                }))}
+                                                //value={searchStudentCode ? { value: searchStudentCode, label: searchStudentCode } : null}
+                                                className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
+                                                    }`}
+                                                onChange={handleTutorSearchChange}
+                                            // onChange={(selectedOption) => setSearchStudentCode(selectedOption ? selectedOption.value : '')}
+                                            />
                                         </div>
 
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="institutionid" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Institution Name*
+                                            <label htmlFor="stustatus" className="block text-sm font-medium leading-6 text-gray-900">
+                                                Status
                                             </label>
                                             <div className="mt-2">
                                                 <select
-                                                    id="institutionid"
-                                                    name="institutionid"
-                                                    value={selectedInstitution}
-                                                    onChange={handleSelectedInstitutionChange}
+                                                    id="stustatus"
+                                                    name="stustatus"
+                                                    value={stuStatus}
+                                                    onChange={handlestuStatusChange}
                                                     className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stubasti ? 'border-red-500' : ''
                                                         }`}
-                                                ><option >Select Institution Name</option>
-                                                    {filteredInstitutions.map((item, index) => (
-                                                        <option
-                                                            key={index}
-                                                            value={item.Id}
-                                                        >
-                                                            {JSON.parse(item.Json).Institution_Name}
-                                                            {/* {console.log(JSON.parse(item.json).Institution_Name, "item.json.Institution_Name")} */}
-                                                        </option>
-                                                    ))}
+                                                ><option >Select Status</option>
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
+                                                    
                                                 </select>
                                             </div>
                                         </div>
-
-        {/*                                 {institutionType && (
-                                            <div className="sm:col-span-3">
-                                                <label htmlFor="Board" className="block text-sm font-medium leading-6 text-gray-900">
-                                                    {institutionType === "School" ? "Board" : "University"}
-                                                </label>
-                                                <div className="mt-2">
-
-                                                    <select
-                                                        name="boardoruniversity"
-                                                        id="boardoruniversity"
-                                                        className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''}`}
-                                                        onChange={handleInputChange}
-                                                    >
-                                                        {institutionType === "School" ? (
-                                                            <><option >Select School Board</option>
-                                                                <option value="CBSE">CBSE</option>
-                                                                <option value="ICSE">ICSE</option>
-                                                                <option value="U.P. Board">UP Board</option>
-                                                                <option value="Punjab Board">Punjab Board</option>
-                                                            </>
-                                                        ) : (
-                                                            <><option >Select University</option>
-                                                                <option value="University_1">University 1</option>
-                                                                <option value="University_2">University 2</option>
-                                                                <option value="University_3">University 3</option>
-                                                            </>
-                                                        )}
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        )} */}
 
                                     </div>
                                 </div>
@@ -290,8 +252,8 @@ const StudentTutorAdd = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    disabled={!formData.studentcode || !formData.stuyear || !formData.institutionid}
-                                    style={{ opacity: formData.studentcode && formData.stuyear && formData.institutionid ? 1 : 0.5 }}
+                                    disabled={!formData.studentcode}
+                                    style={{ opacity: formData.studentcode ? 1 : 0.5 }}
 
 
 
