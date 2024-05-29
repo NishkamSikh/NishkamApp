@@ -12,13 +12,25 @@ const SponsorBeneficiaryList_Sponsored = () => {
         {
             id: '1',
             name: 'Id',
-            selector: row => row.Id,
-            width: "3rem",
+            selector: row => row.ProfileId,
+            width: "4rem",
             sortable: true,
             compact: true,
             center: true,
             wrap: true,
         },
+
+        {
+            id:'55',
+            name: 'Photo',
+            selector: row => <img src={row.DocumentURL}  width={50} height={50}></img>,
+            sortable: false,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+
 /*         {
             selector: row => (<div>
                 <Link to={`/bastiedit?id=${row.BastiId}`} className="text-grey-500 hover:text-indigo-600">
@@ -33,10 +45,10 @@ const SponsorBeneficiaryList_Sponsored = () => {
         }, */
 
         {
-            id: '2',
-            name: 'DN-Code',
-            selector: row => row.DonorCode,
-            width: "7rem",
+            id: '3',
+            name: 'Code',
+            selector: row => row.BeneficiaryCode,
+            width: "4rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -44,8 +56,19 @@ const SponsorBeneficiaryList_Sponsored = () => {
 
         {
             id: '3',
-            name: 'BF-Code',
-            selector: row => row.BeneficiaryCode,
+            name: 'Year',
+            selector: row => row.academicyear,
+            width: "6rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+
+        {
+            id: '2',
+            name: 'DN-Code',
+            selector: row => row.DonorCode,
             width: "6rem",
             sortable: true,
             compact: true,
@@ -66,11 +89,32 @@ const SponsorBeneficiaryList_Sponsored = () => {
             id: '4',
             name: 'Beneficiary',
             selector: row => row.firstname+' '+row.middlename+ ' '+row.lastname,
-            width: "9rem",
+            width: "8rem",
             sortable: true,
             compact: true,
             wrap: true,
         },
+
+        {
+            id: '4',
+            name: 'Gender',
+            selector: row => row.gender,
+            width: "4rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'F.Name',
+            selector: row => row.Father_Name,
+            width: "10rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
         {
             id: '4',
             name: 'DOB',
@@ -85,6 +129,16 @@ const SponsorBeneficiaryList_Sponsored = () => {
             name: 'Class',
             selector: row => row.class,
             width: "4rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: '%',
+            selector: row => row.MarksPercentage,
+            width: "3rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -115,6 +169,16 @@ const SponsorBeneficiaryList_Sponsored = () => {
             name: 'Basti',
             selector: row => row.stubastiname,
             width: "8rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '4',
+            name: 'School',
+            selector: row => row.in_institutionname,
+            width: "15rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -158,7 +222,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
             setFilteredData(DonorBeneficiaryData);
         } else {
             const newData = DonorBeneficiaryData.filter(row =>
-
+                (row.BeneficiaryCode.toLowerCase().includes(inputValue)) ||
                 (row.dn_FirstName.toLowerCase().includes(inputValue)) ||
                 (row.firstname.toLowerCase().includes(inputValue)) ||
                 (row.stustate.toLowerCase().includes(inputValue)) ||
@@ -231,7 +295,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
         link.click();
     }
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-0">
+        <section className="mx-auto w-full max-w-8xl px-4 py-0">
             {FetchData ?
 
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
@@ -252,7 +316,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
                                         <div className="sm:col-span-3">
                                             <div className="mt-0 p-2">
                                                 <input type='text'
-                                                    placeholder='Search by Donor Name, Country, Student Name, State, District, Basti'
+                                                    placeholder='Search by Code, Donor Name, Country, Student Name, State, District, Basti'
                                                     className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} 
                                                 />
                                                 <button type="button" onClick={() => downloadCSV()} className="mt-2 rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
