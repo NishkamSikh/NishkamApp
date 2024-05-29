@@ -42,15 +42,6 @@ const StudentTutorAdd = () => {
     const handleTutorSearchChange = (selectedOption) => {
         console.log("selectedOption:", selectedOption.value);
         setSearchTutorStudentCode(selectedOption.value);
-
-        // const studentkey = selectedOption.value.split("/");
-        // const studentcode = studentkey[0];
-        // const stuyear = studentkey[1];
-        // setFormData((prevData) => ({
-        //     ...prevData,
-        //     studentcode: studentcode,
-        //     stuyear: stuyear,
-        // }));
     };
 
     // const filteredInstitutions = academicData.filter(

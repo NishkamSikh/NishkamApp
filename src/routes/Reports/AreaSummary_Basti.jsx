@@ -61,7 +61,7 @@ const AreaSummary_Basti = () => {
 
                 // Make API request using fetch
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/AreaSummary_Basti');
-//                const response = await fetch('http://localhost:3000/api/v1/AreaSummary_Basti');
+//                const response = await fetch('https://nishkamapi.onrender.com/api/v1/AreaSummary_Basti');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
