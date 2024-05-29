@@ -43,7 +43,7 @@ const StudentProfileList = () => {
         },
         {
             id:'55',
-            name: 'Photo',
+            name: '',
             selector: row => <img src={row.DocumentURL}  width={50} height={50}></img>,
             sortable: false,
             compact: true,
