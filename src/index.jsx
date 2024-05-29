@@ -25,6 +25,11 @@ import StudentInstitutionAdd from "./routes/StudentData/StudentInstitutionAdd";
 import StudentInstitutionEdit from "./routes/StudentData/StudentInstitutionEdit";
 import StudentInstitutionList from "./routes/StudentData/StudentInstitutionList";
 
+import StudentTutorAdd from "./routes/StudentData/StudentTutorAdd";
+import StudentTutorEdit from "./routes/StudentData/StudentTutorEdit";
+import StudentTutorList from "./routes/StudentData/StudentTutorList";
+
+
 import StudentAcademicAdd from "./routes/StudentData/StudentAcademicAdd";
 import StudentAcademicEdit from "./routes/StudentData/StudentAcademicEdit";
 import StudentAcademicList from "./routes/StudentData/StudentAcademicList";
@@ -52,6 +57,8 @@ import VendorList from "./routes/Master/VendorList";
 import InstitutionAdd from "./routes/Master/InstitutionAdd";
 import InstitutionEdit from "./routes/Master/InstitutionEdit";
 import InstitutionList from "./routes/Master/InstitutionList";
+
+
 
 import TutorAdd from "./routes/Master/TutorAdd";
 import TutorEdit from "./routes/Master/TutorEdit";
@@ -254,6 +261,20 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "StudentTutorAdd",
+        element: <StudentTutorAdd />,
+      },
+      {
+        path: "StudentTutorEdit",
+        element: <StudentTutorEdit />,
+      },
+
+      {
+        path: "StudentTutorList",
+        element: <StudentTutorList />,
+      },
+
+      {
         path: "StudentInstitutionAdd",
         element: <StudentInstitutionAdd />,
       },
@@ -266,6 +287,7 @@ const router = createBrowserRouter([
         path: "StudentInstitutionList",
         element: <StudentInstitutionList />,
       },
+
       {
         path: "StudentReportCardAdd",
         element: <StudentReportCardAdd />,

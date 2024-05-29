@@ -61,7 +61,6 @@ export const menuItemsData = [
         ]
       },
 
-
       {
         title: "Institution data",
         url: "",
@@ -76,9 +75,10 @@ export const menuItemsData = [
             url: "StudentInstitutionList",
           },
         ]
-
-
       },
+
+ 
+
       {
         title: "Academic data",
         url: "",
@@ -111,6 +111,24 @@ export const menuItemsData = [
         ]
 
       },
+
+      {
+        title: "Tutor data (Testing)",
+        url: "",
+
+        submenu: [
+          {
+            title: "Add",
+            url: "StudentTutorAdd",
+          },
+          {
+            title: "View/Edit",
+            url: "StudentTutorList",
+          },
+        ]
+      },
+
+
 
       {
         title: "Documents",
