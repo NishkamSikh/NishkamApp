@@ -282,6 +282,18 @@ const AddInstitution = () => {
                                                     <option value="Karnataka Board">Karnataka  Board</option>
                                                     <option value="Haryana Board">Haryana  Board</option>
                                                     <option value="Maharashtra Board">Maharashtra Board</option>
+                                                    <option value="Karnataka Seconidary Education Board">Karnataka Seconidary Education Board</option>
+                                                    <option value="Karnatak University">Karnatak University</option>
+                                                    <option value="Dr. APJ Abdul Kalam Techinal University">Dr. APJ Abdul Kalam Techinal University</option>
+                                                    <option value="Visvesvaraya Technological University Belagavi">Visvesvaraya Technological University Belagavi</option>
+                                                    <option value="Chaudhary Charan Singh University Meerut">Chaudhary Charan Singh University Meerut</option>
+                                                    <option value="Swami Vivekanand Subharti University Meerut">Swami Vivekanand Subharti University Meerut</option>
+                                                    <option value="Baba Farid University of Health Sciences">Baba Farid University of Health Sciences</option>
+                                                    <option value="University of Delhi">University of Delhi</option>
+                                                    <option value="Institute of Chartered Accountants of India">Institute of Chartered Accountants of India</option>
+                                                    <option value="IIT Kharagpur">IIT Kharagpur</option>
+                                                    <option value="Gulbaraga  University">Gulbaraga  University</option>
+                                                    <option value="Shri Dharmasthala Manjunateshwara University">Shri Dharmasthala Manjunateshwara University</option>
                                                 </select>
                                             </div>
                                         </div>
