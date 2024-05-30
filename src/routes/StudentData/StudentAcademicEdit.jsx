@@ -92,6 +92,7 @@ const StudentAcademicEdit = () => {
         setloading(true);
         try {
             const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentAcademic/${JSON.parse(searchParams.get('Id'))}`);
+            ///SELECT * FROM v_StudentAcademic WHERE StudentId = @Id
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -106,7 +107,7 @@ const StudentAcademicEdit = () => {
             if (data.data.length > 0) {
                setfetchData(data.data[0]);
                setFormData(data.data[0]);
-               setSelectedallClass({value:data.data[0].class, label:data.data[0].class});
+               setSelectedallClass({value:data.data[0].class, label:data.data[0].ClassName});
                setSelectedallStrem({value:data.data[0].stream, label:data.data[0].stream});
                
                 // setfetchDataId(JSON.parse(data.data.data[0].Id));
@@ -236,15 +237,7 @@ const StudentAcademicEdit = () => {
                                                     value={selectedallClass}
                                                     onChange={(selectedOption) => setSelectedallClass(selectedOption)}
                                                 />
-                                                {/* <input
-                                                    type="text"
-                                                    name="class"
-                                                    value={formData.class}
-                                                    id="class"
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stupin ? 'border-red-500' : ''
-                                                        }`}
-                                                /> */}
+
                                             </div>
                                         </div>
                                         <div className="sm:col-span-3">

@@ -60,9 +60,12 @@ const StudentAcademicAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
-            .then(response => response.json())
+        ///SELECT * FROM v_StudentData
+       fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')  
+       // fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')  
+        .then(response => response.json())
             .then(data => {
+  
                 setStudentDetails(data.data);
                 setloading(false);
             })
@@ -106,7 +109,7 @@ const StudentAcademicAdd = () => {
         fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStream')
             .then(response => response.json())
             .then(data => {
-                console.log(data, "data ============");
+                //console.log(data, "data ============");
                 if (Array.isArray(data.data)) {
                     // const parsedData = data.data.map(item => JSON.parse(item.Stream)); // Parse the inner JSON strings
                     console.log(data.data, "Data parsedData");
@@ -122,13 +125,13 @@ const StudentAcademicAdd = () => {
     };
 
     const handleSubmit = async (e) => {
-        console.log("Sumbit clicked");
+        //console.log("Sumbit clicked");
         e.preventDefault();
         setErrors({}); // Reset errors
         setloading(true);
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
-        console.log(selectedallClass,selectedallStrem, "formData====", JSON.stringify(formData));
-        console.log("formData2====", JSON.stringify(formDataWithoutCodeYear));
+       // console.log(selectedallClass,selectedallStrem, "formData====", JSON.stringify(formData));
+       // console.log("formData2====", JSON.stringify(formDataWithoutCodeYear));
         // Proceed with the second API call
         try {
             const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
@@ -183,11 +186,11 @@ const StudentAcademicAdd = () => {
                             <div className="space-y-2">
                                 <div className="border-b border-gray-900/10 pb-4">
                                     <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-
                                         <div className="sm:col-span-3">
                                             <label htmlFor="searchStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Search Student Code
+                                                Search Student Code 
                                             </label>
+   
                                             <Select
                                                 options={studentDetails.map((student) => ({
                                                     value: student.StudentKey,
@@ -252,80 +255,7 @@ const StudentAcademicAdd = () => {
                                                     value={selectedallClass}
                                                     onChange={(selectedOption) => setSelectedallClass(selectedOption)}
                                                 />
-                                                {/* <input
-                                                    type="text"
-                                                    name="class"
-                                                    value={formData['class']}
-                                                    id="class"
-                                                    maxLength={10}
-                                                    placeholder="Class (10)"
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.class ? 'border-red-500' : ''
-                                                        }`}
-                                                /> */}
-                                            </div>
-                                        </div>
-                                        <div className="sm:col-span-3">
-                                            <label htmlFor="section" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Section
-                                            </label>
-                                            <div className="mt-0">
-                                                <input
-                                                    type="text"
-                                                    name="section"
-                                                    value={formData['section']}
-                                                    id="section"
-                                                    maxLength={10}
-                                                    placeholder="Section (10)"
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6}`}
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="sm:col-span-3">
-                                            <label htmlFor="semester" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Semester
-                                            </label>
-                                            <div className="mt-0">
-                                           
-                                                <input
-                                                    type="text"
-                                                    name="semester"
-                                                    value={formData['semester']}
-                                                    id="semester"
-                                                    maxLength={10}
-                                                    placeholder="Semester (10)"
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 }`}
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="sm:col-span-3">
-                                            <label htmlFor="semester" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Stream {console.log("allStrem:->",allStrem,selectedallStrem.value)}
-                                            </label>
-                                            <div className="mt-0">
-                                            <Select
-                                                    options={allStrem.map(donor => ({ value: donor.Stream, label: donor.Stream }))}
-                                                    id="class"
-                                                    name="class"
-                                                    className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-
-                                                    value={selectedallStrem}
-                                                    onChange={(selectedOption) => setSelectedallStrem(selectedOption)}
-                                                />
-                                                {/* <input
-                                                    type="text"
-                                                    name="stream"
-                                                    value={formData['stream']}
-                                                    id="stream"
-                                                    maxLength={20}
-                                                    placeholder="Stream (20)"
-                                                    onChange={handleInputChange}
-                                                    className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 }`}
-                                                /> */}
+ 
                                             </div>
                                         </div>
 
