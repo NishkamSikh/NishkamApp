@@ -11,6 +11,7 @@ const DonorProfileAdd = () => {
 
   const [formData, setFormData] = useState({
     DonorCode: "",
+    Code:"",
     Title: "",
     FirstName: "",
     MiddleName: "",
@@ -52,8 +53,8 @@ const DonorProfileAdd = () => {
     //    const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
     try {
       // Proceed with the second API call
-      //const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
-      const response = await fetch("http://localhost:3000/api/v1/addDonorData", {
+      const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorData", {
+      //const response = await fetch("http://localhost:3000/api/v1/addDonorData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,8 +108,8 @@ const DonorProfileAdd = () => {
                           name="DonorCode"
                           id="DonorCode"
                           required
-                          placeholder='Donor Code (8)'
-                          maxLength={8}
+                          placeholder='Donor Code (12)'
+                          maxLength={12}
                           pattern="[0-9a-zA-Z-]{5,}"
                           //pattern="/^([A-z]-)*[^\s]\1*$/"
                           value={formData['DonorCode']}
@@ -116,9 +117,32 @@ const DonorProfileAdd = () => {
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                         />
                         <span className="mt-1 hidden text-sm text-red-400">
-                          Donor code must be at least 5 characters long with no spaces
+                          Donor code must be at least 6 characters long with no spaces
                         </span>
                       </div>
+
+                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                        Code*
+                      </label>
+                      <div className="mt-0">
+                        <input
+                          type="text"
+                          name="Code"
+                          id="Code"
+                          required
+                          placeholder='Code (1)'
+                          maxLength={1}
+                          pattern="[0-9a-zA-Z-]{5,}"
+                          //pattern="/^([A-z]-)*[^\s]\1*$/"
+                          value={formData['Code']}
+                          onChange={(e) => { setFormData({ ...formData, Code: e.target.value, }); }}
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
+                        />
+                        <span className="mt-1 hidden text-sm text-red-400">
+                          Donor code must be at least 1 characters long with no spaces
+                        </span>
+                      </div>
+
 
                       <div className="sm:col-span-2 sm:col-start-1">
                         <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -258,6 +282,7 @@ const DonorProfileAdd = () => {
                           <option value="India">India</option>
                           <option value="USA">USA</option>
                           <option value="Canada">Canada</option>
+                          <option value="Australia">Australia</option>
                           <option value="Other">Other</option>
                         </select>
                       </div>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
 
 const DonorProfileList = () => {
-    const [StudentData, setStudentData] = useState([])
+    const [DonorData, setDonorData] = useState([])
     const [FetchData, setFetchData] = useState(true);
 
     const columns = [
@@ -18,6 +18,7 @@ const DonorProfileList = () => {
             center: true,
             wrap: true,
         },
+
         {
             selector: row => (<div>
                 <Link to={`/DonorProfileEdit?Id=${row.Id}`} className="text-grey-500 hover:text-indigo-600">
@@ -32,8 +33,20 @@ const DonorProfileList = () => {
         },
 
         {
-            id: '3',
+            id: '1',
             name: 'Code',
+            selector: row => row.Code,
+            width: "4rem",
+            sortable: true,
+            reorder: true,
+            compact: true,
+            center: true,
+            wrap: true,
+        }, 
+
+        {
+            id: '3',
+            name: 'Donor Code',
             selector: row => row.DonorCode,
             sortable: true,
             reorder: true,
@@ -50,7 +63,7 @@ const DonorProfileList = () => {
             sortable: true,
             reorder: true,
             compact: true,
-            width: "15rem",
+            width: "22rem",
             wrap: true,
         },
 
@@ -101,7 +114,7 @@ const DonorProfileList = () => {
         },
     }
 
-    const [filteredData, setFilteredData] = useState(StudentData);
+    const [filteredData, setFilteredData] = useState(DonorData);
     const navigate = useNavigate();
     useEffect(() => {
         if (!localStorage.getItem("UserauthToken")) {
@@ -121,7 +134,7 @@ const DonorProfileList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
-                setStudentData(result.data);
+                setDonorData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
                 // Handle errors here
@@ -134,14 +147,14 @@ const DonorProfileList = () => {
     
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-
+console.log(inputValue);
         if (inputValue === '') {
-            setFilteredData(StudentData);
+            setFilteredData(DonorData);
         } else {
-            const newData = StudentData.filter(row =>
-                row.firstname.toLowerCase().includes(inputValue) ||
-                row.lastname.toLowerCase().includes(inputValue) ||
-                row.StudentCode.toLowerCase().includes(inputValue)
+            const newData = DonorData.filter(row =>
+                row.FirstName.toLowerCase().includes(inputValue) ||
+                row.DonorCode.toLowerCase().includes(inputValue) ||
+                row.Status.toLowerCase().includes(inputValue)
             );
             setFilteredData(newData);
         }
@@ -199,7 +212,7 @@ const DonorProfileList = () => {
     }
 
     return (
-        <section className="mx-auto w-full max-w-8xl px-4 py-1">
+        <section className="mx-auto w-full max-w-7xl px-4 py-1">
             {FetchData ?
              <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                   <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
@@ -208,7 +221,7 @@ const DonorProfileList = () => {
                 <div>
                     <div className="flex flex-col space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
-                            <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
+                            <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Donor Profile Data</p>
                         </div>
                     </div>
                     <div className="mt-1 flex flex-col">
