@@ -284,7 +284,7 @@ const DonorProfileEdit = () => {
                           className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.status ? 'border-red-500' : ''
                             }`}
                         >
-                          <option >Select Student Status</option>
+                          <option >Select Status</option>
                           <option value="Active">Active</option>
                           <option value="Inactive">Inactive</option>
 
