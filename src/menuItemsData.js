@@ -256,11 +256,11 @@ export const menuItemsData = [
       submenu: [
         {
           title: "Add",
-          url: "",
+          url: "DonorBeneficiaryAdd",
         },
         {
           title: "View/Edit",
-          url: "",
+          url: "DonorBeneficiaryList",
         },
 
       ]

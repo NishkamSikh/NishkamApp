@@ -156,9 +156,9 @@ const DonorProfileEdit = () => {
                           name="Code"
                           id="Code"
                           defaultValue={formData.Code}
-                          placeholder='Code (1)'
-                          maxLength={1}
-                          pattern="[0-9a-zA-Z-]{5,}"
+                          placeholder=''
+                          maxLength={2}
+                          pattern="[0-9a-zA-Z-]{1,}"
                           //pattern="/^([A-z]-)*[^\s]\1*$/"
                           value={formData['Code']}
                           onChange={handleInputChange}
