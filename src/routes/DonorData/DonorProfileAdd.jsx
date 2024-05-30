@@ -131,8 +131,8 @@ const DonorProfileAdd = () => {
                           id="Code"
                           required
                           placeholder='Code (1)'
-                          maxLength={1}
-                          pattern="[0-9a-zA-Z-]{5,}"
+                          maxLength={2}
+                          pattern="[0-9a-zA-Z-]{1,}"
                           //pattern="/^([A-z]-)*[^\s]\1*$/"
                           value={formData['Code']}
                           onChange={(e) => { setFormData({ ...formData, Code: e.target.value, }); }}
