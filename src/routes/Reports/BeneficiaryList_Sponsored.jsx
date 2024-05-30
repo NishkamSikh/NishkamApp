@@ -127,7 +127,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
         {
             id: '4',
             name: 'Class',
-            selector: row => row.class,
+            selector: row => row.ClassName,
             width: "4rem",
             sortable: true,
             compact: true,

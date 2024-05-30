@@ -134,7 +134,7 @@ const StudentSummaryList = () => {
         {
             id: '8',
             name: 'Class',
-            selector: row => row.Class,
+            selector: row => row.ClassName,
             sortable: true,
             reorder: true,
             compact: true,
@@ -284,6 +284,7 @@ const StudentSummaryList = () => {
             try {
 
                 // Make API request using fetch
+                ///SELECT * FROM v_StudentDataSummary
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)

@@ -10,7 +10,7 @@ const Institution_Student = () => {
     const columns = [
 
         //{ id:'1', name: 'Id', selector: row => row.Id, sortable: false, compact: true, width: "3rem", wrap: true, },
-        { id: '1', name: 'Institution', selector: row => row.in_institutionname, sortable: true, compact: true, width: "18rem", wrap: true, },
+        { id: '1', name: 'Institution', selector: row => row.in_institutionname, sortable: true, compact: true, width: "25rem", wrap: true, },
         { id: '2', name: 'Total', selector: row => row.Total, sortable: false, compact: true, width: "4rem", wrap: true, },
         { name: 'Male', selector: row => (<div>{row.Male}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
         { name: 'Female', selector: row => (<div>{row.Female}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
@@ -142,7 +142,7 @@ const Institution_Student = () => {
 
     return (
 
-        <section className="mx-auto w-full max-w-7xl px-4 py-2">
+        <section className="mx-auto w-full max-w-8xl px-4 py-2">
 
             {FetchData ?
 
