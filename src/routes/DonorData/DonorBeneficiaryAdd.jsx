@@ -63,8 +63,8 @@ const DonorBeneficiaryAdd = () => {
 
     const fetchAllBeneficiaryDetails = () => {
         setloading(true);
-        //fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
-        fetch('http://localhost:3000/api/v1/fetchAllBeneficiaryDetails')
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllBeneficiaryDetails')
+        //fetch('http://localhost:3000/api/v1/fetchAllBeneficiaryDetails')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "data.data");
