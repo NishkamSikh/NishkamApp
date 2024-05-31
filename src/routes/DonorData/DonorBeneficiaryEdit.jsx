@@ -26,11 +26,8 @@ const DonorBeneficiaryEdit = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
+        BeneficiaryCode: "",
         StudentCode: "",
-        stuyear: "",
-        institutiontype: "",
-        institutionname: "",
-        boardoruniversity: ""
     })
     const [errors, setErrors] = useState({});
     const { studentCode, year, catgcode } = useParams();
@@ -45,15 +42,12 @@ const DonorBeneficiaryEdit = () => {
         }));
     };
 
-    const filteredInstitutions = academicData.filter(
-        (item) => JSON.parse(item.Json).Institution_Type === institutionType
-    );
     const fetchUserInfo = async () => {
         console.log("Data fetch");
         setloading(true);
         try {
-            console.log("Data ============", searchParams.get('Id'))
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentTutor/${searchParams.get('Id')}`);
+            //            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
+            const response = await fetch(`http://localhost:3000/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -63,8 +57,6 @@ const DonorBeneficiaryEdit = () => {
                 }
             }
             const data = await response.json();
-
-
             console.log(data, "Data ============")
             // Initialize fetchData with the expected structure
             console.log("Data:", data.data[0].isActive);
@@ -140,8 +132,9 @@ console.log("Form Data=",formDataWithoutCodeYear)
     try {
         //console.log(formData, searchParams.get('Id'), "before");
 
-        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateStudentTutor/${searchParams.get('Id')}`, {
-            method: "PUT", // Assuming you are using PUT for updating
+        //const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateStudentTutor/${searchParams.get('Id')}`, {
+        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateDonorBeneficiary/${searchParams.get('Id')}`, {
+                method: "PUT", // Assuming you are using PUT for updating
             headers: {
                 "Content-Type": "application/json",
             },
@@ -175,7 +168,7 @@ console.log("Form Data=",formDataWithoutCodeYear)
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Student Tutor Data 
+                            Edit - Donor-Beneficiary Data 
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
@@ -189,7 +182,7 @@ console.log("Form Data=",formDataWithoutCodeYear)
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="searchTutorStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Select Tutor {console.log("tutorDetails:",tutorDetails)}
+                                                Select Donor {console.log("tutorDetails:",tutorDetails)}
                                             </label>
                                             <Select
                                                 options={tutorDetails && tutorDetails.map((student) => ({
@@ -226,7 +219,7 @@ console.log("Form Data=",formDataWithoutCodeYear)
                                 </div>
                             </div>
                             <div className="mt-1 flex items-center justify-end gap-x-6">
-                                <button type="button" onClick={() => navigate("/StudentTutorList")} className="text-sm font-semibold leading-6 text-grey-900">
+                                <button type="button" onClick={() => navigate("/DonorBeneficiaryList")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button

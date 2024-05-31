@@ -391,7 +391,7 @@ const router = createBrowserRouter([
 
       {
         path: "DonorBeneficiaryEdit",
-        element: <DonorProfileEdit />,
+        element: <DonorBeneficiaryEdit />,
       },
 
       {

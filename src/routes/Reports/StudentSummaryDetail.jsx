@@ -18,6 +18,7 @@ const StudentDetail = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
+                //SELECT * FROM v_StudentData
                 const response = await fetch(`https://nishkamapi.onrender.com/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -168,7 +169,7 @@ const StudentDetail = () => {
                             }
                             <p><b>AcademicId:</b> {data.AcademicId} </p>
                             <p><b>Admission#:</b> {data.admissionnumber} <b>Roll#:</b> {data.rollnumber}</p>
-                            <p><b>Class:</b> {data.class} <b>Section:</b> {data.section}</p>
+                            <p><b>Class:</b> {data.ClassName} <b>Section:</b> {data.section}</p>
                             <p><b>Semester:</b> {data.semester} <b>Stream:</b> {data.stream}</p>
                         </div>
                     ))}
