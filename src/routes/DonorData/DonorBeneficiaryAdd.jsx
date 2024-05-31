@@ -83,7 +83,7 @@ const DonorBeneficiaryAdd = () => {
          setFormData((prevData) => ({
              ...prevData,
              donorCode: selectedOption.value,
-             Status: "Active",
+             status: "Active",
          }));
      };
 
