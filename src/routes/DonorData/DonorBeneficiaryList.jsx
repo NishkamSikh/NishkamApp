@@ -23,11 +23,11 @@ const DonorBeneficiaryList = () => {
             //name: 'Column 2',
             id: '2',
             selector: row => (<div>
-                {/* <Link to={`/DonorBeneficiaryEdit?Id=${row.Id}`} className="text-grey-500 hover:text-indigo-600">
+                <Link to={`/DonorBeneficiaryEdit?Id=${row.Id}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
                         Edit
                     </span>
-                </Link> */}
+                </Link>
             </div>),
             sortable: false,
             width: "4rem",
@@ -47,8 +47,8 @@ const DonorBeneficiaryList = () => {
         {
             id: '3',
             name: 'Donor Name',
-            selector: row => row.dn_FirstName,
-            width: "20rem",
+            selector: row => row.dn_FirstName+' '+row.dn_Name2,
+            width: "25rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -59,7 +59,7 @@ const DonorBeneficiaryList = () => {
             id: '4',
             name: 'Country',
             selector: row => row.dn_Country,
-            width: "6rem",
+            width: "4rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -67,9 +67,9 @@ const DonorBeneficiaryList = () => {
 
         {
             id: '4',
-            name: 'Student Code',
-            selector: row => row.studentcode,
-            width: "8rem",
+            name: 'Beneficiary',
+            selector: row => row.BeneficiaryCode,
+            width: "6rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -77,7 +77,7 @@ const DonorBeneficiaryList = () => {
 
         {
             id: '5',
-            name: 'Student Name',
+            name: 'Name',
             selector: row => row.firstname+' '+ row.middlename+ ' ' +row.lastname,
             width: "10rem",
             sortable: true,
@@ -89,7 +89,7 @@ const DonorBeneficiaryList = () => {
             id: '5',
             name: 'Gender',
             selector: row => row.gender,
-            width: "8rem",
+            width: "6rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -99,7 +99,7 @@ const DonorBeneficiaryList = () => {
             id: '4',
             name: 'DOB',
             selector: row => row.dob,
-            width: "8rem",
+            width: "6rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -107,14 +107,23 @@ const DonorBeneficiaryList = () => {
          {
             id: '5',
             name: 'Class',
-            selector: row => row.ClassName,
+            selector: row => row.classname,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "6rem",
+            wrap: true,
+        },
+        {
+            id: '5',
+            name: 'State',
+            selector: row => row.stustate,
             sortable: true,
             reorder: true,
             compact: true,
             width: "10rem",
             wrap: true,
         },
-
 
     ];
 
@@ -138,6 +147,7 @@ const DonorBeneficiaryList = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
+                console.log(result.data);
                 setStudentData(result.data);
                 setFilteredData(result.data);
             } catch (error) {
@@ -229,7 +239,7 @@ const DonorBeneficiaryList = () => {
     }
 
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-1">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
             {FetchData ?
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                     <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
