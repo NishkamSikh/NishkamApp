@@ -11,9 +11,9 @@ const SponsorBeneficiaryList_Sponsored = () => {
     const columns = [
         {
             id: '1',
-            name: '',
-            selector: row => row.ProfileId,
-            width: "1rem",
+            name: '#',
+            selector: row => row.sno,
+            width: "3rem",
             sortable: true,
             compact: true,
             center: true,
@@ -34,7 +34,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
             id: '4',
             name: 'Name',
             selector: row => row.dn_FirstName+' '+row.Name2 ,
-            width: "25rem",
+            width: "20rem",
             sortable: true,
             compact: true,
             wrap: true,

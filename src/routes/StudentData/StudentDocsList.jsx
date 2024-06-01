@@ -9,6 +9,17 @@ const StudentDocsList = () => {
     const columns = [
 
         {
+            id: '1',
+            name: '#',
+            selector: row => row.sno,
+            width: "4rem",
+            sortable: true,
+            compact: true,
+            center: true,
+            wrap: true,
+        },   
+
+        {
             name: 'Id',
             selector: row =>row.id,
             sortable: true,
@@ -82,7 +93,7 @@ const StudentDocsList = () => {
         },  
 
         {
-            selector: row => <img src={row.DocumentURL} width={60}></img>,
+            selector: row => <img src={row.DocumentURL} width={40} height={40}></img>,
             sortable: false,
             compact: true,
             wrap: true,

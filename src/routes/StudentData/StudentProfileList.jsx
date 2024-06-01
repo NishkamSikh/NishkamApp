@@ -7,8 +7,21 @@ const StudentProfileList = () => {
     const [FetchData, setFetchData] = useState(true);
 
     const columns = [
+
         {
             id: '1',
+            name: '#',
+            selector: row => row.sno,
+            width: "2rem",
+            sortable: true,
+            compact: true,
+            center: true,
+            wrap: true,
+        },   
+
+
+        {
+            id: '61',
             name: 'Id',
             selector: row => row.StudentId,
             width: "4rem",
@@ -44,7 +57,7 @@ const StudentProfileList = () => {
         {
             id:'55',
             name: '',
-            selector: row => <img src={row.DocumentURL}  width={50} height={50}></img>,
+            selector: row => <img src={row.DocumentURL}  width={40} height={40}></img>,
             sortable: false,
             compact: true,
             width: "4rem",

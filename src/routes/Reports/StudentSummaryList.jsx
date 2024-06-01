@@ -8,11 +8,23 @@ const StudentSummaryList = () => {
 
 
     const columns = [
+        
         {
             id: '1',
+            name: '#',
+            selector: row => row.sno,
+            width: "2rem",
+            sortable: true,
+            compact: true,
+            center: true,
+            wrap: true,
+        },       
+        
+        { 
+            id: '43',
             name: 'Id',
             selector: row => row.ProfileId,
-            width: "4.5rem",
+            width: "4.0rem",
             sortable: true,
             reorder: true,
             wrap: true,
