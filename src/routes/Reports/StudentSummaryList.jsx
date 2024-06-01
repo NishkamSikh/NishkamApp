@@ -48,7 +48,7 @@ const StudentSummaryList = () => {
         {
             id:'55',
             name: 'Photo',
-            selector: row => <img src={row.DocumentURL} width={50} height={50}></img>,
+            selector: row => <img src={row.DocumentURL} width={40} height={40}></img>,
             sortable: false,
             compact: true,
             width: "4rem",
