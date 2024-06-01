@@ -54,7 +54,6 @@ const DonorBeneficiaryList = () => {
             wrap: true,
         },
 
-
         {
             id: '4',
             name: 'Country',
@@ -75,7 +74,7 @@ const DonorBeneficiaryList = () => {
             wrap: true,
         },
 
-        {
+ /*        {
             id: '5',
             name: 'Name',
             selector: row => row.firstname+' '+ row.middlename+ ' ' +row.lastname,
@@ -123,7 +122,7 @@ const DonorBeneficiaryList = () => {
             compact: true,
             width: "10rem",
             wrap: true,
-        },
+        }, */
 
     ];
 

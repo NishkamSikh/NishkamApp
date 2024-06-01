@@ -11,9 +11,9 @@ const SponsorBeneficiaryList_Sponsored = () => {
     const columns = [
         {
             id: '1',
-            name: 'Id',
+            name: '',
             selector: row => row.ProfileId,
-            width: "4rem",
+            width: "1rem",
             sortable: true,
             compact: true,
             center: true,
@@ -21,53 +21,8 @@ const SponsorBeneficiaryList_Sponsored = () => {
         },
 
         {
-            id:'55',
-            name: 'Photo',
-            selector: row => <img src={row.DocumentURL}  width={50} height={50}></img>,
-            sortable: false,
-            compact: true,
-            width: "4rem",
-            wrap: true,
-        },
-
-
-/*         {
-            selector: row => (<div>
-                <Link to={`/bastiedit?id=${row.BastiId}`} className="text-grey-500 hover:text-indigo-600">
-                    <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                        Edit
-                    </span>
-                </Link>
-            </div>),
-            sortable: false,
-            width: "3rem",
-            compact: true,
-        }, */
-
-        {
-            id: '3',
-            name: 'Code',
-            selector: row => row.BeneficiaryCode,
-            width: "4rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-        {
-            id: '3',
-            name: 'Year',
-            selector: row => row.academicyear,
-            width: "6rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-
-        {
             id: '2',
-            name: 'DN-Code',
+            name: 'Donor',
             selector: row => row.DonorCode,
             width: "6rem",
             sortable: true,
@@ -77,9 +32,19 @@ const SponsorBeneficiaryList_Sponsored = () => {
 
         {
             id: '4',
-            name: 'Donor',
-            selector: row => row.dn_FirstName+' '+row.dn_LastName + ' - '+row.dn_CountryInitial,
-            width: "15rem",
+            name: 'Name',
+            selector: row => row.dn_FirstName+' '+row.Name2 ,
+            width: "25rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '2',
+            name: 'Beneficiary',
+            selector: row => row.studentcode,
+            width: "6rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -87,9 +52,9 @@ const SponsorBeneficiaryList_Sponsored = () => {
 
         {
             id: '4',
-            name: 'Beneficiary',
-            selector: row => row.firstname+' '+row.middlename+ ' '+row.lastname,
-            width: "8rem",
+            name: 'Name',
+            selector: row => row.firstname+' '+row.middlename+ ' '+row.lastname + ' (' + row.Father_Name + ' )',
+            width: "20rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -99,17 +64,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
             id: '4',
             name: 'Gender',
             selector: row => row.gender,
-            width: "4rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-        {
-            id: '4',
-            name: 'F.Name',
-            selector: row => row.Father_Name,
-            width: "10rem",
+            width: "6rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -136,16 +91,6 @@ const SponsorBeneficiaryList_Sponsored = () => {
 
         {
             id: '4',
-            name: '%',
-            selector: row => row.MarksPercentage,
-            width: "3rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-        {
-            id: '4',
             name: 'State',
             selector: row => row.stustate,
             width: "8rem",
@@ -154,35 +99,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
             wrap: true,
         },
 
-        {
-            id: '4',
-            name: 'District',
-            selector: row => row.studistrict,
-            width: "8rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
 
-        {
-            id: '4',
-            name: 'Basti',
-            selector: row => row.stubastiname,
-            width: "8rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-        {
-            id: '4',
-            name: 'School',
-            selector: row => row.in_institutionname,
-            width: "15rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
 
     ];
 
@@ -295,7 +212,7 @@ const SponsorBeneficiaryList_Sponsored = () => {
         link.click();
     }
     return (
-        <section className="mx-auto w-full max-w-8xl px-4 py-0">
+        <section className="mx-auto w-full max-w-7xl px-4 py-0">
             {FetchData ?
 
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
