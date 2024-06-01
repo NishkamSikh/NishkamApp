@@ -189,6 +189,7 @@ const ListInstitution = () => {
 
                 // Parse the response as JSON
                 const result = await response.json();
+             
                 // const sortedData = result.data.sort((a, b) => {
                 //     return a.IN_InstitutionName.localeCompare(b.IN_InstitutionName);
                 // });

@@ -20,6 +20,7 @@ const EditInstitution = () => {
     const [IFSCcode, setIFSCcode] = useState('');
     const [AccountNumber, setAccountNumber] = useState('');
     const [Bankselect, setBankselect] = useState('');
+    const [BranchName, setBranchName] = useState('');
 
     const [formError, setFormError] = useState(false);
 
@@ -82,10 +83,15 @@ const EditInstitution = () => {
         setAccountNumber(value);
 
     };
+    const handleBranchNameChange = (value) => {
+        setBranchName(value);
+
+    };
 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        
 
         setFormData((prevData) => ({
             ...prevData,
@@ -131,6 +137,7 @@ const EditInstitution = () => {
                         Account_Name: AccountName,
                         IFSC_Code: IFSCcode,
                         Account_Number: AccountNumber,
+                        BranchName: BranchName,
                     }
                 ),
             }),
@@ -177,7 +184,7 @@ const EditInstitution = () => {
             const data = await response.json();
 
             // Initialize fetchData with the expected structure
-            //console.log(data.data.data[0], "Data ============")
+            console.log(data.data.data[0], "Data ============")
             if (data.data.data.length > 0) {
                 setfetchData(data.data.data[0]);
                 // setstuCodeYear(data.data.data);
@@ -191,8 +198,8 @@ const EditInstitution = () => {
                 setAccountName(JSON.parse(data.data.data[0].Json).Account_Name);
                 setIFSCcode(JSON.parse(data.data.data[0].Json).IFSC_Code);
                 setAccountNumber(JSON.parse(data.data.data[0].Json).Account_Number);
-                setBankselect(JSON.parse(data.data.data[0].Json).Bank_Name
-                );
+                setBankselect(JSON.parse(data.data.data[0].Json).Bank_Name),
+                setBranchName(JSON.parse(data.data.data[0].Json).BranchName);
 
                 setFormData(JSON.parse(data.data.data[0].Json));
 
@@ -549,10 +556,12 @@ const EditInstitution = () => {
                                             AccountNumber={AccountNumber}
                                             IFSCcode={IFSCcode}
                                             AccountName={AccountName}
+                                            BranchName={BranchName}
                                             handleBankChange={handleBankChange}
                                             handleAccountNameChange={handleAccountNameChange}
                                             handleIFSCcode={handleIFSCcode}
                                             handleAccountNumberChange={handleAccountNumberChange}
+                                            handleBranchNameChange={handleBranchNameChange}
                                         />
                                     </div>
                                 </div>

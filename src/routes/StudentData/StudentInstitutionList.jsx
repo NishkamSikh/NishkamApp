@@ -144,10 +144,11 @@ const StudentInstitutionList = () => {
             setFilteredData(StudentData);
         } else {
             const newData = StudentData.filter(row =>
-                row.FirstName.toLowerCase().includes(inputValue) ||
-                row.LastName.toLowerCase().includes(inputValue) ||
-                row.IN_InstitutionName.toLowerCase().includes(inputValue) ||
-                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue))
+
+                (row.FirstName?.toLowerCase().includes(inputValue)) ||
+                (row.LastName?.toLowerCase().includes(inputValue)) ||
+                (row.StudentCode?.toLowerCase().includes(inputValue)) ||
+                (row.IN_InstitutionName?.toLowerCase().includes(inputValue))
             );
             setFilteredData(newData);
         }

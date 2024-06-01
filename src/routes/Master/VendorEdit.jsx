@@ -20,6 +20,7 @@ const VendorEdit = () => {
     const [IFSCcode, setIFSCcode] = useState('');
     const [AccountNumber, setAccountNumber] = useState('');
     const [Bankselect, setBankselect] = useState('');
+    const [BranchName, setBranchName] = useState('');
     const [formError, setFormError] = useState(false);
 
     const [selectedItems, setselectedItems] = useState([]);
@@ -65,6 +66,9 @@ const VendorEdit = () => {
     };
     const handleAccountNameChange = (value) => {
         setAccountName(value);
+    };
+    const handleBranchNameChange = (value) => {
+        setBranchName(value);
     };
     const handleIFSCcode = (value) => {
         setIFSCcode(value);
@@ -176,6 +180,7 @@ const VendorEdit = () => {
                 setselectedAddress(JSON.parse(data.data.data[0].Json).vendor_address);
                 setSelectedpincode(JSON.parse(data.data.data[0].Json).vendor_pincode);
                 setAccountName(JSON.parse(data.data.data[0].Json).vendor_accountName);
+                setBranchName(JSON.parse(data.data.data[0].Json).vendor_BranchName);
                 setIFSCcode(JSON.parse(data.data.data[0].Json).vendor_IFSCCode);
                 setAccountNumber(JSON.parse(data.data.data[0].Json).vendor_AccountNumber);
                 setBankselect(JSON.parse(data.data.data[0].Json).vendor_bank);
@@ -229,6 +234,7 @@ const VendorEdit = () => {
                         vendor_accountName: AccountName,
                         vendor_IFSCCode: IFSCcode,
                         vendor_AccountNumber: AccountNumber,
+                        vendor_BranchName: BranchName,
                     }
                 ),
             }),
@@ -447,10 +453,12 @@ const VendorEdit = () => {
                                             AccountNumber={AccountNumber}
                                             IFSCcode={IFSCcode}
                                             AccountName={AccountName}
+                                            BranchName={BranchName}
                                             handleBankChange={handleBankChange}
                                             handleAccountNameChange={handleAccountNameChange}
                                             handleIFSCcode={handleIFSCcode}
                                             handleAccountNumberChange={handleAccountNumberChange}
+                                            handleBranchNameChange={handleBranchNameChange}
 
                                         />
                                     </div>

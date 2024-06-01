@@ -21,6 +21,7 @@ const TutorEdit = () => {
     const [IFSCcode, setIFSCcode] = useState('');
     const [AccountNumber, setAccountNumber] = useState('');
     const [Bankselect, setBankselect] = useState('');
+    const [BranchName, setBranchName] = useState('');
 
     const [selectedBasti, setSelectedBasti] = useState('');
     const [options, setOptions] = useState([]);
@@ -160,6 +161,9 @@ const TutorEdit = () => {
     const handleAccountNumberChange = (value) => {
         setAccountNumber(value);
     };
+    const handleBranchNameChange = (value) => {
+        setBranchName(value);
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -254,6 +258,7 @@ const TutorEdit = () => {
                         AccountName: AccountName,
                         IFSCCode: IFSCcode,
                         AccountNumber: AccountNumber,
+                        BranchName: BranchName,
                     }
                 ),
             }),
@@ -299,6 +304,7 @@ const TutorEdit = () => {
                 setAccountName(JSON.parse(data.data.data[0].Json).AccountName);
                 setIFSCcode(JSON.parse(data.data.data[0].Json).IFSCCode);
                 setAccountNumber(JSON.parse(data.data.data[0].Json).AccountNumber);
+                setBranchName(JSON.parse(data.data.data[0].Json).BranchName);
                 setBankselect(JSON.parse(data.data.data[0].Json).BankName);
                 setSelectedOptions(JSON.parse(data.data.data[0].Json).Class);
                 setSelectedSubjectOptions(JSON.parse(data.data.data[0].Json).Subject);
@@ -509,10 +515,12 @@ const TutorEdit = () => {
                                             AccountNumber={AccountNumber}
                                             IFSCcode={IFSCcode}
                                             AccountName={AccountName}
+                                            BranchName={BranchName}
                                             handleBankChange={handleBankChange}
                                             handleAccountNameChange={handleAccountNameChange}
                                             handleIFSCcode={handleIFSCcode}
                                             handleAccountNumberChange={handleAccountNumberChange}
+                                            handleBranchNameChange={handleBranchNameChange}
 
                                         />
                                     </div>

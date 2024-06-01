@@ -174,50 +174,60 @@ const StudentInstitutionEdit = () => {
         }));
     };
 
-   const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
     
-    const { StudentCode, stuyear, ...formDataWithoutCodeYear } = formData;
+        const { StudentCode, stuyear, ...formDataWithoutCodeYear } = formData;
     
-console.log("Form Data=",formDataWithoutCodeYear)
-
-    // Check if any select is not selected
-    const errorsObj = {};
-
-    setloading(true);
-
-    try {
-        //console.log(formData, searchParams.get('Id'), "before");
-
-        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
-            method: "PUT", // Assuming you are using PUT for updating
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                data: formDataWithoutCodeYear,
-            }),
-        });
-        
-        if (!response.ok) {
-            console.error("Error:", response.statusText);
+        console.log("Form Data without Code and Year:", formDataWithoutCodeYear);
+    
+        // Check if formDataWithoutCodeYear is empty
+        if (Object.keys(formDataWithoutCodeYear).length === 0) {
+            console.error("Error: Form data is empty");
             return;
         }
-
-
-        if(searchParams.get('flag') == "institution"){
-            navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
-        }else {
-            navigate('/StudentInstitutionList')
+    
+        // Additional validation can be added here as needed
+        const errorsObj = {};
+    
+        setloading(true);
+    
+        try {
+            const id = JSON.parse(searchParams.get('Id'));
+            console.log("Parsed ID:", id);
+    
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    data: formDataWithoutCodeYear,
+                }),
+            });
+    
+            if (!response.ok) {
+                console.error("Error:", response.statusText);
+                const errorData = await response.json(); // Get the error details from the response
+                console.error("Error details:", errorData);
+                return;
+            }
+    
+            console.log("Form data successfully sent:", formDataWithoutCodeYear);
+    
+            if (searchParams.get('flag') == "institution") {
+                navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`);
+            } else {
+                navigate('/StudentInstitutionList');
+            }
+    
+        } catch (error) {
+            console.error("Error:", error.message);
+        } finally {
+            setloading(false);
         }
-
-
-    } catch (error) {
-        console.error("Error:", error.message);
-    } finally {
-        setloading(false);
-    }
-};
+    };
+    
 
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-4">

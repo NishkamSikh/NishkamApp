@@ -73,10 +73,12 @@ const BankDetails = ({
     AccountName,
     IFSCcode,
     AccountNumber,
+    BranchName,
     handleBankChange,
     handleAccountNameChange,
     handleIFSCcode,
-    handleAccountNumberChange
+    handleAccountNumberChange,
+    handleBranchNameChange
 }) => {
 
     return (
@@ -137,6 +139,21 @@ const BankDetails = ({
                         maxLength={20}
                         onChange={(e) => handleAccountNumberChange(e.target.value)}
                         value={AccountNumber}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
+                        />
+                </div>
+            </div>
+            <div className="sm:col-span-3">
+                <div className="my-0">
+                    <label for="Branch_Name" className="form-label font-medium text-sm" >Branch Name</label>
+                    <input
+                        type="text"
+                        name='Branch_Name'
+                        id='Branch_Name'
+                        placeholder='Branch Name'
+                        maxLength={20}
+                        onChange={(e) => handleBranchNameChange(e.target.value)}
+                        value={BranchName}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-1.5 valid:[&:not(:placeholder-shown)]:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 placeholder-gray-300 valid:[&:not(:placeholder-shown)]:border-gray-300 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]"
                         />
                 </div>

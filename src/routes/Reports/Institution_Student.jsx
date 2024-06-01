@@ -75,7 +75,7 @@ const Institution_Student = () => {
         fetchData()
     }, []);
 
-    const handleFilter = (event) => {
+    const handleFilter2 = (event) => {
         const inputValue = event.target.value.toLowerCase();
         if (inputValue === '') {
             setFilteredData(StudentData);
@@ -86,6 +86,19 @@ const Institution_Student = () => {
             );
             setFilteredData(newData);
             console.log("xxxx=",newData)
+        }
+    };
+     const handleFilter = (event) => {
+        const inputValue = event.target.value.toLowerCase();
+
+        if (inputValue === '') {
+            setFilteredData(StudentData);
+        } else {
+            const newData = StudentData.filter(row =>
+
+                (row.in_institutionname?.toLowerCase().includes(inputValue))
+            );
+            setFilteredData(newData);
         }
     };
 
@@ -163,10 +176,10 @@ const Institution_Student = () => {
                                     <div className="mt-0 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
                                         <div className="sm:col-span-1">
                                             <div className="mt-0 p-2">
-{/*                                                 <input type='text'
+                                                <input type='text'
                                                     placeholder='Search by Institution'
                                                     className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter}
-                                                /> */}
+                                                />
                                                 <button type="button" onClick={() => downloadCSV()} className="mt-2 rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                             </div>
                                         </div>

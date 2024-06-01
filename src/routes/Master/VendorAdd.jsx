@@ -22,6 +22,7 @@ const VendorAdd = () => {
     const [selectedItems, setselectedItems] = useState([]);
     const [selectedInst, setselectedInst] = useState([]);
     const [formError, setFormError] = useState(false);
+    const [BranchName, setBranchName] = useState('');
 
     const [formData, setFormData] = useState({
         vendor_name: '',
@@ -72,6 +73,9 @@ const VendorAdd = () => {
     const handleAccountNumberChange = (value) => {
         setAccountNumber(value);
 
+    };
+    const handleBranchNameChange = (value) => {
+        setBranchName(value);
     };
 
     const handleInputChange = (e) => {
@@ -173,7 +177,6 @@ const VendorAdd = () => {
             },
             body: JSON.stringify({
                 // UserId: userID,
-
                 CatgCode: "VNDR",
                 data: JSON.stringify(
                     {
@@ -190,6 +193,7 @@ const VendorAdd = () => {
                         vendor_accountName: AccountName,
                         vendor_IFSCCode: IFSCcode,
                         vendor_AccountNumber: AccountNumber,
+                        vendor_BranchName: BranchName,
                     }
                 ),
             }),
@@ -431,10 +435,12 @@ const VendorAdd = () => {
                                             AccountNumber={AccountNumber}
                                             IFSCcode={IFSCcode}
                                             AccountName={AccountName}
+                                            BranchName={BranchName}
                                             handleBankChange={handleBankChange}
                                             handleAccountNameChange={handleAccountNameChange}
                                             handleIFSCcode={handleIFSCcode}
                                             handleAccountNumberChange={handleAccountNumberChange}
+                                            handleBranchNameChange={handleBranchNameChange}
                                         />
                                     </div>
                                 </div>

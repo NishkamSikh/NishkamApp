@@ -18,6 +18,7 @@ const AddInstitution = () => {
     const [IFSCcode, setIFSCcode] = useState('');
     const [AccountNumber, setAccountNumber] = useState('');
     const [Bankselect, setBankselect] = useState('');
+    const [BranchName, setBranchName] = useState('');
 
     const [formError, setFormError] = useState(false);
 
@@ -79,6 +80,9 @@ const AddInstitution = () => {
     const handleAccountNumberChange = (value) => {
         setAccountNumber(value);
     };
+    const handleBranchNameChange = (value) => {
+        setBranchName(value);
+    };
 
 
     const handleInputChange = (e) => {
@@ -127,6 +131,7 @@ const AddInstitution = () => {
                         Account_Name: AccountName,
                         IFSC_Code: IFSCcode,
                         Account_Number: AccountNumber,
+                        BranchName: BranchName,
                     }
                 ),
             }),
@@ -486,10 +491,12 @@ const AddInstitution = () => {
                                             AccountNumber={AccountNumber}
                                             IFSCcode={IFSCcode}
                                             AccountName={AccountName}
+                                            BranchName={BranchName}
                                             handleBankChange={handleBankChange}
                                             handleAccountNameChange={handleAccountNameChange}
                                             handleIFSCcode={handleIFSCcode}
                                             handleAccountNumberChange={handleAccountNumberChange}
+                                            handleBranchNameChange={handleBranchNameChange}
                                         />
                                     </div>
                                 </div>
