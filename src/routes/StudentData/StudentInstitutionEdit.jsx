@@ -133,7 +133,6 @@ const StudentInstitutionEdit = () => {
     ];
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(name, value, "Ssddf===fd ");
     
         // If the changed input is the Board dropdown, update the corresponding state
         if (name == "boardoruniversity") {

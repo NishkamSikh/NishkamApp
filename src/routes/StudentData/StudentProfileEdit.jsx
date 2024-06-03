@@ -155,12 +155,8 @@ const StudentProfileEdit = () => {
                     <div className="sm:col-span-3">
                       <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
                         Student Code: {formData.StudentCode} / {formData.AcademicYear} / {formData.firstname} {formData.middlename} {formData.lastname} / {formData.dob}
-
                       </label>
-
                     </div>
-
-
 
                     <div className="sm:col-span-2 sm:col-start-1">
                       <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -370,6 +366,7 @@ const StudentProfileEdit = () => {
                           <option >Select Student Status</option>
                           <option value="Active">Active</option>
                           <option value="Inactive">Inactive</option>
+                          <option value="Drop">Drop</option>                          
 
                         </select>
                       </div>
@@ -392,7 +389,7 @@ const StudentProfileEdit = () => {
                           <option value="Self">Self</option>
                           <option value="Father">Father</option>
                           <option value="Mother">Mother</option>
-                          <option value="GrandFather">GrandFather</option>
+                          <option value="GrandFather">Grand Father</option>
                           <option value="Gurdian">Gurdian</option>
                           <option value="">Not applicable</option>
 

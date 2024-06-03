@@ -27,7 +27,16 @@ const StudentDocsList = () => {
             compact: true,
             wrap: true,
         },
-     
+
+
+        {
+            selector: row => <img src={row.DocumentURL} width={40} height={40}></img>,
+            sortable: false,
+            compact: true,
+            width: "5rem",
+            wrap: true,
+        },
+
         {
             name: 'Code',
             selector: row =>row.StudentCode,
@@ -92,12 +101,7 @@ const StudentDocsList = () => {
             wrap: true,
         },  
 
-        {
-            selector: row => <img src={row.DocumentURL} width={40} height={40}></img>,
-            sortable: false,
-            compact: true,
-            wrap: true,
-        },
+
 
     ];
 

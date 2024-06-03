@@ -8,6 +8,18 @@ const ListInstitution = () => {
     const [FetchData, setFetchData] = useState(true);
     const [errors, setErrors] = useState({});
     const columns = [
+
+        {
+            id: '134',
+            name: '#',
+            selector: row => row.sno,
+            width: "2rem",
+            sortable: true,
+            compact: true,
+            center: true,
+            wrap: true,
+        },
+
         {
             id: '1',
             name: 'Id',
@@ -38,7 +50,7 @@ const ListInstitution = () => {
             selector: row => row.IN_InstitutionName,
             sortable: true,
             compact: true,
-            width: "10rem",
+            width: "15rem",
             wrap: true,
         },
 
@@ -74,21 +86,13 @@ const ListInstitution = () => {
 
         {
             name: 'Principal',
-            selector: row => row.IN_PrincipalName + ' ' + row.IN_PrincipalPhone,
+            selector: row => row.IN_PrincipalName + ' ' + row.IN_PrincipalPhone + ' ' + row.IN_InstitutionEmail,
             sortable: true,
             compact: true,
             width: "8rem",
             wrap: true,
         },
 
-        {
-            name: 'Email',
-            selector: row => row.IN_InstitutionEmail,
-            sortable: false,
-            compact: true,
-            width: "10rem",
-            wrap: true,
-        },
 
         {
             name: 'Phone',
@@ -117,14 +121,14 @@ const ListInstitution = () => {
             wrap: true,
         },
 
-        {
+/*         {
             name: 'Contact-2',
             selector: row => row.IN_ContactDesignation_2 + ' ' + row.IN_ContactPhone_2,
             sortable: false,
             compact: true,
             width: "6rem",
             wrap: true,
-        },
+        }, */
 
         {
             name: 'Address',
@@ -137,19 +141,21 @@ const ListInstitution = () => {
 
         {
             name: 'Bank',
-            selector: row => row.IN_BankName,
+            selector: row => row.IN_BankName + ' ' + row.IN_BranchName,
             sortable: false,
             compact: true,
-            width: "8rem",
+            width: "12rem",
             wrap: true,
         },
+
+
 
         {
             name: 'Acct Name',
             selector: row => row.IN_AccountName,
             sortable: false,
             compact: true,
-            width: "8rem",
+            width: "10rem",
             wrap: true,
         },
 
