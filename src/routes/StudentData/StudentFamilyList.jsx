@@ -80,6 +80,16 @@ const StudentFamilyList = () => {
 
 
         {
+            name: 'Father Phone',
+            selector: row => row.F_Mobile_No,
+            sortable: true,
+            width: "10rem",
+            compact: true,
+            wrap: true,
+        },
+
+
+        {
             name: 'F-Aadhar',
             selector: row => row.F_Aadhar_No,
             sortable: true,
