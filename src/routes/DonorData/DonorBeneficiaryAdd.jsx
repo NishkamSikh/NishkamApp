@@ -82,9 +82,6 @@ const DonorBeneficiaryAdd = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setloading(true);
-        console.log("formData=", formData);
-        console.log(JSON.stringify({UserId: userID,donorCode: formData.donorCode,beneficiaryCode: formData.donorCode,status: formData.status,}));
-
         //const response = await fetch("http://localhost:3000/api/v1/addDonorBeneficiaryData", {
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorBeneficiaryData", {
             method: "POST",
