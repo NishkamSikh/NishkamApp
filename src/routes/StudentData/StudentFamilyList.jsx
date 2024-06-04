@@ -80,23 +80,13 @@ const StudentFamilyList = () => {
 
 
         {
-            name: 'Father Phone',
-            selector: row => row.F_Mobile_No,
-            sortable: true,
-            width: "10rem",
+            name: 'Phone',
+            selector: row => (<div>{row.F_Mobile_No}<br/>{row.M_Mobile_No}</div>),
+            sortable: false,
+            width: "15rem",
             compact: true,
             wrap: true,
         },
-
-        {
-            name: 'Mother Phone',
-            selector: row => row.M_Mobile_No,
-            sortable: true,
-            width: "10rem",
-            compact: true,
-            wrap: true,
-        },
-
 
         {
             name: 'F-Aadhar',
@@ -115,47 +105,6 @@ const StudentFamilyList = () => {
             compact: true,
             wrap: true,
         },
-
-
-        /*         {
-            name: 'M-Aadhar',
-            selector: row => row.M_Aadhar_No,
-            sortable: true,
-            width: "6rem",
-            compact: true,
-            wrap: true,
-        }, */
-
-
-
-/*         {
-            name: 'F-Occptn+Income',
-            selector: row => row.Father_Occupation + '-' + row.F_Gross_Income,
-            sortable: true,
-            width: "11rem",
-            compact: true,
-            wrap: true,
-        }, */
-
-
-/*         {
-            name: 'Mother Name',
-            selector: row => row.Mother_Name + ' ' + row.Mother_Education,
-            sortable: true,
-            width: "8rem",
-            compact: true,
-            wrap: true,
-        }, */
-
-/*         {
-            name: 'M-Occptn+Income',
-            selector: row => row.Mother_Occupation + ' ' + row.M_Gross_Income,
-            sortable: true,
-            width: "10rem",
-            compact: true,
-            wrap: true,
-        }, */
-
         {
             name: 'Grand Father',
             selector: row => row.Grandfather_Name,

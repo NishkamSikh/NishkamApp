@@ -80,35 +80,37 @@ const ListInstitution = () => {
             selector: row => row.IN_InstitutionBoard,
             sortable: true,
             compact: true,
-            width: "6rem",
+            width: "8rem",
             wrap: true,
         },
 
         {
             name: 'Principal',
-            selector: row => row.IN_PrincipalName + ' ' + row.IN_PrincipalPhone + ' ' + row.IN_InstitutionEmail,
-            sortable: true,
+//            selector: row => row.IN_PrincipalName + ' ' + row.IN_PrincipalPhone + ' ' + row.IN_InstitutionEmail,
+selector: row => (<div>{row.IN_PrincipalPhone}<br/>{row.IN_InstitutionPhone}<br/>{row.IN_InstitutionEmail}<br/>{row.IN_PrincipalName}<br/></div>),
+sortable: true,
             compact: true,
-            width: "8rem",
+            width: "15rem",
             wrap: true,
         },
 
 
-        {
+
+/*         {
             name: 'Phone',
             selector: row => row.IN_InstitutionPhone + ' ' + row.IN_AlternatePhone,
             sortable: false,
             compact: true,
             width: "6rem",
             wrap: true,
-        },
+        }, */
 
         {
             name: 'Medium',
             selector: row => row.IN_InstitutionMedium,
             sortable: true,
             compact: true,
-            width: "5rem",
+            width: "8rem",
             wrap: true,
         },
 
@@ -117,7 +119,7 @@ const ListInstitution = () => {
             selector: row => row.IN_ContactDesignation_1 + ' ' + row.IN_ContactPhone_1,
             sortable: false,
             compact: true,
-            width: "8rem",
+            width: "10rem",
             wrap: true,
         },
 
@@ -140,15 +142,13 @@ const ListInstitution = () => {
         },
 
         {
-            name: 'Bank',
+            name: 'Bank-Branch',
             selector: row => row.IN_BankName + ' ' + row.IN_BranchName,
             sortable: false,
             compact: true,
             width: "12rem",
             wrap: true,
         },
-
-
 
         {
             name: 'Acct Name',
