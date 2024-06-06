@@ -76,10 +76,10 @@ const StudentInstitutionAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails_dropdown')
             .then(response => response.json())
             .then(data => {
-                console.log(data, "data data");
+               // console.log(data, "data data");
                 setStudentDetails(data.data);
                 setloading(false);
             })
@@ -137,7 +137,9 @@ const StudentInstitutionAdd = () => {
 
         // Proceed with the second API call
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
-            method: "POST",
+          //const response = await fetch("http://localhost:3000/api/v1/addStudentData", {
+
+        method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },

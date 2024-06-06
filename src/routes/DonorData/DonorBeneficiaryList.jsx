@@ -8,6 +8,20 @@ const DonorBeneficiaryList = () => {
 
 
     const columns = [
+
+        {
+            id: '0',
+            name: '#',
+            selector: row => row.sno,
+            width: "2rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+            center: true,
+        },
+
+
+
         {
             id: '1',
             name: 'Id',
@@ -45,9 +59,9 @@ const DonorBeneficiaryList = () => {
         },
 
         {
-            id: '3',
+            id: '4',
             name: 'Donor Name',
-            selector: row => row.dn_FirstName+' '+row.dn_Name2,
+            selector: row => row.dn_FirstName + ' ' + row.dn_Name2,
             width: "25rem",
             sortable: true,
             compact: true,
@@ -55,7 +69,7 @@ const DonorBeneficiaryList = () => {
         },
 
         {
-            id: '4',
+            id: '5',
             name: 'Country',
             selector: row => row.dn_Country,
             width: "4rem",
@@ -65,7 +79,7 @@ const DonorBeneficiaryList = () => {
         },
 
         {
-            id: '4',
+            id: '6',
             name: 'Beneficiary',
             selector: row => row.BeneficiaryCode,
             width: "6rem",
@@ -74,55 +88,55 @@ const DonorBeneficiaryList = () => {
             wrap: true,
         },
 
- /*        {
-            id: '5',
-            name: 'Name',
-            selector: row => row.firstname+' '+ row.middlename+ ' ' +row.lastname,
-            width: "10rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-        
-        {
-            id: '5',
-            name: 'Gender',
-            selector: row => row.gender,
-            width: "6rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-
-        {
-            id: '4',
-            name: 'DOB',
-            selector: row => row.dob,
-            width: "6rem",
-            sortable: true,
-            compact: true,
-            wrap: true,
-        },
-         {
-            id: '5',
-            name: 'Class',
-            selector: row => row.classname,
-            sortable: true,
-            reorder: true,
-            compact: true,
-            width: "6rem",
-            wrap: true,
-        },
-        {
-            id: '5',
-            name: 'State',
-            selector: row => row.stustate,
-            sortable: true,
-            reorder: true,
-            compact: true,
-            width: "10rem",
-            wrap: true,
-        }, */
+        /*        {
+                   id: '5',
+                   name: 'Name',
+                   selector: row => row.firstname+' '+ row.middlename+ ' ' +row.lastname,
+                   width: "10rem",
+                   sortable: true,
+                   compact: true,
+                   wrap: true,
+               },
+               
+               {
+                   id: '5',
+                   name: 'Gender',
+                   selector: row => row.gender,
+                   width: "6rem",
+                   sortable: true,
+                   compact: true,
+                   wrap: true,
+               },
+       
+               {
+                   id: '4',
+                   name: 'DOB',
+                   selector: row => row.dob,
+                   width: "6rem",
+                   sortable: true,
+                   compact: true,
+                   wrap: true,
+               },
+                {
+                   id: '5',
+                   name: 'Class',
+                   selector: row => row.classname,
+                   sortable: true,
+                   reorder: true,
+                   compact: true,
+                   width: "6rem",
+                   wrap: true,
+               },
+               {
+                   id: '5',
+                   name: 'State',
+                   selector: row => row.stustate,
+                   sortable: true,
+                   reorder: true,
+                   compact: true,
+                   width: "10rem",
+                   wrap: true,
+               }, */
 
     ];
 
@@ -136,6 +150,7 @@ const DonorBeneficiaryList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
+                ///SELECT * FROM v_DonorBeneficiaryList
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/donorbeneficiarylist');
                 //const response = await fetch('http://localhost:3000/api/v1/donorbeneficiarylist');
                 // Check if the response status is ok (200-299)

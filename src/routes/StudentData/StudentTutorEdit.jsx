@@ -48,6 +48,7 @@ const StudentTutorEdit = () => {
     const filteredInstitutions = academicData.filter(
         (item) => JSON.parse(item.Json).Institution_Type === institutionType
     );
+    
     const fetchUserInfo = async () => {
         console.log("Data fetch");
         setloading(true);

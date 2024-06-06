@@ -1,53 +1,43 @@
 import React, { useState, useEffect } from 'react';
-
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import { useSearchParams } from 'react-router-dom'
 
-const DonorBeneficiaryEdit = () => {
+const DonorBeneficiaryAdd = () => {
     const [loading, setloading] = useState(false);
     const [userID, setUserId] = useState('')
-    const [academicgetdata, setacademicgetdata] = useState([]);
-    const [searchStudentCode, setSearchStudentCode] = useState('');
-    const [studentDetails, setStudentDetails] = useState([]);
-    const [filteredStudentDetails, setFilteredStudentDetails] = useState([]);
-    const [academicData, setAcademicData] = useState([]);
-    const [fetchData, setfetchData] = useState({ data: { data: [] } });
-    const [fetchDataId, setfetchDataId] = useState('');
-    const [tutorDetails, setTutorDetails] = useState([]);
-    const [stuStatus, setStuStatus] = useState('');
-    const [searchTutorStudentCode, setSearchTutorStudentCode] = useState('');
-
-    const [institutionType, setInstitutionType] = useState('');
-    const [selectedInstitution, setSelectedInstitution] = useState('');
-    const [boardoruniversity, setboardoruniversity] = useState('');
+    const [beneficiaryDetails, setBeneficiaryDetails] = useState([]);
+    const [donorDetails, setDonorDetails] = useState([]);
+    const [errors, setErrors] = useState({});
     const [searchParams, setSearchParams] = useSearchParams();
 
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        BeneficiaryCode: "",
-        StudentCode: "",
+        donorCode: "",
+        beneficiaryCode: "",
     })
-    const [errors, setErrors] = useState({});
-    const { studentCode, year, catgcode } = useParams();
 
-    const handleSearchChange = (selectedOption) => {
-        setSearchStudentCode(selectedOption ? selectedOption.value : '');
+    const canSubmit = (formData.donorCode && formData.beneficiaryCode) ? true : false;
 
-        // Update studentCode in formData when searchStudentCode changes
-        setFormData((prevData) => ({
-            ...prevData,
-            studentcode: selectedOption ? selectedOption.value : '',
-        }));
-    };
+    useEffect(() => {
+        if (!localStorage.getItem("UserauthToken")) {
+            navigate("/");
+        }
+        const getUserid = localStorage.getItem("UserId")
+        setUserId(getUserid);
+        fetchUserInfo();
+        fetchAllBeneficiaryDetails();
+        fetchAllDonors();
+    }, []);
+
 
     const fetchUserInfo = async () => {
-        console.log("Data fetch");
         setloading(true);
         try {
-            //            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
+            //alert(searchParams.get('Id'));
             const response = await fetch(`http://localhost:3000/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
+//            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -57,12 +47,14 @@ const DonorBeneficiaryEdit = () => {
                 }
             }
             const data = await response.json();
-            console.log(data, "Data ============")
-            // Initialize fetchData with the expected structure
-            console.log("Data:", data.data[0].isActive);
+            console.log("Data:", data.data[0]);
             if (data.data.length > 0) {
-                setSearchTutorStudentCode({value:data.data[0].TutorId, label:data.data[0].TutorName})
-                setStuStatus(data.data[0].isActive ? "1" : "0");
+                setfetchData(data.data[0]);
+                setFormData(data.data[0]);
+
+
+                setSearchDonorBenefCode({value:data.data[0].TutorId, label:data.data[0].DonorName})
+                //setStuStatus(data.data[0].isActive ? "1" : "0");
 
    
                 setfetchData(data.data[0]);
@@ -77,30 +69,19 @@ const DonorBeneficiaryEdit = () => {
             setloading(false);
         }
     };
-    const handleTutorSearchChange = (selectedOption) => {
-        console.log("selectedOption:", selectedOption.value);
-        setSearchTutorStudentCode(selectedOption);
-    };
-    useEffect(() => {
 
-        if (!localStorage.getItem("UserauthToken")) {
-            navigate("/");
-        }
-        const getUserid = localStorage.getItem("UserId")
-        setUserId(getUserid)
-        fetchAllTutors()
-        fetchUserInfo()
-        
 
-    }, []);
 
-    const fetchAllTutors = () => {
+
+    const fetchAllBeneficiaryDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/tutorlist')
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllBeneficiaryDetails')
+            //fetch('http://localhost:3000/api/v1/fetchAllBeneficiaryDetails')
             .then(response => response.json())
             .then(data => {
-                console.log(data, "Tutor data");
-                setTutorDetails(data.data);
+                //console.log(data, "data.data");
+                setBeneficiaryDetails(data.data);
+                //console.log("beneficiaryDetails", beneficiaryDetails)
                 setloading(false);
             })
             .catch(error => {
@@ -108,57 +89,68 @@ const DonorBeneficiaryEdit = () => {
                 setloading(false);
             });
     };
-    
 
-   
-    const handlestuStatusChange = (e) => {
-        const selectedType = e.target.value;
-        setStuStatus(selectedType);
+    const fetchAllDonors = () => {
+        setloading(true);
+        fetch('https://nishkamapi.onrender.com/api/v1/donorlist')
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data.data, "Donor data");
+                setDonorDetails(data.data);
+                setloading(false);
+                //console.log("donorDetails=", donorDetails)                
 
+            })
+            .catch(error => {
+                console.error('Error fetching student details:', error);
+                setloading(false);
+            });
     };
 
-   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    const { StudentCode, stuyear, ...formDataWithoutCodeYear } = formData;
-    
-console.log("Form Data=",formDataWithoutCodeYear)
+    const handleBeneficiaryChange = (selectedOption) => {
 
-    // Check if any select is not selected
-    const errorsObj = {};
+        setFormData((prevData) => ({
+            ...prevData,
+            beneficiaryCode: selectedOption.value,
+        }));
+    };
 
-    setloading(true);
+    const handleDonorChange = (selectedOption) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            donorCode: selectedOption.value,
+            status: "Active",
+        }));
+    };
 
-    try {
-        //console.log(formData, searchParams.get('Id'), "before");
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setloading(true);
+        console.log("formData=", formData);
 
-        //const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateStudentTutor/${searchParams.get('Id')}`, {
-        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateDonorBeneficiary/${searchParams.get('Id')}`, {
-                method: "PUT", // Assuming you are using PUT for updating
+        ///const response = await fetch("http://localhost:3000/api/v1/addDonorBeneficiaryData", {
+        const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorBeneficiaryData", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                TutorId: searchTutorStudentCode.value.toString(),
-                isActive: stuStatus,
+                UserId: userID,
+                data: JSON.stringify(formData),
             }),
         });
-        
+
         if (!response.ok) {
             console.error("Error:", response.statusText);
             return;
         }
-        navigate('/StudentTutorList')
 
-        } catch (error) {
-        console.error("Error:", error.message);
-    } finally {
         setloading(false);
+        navigate('/');
     }
-};
 
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-4">
+        <section className="mx-auto w-full max-w-7xl px-4 py-0">
             {
                 loading
                     ?
@@ -167,65 +159,51 @@ console.log("Form Data=",formDataWithoutCodeYear)
                     </div>
                     :
                     <div className="mt-0 flex flex-col">
-                        <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Edit - Donor-Beneficiary Data 
+                        <p className="font-bold text-gray-900 tracking-tight text-1xl">
+                            Add - Donor Beneficiary Data
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                                    <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                         <div className="sm:col-span-3">
-                                            <label htmlFor="first-name" className="block text-sm font-bold bg-blue-500 leading-6 text-white">
-                                                Student Code: {formData.StudentCode} 
+                                            <label htmlFor="searchTutorStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
+                                                Select Beneficiary
                                             </label>
+                                            <Select
+                                                options={beneficiaryDetails.map((beneficiary) => ({
+                                                    value: beneficiary.StudentCode,
+                                                    label: beneficiary.dd_label
+                                                }))}
+                                                className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''}`}
+                                                onChange={handleBeneficiaryChange}
+                                            />
                                         </div>
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="searchTutorStudentCode" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Select Donor {console.log("tutorDetails:",tutorDetails)}
+                                                Select Donor
                                             </label>
                                             <Select
-                                                options={tutorDetails && tutorDetails.map((student) => ({
-                                                    value: student.TutorId,
-                                                    label: student.TutorName
+                                                options={donorDetails.map((donor) => ({
+                                                    value: donor.DonorCode,
+                                                    label: donor.DonorCode + '/' + donor.FirstName
                                                 }))}
-                                                value={searchTutorStudentCode}
-                                                className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''
-                                                    }`}
-                                                onChange={handleTutorSearchChange}
-                                            // onChange={(selectedOption) => setSearchStudentCode(selectedOption ? selectedOption.value : '')}
+                                                className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stuyear ? 'border-red-500' : ''}`}
+                                                onChange={handleDonorChange}
                                             />
                                         </div>
-                                        <div className="sm:col-span-3">
-                                            <label htmlFor="stustatus" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Status
-                                            </label>
-                                            <div className="mt-2">
-                                                <select
-                                                    id="stustatus"
-                                                    name="stustatus"
-                                                    value={stuStatus}
-                                                    onChange={handlestuStatusChange}
-                                                    className={`block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stubasti ? 'border-red-500' : ''
-                                                        }`}
-                                                ><option >Select Status</option>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
-                                                    
-                                                </select>
-                                            </div>
-                                        </div>
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="mt-1 flex items-center justify-end gap-x-6">
-                                <button type="button" onClick={() => navigate("/DonorBeneficiaryList")} className="text-sm font-semibold leading-6 text-grey-900">
+                            <div className="mt-2 flex items-center justify-end gap-x-6">
+                                <button type="button" onClick={() => navigate("/")} className="text-sm font-semibold leading-6 text-grey-900">
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
-                                    //disabled={!formData.studentcode || !formData.stuyear || !formData.institutionid}
-                                    //style={{ opacity: formData.studentcode && formData.stuyear && formData.institutionid ? 1 : 0.5 }}                                    
+                                    disabled={!canSubmit}
+                                    style={{ opacity: canSubmit ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save
@@ -238,4 +216,4 @@ console.log("Form Data=",formDataWithoutCodeYear)
     )
 }
 
-export default DonorBeneficiaryEdit
+export default DonorBeneficiaryAdd

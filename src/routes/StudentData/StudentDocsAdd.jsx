@@ -152,7 +152,7 @@ const StudentDocsAdd = () => {
         }
     
         // Check the file type
-        const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
+        const allowedTypes = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
         if (!allowedTypes.includes(imageFile.type)) {
             console.log("Selected file type:", imageFile.type);
             alert("Please select a PDF, JPG, or PNG file");

@@ -229,77 +229,46 @@ export const menuItemsData = [
       }
     ]
   },
-///////////////////////////////////////
-{
-  title: "Donor Data",
-  url: "/",
-  submenu: [
-    {
-      title: "Donor Profile",
-      url: "",
-      submenu: [
-        {
-          title: "Add",
-          url: "DonorProfileAdd",
-        },
-        {
-          title: "View/Edit",
-          url: "DonorProfileList",
-        },
-      ]
+  ///////////////////////////////////////
+  {
+    title: "Donor Data",
+    url: "/",
+    submenu: [
+      {
+        title: "Donor Profile",
+        url: "",
+        submenu: [
+          {
+            title: "Add",
+            url: "DonorProfileAdd",
+          },
+          {
+            title: "View/Edit",
+            url: "DonorProfileList",
+          },
+        ]
 
 
-    },
-    {
-      title: "Donor-Beneficiary",
-      url: "",
-      submenu: [
-        {
-          title: "Add",
-          url: "DonorBeneficiaryAdd",
-        },
-        {
-          title: "View/Edit",
-          url: "DonorBeneficiaryList",
-        },
+      },
+      {
+        title: "Donor-Beneficiary",
+        url: "",
+        submenu: [
+          {
+            title: "Add",
+            url: "DonorBeneficiaryAdd",
+          },
+          {
+            title: "View/Edit",
+            url: "DonorBeneficiaryList",
+          },
 
-      ]
-    },
-  ]
-},
-
-
+        ]
+      },
+    ]
+  },
 
 
-
-
-
-
-
-
-
-
-
-
-
-////////////////////////////////
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   {
     title: "Reports",
     url: "/",
@@ -364,46 +333,7 @@ export const menuItemsData = [
     url: "/",
 
     submenu: [
-      {
-        title: "Sponsors",
-        url: "",
-        submenu: [
-          /*           {
-                      title: "Sponsor",
-                      url: "",
-                      submenu: [
-                        {
-                          title: "Add",
-                          url: 'SponsorAdd',
-                        },
-                        {
-                          title: "View/Edit",
-                          url: 'SponsorList',
-                        }
-                      ]
-                    }, */
-
-          {
-            title: "Sponsor---Beneficiary",
-            url: "",
-            submenu: [
-              {
-                title: "Add",
-                url: 'SponsorBeneficiaryAdd',
-              },
-              {
-                title: "View/Edit",
-                url: 'SponsorBeneficiaryList',
-              }
-
-
-            ]
-          },
-        ]
-      },
-
-
-      {
+        {
         title: "Family Unit",
         url: "",
 

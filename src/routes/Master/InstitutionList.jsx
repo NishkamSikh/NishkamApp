@@ -8,6 +8,18 @@ const ListInstitution = () => {
     const [FetchData, setFetchData] = useState(true);
     const [errors, setErrors] = useState({});
     const columns = [
+
+        {
+            id: '134',
+            name: '#',
+            selector: row => row.sno,
+            width: "2rem",
+            sortable: true,
+            compact: true,
+            center: true,
+            wrap: true,
+        },
+
         {
             id: '1',
             name: 'Id',
@@ -38,7 +50,7 @@ const ListInstitution = () => {
             selector: row => row.IN_InstitutionName,
             sortable: true,
             compact: true,
-            width: "10rem",
+            width: "15rem",
             wrap: true,
         },
 
@@ -68,43 +80,37 @@ const ListInstitution = () => {
             selector: row => row.IN_InstitutionBoard,
             sortable: true,
             compact: true,
-            width: "6rem",
-            wrap: true,
-        },
-
-        {
-            name: 'Principal',
-            selector: row => row.IN_PrincipalName + ' ' + row.IN_PrincipalPhone,
-            sortable: true,
-            compact: true,
             width: "8rem",
             wrap: true,
         },
 
         {
-            name: 'Email',
-            selector: row => row.IN_InstitutionEmail,
-            sortable: false,
+            name: 'Principal',
+//            selector: row => row.IN_PrincipalName + ' ' + row.IN_PrincipalPhone + ' ' + row.IN_InstitutionEmail,
+selector: row => (<div>{row.IN_PrincipalPhone}<br/>{row.IN_InstitutionPhone}<br/>{row.IN_InstitutionEmail}<br/>{row.IN_PrincipalName}<br/></div>),
+sortable: true,
             compact: true,
-            width: "10rem",
+            width: "15rem",
             wrap: true,
         },
 
-        {
+
+
+/*         {
             name: 'Phone',
             selector: row => row.IN_InstitutionPhone + ' ' + row.IN_AlternatePhone,
             sortable: false,
             compact: true,
             width: "6rem",
             wrap: true,
-        },
+        }, */
 
         {
             name: 'Medium',
             selector: row => row.IN_InstitutionMedium,
             sortable: true,
             compact: true,
-            width: "5rem",
+            width: "8rem",
             wrap: true,
         },
 
@@ -113,18 +119,18 @@ const ListInstitution = () => {
             selector: row => row.IN_ContactDesignation_1 + ' ' + row.IN_ContactPhone_1,
             sortable: false,
             compact: true,
-            width: "8rem",
+            width: "10rem",
             wrap: true,
         },
 
-        {
+/*         {
             name: 'Contact-2',
             selector: row => row.IN_ContactDesignation_2 + ' ' + row.IN_ContactPhone_2,
             sortable: false,
             compact: true,
             width: "6rem",
             wrap: true,
-        },
+        }, */
 
         {
             name: 'Address',
@@ -136,11 +142,11 @@ const ListInstitution = () => {
         },
 
         {
-            name: 'Bank',
-            selector: row => row.IN_BankName,
+            name: 'Bank-Branch',
+            selector: row => row.IN_BankName + ' ' + row.IN_BranchName,
             sortable: false,
             compact: true,
-            width: "8rem",
+            width: "12rem",
             wrap: true,
         },
 
@@ -149,7 +155,7 @@ const ListInstitution = () => {
             selector: row => row.IN_AccountName,
             sortable: false,
             compact: true,
-            width: "8rem",
+            width: "10rem",
             wrap: true,
         },
 

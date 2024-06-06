@@ -413,6 +413,7 @@ const StudentProfile = () => {
                           <option >Select Student Status</option>
                           <option value="Active">Active</option>
                           <option value="Inactive">Inactive</option>
+                          <option value="Drop">Drop</option>
 
                         </select>
                       </div>

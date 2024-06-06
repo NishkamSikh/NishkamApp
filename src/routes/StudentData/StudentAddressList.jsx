@@ -26,7 +26,7 @@ const StudentAddressList = () => {
                 </Link>
             </div>),
             sortable: false,
-            width: "4rem",
+            width: "3rem",
             compact: true,
         },
 
@@ -34,7 +34,7 @@ const StudentAddressList = () => {
             name: 'Code',
             selector: row => row.StudentCode,
             sortable: true,
-            width: "5rem",
+            width: "4rem",
             compact: true,
             wrap: true,
         },
@@ -44,7 +44,7 @@ const StudentAddressList = () => {
             selector: row => row.AcademicYear,
             sortable: true,
             compact: true,
-            width: "6rem",
+            width: "5rem",
             wrap: true,
         },
 
@@ -72,7 +72,7 @@ const StudentAddressList = () => {
             name: 'Address',
             selector: row => row.stuaddress,
             sortable: true,
-            width: "20rem",
+            width: "25rem",
             compact: true,
             wrap: true,
         },

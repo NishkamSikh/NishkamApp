@@ -10,27 +10,30 @@ const Institution_Student = () => {
     const columns = [
 
         //{ id:'1', name: 'Id', selector: row => row.Id, sortable: false, compact: true, width: "3rem", wrap: true, },
-        { id: '1', name: 'Institution', selector: row => row.in_institutionname, sortable: true, compact: true, width: "25rem", wrap: true, },
-        { id: '2', name: 'Total', selector: row => row.Total, sortable: false, compact: true, width: "4rem", wrap: true, },
-        { name: 'Male', selector: row => (<div>{row.Male}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
-        { name: 'Female', selector: row => (<div>{row.Female}</div>), sortable: false, compact: true, width: "4rem", wrap: true, },
-        { name: 'SPNSR', selector: row => (<div>{row.hasSponsor}</div>), sortable: true, compact: true, width: "4rem", wrap: true, },
+        { id: '0', name: '#', selector: row => row.sno, sortable: true, compact: true, width: "2rem", wrap: true,   center: true, },
 
-        { name: 'Nur', selector: row => (<div>{row.Nur}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'LKG', selector: row => (<div>{row.LKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'UKG', selector: row => (<div>{row.UKG}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'I', selector: row => (<div>{row.I}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'II', selector: row => (<div>{row.II}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'III', selector: row => (<div>{row.III}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'IV', selector: row => (<div>{row.IV}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'V', selector: row => (<div>{row.V}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'VI', selector: row => (<div>{row.VI}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'VII', selector: row => (<div>{row.VII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'VIII', selector: row => (<div>{row.VIII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'IX', selector: row => (<div>{row.IX}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'X', selector: row => (<div>{row.X}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'XI', selector: row => (<div>{row.XI}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
-        { name: 'XII', selector: row => (<div>{row.XII}</div>), sortable: false, compact: true, width: "3rem", wrap: true, },
+        { id: '1', name: 'Institution', selector: row => row.in_institutionname, sortable: true, compact: true, width: "20rem", wrap: true, },
+       
+        { id: '2', name: 'Total', selector: row => row.Total, sortable: false, compact: true, width: "4rem", wrap: true, },
+        { name: 'Male', selector: row => row.Male, sortable: false, compact: true, width: "4rem", wrap: true, },
+        { name: 'Female', selector: row => row.Female, sortable: false, compact: true, width: "4rem", wrap: true, },
+        //{ name: 'SPNSR', selector: row => row.hasSponsor, sortable: true, compact: true, width: "4rem", wrap: true, },
+
+        { name: 'Nur', selector: row => row.Nur, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'LKG', selector: row => row.LKG, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'UKG', selector: row => row.UKG, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'I', selector: row => row.I, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'II', selector: row => row.II, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'III', selector: row => row.III, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'IV', selector: row => row.IV, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'V', selector: row => row.V, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'VI', selector: row => row.VI, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'VII', selector: row => row.VII, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'VIII', selector: row => row.VIII, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'IX', selector: row => row.IX, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'X', selector: row => row.X, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'XI', selector: row => row.XI, sortable: false, compact: true, width: "3rem", wrap: true, },
+        { name: 'XII', selector: row => row.XII, sortable: false, compact: true, width: "3rem", wrap: true, },
     ];
 
     const tableHeaderstyle = {
@@ -54,6 +57,7 @@ const Institution_Student = () => {
             try {
 
                 // Make API request using fetch
+                ///v_ReportInstitutionStudent
                 const response = await fetch('https://nishkamapi.onrender.com/api/v1/InstitutionStudent');
                 //const response = await fetch('https://nishkamapi.onrender.com/api/v1/AreaSummary_State');
                 setFetchData(false);
@@ -155,12 +159,10 @@ const Institution_Student = () => {
 
     return (
 
-        <section className="mx-auto w-full max-w-8xl px-4 py-2">
-
+        <section className="mx-auto w-full max-w-7xl px-4 py-1">
             {FetchData ?
-
-                <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
+             <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                  <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                 </div>
                 :
                 <div>
@@ -170,11 +172,11 @@ const Institution_Student = () => {
                         </div>
                     </div>
                     <div className="mt-0 flex flex-col">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-4 lg:-mx-6 ">
+                    <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                                 <div className="overflow-hidden border border-grey-200 md:rounded-lg">
-                                    <div className="mt-0 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
-                                        <div className="sm:col-span-1">
+                                    <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                                        <div className="sm:col-span-2">
                                             <div className="mt-0 p-2">
                                                 <input type='text'
                                                     placeholder='Search by Institution'
@@ -190,14 +192,13 @@ const Institution_Student = () => {
                                             columns={columns}
                                             data={filteredData}
                                             customStyles={tableHeaderstyle}
-                                            fixedHeader
-                                            highlightOnHover
                                             pagination
                                             paginationPerPage={10}
                                             paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                            fixedHeader
                                             responsive
+                                            highlightOnHover
                                             striped
-                                            keyField="id"
                                             className="custom-table "
                                         />
                                     </div>

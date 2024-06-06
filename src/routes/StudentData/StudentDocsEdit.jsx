@@ -130,7 +130,7 @@ const StudentDocsEdit = () => {
         const selectedFile = e.target.files[0];
 
         if (selectedFile) {
-            const allowedTypes = ["image/png", "image/jpeg", "image/gif"];
+            const allowedTypes = ["image/png", "image/jpeg","image/jpg", "image/gif"];
             const maxSizeMB = 10;
 
             if (!allowedTypes.includes(selectedFile.type)) {

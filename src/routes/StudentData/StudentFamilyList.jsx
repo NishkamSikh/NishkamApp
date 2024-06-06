@@ -80,6 +80,15 @@ const StudentFamilyList = () => {
 
 
         {
+            name: 'Phone',
+            selector: row => (<div>{row.F_Mobile_No}<br/>{row.M_Mobile_No}</div>),
+            sortable: false,
+            width: "15rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
             name: 'F-Aadhar',
             selector: row => row.F_Aadhar_No,
             sortable: true,
@@ -96,47 +105,6 @@ const StudentFamilyList = () => {
             compact: true,
             wrap: true,
         },
-
-
-        /*         {
-            name: 'M-Aadhar',
-            selector: row => row.M_Aadhar_No,
-            sortable: true,
-            width: "6rem",
-            compact: true,
-            wrap: true,
-        }, */
-
-
-
-/*         {
-            name: 'F-Occptn+Income',
-            selector: row => row.Father_Occupation + '-' + row.F_Gross_Income,
-            sortable: true,
-            width: "11rem",
-            compact: true,
-            wrap: true,
-        }, */
-
-
-/*         {
-            name: 'Mother Name',
-            selector: row => row.Mother_Name + ' ' + row.Mother_Education,
-            sortable: true,
-            width: "8rem",
-            compact: true,
-            wrap: true,
-        }, */
-
-/*         {
-            name: 'M-Occptn+Income',
-            selector: row => row.Mother_Occupation + ' ' + row.M_Gross_Income,
-            sortable: true,
-            width: "10rem",
-            compact: true,
-            wrap: true,
-        }, */
-
         {
             name: 'Grand Father',
             selector: row => row.Grandfather_Name,
@@ -268,7 +236,7 @@ const StudentFamilyList = () => {
 
 
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-1">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
             {FetchData ?
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                     <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>

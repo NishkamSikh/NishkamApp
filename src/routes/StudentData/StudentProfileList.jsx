@@ -45,20 +45,21 @@ const StudentProfileList = () => {
         },
 
         {
+            id:'55',
+            name: '',
+            selector: row => <img src={row.DocumentURL}  width={40} height={40}></img>,
+            sortable: false,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
             id: '3',
             name: 'Code',
             selector: row => row.StudentCode,
             sortable: true,
             reorder: true,
-            compact: true,
-            width: "4rem",
-            wrap: true,
-        },
-        {
-            id:'55',
-            name: '',
-            selector: row => <img src={row.DocumentURL}  width={40} height={40}></img>,
-            sortable: false,
             compact: true,
             width: "4rem",
             wrap: true,
@@ -258,7 +259,8 @@ const StudentProfileList = () => {
             const newData = StudentData.filter(row =>
                 row.firstname.toLowerCase().includes(inputValue) ||
                 row.lastname.toLowerCase().includes(inputValue) ||
-                row.StudentCode.toLowerCase().includes(inputValue)
+                row.StudentCode.toLowerCase().includes(inputValue) ||
+                row.gender.toLowerCase().includes(inputValue)
             );
             setFilteredData(newData);
         }

@@ -202,7 +202,7 @@ const SponsorBeneficiaryAdd = () => {
                                             Status
                                         </label>
                                         <Select
-                                            options={DonarStatus.map(status => ({ value: status.value, label: status.option }))}
+                                            options={DonorStatus.map(status => ({ value: status.value, label: status.option }))}
                                             id="donorStatusOptions"
                                             name="donorStatusOptions"
                                             className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"

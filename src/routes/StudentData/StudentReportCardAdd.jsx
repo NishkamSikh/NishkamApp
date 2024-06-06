@@ -147,7 +147,7 @@ const StudentReportCardAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails_dropdown')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
