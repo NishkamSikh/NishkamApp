@@ -26,7 +26,7 @@ const StudentInstitutionEdit = () => {
         StudentCode: "",
         stuyear: "",
         institutiontype: "",
-        institutionname: "",
+        IN_InstitutionName: "",
         boardoruniversity: ""
     })
     const [errors, setErrors] = useState({});
@@ -50,7 +50,7 @@ const StudentInstitutionEdit = () => {
         setloading(true);
         try {
             console.log("Data ============", JSON.parse(searchParams.get('Id')))
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`http://localhost:3000/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -67,8 +67,9 @@ const StudentInstitutionEdit = () => {
             console.log("Data:", data.data[0]);
             if (data.data.length > 0) {
                 setInstitutionType(data.data[0].institutiontype);
-                setSelectedInstitution(data.data[0].institutionname);
+                setSelectedInstitution(data.data[0].IN_InstitutionName);
                 setboardoruniversity(data.data[0].boardoruniversity);
+                // setacademicgetdata(data.data[0])
 
                 setfetchData(data.data[0]);
                 setFormData(data.data[0]);
@@ -95,7 +96,7 @@ const StudentInstitutionEdit = () => {
         fetchAllStudentDetails()
         const fetchData = async () => {
             try {
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist');
+                const response = await fetch('http://localhost:3000/api/v1/instlist');
                 const data = await response.json();
                 setAcademicData(data.data);
 
@@ -114,7 +115,7 @@ const StudentInstitutionEdit = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "data data");
@@ -166,11 +167,12 @@ const StudentInstitutionEdit = () => {
     };
     const handleSelectedInstitutionChange = (e) => {
         const selectedName = e.target.value;
+        console.log(selectedName);
         setSelectedInstitution(selectedName);
         // Update formData with selected institutionname and reset boardoruniversity
         setFormData((prevData) => ({
             ...prevData,
-            institutionname: selectedName,
+            IN_InstitutionName: selectedName,
         }));
     };
 
@@ -195,16 +197,19 @@ const StudentInstitutionEdit = () => {
         try {
             const id = JSON.parse(searchParams.get('Id'));
             console.log("Parsed ID:", id);
+            console.log("formDataWithoutCodeYear:", typeof formDataWithoutCodeYear);
     
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${id}`, {
+            const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    data: formDataWithoutCodeYear,
+                    data: JSON.stringify(formDataWithoutCodeYear)
                 }),
             });
+
+            
     
             if (!response.ok) {
                 console.error("Error:", response.statusText);
@@ -300,6 +305,9 @@ const StudentInstitutionEdit = () => {
                                                     className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.stubasti ? 'border-red-500' : ''
                                                         }`}
                                                 >
+
+
+                                                    {console.log("academicgetdata", academicgetdata)}
                                                     {filteredInstitutions.map((item, index) => (
                                                         <option
                                                             key={index}
@@ -310,9 +318,9 @@ const StudentInstitutionEdit = () => {
                                                             {
                                                                 academicgetdata.length > 0
                                                                     ?
-                                                                    academicgetdata[0].Selected_Institution !== null && academicgetdata[0].Selected_Institution !== undefined
+                                                                    academicgetdata[0].IN_InstitutionName !== null && academicgetdata[0].IN_InstitutionName !== undefined
                                                                         ?
-                                                                        academicgetdata[0].Selected_Institution === item.json.Institution_Name
+                                                                        academicgetdata[0].IN_InstitutionName === item.json.Institution_Name
                                                                             ?
                                                                             "selected" : "" : "" : ""
 

@@ -88,6 +88,7 @@ import StudentDocsList from "./routes/StudentData/StudentDocsList";
 import StudentDocsEdit from "./routes/StudentData/StudentDocsEdit";
 
 import ProgressReport from "./routes/Reports/ProgressReport";
+import BastiWiseStudent from "./routes/Reports/BastiWiseStudent";
 import DashBoardSummary from "./routes/Reports/DashBoardSummary";
 
 import FamilyUnitAdd from "./routes/Account/FamilyUnit/FamilyUnitAdd";
@@ -495,6 +496,10 @@ const router = createBrowserRouter([
       {
         path: "AreaSummary_Basti",
         element: <AreaSummary_Basti />,
+      },
+      {
+        path: "BastiWiseStudent",
+        element: <BastiWiseStudent />,
       },
 
     ],

@@ -351,6 +351,10 @@ export const menuItemsData = [
         title: "Progress Report",
         url: "ProgressReport",
       },
+      {
+        title: "Basti Wise Student",
+        url: "BastiWiseStudent",
+      },
 
     ]
   },
