@@ -23,7 +23,6 @@ const BastiWiseStudent = () => {
     const [filteredStudents, setFilteredStudents] = useState([]);
     const [bastiOptions, setBastiOptions] = useState([]);
     const navigate = useNavigate();
-    const [filteredData, setFilteredData] = useState(filteredStudents);
 
     const handleStateChange = (value) => {
         setSelectedState(value);
@@ -94,56 +93,39 @@ const BastiWiseStudent = () => {
         }
     }, [selectedState, selectedDistrict, selectedBasti]);
 
-    function convertArrayOfObjectsToCSV(args) {
-        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-
-        data = args.data || null;
-        if (data == null || !data.length) {
+    const convertArrayOfObjectsToCSV = (data) => {
+        if (!data || !data.length) {
             return null;
         }
 
-        columnDelimiter = args.columnDelimiter || '|';
-        lineDelimiter = args.lineDelimiter || '\n';
+        const keys = Object.keys(data[0]);
+        const columnDelimiter = ',';
+        const lineDelimiter = '\n';
 
-        keys = Object.keys(data[0]);
+        const header = keys.join(columnDelimiter);
+        const csvData = data.map(row => {
+            return keys.map(key => row[key]).join(columnDelimiter);
+        }).join(lineDelimiter);
 
-        result = '';
-        result += keys.join(columnDelimiter);
-        result += lineDelimiter;
+        return `${header}${lineDelimiter}${csvData}`;
+    };
 
-        data.forEach(function (item) {
-            ctr = 0;
-            keys.forEach(function (key) {
-                if (ctr > 0) result += columnDelimiter;
+    const downloadCSV = () => {
+        const csv = convertArrayOfObjectsToCSV(filteredStudents);
+        if (!csv) return;
 
-                result += item[key];
-                ctr++;
-            });
-            result += lineDelimiter;
-        });
+        const filename = `BastiWiseStudents_${new Date().toLocaleString()}.csv`;
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
 
-        return result;
-    }
-
-    function downloadCSV() {
-        var data, filename, link;
-        var csv = convertArrayOfObjectsToCSV({
-            data: filteredData
-        });
-        if (csv == null) return;
-
-        filename = 'StudentDataSummary' + ' ' + new Date().toLocaleString() + '.csv';
-
-        if (!csv.match(/^data:text\/csv/i)) {
-            csv = 'data:text/csv;charset=utf-8,' + csv;
-        }
-        data = encodeURI(csv);
-
-        link = document.createElement('a');
-        link.setAttribute('href', data);
+        link.setAttribute('href', url);
         link.setAttribute('download', filename);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
         link.click();
-    }
+        document.body.removeChild(link);
+    };
 
     const columns = [
         { name: 'Name', selector: row => row.Name, sortable: true },
@@ -153,20 +135,18 @@ const BastiWiseStudent = () => {
         { name: 'Result', selector: row => row.result, sortable: true },
         { name: 'Basti', selector: row => row.Basti, sortable: true },
     ];
+
     const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
         if (inputValue === '') {
-            setFilteredData(StudentData);
+            setFilteredStudents(filteredStudents);
         } else {
-            const newData = StudentData.filter(row =>
+            const newData = filteredStudents.filter(row =>
                 (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
-                (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
                 (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue)) ||
-                (row.Basti && row.Basti.toLowerCase().includes(inputValue)) ||
-                (row.Institution && row.Institution.toLowerCase().includes(inputValue)) 
-
+                (row.Basti && row.Basti.toLowerCase().includes(inputValue))
             );
-            setFilteredData(newData);
+            setFilteredStudents(newData);
         }
     };
 
@@ -186,7 +166,6 @@ const BastiWiseStudent = () => {
                 </div>
             ) : (
                 <div>
-                   
                     <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
                             <h2 className="text-lg font-semibold pb-3">Basti Wise Students</h2>
@@ -219,14 +198,22 @@ const BastiWiseStudent = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <DataTable
-                            title="Student List"
-                            columns={columns}
-                            data={filteredStudents}
-                            pagination
-                        />
+                    <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-6">
+                        <div className="sm:col-span-2">
+                            <div className="mt-0 p-2">
+                                <input type='text'
+                                    placeholder='Search by Code, Name, Parents, Basti, School'
+                                    className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
+                                <button type="button" onClick={downloadCSV} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
+                            </div>
+                        </div>
                     </div>
+                    <DataTable
+                        title="Student List"
+                        columns={columns}
+                        data={filteredStudents}
+                        pagination
+                    />
                 </div>
             )}
         </section>
