@@ -26,7 +26,8 @@ const StudentInstitutionEdit = () => {
         StudentCode: "",
         stuyear: "",
         institutiontype: "",
-        IN_InstitutionName: "",
+        institutionname: "",
+        institutionid: "",
         boardoruniversity: ""
     })
     const [errors, setErrors] = useState({});
@@ -50,7 +51,7 @@ const StudentInstitutionEdit = () => {
         setloading(true);
         try {
             console.log("Data ============", JSON.parse(searchParams.get('Id')))
-            const response = await fetch(`http://localhost:3000/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -96,7 +97,7 @@ const StudentInstitutionEdit = () => {
         fetchAllStudentDetails()
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/instlist');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist');
                 const data = await response.json();
                 setAcademicData(data.data);
 
@@ -115,7 +116,7 @@ const StudentInstitutionEdit = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "data data");
@@ -171,7 +172,7 @@ const StudentInstitutionEdit = () => {
         // Update formData with selected institutionname and reset boardoruniversity
         setFormData((prevData) => ({
             ...prevData,
-            IN_InstitutionName: selectedName,
+            institutionid: selectedName,
         }));
     };
 
@@ -198,7 +199,7 @@ const StudentInstitutionEdit = () => {
             console.log("Parsed ID:", id);
             console.log("formDataWithoutCodeYear:", typeof formDataWithoutCodeYear);
     
-            const response = await fetch(`http://localhost:3000/api/v1/updateBasicDetail/${id}`, {
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -310,23 +311,11 @@ const StudentInstitutionEdit = () => {
                                                     {filteredInstitutions.map((item, index) => (
                                                         <option
                                                             key={index}
-                                                            value={item.id}
-                                                            // value={item.json.Institution_Name}
-                                                            // selected={selectedInstitution === item.json.Institution_Name}
-                                                            selected=
-                                                            {
-                                                                academicgetdata.length > 0
-                                                                    ?
-                                                                    academicgetdata[0].IN_InstitutionName !== null && academicgetdata[0].IN_InstitutionName !== undefined
-                                                                        ?
-                                                                        academicgetdata[0].IN_InstitutionName === item.json.Institution_Name
-                                                                            ?
-                                                                            "selected" : "" : "" : ""
-
-                                                            }
+                                                            value={item.Id}
+                                                          
                                                         >
                                                             {JSON.parse(item.Json).Institution_Name}
-                                                            {/* {console.log(JSON.parse(item.json).Institution_Name, "item.json.Institution_Name")} */}
+                                                          
                                                         </option>
                                                     ))}
                                                 </select>
