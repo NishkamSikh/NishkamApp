@@ -71,7 +71,7 @@ const StudentFamilyList = () => {
 
         {
             name: 'Father Name',
-            selector: row => row.Father_Name + ' ' + row.Father_Education,
+            selector: row => row.Father_Name,
             sortable: true,
             width: "10rem",
             compact: true,
