@@ -8,6 +8,7 @@ const Header = () => {
     localStorage.removeItem('UserauthToken');
     localStorage.removeItem('UserEmail');
     localStorage.removeItem('UserId');
+    localStorage.removeItem('UserauthTokenExpiry');
     // window.location.reload(true);
   }
 

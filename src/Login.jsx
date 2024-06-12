@@ -8,12 +8,23 @@ const Login = () => {
     const [messageState, setMessageState] = useState({ show: false, message: '' });
     const [loading, setloading] = useState(false);
     let navigate = useNavigate();
+    
     useEffect(() => {
-
-        if (localStorage.getItem("UserauthToken")) {
-            navigate("/dashboard");
+        const authToken = localStorage.getItem("UserauthToken");
+        const authTokenExpiry = localStorage.getItem("UserauthTokenExpiry");
+        
+        if (authToken && authTokenExpiry) {
+            const now = new Date().getTime();
+            if (now < authTokenExpiry) {
+                navigate("/dashboard");
+            } else {
+                localStorage.removeItem("UserauthToken");
+                localStorage.removeItem("UserauthTokenExpiry");
+                localStorage.removeItem("UserEmail");
+                localStorage.removeItem("UserId");
+            }
         }
-    })
+    }, [navigate]);
 
     const alertMessage = messageState.show && (
         <div className="alert alert-warning alert-dismissible fade show" role="alert">
@@ -25,8 +36,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         console.log('Start');
         event.preventDefault();
-        setloading(true)
-        // Add your login logic here
+        setloading(true);
 
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/login", {
             method: 'POST',
@@ -40,32 +50,35 @@ const Login = () => {
 
         console.log(json, 'sd');
 
-        console.log(json, "json")
-        if (json.Userrole == 'user') {
-
-            localStorage.setItem("UserauthToken", json.authToken)
-            localStorage.setItem("UserEmail", credentails.email)
-            localStorage.setItem("UserId", json.UserId)
-            console.log("Login success fully Data")
+        if (json.Userrole === 'user') {
+            const authTokenExpiry = new Date().getTime() + (24 * 60 * 60 * 1000); // 1 hour from now
+            localStorage.setItem("UserauthToken", json.authToken);
+            localStorage.setItem("UserauthTokenExpiry", authTokenExpiry);
+            localStorage.setItem("UserEmail", credentails.email);
+            localStorage.setItem("UserId", json.UserId);
+            console.log("Login success fully Data");
             navigate("/");
             window.location.reload(true);
-        } else if (json.Userrole == 'admin') {
+        } else if (json.Userrole === 'admin') {
+            localStorage.setItem("UserauthToken", json.authToken);
+            localStorage.setItem("UserauthTokenExpiry", authTokenExpiry);
+            localStorage.setItem("UserEmail", credentails.email);
+            localStorage.setItem("UserId", json.UserId);
             navigate("/Admindashboard");
-        }
-        else {
-            setloading(false)
+        } else {
+            setloading(false);
             setMessageState({ show: true, message: json.message });
         }
     };
+
     const onchange = (event) => {
-        setcredentails({ ...credentails, [event.target.name]: event.target.value })
-    }
+        setcredentails({ ...credentails, [event.target.name]: event.target.value });
+    };
+
     return (
         <section>
-
             {
-                loading
-                    ?
+                loading ?
                     <div className="grid grid-cols-1 lg:grid-cols-1">
                         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
                             <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md text-center">
@@ -79,21 +92,14 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-
-                    :
+                :
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
                             <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
                                 <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Log in</h2>
-
                                 {alertMessage}
-
-
-
                                 <form onSubmit={handleSubmit} className="mt-8">
-
                                     <div className="space-y-5">
-
                                         <div>
                                             <label htmlFor="email" className="text-base font-medium text-gray-900">
                                                 {' '}
@@ -140,7 +146,6 @@ const Login = () => {
                                         </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                         <div className="h-full w-full">
@@ -151,13 +156,9 @@ const Login = () => {
                             />
                         </div>
                     </div>
-
             }
-
-
-
         </section>
     )
 }
 
-export default Login
+export default Login;
