@@ -165,7 +165,9 @@ const StudentFamilyList = () => {
             const newData = StudentData.filter(row =>
                 (row.FirstName?.toLowerCase().includes(inputValue)) ||
                 (row.LastName?.toLowerCase().includes(inputValue)) ||
-                (row.StudentCode?.toLowerCase().includes(inputValue))
+                (row.StudentCode?.toLowerCase().includes(inputValue)) ||
+                (row.Father_Name?.toLowerCase().includes(inputValue))
+                                
             );
             setFilteredData(newData);
         }

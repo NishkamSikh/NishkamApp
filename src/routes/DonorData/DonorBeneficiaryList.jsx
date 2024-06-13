@@ -62,7 +62,7 @@ const DonorBeneficiaryList = () => {
             id: '4',
             name: 'Donor Name',
             selector: row => row.dn_FirstName + ' ' + row.dn_Name2,
-            width: "25rem",
+            width: "20rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -88,55 +88,59 @@ const DonorBeneficiaryList = () => {
             wrap: true,
         },
 
-        /*        {
-                   id: '5',
-                   name: 'Name',
-                   selector: row => row.firstname+' '+ row.middlename+ ' ' +row.lastname,
-                   width: "10rem",
-                   sortable: true,
-                   compact: true,
-                   wrap: true,
-               },
-               
-               {
-                   id: '5',
-                   name: 'Gender',
-                   selector: row => row.gender,
-                   width: "6rem",
-                   sortable: true,
-                   compact: true,
-                   wrap: true,
-               },
-       
-               {
-                   id: '4',
-                   name: 'DOB',
-                   selector: row => row.dob,
-                   width: "6rem",
-                   sortable: true,
-                   compact: true,
-                   wrap: true,
-               },
-                {
-                   id: '5',
-                   name: 'Class',
-                   selector: row => row.classname,
-                   sortable: true,
-                   reorder: true,
-                   compact: true,
-                   width: "6rem",
-                   wrap: true,
-               },
-               {
-                   id: '5',
-                   name: 'State',
-                   selector: row => row.stustate,
-                   sortable: true,
-                   reorder: true,
-                   compact: true,
-                   width: "10rem",
-                   wrap: true,
-               }, */
+
+        {
+            id: '5',
+            name: 'Name',
+            selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
+            width: "10rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '5',
+            name: 'Father',
+            selector: row => row.Father_Name,
+            width: "8rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+
+        {
+            id: '4',
+            name: 'DOB',
+            selector: row => row.dob,
+            width: "6rem",
+            sortable: true,
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '7',
+            name: 'Class',
+            selector: row => row.classname,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+        {
+            id: '5',
+            name: 'State',
+            selector: row => row.stustate,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
 
     ];
 
@@ -253,7 +257,7 @@ const DonorBeneficiaryList = () => {
     }
 
     return (
-        <section className="mx-auto w-full max-w-8xl px-4 py-1">
+        <section className="mx-auto w-full max-w-7xl px-4 py-1">
             {FetchData ?
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                     <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>

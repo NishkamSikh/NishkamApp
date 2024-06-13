@@ -10,6 +10,12 @@ const DonorBeneficiaryAdd = () => {
     const [donorDetails, setDonorDetails] = useState([]);
     const [errors, setErrors] = useState({});
     const [searchParams, setSearchParams] = useSearchParams();
+    
+    const [donorBeneficiaryDetails, setDonorBeneficiaryDetails] = useState([]);
+
+
+    //alert(JSON.parse(searchParams.get('Id')));
+    //console.log("Id= ", JSON.parse(searchParams.get('Flag')));
 
     const navigate = useNavigate();
 
@@ -25,17 +31,17 @@ const DonorBeneficiaryAdd = () => {
             navigate("/");
         }
         const getUserid = localStorage.getItem("UserId")
-        setUserId(getUserid);
+        //setUserId(getUserid);
         fetchUserInfo();
-        fetchAllBeneficiaryDetails();
-        fetchAllDonors();
+        //fetchAllBeneficiaryDetails();
+        //fetchAllDonors();
     }, []);
 
 
     const fetchUserInfo = async () => {
         setloading(true);
         try {
-            //alert(searchParams.get('Id'));
+            //SELECT * FROM v_DonorBeneficiary WHERE Id = @Id
             const response = await fetch(`http://localhost:3000/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
 //            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
             if (!response.ok) {
@@ -48,20 +54,34 @@ const DonorBeneficiaryAdd = () => {
             }
             const data = await response.json();
             console.log("Data:", data.data[0]);
-            if (data.data.length > 0) {
-                setfetchData(data.data[0]);
-                setFormData(data.data[0]);
+           // console.log("Data2:", data.data[0].DonorCode);
 
 
-                setSearchDonorBenefCode({value:data.data[0].TutorId, label:data.data[0].DonorName})
+           setDonorBeneficiaryDetails(data.data[0]);
+
+           console.log('doeneficiaryDetails=',donorBeneficiaryDetails);
+           //console.log(donorBeneficiaryDetails);
+           //console.log(donorBeneficiaryDetails);
+           //console.log(donorBeneficiaryDetails);
+
+
+
+            if (data.data.length > 1) {
+
+                //console.log(donorDetails,"new");
+               // setfetchData(data.data[0]);
+                //setFormData(data.data[0]);
+
+
+                //setSearchDonorBenefCode({value:data.data[0].TutorId, label:data.data[0].DonorName})
                 //setStuStatus(data.data[0].isActive ? "1" : "0");
 
    
-                setfetchData(data.data[0]);
-                setFormData(data.data[0]);
+                //setfetchData(data.data[0]);
+               // setFormData(data.data[0]);
                 // setfetchDataId(JSON.parse(data.data[0].Id));
             } else {
-                alert("No such user found!");
+                //alert("No such user found!");
             }
         } catch (error) {
             console.error('Error fetching student details:', error);
