@@ -258,7 +258,7 @@ const StudentFamilyList = () => {
                                         <div className="sm:col-span-1">
                                             <div className="mt-0 p-0">
                                                 <input type='text'
-                                                    placeholder='Search by Code, Name'
+                                                    placeholder='Search by Code, Name, Father Name'
                                                     className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter}
                                                 />
                                                 <button type="button" onClick={() => downloadCSV()} className="mt-2 rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
