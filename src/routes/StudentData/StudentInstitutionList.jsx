@@ -76,10 +76,10 @@ const StudentInstitutionList = () => {
 
 
         {
-            id: '6',
-            name: 'Institute Type',
-            selector: row => row.institutiontype,
-            width: "10rem",
+            id: '8',
+            name: 'Institute Name',
+            selector: row => row.IN_InstitutionName,
+            width: "15rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -89,21 +89,23 @@ const StudentInstitutionList = () => {
             id: '7',
             name: 'Institute Board',
             selector: row => row.boardoruniversity,
-            width: "10rem",
+            width: "8rem",
             sortable: true,
             compact: true,
             wrap: true,
         },
 
         {
-            id: '8',
-            name: 'Institute Name',
-            selector: row => row.IN_InstitutionName,
-            width: "15rem",
+            id: '6',
+            name: 'Institute Type',
+            selector: row => row.institutiontype,
+            width: "10rem",
             sortable: true,
             compact: true,
             wrap: true,
         },
+
+
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
@@ -217,7 +219,7 @@ const StudentInstitutionList = () => {
     }
 
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-1">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
             {FetchData ?
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                     <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
