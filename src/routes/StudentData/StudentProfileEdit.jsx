@@ -367,6 +367,7 @@ const StudentProfileEdit = () => {
                           <option value="Active">Active</option>
                           <option value="Inactive">Inactive</option>
                           <option value="Drop">Drop</option>                          
+                          <option value="DeleteMe">Delete Me</option>                          
 
                         </select>
                       </div>

@@ -287,7 +287,8 @@ const DonorProfileEdit = () => {
                           <option >Select Status</option>
                           <option value="Active">Active</option>
                           <option value="Inactive">Inactive</option>
-
+                          <option value="DeletMe">Delete Me</option>
+                    
                         </select>
                       </div>
                     </div>
