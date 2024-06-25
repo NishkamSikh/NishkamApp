@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
-import { sikh } from './assets'
+import { ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { sikh } from './assets';
+
 
 const Login = () => {
-    const [credentails, setcredentails] = useState({ email: "", password: "" })
+    const [credentails, setcredentails] = useState({ email: "", password: "" });
     const [messageState, setMessageState] = useState({ show: false, message: '' });
     const [loading, setloading] = useState(false);
     let navigate = useNavigate();
-    
+    // Use your context
+
     useEffect(() => {
         const authToken = localStorage.getItem("UserauthToken");
         const authTokenExpiry = localStorage.getItem("UserauthTokenExpiry");
-        
+
         if (authToken && authTokenExpiry) {
             const now = new Date().getTime();
             if (now < authTokenExpiry) {
@@ -34,7 +36,6 @@ const Login = () => {
     );
 
     const handleSubmit = async (event) => {
-        console.log('Start');
         event.preventDefault();
         setloading(true);
 
@@ -48,23 +49,32 @@ const Login = () => {
 
         const json = await response.json();
 
-        console.log(json, 'sd');
+        if (json.Userrole === 'user' || json.Userrole === 'admin') {
+            const authTokenExpiry = new Date().getTime() + (24 * 60 * 60 * 1000); // 1 day from now
+            localStorage.setItem("UserauthToken", json.authToken);
+            localStorage.setItem("UserauthTokenExpiry", authTokenExpiry);
+            localStorage.setItem("UserEmail", credentails.email);
+            localStorage.setItem("UserId", json.UserId);
+            localStorage.setItem("Userrole", json.Userrole);
 
-        if (json.Userrole === 'user') {
-            const authTokenExpiry = new Date().getTime() + (24 * 60 * 60 * 1000); // 1 hour from now
-            localStorage.setItem("UserauthToken", json.authToken);
-            localStorage.setItem("UserauthTokenExpiry", authTokenExpiry);
-            localStorage.setItem("UserEmail", credentails.email);
-            localStorage.setItem("UserId", json.UserId);
-            console.log("Login success fully Data");
-            navigate("/");
-            window.location.reload(true);
-        } else if (json.Userrole === 'admin') {
-            localStorage.setItem("UserauthToken", json.authToken);
-            localStorage.setItem("UserauthTokenExpiry", authTokenExpiry);
-            localStorage.setItem("UserEmail", credentails.email);
-            localStorage.setItem("UserId", json.UserId);
-            navigate("/Admindashboard");
+            setUser({ id: json.UserId, role: json.Userrole });
+
+            const permissionsResponse = await fetch('https://nishkamapi.onrender.com/api/v1/getUserPermissions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId: json.UserId }),
+            });
+
+            const permissionsData = await permissionsResponse.json();
+            setPermissions(permissionsData.data);
+
+            if (json.Userrole === 'admin') {
+                navigate("/Admindashboard");
+            } else {
+                navigate("/dashboard");
+            }
         } else {
             setloading(false);
             setMessageState({ show: true, message: json.message });
@@ -92,7 +102,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                :
+                    :
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
                             <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
@@ -158,7 +168,7 @@ const Login = () => {
                     </div>
             }
         </section>
-    )
-}
+    );
+};
 
 export default Login;

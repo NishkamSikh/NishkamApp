@@ -123,6 +123,8 @@ import PaymentStudentAdd from "./routes/Account/Payment/Student/PaymentStudentAd
 import PaymentStudentEdit from "./routes/Account/Payment/Student/PaymentStudentEdit";
 import PaymentStudentList from "./routes/Account/Payment/Student/PaymentStudentList";
 
+import UserPermissions from "./routes/Master/UserPermissions";
+
 const router = createBrowserRouter([
   {
     element: <Root />,
@@ -500,6 +502,10 @@ const router = createBrowserRouter([
       {
         path: "BastiWiseStudent",
         element: <BastiWiseStudent />,
+      },
+      {
+        path: "UserPermissions",
+        element: <UserPermissions />,
       },
 
     ],

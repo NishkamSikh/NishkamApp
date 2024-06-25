@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
+import UserPermissions from '../../components/Permission';
+import useUserPermission from '../../components/useUserPermission';
 
 const StudentTutorAdd = () => {
     const [loading, setloading] = useState(false);
@@ -16,6 +18,11 @@ const StudentTutorAdd = () => {
     const [stuStatus, setStuStatus] = useState('');
     const [selectedInstitution, setSelectedInstitution] = useState('');
 
+    // Declare Page ID 
+    const currentPageId = 1;
+
+    // import hasPermission to get CurrentPageId
+    const { hasPermission, error } = useUserPermission(currentPageId);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -67,7 +74,7 @@ const StudentTutorAdd = () => {
                 const data = await response.json();
                 setAcademicData(data.data);
 
-                console.log(data.data, "cheking what data print");
+                // console.log(data.data, "cheking what data print");
                 const formDataJsonString = JSON.stringify(data.data);
 
             } catch (error) {
@@ -92,7 +99,7 @@ const StudentTutorAdd = () => {
         //fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
-                console.log(data, "data data");
+                // console.log(data, "data data");
                 setStudentDetails(data.data);
                 setloading(false);
             })
@@ -107,7 +114,7 @@ const StudentTutorAdd = () => {
         fetch('https://nishkamapi.onrender.com/api/v1/tutorlist')
             .then(response => response.json())
             .then(data => {
-                console.log(data, "Tutor data");
+                // console.log(data, "Tutor data");
                 setTutorDetails(data.data);
                 setloading(false);
             })
@@ -164,6 +171,15 @@ const StudentTutorAdd = () => {
         navigate('/');
 
     }
+
+    // Add code on every Page
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    if (!hasPermission) {
+        return <div>Loading...</div>;
+    }
     return (
         <section className="mx-auto w-full max-w-7xl px-4 py-0">
             {
@@ -177,6 +193,8 @@ const StudentTutorAdd = () => {
                         <p className="font-bold text-gray-900 tracking-tight text-1xl">
                             Add - Student Tutor Data
                         </p>
+
+                        <UserPermissions />
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">

@@ -1,16 +1,4 @@
 export const menuItemsData = [
-  /*   {
-      title: "Home",
-      url: "/",
-  
-    }, */
-  // {
-  //   title: "Dashboard",
-  //   url: "Dashboard",
-  // },
-
-
-
 
   {
     title: "Student Data",
@@ -346,6 +334,17 @@ export const menuItemsData = [
             title: "View/Edit",
             url: 'FamilyUnitList',
 
+          },
+        ]
+      },
+        {
+        title: "User Permissions",
+        url: "",
+
+        submenu: [
+          {
+            title: "Permissions",
+            url: 'UserPermissions',
           },
         ]
       },
