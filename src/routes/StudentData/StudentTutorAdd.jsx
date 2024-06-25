@@ -95,7 +95,7 @@ const StudentTutorAdd = () => {
     const fetchAllStudentDetails = () => {
         setloading(true);
         fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails_dropdown')
-        //fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')
+        //fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 // console.log(data, "data data");

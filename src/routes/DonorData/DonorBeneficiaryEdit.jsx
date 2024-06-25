@@ -42,7 +42,7 @@ const DonorBeneficiaryAdd = () => {
         setloading(true);
         try {
             //SELECT * FROM v_DonorBeneficiary WHERE Id = @Id
-            const response = await fetch(`http://localhost:3000/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
+            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
 //            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
             if (!response.ok) {
                 if (response.status === 404) {
@@ -96,7 +96,7 @@ const DonorBeneficiaryAdd = () => {
     const fetchAllBeneficiaryDetails = () => {
         setloading(true);
         fetch('https://nishkamapi.onrender.com/api/v1/fetchAllBeneficiaryDetails')
-            //fetch('http://localhost:3000/api/v1/fetchAllBeneficiaryDetails')
+            //fetch('https://nishkamapi.onrender.com/api/v1/fetchAllBeneficiaryDetails')
             .then(response => response.json())
             .then(data => {
                 //console.log(data, "data.data");
@@ -148,7 +148,7 @@ const DonorBeneficiaryAdd = () => {
         setloading(true);
         console.log("formData=", formData);
 
-        ///const response = await fetch("http://localhost:3000/api/v1/addDonorBeneficiaryData", {
+        ///const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorBeneficiaryData", {
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorBeneficiaryData", {
             method: "POST",
             headers: {

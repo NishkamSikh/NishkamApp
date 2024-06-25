@@ -13,7 +13,7 @@ const useUserPermission = (currentPageId) => {
 
             console.log(getUserID,currentPageId ,"Fetch Componets Works");
             try {
-                const response = await fetch('http://localhost:3000/api/v1/getAllUserPermissions');
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/getAllUserPermissions');
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

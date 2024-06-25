@@ -137,7 +137,7 @@ const StudentInstitutionAdd = () => {
 
         // Proceed with the second API call
         const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
-          //const response = await fetch("http://localhost:3000/api/v1/addStudentData", {
+          //const response = await fetch("https://nishkamapi.onrender.com/api/v1/addStudentData", {
 
         method: "POST",
             headers: {
