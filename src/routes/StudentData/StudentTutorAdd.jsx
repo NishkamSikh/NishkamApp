@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
-import UserPermissions from '../../components/Permission';
 import useUserPermission from '../../components/useUserPermission';
 
 const StudentTutorAdd = () => {
@@ -194,7 +193,7 @@ const StudentTutorAdd = () => {
                             Add - Student Tutor Data
                         </p>
 
-                        <UserPermissions />
+                
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
