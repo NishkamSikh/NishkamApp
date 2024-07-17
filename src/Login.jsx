@@ -57,7 +57,7 @@ const Login = () => {
             localStorage.setItem("UserId", json.UserId);
             localStorage.setItem("Userrole", json.Userrole);
 
-            setUser({ id: json.UserId, role: json.Userrole });
+            //setUser({ id: json.UserId, role: json.Userrole });
 
             const permissionsResponse = await fetch('https://nishkamapi.onrender.com/api/v1/getUserPermissions', {
                 method: 'POST',
