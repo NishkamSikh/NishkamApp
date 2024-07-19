@@ -266,6 +266,12 @@ export const menuItemsData = [
         title: "Student Summary",
         url: "StudentSummaryList",
       },
+
+      {
+        title: "Student Summary Card",
+        url: "StudentSummaryCard",
+      },
+
       /*       {
               title: "Dashboard Summary",
               url: "DashboardSummary",
