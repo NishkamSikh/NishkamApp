@@ -61,7 +61,7 @@ const DonorBeneficiaryList = () => {
         {
             id: '4',
             name: 'Donor Name',
-            selector: row => row.dn_FirstName + ' ' + row.dn_Name2,
+            selector: row => row.dn_FirstName + ' ' + row.dn_Name2 + '  (' +  row.dn_Status + ')',
             width: "20rem",
             sortable: true,
             compact: true,
@@ -92,8 +92,8 @@ const DonorBeneficiaryList = () => {
         {
             id: '5',
             name: 'Name',
-            selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
-            width: "10rem",
+            selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname + '  (' +  row.dbStatus + ')',
+            width: "15rem",
             sortable: true,
             compact: true,
             wrap: true,
@@ -145,6 +145,9 @@ const DonorBeneficiaryList = () => {
     ];
 
     const [filteredData, setFilteredData] = useState(StudentData);
+
+    console.log(filteredData);
+
     const navigate = useNavigate();
     useEffect(() => {
         if (!localStorage.getItem("UserauthToken")) {
@@ -188,9 +191,10 @@ const DonorBeneficiaryList = () => {
                 row.dn_FirstName.toLowerCase().includes(inputValue) ||
                 row.dn_Country.toLowerCase().includes(inputValue) ||
                 row.firstname.toLowerCase().includes(inputValue) ||
-                row.studentcode.toLowerCase().includes(inputValue)
+                row.BeneficiaryCode.toLowerCase().includes(inputValue)
             );
             setFilteredData(newData);
+
         }
     };
 
@@ -257,7 +261,8 @@ const DonorBeneficiaryList = () => {
     }
 
     return (
-        <section className="mx-auto w-full max-w-7xl px-4 py-1">
+        <section className="mx-auto w-full max-w-8xl px-4 py-1">
+            
             {FetchData ?
                 <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
                     <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
