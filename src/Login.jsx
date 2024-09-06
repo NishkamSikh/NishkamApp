@@ -49,6 +49,8 @@ const Login = () => {
 
         const json = await response.json();
 
+        con
+
         if (json.Userrole === 'user' || json.Userrole === 'admin') {
             const authTokenExpiry = new Date().getTime() + (24 * 60 * 60 * 1000); // 1 day from now
             localStorage.setItem("UserauthToken", json.authToken);
@@ -57,7 +59,7 @@ const Login = () => {
             localStorage.setItem("UserId", json.UserId);
             localStorage.setItem("Userrole", json.Userrole);
 
-            //setUser({ id: json.UserId, role: json.Userrole });
+            // setUser({ id: json.UserId, role: json.Userrole });
 
             const permissionsResponse = await fetch('https://nishkamapi.onrender.com/api/v1/getUserPermissions', {
                 method: 'POST',
