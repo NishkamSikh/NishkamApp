@@ -49,7 +49,6 @@ const Login = () => {
 
         const json = await response.json();
 
-        con
 
         if (json.Userrole === 'user' || json.Userrole === 'admin') {
             const authTokenExpiry = new Date().getTime() + (24 * 60 * 60 * 1000); // 1 day from now
