@@ -21,7 +21,7 @@ const StudentProfileList = () => {
 
 
         {
-            id: '61',
+            id: '2',
             name: 'Id',
             selector: row => row.StudentId,
             width: "4rem",
@@ -45,7 +45,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id:'55',
+            id:'3',
             name: '',
             selector: row => <img src={row.DocumentURL}  width={40} height={40}></img>,
             sortable: false,
@@ -55,7 +55,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '3',
+            id: '4',
             name: 'Code',
             selector: row => row.StudentCode,
             sortable: true,
@@ -66,7 +66,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '4',
+            id: '5',
             name: 'Year',
             selector: row => row.AcademicYear,
             sortable: true,
@@ -74,8 +74,19 @@ const StudentProfileList = () => {
             width: "7rem",
             wrap: true,
         },
+
         {
-            id: '5',
+            id: '51',
+            name: '2024-25',
+            selector: row => row.tf20242025,
+            sortable: true,
+            reorder: true,
+            width: "7rem",
+            wrap: true,
+        },
+
+        {
+            id: '6',
             name: 'Name',
             selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
             sortable: true,
@@ -86,7 +97,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '5',
+            id: '7',
             name: 'F.Name',
             selector: row => row.Father_Name,
             sortable: true,
@@ -98,7 +109,7 @@ const StudentProfileList = () => {
 
   
         {
-            id: '6',
+            id: '8',
             name: 'DOB',
             selector: row => row.dob,
             sortable: true,
@@ -109,7 +120,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '7',
+            id: '9',
             name: 'Gender',
             selector: row => row.gender,
             sortable: true,
@@ -119,7 +130,7 @@ const StudentProfileList = () => {
             wrap: true,
         },
         {
-            id: '8',
+            id: '10',
             name: 'Join Dt',
             selector: row => row.joindate,
             sortable: true,
@@ -129,7 +140,7 @@ const StudentProfileList = () => {
             wrap: true,
         },
         {
-            id: '9',
+            id: '11',
             name: 'Status',
             selector: row => row.status,
             sortable: true,
@@ -140,7 +151,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '10',
+            id: '12',
             name: 'Religion',
             selector: row => row.religion,
             sortable: true,
@@ -151,7 +162,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '11',
+            id: '13',
             name: 'Sikligar',
             selector: row => row.sikligar,
             sortable: true,
@@ -162,7 +173,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '12',
+            id: '14',
             name: 'Contact-1',
             selector: row => row.contact1,
             sortable: true,
@@ -173,7 +184,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '13',
+            id: '15',
             name: 'Contact-2',
             selector: row => row.contact2,
             sortable: true,
@@ -184,7 +195,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '14',
+            id: '16',
             name: 'Ref By',
             selector: row => row.refby,
             sortable: true,
@@ -195,7 +206,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '15',
+            id: '17',
             name: 'Approve By',
             selector: row => row.approveby,
             sortable: true,

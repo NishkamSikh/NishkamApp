@@ -37,6 +37,7 @@ const StudentProfileEdit = () => {
     contact2type: "",
     contact2: "",
     identity: "",
+    tf20242025:"",
   }
   );
 
@@ -88,7 +89,7 @@ const StudentProfileEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { StudentCode, StudentId, AcademicYear, CatgCode, StudentLabel, ProfileId, ...formDataWithoutCodeYear } = formData;
-    
+
         // Check if any select is not selected
     const errorsObj = {};
     setloading(true);
@@ -123,7 +124,6 @@ const StudentProfileEdit = () => {
       console.error("Error:", error.message);
     }
   };
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -193,7 +193,6 @@ const StudentProfileEdit = () => {
                         />
                       </div>
                     </div>
-
 
                     <div className="sm:col-span-2">
                       <label htmlFor="lastname" className="block text-sm font-medium leading-6 text-gray-900">
@@ -309,7 +308,6 @@ const StudentProfileEdit = () => {
                         />
                       </div>
                     </div>
-
 
                     <div className="sm:col-span-3">
                       <label htmlFor="approveby" className="block text-sm font-medium leading-6 text-gray-900">
@@ -476,6 +474,29 @@ const StudentProfileEdit = () => {
                           <option value="Birth Certificate">Birth Certificate</option>
                         </select>
                       </div>
+
+
+                      <div className="sm:col-span-3">
+                      <label htmlFor="tf20242025" className="block text-sm font-medium leading-6 text-gray-900">
+                        Transfer to 2024-2025
+                      </label>
+                      <div className="mt-1">
+                        <select
+                          id="tf20242025"
+                          name="tf20242025"
+                          defaultValue={formData.tf20242025}
+                          onChange={handleInputChange}
+                          className={`block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.status ? 'border-red-500' : ''
+                            }`}
+                        >
+                          
+                          <option value="No">No</option>
+                          <option value="Yes">Yes</option>
+
+                        </select>
+                      </div>
+                    </div>
+
                     </div>
                   </div>
                 </div>
