@@ -5,6 +5,7 @@ import DataTable from 'react-data-table-component';
 const StudentProfileList = () => {
     const [StudentData, setStudentData] = useState([])
     const [FetchData, setFetchData] = useState(true);
+    const [AcademicYear, setAcademicYear] = useState('2024-2025');    
 
     const columns = [
 
@@ -239,9 +240,9 @@ const StudentProfileList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentprofilelist');
-                //const response = await fetch('https://nishkamapi.onrender.com/api/v1/studentprofilelist');
-
+                //const url = new URL('http://localhost:3000/api/v1/studentprofilelisttest?AcademicYear='+AcademicYear);
+                const url = new URL('https://nishkamapi.onrender.com/api/v1/studentprofilelist?AcademicYear='+AcademicYear);
+                const response = await fetch(url);
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -259,9 +260,15 @@ const StudentProfileList = () => {
         };
 
         fetchData()
-    }, []);
+    }, [AcademicYear]);
     
-    const handleFilter = (event) => {
+    const handleFilterYear = (event) => {
+        const inputValue = event.target.value.toLowerCase();
+        setAcademicYear(inputValue);
+    };
+
+
+const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
 
         if (inputValue === '') {
@@ -307,7 +314,6 @@ const StudentProfileList = () => {
 
         return result;
     }
-
     
     function downloadCSV() {
         var data, filename, link;
@@ -356,6 +362,27 @@ const StudentProfileList = () => {
                                                 <button type="button" onClick={() => downloadCSV()} className="mt-2 rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                             </div>
                                         </div>
+
+                                        <div className="sm:col-span-3">
+
+
+                                            <div className="mt-2">
+                                                <select
+                                                    id="AcademicYear"
+                                                    name="AcademicYear"
+                                                    required
+                                                    className='block w-small rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilterYear}
+                                                >
+                                                    <option >Select Academic Year</option>
+                                                    <option value="2024-2025">2024-2025</option>
+                                                    <option value="2023-2024">2023-2024</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
                                     </div>
                                     <div style={{ width: '100%' }}>
                                         <DataTable
