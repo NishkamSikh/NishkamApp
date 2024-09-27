@@ -300,8 +300,8 @@ const StudentSummaryList = () => {
                 ///SELECT * FROM v_StudentDataSummary
                 //const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
                 
-                const url = new URL('http://localhost:3000/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
-                //const url = new URL('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
+                //const url = new URL('http://localhost:3000/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
+                const url = new URL('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
                 const response = await fetch(url);
                 
                 
