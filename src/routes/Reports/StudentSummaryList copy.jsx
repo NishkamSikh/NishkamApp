@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
 
-const StudentProfileList = () => {
-    const [StudentData, setStudentData] = useState([])
+const StudentSummaryList = () => {
+    const [StudentData, setStudentData] = useState([]);
     const [FetchData, setFetchData] = useState(true);
-    const [AcademicYear, setAcademicYear] = useState('2024-2025');    
+
 
     const columns = [
-
+        
         {
             id: '1',
             name: '#',
@@ -18,25 +18,25 @@ const StudentProfileList = () => {
             compact: true,
             center: true,
             wrap: true,
-        },   
-
+        },       
+        
+        { 
+            id: '43',
+            name: 'Id',
+            selector: row => row.ProfileId,
+            width: "4.0rem",
+            sortable: true,
+            reorder: true,
+            wrap: true,
+        },
 
         {
             id: '2',
-            name: 'Id',
-            selector: row => row.StudentId,
-            width: "4rem",
-            sortable: true,
-            reorder: true,
-            compact: true,
-            center: true,
-            wrap: true,
-        },
-        {
+            name: '',
             selector: row => (<div>
-                <Link to={`/StudentProfileEdit?Id=${row.StudentId}`} className="text-grey-500 hover:text-indigo-600">
+                <Link to={`/StudentSummaryDetail?id=${row.ProfileId}`} className="text-grey-500 hover:text-indigo-600">
                     <span className="inline-flex rounded-full bg-green-100 px-2 py-2  text-xs font-semibold leading-15 text-green-800">
-                        Edit
+                        View
                     </span>
                 </Link>
             </div>),
@@ -46,9 +46,9 @@ const StudentProfileList = () => {
         },
 
         {
-            id:'3',
-            name: '',
-            selector: row => <img src={row.DocumentURL}  width={40} height={40}></img>,
+            id:'55',
+            name: 'Photo',
+            selector: row => <img src={row.DocumentURL} width={40} height={40}></img>,
             sortable: false,
             compact: true,
             width: "4rem",
@@ -56,7 +56,7 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '4',
+            id: '3',
             name: 'Code',
             selector: row => row.StudentCode,
             sortable: true,
@@ -67,52 +67,64 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '5',
+            id: '3a',
+            name: 'SPNSR',
+            selector: row => row.hasSponsor,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "4rem",
+            wrap: true,
+        },
+
+
+        {
+            id: '4',
             name: 'Year',
             selector: row => row.AcademicYear,
             sortable: true,
             reorder: true,
+            compact: true,
+            width: "4.3rem",
+            wrap: true,
+        },
+/*         {
+            id: '5',
+            name: 'Name',
+            selector: row => (<div>{row.Name}<br/>{row.Father_Name}</div>),
+            sortable: true,
+            reorder: true,
+            compact: true,
             width: "7rem",
+            wrap: true,
+        }, */
+
+
+        {
+            id: '5',
+            name: 'Name',
+            selector: row => row.Name,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "8rem",
             wrap: true,
         },
 
         {
-            id: '51',
-            name: '2024-25',
-            selector: row => row.tf20242025,
+            id: '15',
+            name: 'F.Name',
+            selector: row => row.Father,
             sortable: true,
             reorder: true,
-            width: "7rem",
+            compact: true,
+            width: "8rem",
             wrap: true,
         },
-
         {
             id: '6',
-            name: 'Name',
-            selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
-            sortable: true,
-            reorder: true,
-            compact: true,
-            width: "10rem",
-            wrap: true,
-        },
-
-        {
-            id: '7',
-            name: 'F.Name',
-            selector: row => row.Father_Name,
-            sortable: true,
-            reorder: true,
-            compact: true,
-            width: "10rem",
-            wrap: true,
-        },
-
-  
-        {
-            id: '8',
             name: 'DOB',
-            selector: row => row.dob,
+            selector: row => row.DOB,
             sortable: true,
             reorder: true,
             compact: true,
@@ -121,9 +133,20 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '9',
-            name: 'Gender',
-            selector: row => row.gender,
+            id: '7',
+            name: 'Join Date',
+            selector: row => row.joindate,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "7rem",
+            wrap: true,
+        },
+
+        {
+            id: '8',
+            name: 'Class',
+            selector: row => row.ClassName,
             sortable: true,
             reorder: true,
             compact: true,
@@ -131,19 +154,31 @@ const StudentProfileList = () => {
             wrap: true,
         },
         {
-            id: '10',
-            name: 'Join Dt',
-            selector: row => row.joindate,
+            id: 'id-9',
+            name: 'Result',
+            selector: row => row.result,
             sortable: true,
             reorder: true,
             compact: true,
-            width: "6rem",
+            width: "4rem",
             wrap: true,
         },
+
+        {
+            id: '10',
+            name: '%',
+            selector: row => row.MarksPercentage,
+            sortable: true,
+            reorder: true,
+            compact: true,
+            width: "3rem",
+            wrap: true,
+        },
+
         {
             id: '11',
-            name: 'Status',
-            selector: row => row.status,
+            name: 'Gender',
+            selector: row => row.gender,
             sortable: true,
             reorder: true,
             compact: true,
@@ -164,8 +199,8 @@ const StudentProfileList = () => {
 
         {
             id: '13',
-            name: 'Sikligar',
-            selector: row => row.sikligar,
+            name: 'Catg.',
+            selector: row => row.category,
             sortable: true,
             reorder: true,
             compact: true,
@@ -175,57 +210,77 @@ const StudentProfileList = () => {
 
         {
             id: '14',
-            name: 'Contact-1',
-            selector: row => row.contact1,
+            name: 'Status',
+            selector: row => row.status,
             sortable: true,
             reorder: true,
             compact: true,
-            width: "6rem",
+            width: "4rem",
             wrap: true,
         },
 
-        {
-            id: '15',
-            name: 'Contact-2',
-            selector: row => row.contact2,
-            sortable: true,
-            reorder: true,
-            compact: true,
-            width: "6rem",
-            wrap: true,
-        },
 
-        {
+/*         {
             id: '16',
-            name: 'Ref By',
-            selector: row => row.refby,
-            sortable: true,
+            name: 'Mother',
+            selector: row => row.Mother,
+            sortable: false,
             reorder: true,
             compact: true,
-            width: "8rem",
+            width: "6rem",
             wrap: true,
-        },
-
+        }, */
         {
             id: '17',
-            name: 'Approve By',
-            selector: row => row.approveby,
+            name: 'State',
+            selector: row => row.State,
             sortable: true,
             reorder: true,
+            width: "3.5rem",
             compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '18',
+            name: 'District',
+            selector: row => row.District,
+            sortable: true,
+            reorder: true,
             width: "8rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '19',
+            name: 'Basti',
+            selector: row => row.Basti,
+            sortable: true,
+            reorder: true,
+            width: "10rem",
+            compact: true,
+            wrap: true,
+        },
+
+        {
+            id: '20',
+            name: 'Institution',
+            selector: row => row.Institution,
+            sortable: true,
+            reorder: true,
+            width: "12rem",
+            compact: true,
             wrap: true,
         },
     ];
-
 
     const tableHeaderstyle = {
         headCells: {
             style: {
                 fontWeight: "bold",
-                fontSize: "12px",
-                backgroundColor: "#ddd"
-
+                fontSize: "14px",
+                backgroundColor: "#eee"
             },
         },
     }
@@ -239,10 +294,10 @@ const StudentProfileList = () => {
 
         const fetchData = async () => {
             try {
+
                 // Make API request using fetch
-                //const url = new URL('http://localhost:3000/api/v1/studentprofilelisttest?AcademicYear='+AcademicYear);
-                const url = new URL('https://nishkamapi.onrender.com/api/v1/studentprofilelist?AcademicYear='+AcademicYear);
-                const response = await fetch(url);
+                ///SELECT * FROM v_StudentDataSummary
+                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
@@ -260,25 +315,20 @@ const StudentProfileList = () => {
         };
 
         fetchData()
-    }, [AcademicYear]);
-    
-    const handleFilterYear = (event) => {
+    }, []);
+
+    const handleFilter = (event) => {
         const inputValue = event.target.value.toLowerCase();
-        setAcademicYear(inputValue);
-    };
-
-
-const handleFilter = (event) => {
-        const inputValue = event.target.value.toLowerCase();
-
         if (inputValue === '') {
             setFilteredData(StudentData);
         } else {
             const newData = StudentData.filter(row =>
-                row.firstname.toLowerCase().includes(inputValue) ||
-                row.lastname.toLowerCase().includes(inputValue) ||
-                row.StudentCode.toLowerCase().includes(inputValue) ||
-                row.gender.toLowerCase().includes(inputValue)
+                (row.Name && row.Name.toLowerCase().includes(inputValue)) ||
+                (row.Parents && row.Parents.toLowerCase().includes(inputValue)) ||
+                (row.StudentCode && row.StudentCode.toLowerCase().includes(inputValue)) ||
+                (row.Basti && row.Basti.toLowerCase().includes(inputValue)) ||
+                (row.Institution && row.Institution.toLowerCase().includes(inputValue)) 
+
             );
             setFilteredData(newData);
         }
@@ -314,7 +364,7 @@ const handleFilter = (event) => {
 
         return result;
     }
-    
+
     function downloadCSV() {
         var data, filename, link;
         var csv = convertArrayOfObjectsToCSV({
@@ -322,7 +372,7 @@ const handleFilter = (event) => {
         });
         if (csv == null) return;
 
-        filename = 'Student_Profile_Data' + ' ' + new Date().toLocaleString() + '.csv';
+        filename = 'StudentDataSummary' + ' ' + new Date().toLocaleString() + '.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;
@@ -335,20 +385,29 @@ const handleFilter = (event) => {
         link.click();
     }
 
+    const paginationComponentOptions = {
+        selectAllRowsItem: true,
+        selectAllRowsItemText: 'ALL',
+    };
+
+
     return (
+
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
+
             {FetchData ?
-             <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
-                  <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
+
+                <div class="absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 ">
+                    <div class="border-t-transparent border-solid animate-spin  rounded-full border-blue-400 border-4 h-10 w-10"></div>
                 </div>
                 :
                 <div>
-                    <div className="flex flex-col space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
+                    <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
-                            <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
+                            <p className="font-bold text-orange-900 tracking-tight text-1xl">Student Summary List</p>
                         </div>
                     </div>
-                    <div className="mt-1 flex flex-col">
+                    <div className="mt-0 flex flex-col">
                         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                                 <div className="overflow-hidden border border-grey-200 md:rounded-lg">
@@ -356,32 +415,13 @@ const handleFilter = (event) => {
                                         <div className="sm:col-span-2">
                                             <div className="mt-0 p-2">
                                                 <input type='text'
-                                                    placeholder='Search by Code, Name'
-                                                    className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} 
-                                                />
-                                                <button type="button" onClick={() => downloadCSV()} className="mt-2 rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
+                                                    placeholder='Search by Code, Name, Parents, Basti, School'
+                                                    className='block w-full rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilter} />
+                                                <button type="button" onClick={() => downloadCSV()} className="rounded-md bg-blue-200 px-1 py-0 text-sm font-semibold  shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-100">Download</button>
                                             </div>
                                         </div>
-
-                                        <div className="sm:col-span-3">
-                                            <div className="mt-2">
-                                                <select
-                                                    id="AcademicYear"
-                                                    name="AcademicYear"
-                                                    required
-                                                    className='block w-small rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilterYear}
-                                                >
-                                                    <option >Select Academic Year</option>
-                                                    <option value="2024-2025">2024-2025</option>
-                                                    <option value="2023-2024">2023-2024</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-
-
-
                                     </div>
+
                                     <div style={{ width: '100%' }}>
                                         <DataTable
                                             columns={columns}
@@ -389,7 +429,9 @@ const handleFilter = (event) => {
                                             customStyles={tableHeaderstyle}
                                             pagination
                                             paginationPerPage={10}
+                                            defaultSortFieldId={1}
                                             paginationRowsPerPageOptions={[10, 25, 50, 75, 100, 10000]}
+                                            // paginationComponentOptions={paginationComponentOptions}
                                             fixedHeader
                                             responsive
                                             highlightOnHover
@@ -404,8 +446,10 @@ const handleFilter = (event) => {
                 </div>
             }
 
+
+
         </section>
     )
 }
 
-export default StudentProfileList
+export default StudentSummaryList
