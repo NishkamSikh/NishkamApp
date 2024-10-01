@@ -67,7 +67,7 @@ const StudentAddress = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails_dd')
+        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);

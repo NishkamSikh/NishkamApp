@@ -62,7 +62,7 @@ const StudentAcademicAdd = () => {
         setloading(true);
         ///SELECT * FROM v_StudentData
        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')  
-       // fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')  
+      // fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')  
         .then(response => response.json())
             .then(data => {
   
