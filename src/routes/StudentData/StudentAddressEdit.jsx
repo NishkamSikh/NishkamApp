@@ -62,24 +62,7 @@ const StudentAddressEdit = () => {
 
     const fetchUserInfo = async () => {
 
-        // fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         // Assuming the API response contains basti name, state, and city
-        //         const bastiData = data;
 
-        //         // console.log(bastiData, "dataprint")
-        //         // Parse the json string within the data object and setOptions
-        //         const parsedData = bastiData.data.map(item => JSON.parse(item.Json));
-        //         console.log(bastiData, "parsedData"); // Print the parsed data object in the console
-        //         setOptions(parsedData);
-
-        //     })
-        //     .catch(error => {
-        //         console.error('Error fetching basti data:', error);
-        //     });
-
-        // console.log('fetch');
         setloading(true);
         try {
 
@@ -110,9 +93,14 @@ const StudentAddressEdit = () => {
             // Initialize fetchData with the expected structure
             console.log(data.data, "Data====")
             if (data.data.length > 0) {
-                const fetchbasti = data.data.basti_name
-                const bastimatch = parsedData.find((b) => b.ad_BastiName === fetchbasti)
-                console.log("bastimatch",bastimatch,  data.data[0].ad_BastiName, "bastimatch");
+                const fetchbasti = data.data[0].stubasti
+                console.log(parsedData, "parsedData");
+
+                // Use parsedData.data for finding the matching item
+                const bastimatch = parsedData.find(b => b.BastiId == fetchbasti);
+                console.log("bastimatch", bastimatch, "bastimatch =========");
+                console.log("data.data[0]", data.data[0]);
+                
                 setSelectedBasti(bastimatch.BastiId)
                 setfetchData(data.data[0]);
                 setFormData(data.data[0]);
@@ -133,26 +121,26 @@ const StudentAddressEdit = () => {
         setSelectedBasti(selectedBasti);
 
         const selectedBastiData = options.find(item => item.BastiId == selectedBasti);
-console.log(selectedBastiData, "selectedBastiData");
-if (selectedBastiData) {
-    // Update form data with selected basti details
-    setFormData((prevData) => ({
-        ...prevData,
-        stustate: selectedBastiData.State,
-        studistrict: selectedBastiData.District,
-        stutehsil: selectedBastiData.Tehsil,
-        stubasti: selectedBastiData.BastiId,
-    }));
-    setBastiError(false); // Clear the error flag
-} else {
-    setBastiError(true); // Set the error flag if basti is empty
-}
+        console.log(selectedBastiData, "selectedBastiData");
+        if (selectedBastiData) {
+            // Update form data with selected basti details
+            setFormData((prevData) => ({
+                ...prevData,
+                stustate: selectedBastiData.State,
+                studistrict: selectedBastiData.District,
+                stutehsil: selectedBastiData.Tehsil,
+                stubasti: selectedBastiData.BastiId,
+            }));
+            setBastiError(false); // Clear the error flag
+        } else {
+            setBastiError(true); // Set the error flag if basti is empty
+        }
     };
 
     const handleSubmit = async (e) => {
         // console.log(fetchDataId, "fetchDataId :Handle Start");
         e.preventDefault();
-        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB,AddressId, ...formDataWithoutCodeYear } = formData;
+        const { StudentCode, StudentId, AcademicYear, CatgCode, FirstName, LastName, MiddleName, DOB, AddressId, ...formDataWithoutCodeYear } = formData;
 
         // Check if any select is not selected
         const errorsObj = {};
@@ -174,9 +162,9 @@ if (selectedBastiData) {
                 console.error("Error:", response.statusText);
                 return;
             }
-            if(searchParams.get('flag') == "address"){
+            if (searchParams.get('flag') == "address") {
                 navigate(`/StudentSummaryDetail?id=${JSON.parse(searchParams.get('proId'))}`)
-            }else {
+            } else {
                 navigate('/StudentAddressList')
             }
 
@@ -223,7 +211,7 @@ if (selectedBastiData) {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="stubasti" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Basti {console.log("Options Edit:>>.",formData,options,selectedBasti)}
+                                                Basti
 
                                             </label>
                                             <div className="mt-1">
@@ -254,7 +242,12 @@ if (selectedBastiData) {
                                         </div>
                                         <div className="sm:col-span-3">
                                             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                                                State
+                                                State {console.log(options, "options ========")}
+                                                {console.log(selectedBasti
+                                                    ?
+                                                    options.find((b) => b.BastiId == selectedBasti).State
+                                                    :
+                                                    '', "selectedBasti ========")}
                                             </label>
                                             <div className="mt-1">
                                                 <input
@@ -409,7 +402,7 @@ if (selectedBastiData) {
                                 <button
                                     type="submit"
                                     disabled={!formData.stuaddress || !formData.stustate || !formData.stubasti}
-                                    style={{ opacity: formData.stuaddress && formData.stustate && formData.stubasti ? 1 : 0.5 }}                                    
+                                    style={{ opacity: formData.stuaddress && formData.stustate && formData.stubasti ? 1 : 0.5 }}
                                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Save
