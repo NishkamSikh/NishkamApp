@@ -20,4 +20,4 @@ npm install
 npm start
 ```
 
-Visit <https://nishkamapi.onrender.com> to see the app.
+Visit <https://sikligarapi.azurewebsites.net> to see the app.

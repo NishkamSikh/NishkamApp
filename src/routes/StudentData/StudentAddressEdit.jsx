@@ -66,7 +66,7 @@ const StudentAddressEdit = () => {
         setloading(true);
         try {
 
-            const fetchbastilist = await fetch('https://nishkamapi.onrender.com/api/v1/bastilist2');
+            const fetchbastilist = await fetch('https://sikligarapi.azurewebsites.net/api/v1/bastilist2');
             if (!fetchbastilist.ok) {
                 if (fetchbastilist.status === 404) {
                     // Handle specific HTTP status codes
@@ -79,7 +79,7 @@ const StudentAddressEdit = () => {
             const parsedData = bastidata.data.map(item => item);
             console.log(bastidata, JSON.parse(searchParams.get('Id')), parsedData, "In Try Folde");
             setOptions(parsedData);
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentAddress/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/getSingleStudentAddress/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -148,7 +148,7 @@ const StudentAddressEdit = () => {
         setloading(true);
 
         try {
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
                 method: "PUT", // Assuming you are using PUT for updating
                 headers: {
                     "Content-Type": "application/json",

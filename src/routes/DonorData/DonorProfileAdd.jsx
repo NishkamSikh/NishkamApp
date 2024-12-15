@@ -53,8 +53,8 @@ const DonorProfileAdd = () => {
     //    const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
     try {
       // Proceed with the second API call
-      const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorData", {
-      //const response = await fetch("https://nishkamapi.onrender.com/api/v1/addDonorData", {
+      const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addDonorData", {
+      //const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addDonorData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

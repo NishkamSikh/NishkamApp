@@ -59,8 +59,8 @@ const Institution_Student = () => {
 
                 // Make API request using fetch
                 ///v_ReportInstitutionStudent
-                //const response = await fetch('https://nishkamapi.onrender.com/api/v1/InstitutionStudent');
-                const url = new URL('https://nishkamapi.onrender.com/api/v1/InstitutionStudent?AcademicYear='+AcademicYear);
+                //const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/InstitutionStudent');
+                const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/InstitutionStudent?AcademicYear='+AcademicYear);
  //               const url = new URL('http://localhost:3000/api/v1/InstitutionStudent?AcademicYear='+AcademicYear);
                 const response = await fetch(url);
                 setFetchData(false);

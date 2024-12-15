@@ -39,7 +39,7 @@ const Login = () => {
         event.preventDefault();
         setloading(true);
 
-        const response = await fetch("https://nishkamapi.onrender.com/api/v1/login", {
+        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const Login = () => {
 
             // setUser({ id: json.UserId, role: json.Userrole });
 
-            const permissionsResponse = await fetch('https://nishkamapi.onrender.com/api/v1/getUserPermissions', {
+            const permissionsResponse = await fetch('https://sikligarapi.azurewebsites.net/api/v1/getUserPermissions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

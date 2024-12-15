@@ -90,7 +90,7 @@ const VendorAdd = () => {
     const SchoolfetchData = async () => {
 
         try {
-            const response = await fetch('https://nishkamapi.onrender.com/api/v1/schoolrecordlist'); // Replace with your API endpoint
+            const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/schoolrecordlist'); // Replace with your API endpoint
             const jsonData = await response.json();
             console.log(jsonData.data, "jsonData.length")
             if (jsonData.data.length > 0) {
@@ -170,7 +170,7 @@ const VendorAdd = () => {
         setFormError(false);
 
         //Proceed with the second API call 
-        const response = await fetch("https://nishkamapi.onrender.com/api/v1/addvendor", {
+        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addvendor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -107,7 +107,7 @@ const VoulnteerEdit = () => {
     const navigate = useNavigate();
 
     const fetchBastiData = () => {
-        fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
+        fetch('https://sikligarapi.azurewebsites.net/api/v1/bastilist')
             .then(response => response.json())
             .then(data => {
                 // Assuming the API response contains basti name, state, and city
@@ -133,7 +133,7 @@ const VoulnteerEdit = () => {
         console.log(typeof searchParams.get('id'), 'fetch');
         setloading(true);
         try {
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
+            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -193,7 +193,7 @@ const VoulnteerEdit = () => {
         console.log(formData, "======")
 
         //Proceed with the second API call 
-        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateMasterData/${JSON.parse(searchParams.get('id'))}`, {
+        const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/updateMasterData/${JSON.parse(searchParams.get('id'))}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

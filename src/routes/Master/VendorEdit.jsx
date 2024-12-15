@@ -98,7 +98,7 @@ const VendorEdit = () => {
     const SchoolfetchData = async () => {
 
         try {
-            const response = await fetch('https://nishkamapi.onrender.com/api/v1/schoolrecordlist'); // Replace with your API endpoint
+            const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/schoolrecordlist'); // Replace with your API endpoint
             const jsonData = await response.json();
             console.log(jsonData.data, "jsonData.length")
             if (jsonData.data.length > 0) {
@@ -157,7 +157,7 @@ const VendorEdit = () => {
         console.log(typeof searchParams.get('id'), 'fetch');
         setloading(true);
         try {
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
+            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/MastergetFetchData/${JSON.parse(searchParams.get('id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -215,7 +215,7 @@ const VendorEdit = () => {
         console.log("formData==", formData)
 
         //Proceed with the second API call 
-        const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateMasterData/${JSON.parse(searchParams.get('id'))}`, {
+        const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/updateMasterData/${JSON.parse(searchParams.get('id'))}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -131,7 +131,7 @@ const SponsorBeneficiaryList_UnSponsored = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchDonorBeneficiaryData_UnSponsored');
+                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchDonorBeneficiaryData_UnSponsored');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

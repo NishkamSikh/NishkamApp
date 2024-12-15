@@ -44,7 +44,7 @@ const StudentDocsAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
@@ -71,7 +71,7 @@ const StudentDocsAdd = () => {
             const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
             // Proceed with the second API call
-            const response = await fetch("https://nishkamapi.onrender.com/api/v1/addFileUpload", {
+            const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addFileUpload", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

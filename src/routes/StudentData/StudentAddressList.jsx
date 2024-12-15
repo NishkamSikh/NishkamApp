@@ -162,7 +162,7 @@ const StudentAddressList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const url = new URL('https://nishkamapi.onrender.com/api/v1/studentaddresslist?AcademicYear='+AcademicYear);
+                const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/studentaddresslist?AcademicYear='+AcademicYear);
                 //const url = new URL('http://localhost:3000/api/v1/studentaddresslist?AcademicYear='+AcademicYear);
                 //alert(url);
                 const response = await fetch(url);

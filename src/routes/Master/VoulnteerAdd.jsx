@@ -101,7 +101,7 @@ const VoulnteerAdd = () => {
     const navigate = useNavigate();
 
     const fetchBastiData = () => {
-        fetch('https://nishkamapi.onrender.com/api/v1/bastilist')
+        fetch('https://sikligarapi.azurewebsites.net/api/v1/bastilist')
             .then(response => response.json())
             .then(data => {
                 // Assuming the API response contains basti name, state, and city
@@ -137,7 +137,7 @@ const VoulnteerAdd = () => {
         console.log(formData, "======")
 
         //Proceed with the second API call 
-        const response = await fetch("https://nishkamapi.onrender.com/api/v1/addvendor", {
+        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addvendor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

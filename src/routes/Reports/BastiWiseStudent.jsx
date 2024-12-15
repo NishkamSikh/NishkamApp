@@ -55,7 +55,7 @@ const BastiWiseStudent = () => {
         const fetchFilteredStudents = async (state, district) => {
             try {
                 setLoading(true);
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary');
+                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentSummary');
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

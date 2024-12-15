@@ -55,7 +55,7 @@ const StudentProfileEdit = () => {
 
     setloading(true);
     try {
-      const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentById/${JSON.parse(searchParams.get('Id'))}`);
+      const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/getSingleStudentById/${JSON.parse(searchParams.get('Id'))}`);
 
       if (!response.ok) {
         if (response.status === 404) {
@@ -95,7 +95,7 @@ const StudentProfileEdit = () => {
     setloading(true);
 
     try {
-      const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
+      const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/updateBasicDetail/${JSON.parse(searchParams.get('Id'))}`, {
         method: "PUT", // Assuming you are using PUT for updating
         headers: {
           "Content-Type": "application/json",

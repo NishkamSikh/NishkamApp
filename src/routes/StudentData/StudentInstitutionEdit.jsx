@@ -52,7 +52,7 @@ const StudentInstitutionEdit = () => {
         setloading(true);
         try {
             console.log("Data ============", JSON.parse(searchParams.get('Id')))
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
+            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/getSingleStudentInst/${JSON.parse(searchParams.get('Id'))}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -98,7 +98,7 @@ const StudentInstitutionEdit = () => {
         fetchAllStudentDetails()
         const fetchData = async () => {
             try {
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/instlist');
+                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/instlist');
                 const data = await response.json();
                 setAcademicData(data.data);
 
@@ -117,7 +117,7 @@ const StudentInstitutionEdit = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://nishkamapi.onrender.com/api/v1/fetchAllStudentDetails')
+        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentDetails')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "data data");
@@ -200,7 +200,7 @@ const StudentInstitutionEdit = () => {
             console.log("Parsed ID:", id);
             console.log("formDataWithoutCodeYear:", typeof formDataWithoutCodeYear);
     
-            const response = await fetch(`https://nishkamapi.onrender.com/api/v1/updateBasicDetail/${id}`, {
+            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/updateBasicDetail/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

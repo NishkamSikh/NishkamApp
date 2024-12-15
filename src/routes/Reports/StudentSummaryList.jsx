@@ -296,7 +296,7 @@ const StudentSummaryList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const url = new URL('https://nishkamapi.onrender.com/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
+                const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
                 const response = await fetch(url);
                 setFetchData(false);
                 // Check if the response status is ok (200-299)

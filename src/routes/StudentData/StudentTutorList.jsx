@@ -25,7 +25,7 @@ const StudentTutorList = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/studenttutorlist');
+                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/studenttutorlist');
                 setFetchData(false);
 
                 if (!response.ok) {
@@ -44,7 +44,7 @@ const StudentTutorList = () => {
 
         const fetchUserPermission = async () => {
             try {
-                const response = await fetch('https://nishkamapi.onrender.com/api/v1/getAllUserPermissions');
+                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/getAllUserPermissions');
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
