@@ -186,8 +186,8 @@ const StudentProfileList = () => {
 
         {
             id: '15',
-            name: 'Contact-2',
-            selector: row => row.contact2,
+            name: 'Comment',
+            selector: row => row.comment,
             sortable: true,
             reorder: true,
             compact: true,
@@ -345,7 +345,7 @@ const handleFilter = (event) => {
                 <div>
                     <div className="flex flex-col space-y-1 md:flex-row md:items-center md:justify-between md:space-y-0">
                         <div>
-                            <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data</p>
+                            <p className="font-bold text-orange-900 tracking-tight text-1xl">List - Student Profile Data.</p>
                         </div>
                     </div>
                     <div className="mt-1 flex flex-col">
