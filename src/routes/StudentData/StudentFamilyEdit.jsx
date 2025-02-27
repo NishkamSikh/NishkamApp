@@ -334,7 +334,7 @@ const isEmpty = function(obj) {
                                                             onChange={handleInputChange} type="text" name='F_Mobile_No' defaultValue={family2getdata.length > 0 ? family2getdata[0].F_Mobile_No != null && family2getdata[0].F_Mobile_No != undefined ? family2getdata[0].F_Mobile_No : "" : ""} className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father Mobile Number' aria-describedby="F_Mobile_No" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-1">
+                                                <div className="hidden mt-1">
                                                     <label htmlFor="Grandfather_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                         Grandfather Name
                                                     </label>
@@ -369,7 +369,7 @@ const isEmpty = function(obj) {
                                                             aria-describedby="Mother_Name" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-1">
+                                                <div className="hidden mt-1">
                                                     <div className="">
                                                         <label onChange={handleInputChange} htmlFor="Mother_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Education
@@ -403,7 +403,7 @@ const isEmpty = function(obj) {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="mt-1">
+                                                <div className="hidden mt-1">
                                                     <div className="">
                                                         <label htmlFor="M_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Gross Income (per year)
@@ -416,7 +416,7 @@ const isEmpty = function(obj) {
                                                             className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income' aria-describedby="M_Gross_Income" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-1">
+                                                <div className="hidden mt-1">
                                                     <div className="">
                                                         <label htmlFor="M_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Aadhar Card Number
@@ -429,7 +429,7 @@ const isEmpty = function(obj) {
                                                     </div>
                                                 </div>
 
-                                                <div className="mt-1">
+                                                <div className="hidden mt-1">
                                                     <div className="">
                                                         <label htmlFor="M_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Mobile Number
@@ -441,7 +441,7 @@ const isEmpty = function(obj) {
                                             </div>
                                         </div>
 
-                                        <div className='sm:col-span-3'>
+                                        <div className='hidden sm:col-span-3'>
                                             <p className="font-bold text-orange-900 tracking-tight text-1xl">
                                                 For Guardian
                                             </p>

@@ -332,7 +332,7 @@ const StudentAddress = () => {
                                             </div>
                                         </div>
 
-                                        <div className="sm:col-span-3">
+                                        <div className="hidden sm:col-span-3">
                                             <label htmlFor="rep1" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Rep-1 &#9742;
                                             </label>
@@ -351,7 +351,7 @@ const StudentAddress = () => {
                                             </div>
                                         </div>
 
-                                        <div className="sm:col-span-3">
+                                        <div className="hidden sm:col-span-3">
                                             <label htmlFor="rep2" className="block text-sm font-medium leading-6 text-gray-900">
                                                 Rep-2 &#9742;
                                             </label>

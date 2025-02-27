@@ -438,7 +438,7 @@ const StudentProfileEdit = () => {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-1">
+                    <div className="hidden sm:col-span-1">
                       <label htmlFor="contact2type" className="block text-sm font-medium leading-6 text-gray-900">
                         Contact Type
                       </label>
@@ -462,7 +462,7 @@ const StudentProfileEdit = () => {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-2">
+                    <div  className="hidden sm:col-span-2">
                       <label htmlFor="contact2" className="block text-sm font-medium leading-6 text-gray-900">
                         Contact #2
                       </label>
@@ -500,7 +500,7 @@ const StudentProfileEdit = () => {
                       </div>
 
 
-                      <div className="sm:col-span-3">
+                      <div className="hidden sm:col-span-3">
                       <label htmlFor="tf20242025" className="block text-sm font-medium leading-6 text-gray-900">
                         Transfer to 2024-2025
                       </label>

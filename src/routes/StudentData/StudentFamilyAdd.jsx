@@ -354,7 +354,7 @@ const StudentFamilyAdd = () => {
                                                             className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="F_Mobile_No" placeholder='Father &#9742;  (10)' aria-describedby="F_Mobile_No" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-0">
+                                                <div className="hidden mt-0">
                                                     <label htmlFor="Grandfather_Name" className="block text-sm font-medium leading-6 text-gray-900">
                                                         Grandfather Name
                                                     </label>
@@ -425,7 +425,7 @@ const StudentFamilyAdd = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="mt-0">
+                                                <div className="hidden mt-0">
                                                     <div className="">
                                                         <label htmlFor="M_Gross_Income" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Gross Income (per year)
@@ -439,7 +439,7 @@ const StudentFamilyAdd = () => {
                                                             className='block w-full rounded-md border-1 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' id="M_Gross_Income" placeholder='Mother Gross Income (6)' aria-describedby="M_Gross_Income" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-0">
+                                                <div className="hidden mt-0">
                                                     <div className="">
                                                         <label htmlFor="M_Aadhar_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Aadhar Card Number
@@ -453,7 +453,7 @@ const StudentFamilyAdd = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="mt-0">
+                                                <div className="hidden mt-0">
                                                     <div className="">
                                                         <label htmlFor="M_Mobile_No" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Mobile Number
@@ -468,7 +468,7 @@ const StudentFamilyAdd = () => {
                                             </div>
                                         </div>
 
-                                        <div className='sm:col-span-3'>
+                                        <div className='hidden sm:col-span-3'>
                                             <p className="font-bold text-orange-900 tracking-tight sm:text-l">
                                                 For Guardian
                                             </p>
