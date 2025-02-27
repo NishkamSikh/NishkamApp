@@ -218,6 +218,7 @@ export const menuItemsData = [
     ]
   },
   ///////////////////////////////////////
+  /*
   {
     title: "Donor Data",
     url: "/",
@@ -255,7 +256,7 @@ export const menuItemsData = [
       },
     ]
   },
-
+*/
 
   {
     title: "Reports",
