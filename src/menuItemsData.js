@@ -5,7 +5,7 @@ export const menuItemsData = [
     url: "/",
     submenu: [
       {
-        title: "Profile data.",
+        title: "Profile data",
         url: "",
         submenu: [
           {
