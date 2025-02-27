@@ -309,16 +309,17 @@ export const menuItemsData = [
         title: "Institution wise Student",
         url: 'Institution_Student',
       },
-
+/*
       {
         title: "Progress Report",
         url: "ProgressReport",
       },
+
       {
         title: "Basti Wise Student",
         url: "BastiWiseStudent",
       },
-
+*/
     ]
   },
 
