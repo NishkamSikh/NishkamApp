@@ -459,7 +459,7 @@ const StudentProfile = () => {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-1">
+                    <div className="hidden sm:col-span-1">
                       <label htmlFor="contact2type" className="block text-sm font-medium leading-6 text-gray-900">
                         Contact Type
                       </label>
@@ -482,7 +482,7 @@ const StudentProfile = () => {
                       </div>
                     </div>
 
-                    <div className="sm:col-span-2">
+                    <div hidden className="sm:col-span-2">
                       <label htmlFor="contact2" className="block text-sm font-medium leading-6 text-gray-900">
                         Contact #2 &#9742;
                       </label>

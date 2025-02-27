@@ -77,16 +77,6 @@ const StudentProfileList = () => {
         },
 
         {
-            id: '51',
-            name: '2024-25',
-            selector: row => row.tf20242025,
-            sortable: true,
-            reorder: true,
-            width: "7rem",
-            wrap: true,
-        },
-
-        {
             id: '6',
             name: 'Name',
             selector: row => row.firstname + ' ' + row.middlename + ' ' + row.lastname,
