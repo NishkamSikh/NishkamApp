@@ -276,7 +276,7 @@ export const menuItemsData = [
               title: "Dashboard Summary",
               url: "DashboardSummary",
             }, */
-
+/*
       {
         title: "List Sponsored Child",
         url: 'BeneficiaryList_Sponsored',
@@ -285,7 +285,7 @@ export const menuItemsData = [
         title: "List Unsponsored Child",
         url: 'BeneficiaryList_UnSponsored',
       },
-
+*/
       {
         title: "Area wise Summary",
         url: "/",
