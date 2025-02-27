@@ -162,7 +162,7 @@ const StudentFamilyAdd = () => {
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Student Family Detail
+                            Add - Student Family Detail
                         </p>
                         <form onSubmit={handleSubmit}>
 
@@ -389,7 +389,7 @@ const StudentFamilyAdd = () => {
                                                             aria-describedby="Mother_Name" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-0">
+                                                <div className="hidden mt-0">
                                                     <div className="my-0">
                                                         <label onChange={handleInputChange} htmlFor="Mother_Education" className="block text-sm font-medium leading-6 text-gray-900">
                                                             Mother Education

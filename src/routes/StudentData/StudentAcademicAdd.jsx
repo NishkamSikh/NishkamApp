@@ -180,7 +180,7 @@ const StudentAcademicAdd = () => {
                     :
                     <div className="mt-2 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Academic Detail
+                        Add - Academic Detail
                         </p>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <div className="space-y-2">

@@ -204,7 +204,7 @@ const StudentReportCardAdd = () => {
                     :
                     <div className="mt-0 flex flex-col">
                         <p className="font-bold text-orange-900 tracking-tight text-1xl">
-                            Report Card Detail
+                        Add - Report Card Detail
                         </p>
                         <form onSubmit={handleSubmit}>
                             <div className="space-y-2">

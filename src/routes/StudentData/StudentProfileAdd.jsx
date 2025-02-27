@@ -145,7 +145,7 @@ const StudentProfile = () => {
 
           <div className="mt-0 flex flex-col">
             <p className="text-orange-900 font-medium tracking-tight sm:text-xl">
-              Student Profile Information
+              Add - Student Profile Information
             </p>
             <form onSubmit={handleSubmit}>
               <div className="space-y-12">
