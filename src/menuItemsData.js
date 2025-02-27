@@ -323,6 +323,7 @@ export const menuItemsData = [
     ]
   },
 
+  /*
   {
     title: "Accounts",
     url: "/",
@@ -420,11 +421,9 @@ export const menuItemsData = [
           },
         ]
       },
-
-
     ]
   },
-
+*/
 
 ];
 
