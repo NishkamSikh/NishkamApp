@@ -267,7 +267,18 @@ export const menuItemsData = [
         title: "Student Summary",
         url: "StudentSummaryList",
       },
-/*
+      {
+        title: "Student Summary_Active",
+        url: "StudentSummaryList_Active",
+      },
+
+      {
+        title: "Student Summary_NonActive",
+        url: "StudentSummaryList_NonActive",
+      },
+
+
+      /*
       {
         title: "Student Summary Card",
         url: "StudentSummaryCard",

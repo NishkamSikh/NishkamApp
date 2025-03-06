@@ -50,6 +50,8 @@ import StudentReportCardList from "./routes/StudentData/StudentReportCardList";
 import Dashboard from "./routes/Dashboard";
 
 import StudentSummaryList from "./routes/Reports/StudentSummaryList";
+import StudentSummaryList_Active from "./routes/Reports/StudentSummaryList_Active";
+import StudentSummaryList_NonActive from "./routes/Reports/StudentSummaryList_NonActive";
 import StudentSummaryCard from "./routes/Reports/StudentSummaryCard";
 import StudentSummaryDetail from "./routes/Reports/StudentSummaryDetail";
 
@@ -464,6 +466,16 @@ const router = createBrowserRouter([
         path: "StudentSummaryList",
         element: <StudentSummaryList />,
       },
+
+      {
+        path: "StudentSummaryList_Active",
+        element: <StudentSummaryList_Active />,
+      },
+
+      {
+        path: "StudentSummaryList_NonActive",
+        element: <StudentSummaryList_NonActive />,
+      },      
 
       {
         path: "StudentSummaryCard",
