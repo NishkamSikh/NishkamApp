@@ -264,7 +264,7 @@ export const menuItemsData = [
 
     submenu: [
       {
-        title: "Student Summary",
+        title: "Student Summary.",
         url: "StudentSummaryList",
       },
       {
