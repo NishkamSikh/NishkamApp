@@ -259,7 +259,7 @@ export const menuItemsData = [
 */
 
   {
-    title: "Reports",
+    title: "Reportss",
     url: "/",
 
     submenu: [

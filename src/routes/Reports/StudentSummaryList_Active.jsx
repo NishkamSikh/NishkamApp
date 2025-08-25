@@ -298,7 +298,8 @@ const StudentSummaryList = () => {
                 // Make API request using fetch
                 //const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentSummary_Active?AcademicYear='+AcademicYear);
                 const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentSummary_Active?AcademicYear='+AcademicYear);
-           //     const url = new URL('http://localhost:3000/api/v1/fetchAllStudentSummary_Active?AcademicYear='+AcademicYear);
+              //  const url = new URL('https://sikligarapi2.azurewebsites.net/api/v1/fetchAllStudentSummary_Active?AcademicYear='+AcademicYear);              
+                //const url = new URL('http://localhost:3000/api/v1/fetchAllStudentSummary_Active?AcademicYear='+AcademicYear);
                 const response = await fetch(url);
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
