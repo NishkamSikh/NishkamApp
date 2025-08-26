@@ -19,7 +19,7 @@ const StudentDetail = () => {
             try {
                 // Make API request using fetch
                 //SELECT * FROM v_StudentData
-                const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
+                const response = await fetch(`https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchSingleStudentDetail/${JSON.parse(searchParams.get('id'))}`);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

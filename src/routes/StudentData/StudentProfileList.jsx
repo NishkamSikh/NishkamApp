@@ -5,7 +5,7 @@ import DataTable from 'react-data-table-component';
 const StudentProfileList = () => {
     const [StudentData, setStudentData] = useState([])
     const [FetchData, setFetchData] = useState(true);
-    const [AcademicYear, setAcademicYear] = useState('2024-2025');    
+    const [AcademicYear, setAcademicYear] = useState('2025-2026');    
 
     const columns = [
 
@@ -231,7 +231,7 @@ const StudentProfileList = () => {
             try {
                 // Make API request using fetch
                 //const url = new URL('http://localhost:3000/api/v1/studentprofilelisttest?AcademicYear='+AcademicYear);
-                const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/studentprofilelist?AcademicYear='+AcademicYear);
+                const url = new URL('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/studentprofilelist?AcademicYear='+AcademicYear);
                 const response = await fetch(url);
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
@@ -362,8 +362,8 @@ const handleFilter = (event) => {
                                                     className='block w-small rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilterYear}
                                                 >
                                                     <option >Select Academic Year</option>
-                                                    <option value="2024-2025">2024-2025</option>
-                                                    <option value="2023-2024">2023-2024</option>
+                                                    <option value="2025-2026" selected>2025-2026</option>                                                    
+
                                                 </select>
                                             </div>
                                         </div>

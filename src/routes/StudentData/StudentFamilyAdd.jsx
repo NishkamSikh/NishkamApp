@@ -83,7 +83,7 @@ const StudentFamilyAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentDetails_dropdown')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStudentDetails_dropdown')
             .then(response => response.json())
             .then(data => {
                 setStudentDetails(data.data);
@@ -113,7 +113,7 @@ const StudentFamilyAdd = () => {
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
         // Proceed with the second API call
-        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addStudentData", {
+        const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addStudentData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

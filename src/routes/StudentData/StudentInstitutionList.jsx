@@ -118,8 +118,8 @@ const StudentInstitutionList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/studentinstitutionlist');
-                //const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/studentinstitutionlist');
+                const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/studentinstitutionlist');
+                //const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/studentinstitutionlist');
                 // Check if the response status is ok (200-299)
                 setFetchData(false)
                 if (!response.ok) {

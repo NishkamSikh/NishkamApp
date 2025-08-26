@@ -5,7 +5,7 @@ import DataTable from 'react-data-table-component';
 const Institution_Student = () => {
     const [StudentData, setStudentData] = useState([]);
     const [FetchData, setFetchData] = useState(true);
-    const [AcademicYear, setAcademicYear] = useState('2024-2025');    
+    const [AcademicYear, setAcademicYear] = useState('2025-2026');    
 
 
     const columns = [
@@ -59,8 +59,8 @@ const Institution_Student = () => {
 
                 // Make API request using fetch
                 ///v_ReportInstitutionStudent
-                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/InstitutionStudent');
-                //const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/AreaSummary_State');
+                const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/InstitutionStudent');
+                //const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/AreaSummary_State');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

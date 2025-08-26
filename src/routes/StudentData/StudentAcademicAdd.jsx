@@ -61,7 +61,7 @@ const StudentAcademicAdd = () => {
     const fetchAllStudentDetails = () => {
         setloading(true);
         ///SELECT * FROM v_StudentData
-       fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentDetails')  
+       fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStudentDetails')  
       // fetch('http://localhost:3000/api/v1/fetchAllStudentDetails')  
         .then(response => response.json())
             .then(data => {
@@ -88,7 +88,7 @@ const StudentAcademicAdd = () => {
     };
 
     const fetchAllClass = () => {
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllClassess')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllClassess')
             .then(response => response.json())
             .then(data => {
                 console.log(data, "Fetch Classes");
@@ -106,7 +106,7 @@ const StudentAcademicAdd = () => {
             });
     };
     const fetchAllStream = () => {
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStream')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStream')
             .then(response => response.json())
             .then(data => {
                 //console.log(data, "data ============");
@@ -134,7 +134,7 @@ const StudentAcademicAdd = () => {
        // console.log("formData2====", JSON.stringify(formDataWithoutCodeYear));
         // Proceed with the second API call
         try {
-            const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addStudentData", {
+            const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addStudentData", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

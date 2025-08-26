@@ -39,7 +39,7 @@ const SponsorBeneficiaryAdd = () => {
         event.preventDefault();
         console.log('Before Form submitted', typeof userID, typeof formData.donorStatus,formData);
         // Post request to the API endpoint with formData
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/AddDonorBeneficiary', {
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/AddDonorBeneficiary', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const SponsorBeneficiaryAdd = () => {
             ];
 
             const fetchStudentCode = () => {
-                fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentCode')
+                fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStudentCode')
                     .then(response => response.json())
                     .then(data => {
                         console.log(data, "Data");
@@ -100,7 +100,7 @@ const SponsorBeneficiaryAdd = () => {
             };
 
     const fetchDonorCode = () => {
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllDonorCode')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllDonorCode')
             .then(response => response.json())
             .then(data => {
                 if (Array.isArray(data.data)) {

@@ -14,7 +14,7 @@ const StudentSummaryCard = () => {
 
                 // Make API request using fetch
                 ///SELECT * FROM v_StudentDataSummary
-                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentSummary');
+                const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStudentSummary');
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
                 if (!response.ok) {

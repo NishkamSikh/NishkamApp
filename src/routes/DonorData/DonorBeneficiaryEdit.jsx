@@ -42,8 +42,8 @@ const DonorBeneficiaryAdd = () => {
         setloading(true);
         try {
             //SELECT * FROM v_DonorBeneficiary WHERE Id = @Id
-            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
-//            const response = await fetch(`https://sikligarapi.azurewebsites.net/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
+            const response = await fetch(`https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
+//            const response = await fetch(`https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/getSingleDonorBeneficiary/${searchParams.get('Id')}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     // Handle specific HTTP status codes
@@ -95,8 +95,8 @@ const DonorBeneficiaryAdd = () => {
 
     const fetchAllBeneficiaryDetails = () => {
         setloading(true);
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllBeneficiaryDetails')
-            //fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllBeneficiaryDetails')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllBeneficiaryDetails')
+            //fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllBeneficiaryDetails')
             .then(response => response.json())
             .then(data => {
                 //console.log(data, "data.data");
@@ -112,7 +112,7 @@ const DonorBeneficiaryAdd = () => {
 
     const fetchAllDonors = () => {
         setloading(true);
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/donorlist')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/donorlist')
             .then(response => response.json())
             .then(data => {
                 //console.log(data.data, "Donor data");
@@ -148,8 +148,8 @@ const DonorBeneficiaryAdd = () => {
         setloading(true);
         console.log("formData=", formData);
 
-        ///const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addDonorBeneficiaryData", {
-        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addDonorBeneficiaryData", {
+        ///const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addDonorBeneficiaryData", {
+        const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addDonorBeneficiaryData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

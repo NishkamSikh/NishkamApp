@@ -109,7 +109,7 @@ const AddInstitution = () => {
         console.log(formData, "======")
 
         //Proceed with the second API call 
-        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addvendor", {
+        const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addvendor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

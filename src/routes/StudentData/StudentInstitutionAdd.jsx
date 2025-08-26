@@ -51,7 +51,7 @@ const StudentInstitutionAdd = () => {
         fetchAllStudentDetails()
         const fetchData = async () => {
             try {
-                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/instlist');
+                const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/instlist');
                 const data = await response.json();
                 setAcademicData(data.data);
 
@@ -76,7 +76,7 @@ const StudentInstitutionAdd = () => {
 
     const fetchAllStudentDetails = () => {
         setloading(true);
-        fetch('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentDetails_dropdown')
+        fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStudentDetails_dropdown')
             .then(response => response.json())
             .then(data => {
                // console.log(data, "data data");
@@ -136,8 +136,8 @@ const StudentInstitutionAdd = () => {
         const { studentcode, stuyear, ...formDataWithoutCodeYear } = formData;
 
         // Proceed with the second API call
-        const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addStudentData", {
-          //const response = await fetch("https://sikligarapi.azurewebsites.net/api/v1/addStudentData", {
+        const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addStudentData", {
+          //const response = await fetch("https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/addStudentData", {
 
         method: "POST",
             headers: {

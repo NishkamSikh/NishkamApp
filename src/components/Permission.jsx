@@ -14,7 +14,7 @@ const Permissions = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/getAllUsers');
+      const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/getAllUsers');
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -28,7 +28,7 @@ const Permissions = () => {
 
   const fetchPages = async () => {
     try {
-      const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/getAllpages');
+      const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/getAllpages');
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -42,7 +42,7 @@ const Permissions = () => {
 
   const fetchPermissions = async () => {
     try {
-      const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/getAllUserPermissions');
+      const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/getAllUserPermissions');
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -90,7 +90,7 @@ const Permissions = () => {
   
     // Send update to the server
     try {
-      const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/permissions', {
+      const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/permissions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

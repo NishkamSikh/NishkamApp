@@ -158,8 +158,8 @@ const DonorBeneficiaryList = () => {
             try {
                 // Make API request using fetch
                 ///SELECT * FROM v_DonorBeneficiaryList
-                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/donorbeneficiarylist');
-                //const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/donorbeneficiarylist');
+                const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/donorbeneficiarylist');
+                //const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/donorbeneficiarylist');
                 // Check if the response status is ok (200-299)
                 setFetchData(false)
                 if (!response.ok) {

@@ -296,7 +296,7 @@ const StudentSummaryList = () => {
         const fetchData = async () => {
             try {
                 // Make API request using fetch
-                const url = new URL('https://sikligarapi.azurewebsites.net/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
+                const url = new URL('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/fetchAllStudentSummary?AcademicYear='+AcademicYear);
                 const response = await fetch(url);
                 setFetchData(false);
                 // Check if the response status is ok (200-299)
@@ -396,7 +396,6 @@ const StudentSummaryList = () => {
         selectAllRowsItemText: 'ALL',
     };
 
-
     return (
 
         <section className="mx-auto w-full max-w-8xl px-4 py-1">
@@ -435,13 +434,11 @@ const StudentSummaryList = () => {
                                                     className='block w-small rounded-md border-1 py-1 text-grey-900 shadow-sm ring-1 ring-inset ring-grey-300 placeholder:text-grey-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' onChange={handleFilterYear}
                                                 >
                                                     <option >Select Academic Year</option>
+                                                    <option value="2025-2026" selected>2025-2026</option>
                                                     <option value="2024-2025">2024-2025</option>
-                                                    <option value="2023-2024">2023-2024</option>
                                                 </select>
                                             </div>
                                         </div>
-
-
                                     </div>
 
                                     <div style={{ width: '100%' }}>
@@ -467,11 +464,7 @@ const StudentSummaryList = () => {
                     </div>
                 </div>
             }
-
-
-
         </section>
     )
 }
-
 export default StudentSummaryList

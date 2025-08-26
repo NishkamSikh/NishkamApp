@@ -20,4 +20,4 @@ npm install
 npm start
 ```
 
-Visit <https://sikligarapi.azurewebsites.net> to see the app.
+Visit <https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net> to see the app.

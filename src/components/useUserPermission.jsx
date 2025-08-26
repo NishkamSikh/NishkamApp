@@ -13,7 +13,7 @@ const useUserPermission = (currentPageId) => {
 
             console.log(getUserID,currentPageId ,"Fetch Componets Works");
             try {
-                const response = await fetch('https://sikligarapi.azurewebsites.net/api/v1/getAllUserPermissions');
+                const response = await fetch('https://sikligarapi-fpe3b0bjfhgsadg5.centralindia-01.azurewebsites.net/api/v1/getAllUserPermissions');
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
