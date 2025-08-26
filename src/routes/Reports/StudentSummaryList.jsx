@@ -5,7 +5,7 @@ import DataTable from 'react-data-table-component';
 const StudentSummaryList = () => {
     const [StudentData, setStudentData] = useState([]);
     const [FetchData, setFetchData] = useState(true);
-    const [AcademicYear, setAcademicYear] = useState('2024-2025');        
+    const [AcademicYear, setAcademicYear] = useState('2025-2026');        
 
 
     const columns = [
